@@ -1,0 +1,43 @@
+Publish Change Log
+==================
+
+Commit: c9bf6731dcfef7197cf51b72267f4da5185b0221
+Short Commit: c9bf673
+Date: 2026-03-03T21:18:05+05:30
+Author: Tarun Gupta <info@fernesta.com>
+Message: Fix duplicate top request assessment CTA visibility across breakpoints
+
+Changed Files (Name/Status)
+---------------------------
+M	src/App.css
+
+Full Diff
+---------
+commit c9bf6731dcfef7197cf51b72267f4da5185b0221
+Author: Tarun Gupta <info@fernesta.com>
+Date:   Tue Mar 3 21:18:05 2026 +0530
+
+    Fix duplicate top request assessment CTA visibility across breakpoints
+
+diff --git a/src/App.css b/src/App.css
+index 4276e47..356e09e 100644
+--- a/src/App.css
++++ b/src/App.css
+@@ -249,7 +249,7 @@ p {
+   color: var(--text);
+ }
+ 
+-.nav-mobile-cta {
++.nav-mobile-cta.button {
+   display: none;
+ }
+ 
+@@ -1287,7 +1287,7 @@ p {
+     display: none;
+   }
+ 
+-  .nav-mobile-cta {
++  .nav-mobile-cta.button {
+     display: inline-flex;
+     margin-top: 4px;
+     width: 100%;
