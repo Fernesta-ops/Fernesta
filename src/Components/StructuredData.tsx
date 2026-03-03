@@ -5,6 +5,21 @@ import { caseStudies } from "../data/caseStudies";
 type JsonLd = Record<string, unknown>;
 
 const SITE_NAME = "Fernesta";
+const PHONE = "+91-701-412-7724";
+const EMAIL = "info@fernesta.com";
+const CITY = "Jaipur";
+const STATE = "Rajasthan";
+const COUNTRY = "IN";
+
+const SERVICE_TYPES = [
+  "SEO Services",
+  "Social Media Marketing",
+  "Google Ads Management",
+  "Meta Ads Management",
+  "Website Design and Development",
+  "Content Marketing",
+  "Branding and Profiling",
+];
 
 function labelFromPath(pathname: string) {
   switch (pathname) {
@@ -102,16 +117,11 @@ function buildService(pathname: string, origin: string): JsonLd | null {
       name: SITE_NAME,
       url: origin,
     },
-    areaServed: "India",
-    serviceType: [
-      "SEO Services",
-      "Social Media Management",
-      "Google Ads Management",
-      "Meta Ads Management",
-      "Website Design and Development",
-      "E-Commerce Advertising",
-      "Branding and Profiling",
-    ],
+    areaServed: {
+      "@type": "City",
+      name: CITY,
+    },
+    serviceType: SERVICE_TYPES,
     url: `${origin}/services`,
   };
 }
@@ -122,13 +132,74 @@ function buildOrganization(origin: string): JsonLd {
     "@type": "Organization",
     name: SITE_NAME,
     url: origin,
+    logo: `${origin}/vite.svg`,
+    areaServed: {
+      "@type": "City",
+      name: CITY,
+    },
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "sales",
-      email: "info@fernesta.com",
-      telephone: "+91-701-412-7724",
+      email: EMAIL,
+      telephone: PHONE,
+      areaServed: "IN",
+      availableLanguage: ["en", "hi"],
     },
-    sameAs: [],
+  };
+}
+
+function buildLocalBusiness(origin: string): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `${origin}/#localbusiness`,
+    name: "Fernesta Digital Marketing Agency",
+    url: origin,
+    image: `${origin}/images/hero-bg.jpg`,
+    telephone: PHONE,
+    email: EMAIL,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: CITY,
+      addressRegion: STATE,
+      addressCountry: COUNTRY,
+    },
+    areaServed: [
+      {
+        "@type": "City",
+        name: CITY,
+      },
+      {
+        "@type": "State",
+        name: STATE,
+      },
+    ],
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        opens: "09:00",
+        closes: "19:00",
+      },
+    ],
+    priceRange: "INR",
+    makesOffer: SERVICE_TYPES.map((service) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: service,
+      },
+    })),
+  };
+}
+
+function buildWebSite(origin: string): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: SITE_NAME,
+    url: origin,
+    inLanguage: "en-IN",
   };
 }
 
@@ -159,7 +230,9 @@ function StructuredData() {
     const pathname = location.pathname;
 
     const payloads: JsonLd[] = [
+      buildWebSite(origin),
       buildOrganization(origin),
+      buildLocalBusiness(origin),
       buildBreadcrumb(pathname, origin),
     ];
 

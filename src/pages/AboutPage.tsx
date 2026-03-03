@@ -13,9 +13,9 @@ function AboutPage() {
   return (
     <>
       <SeoMeta
-        title="About Fernesta | Growth-Focused Digital Marketing Partner"
-        description="Learn about Fernesta, a systems-driven digital marketing partner for Indian SMEs and D2C brands focused on strategy, accountability, and measurable outcomes."
-        keywords="about fernesta, digital marketing company India, performance marketing partner"
+        title="About Fernesta | Digital Marketing Agency in Jaipur"
+        description="Learn about Fernesta, a Jaipur-based digital marketing agency focused on strategy, accountability, and measurable business outcomes."
+        keywords="about fernesta, digital marketing agency in Jaipur, SEO and performance marketing Jaipur"
       />
 
       <section className="page-hero hero-about">
@@ -23,9 +23,9 @@ function AboutPage() {
         <div className="container hero-grid hero-grid-single">
           <Reveal className="hero-copy" delayMs={80}>
             <p className="meta">About Us</p>
-            <h1>About Fernesta: A Scalable Digital Marketing Agency in India.</h1>
+            <h1>About Fernesta: A Results-Driven Digital Marketing Agency in Jaipur.</h1>
             <p>
-              Fernesta was founded to solve one persistent market gap: Indian businesses need reliable marketing execution, but most can only choose between expensive agencies and inconsistent freelancers.
+              Fernesta was founded to solve one persistent market gap: Jaipur businesses need reliable marketing execution, but most can only choose between expensive agencies and inconsistent freelancers.
             </p>
           </Reveal>
         </div>
@@ -43,9 +43,9 @@ function AboutPage() {
           </Reveal>
           <Reveal className="section-head split-head" delayMs={170}>
             <p className="meta">Mission and Vision</p>
-            <h2>Trusted SME and D2C Marketing Partner for Measurable Growth</h2>
+            <h2>Trusted Jaipur Marketing Partner for Measurable Growth</h2>
             <p>
-              Our mission is to deliver consistent, data-led, accountable marketing that creates real business outcomes. Our vision is to build India&apos;s leading scalable marketing platform for SMEs and D2C brands.
+              Our mission is to deliver consistent, data-led, accountable marketing that creates real business outcomes. Our vision is to become the most trusted growth partner for Jaipur businesses scaling online.
             </p>
             <div className="tag-list">
               {strengths.map((item) => (

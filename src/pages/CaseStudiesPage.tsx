@@ -23,9 +23,9 @@ function CaseStudiesPage() {
   return (
     <>
       <SeoMeta
-        title="Digital Marketing Case Studies | Fernesta"
-        description="Explore Fernesta case studies covering SEO growth, paid ads optimization, brand positioning, and measurable lead and revenue outcomes."
-        keywords="digital marketing case studies, SEO case study, performance marketing results"
+        title="Digital Marketing Case Studies Jaipur | Fernesta"
+        description="Explore Fernesta case studies covering SEO growth, paid ads optimization, and measurable lead outcomes for Jaipur-focused businesses."
+        keywords="digital marketing case studies Jaipur, SEO case study Jaipur, PPC results Jaipur"
       />
 
       <section className="page-hero hero-clientele">

@@ -5,7 +5,11 @@ function Footer() {
     <footer className="footer">
       <div className="container footer-inner">
         <p>© 2026 Fernesta</p>
-        <p>Full-Service Marketing Agency for Indian SMEs and D2C Brands</p>
+        <p>Digital Marketing Agency in Jaipur for SEO, PPC, and Social Media</p>
+        <div className="footer-nap">
+          <p>Jaipur, Rajasthan, India</p>
+          <p>+91 701 412 7724 | info@fernesta.com</p>
+        </div>
         <div className="footer-links">
           <Link to="/services">Services</Link>
           <Link to="/case-studies">Case Studies</Link>

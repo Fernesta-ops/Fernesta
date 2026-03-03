@@ -63,19 +63,19 @@ function HomePage() {
   return (
     <>
       <SeoMeta
-        title="Digital Marketing Agency for SMEs and D2C Brands | Fernesta"
-        description="Fernesta is a full-service digital marketing agency helping Indian SMEs and D2C brands with SEO, paid ads, content, analytics, and growth systems."
-        keywords="digital marketing agency India, SME marketing agency, D2C marketing agency, SEO and paid ads services"
+        title="Digital Marketing Agency in Jaipur | Fernesta SEO, PPC and Social Media"
+        description="Fernesta is a results-focused digital marketing agency in Jaipur helping businesses grow through SEO, Google Ads, social media marketing, and conversion-ready websites."
+        keywords="digital marketing agency in Jaipur, SEO company in Jaipur, PPC agency Jaipur, social media marketing Jaipur, digital marketing services Jaipur"
       />
 
       <section className="page-hero hero-home">
         <div className="hero-overlay" />
         <div className="container hero-grid">
           <Reveal className="hero-copy" delayMs={80}>
-            <p className="meta">Full-Service Marketing Agency</p>
-            <h1>Digital Marketing Agency in India for SMEs and D2C Brands.</h1>
+            <p className="meta">Jaipur Digital Marketing Agency</p>
+            <h1>Digital Marketing Agency in Jaipur for SEO, PPC, and Social Media Growth.</h1>
             <p>
-              Fernesta combines brand strategy, performance marketing, content, SEO, and analytics under one accountable operating model.
+              Fernesta helps Jaipur businesses generate measurable growth with data-led SEO, performance ads, social media management, and conversion-driven web strategy.
             </p>
             <div className="button-row">
               <Link className="button button-primary" to="/services">

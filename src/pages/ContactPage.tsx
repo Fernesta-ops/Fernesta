@@ -69,9 +69,9 @@ function ContactPage() {
   return (
     <>
       <SeoMeta
-        title="Contact Fernesta | Book a Digital Marketing Consultation"
-        description="Contact Fernesta to discuss SEO, paid ads, social media, website growth, and performance marketing services for your business."
-        keywords="contact digital marketing agency, SEO consultation, paid ads consultation India"
+        title="Contact Fernesta | Digital Marketing Agency in Jaipur"
+        description="Contact Fernesta, a digital marketing agency in Jaipur, for SEO, Google Ads, social media marketing, and website growth consultation."
+        keywords="contact digital marketing agency Jaipur, SEO consultation Jaipur, PPC agency Jaipur contact"
       />
 
       <section className="page-hero hero-contact">
@@ -79,9 +79,9 @@ function ContactPage() {
         <div className="container hero-grid hero-grid-single">
           <Reveal className="hero-copy" delayMs={80}>
             <p className="meta">Contact Us</p>
-            <h1>Contact Fernesta for SEO, Paid Ads, and Website Growth Consulting.</h1>
+            <h1>Contact Fernesta for SEO, Paid Ads, and Website Growth in Jaipur.</h1>
             <p>
-              Share your current growth stage and channel challenges. We will map the right retainer tier and operating cadence for your business.
+              Share your current growth stage and channel challenges. We will map the right service mix and execution cadence for your Jaipur business.
             </p>
           </Reveal>
         </div>
@@ -174,9 +174,14 @@ function ContactPage() {
                   {message}
                 </p>
               )}
-              <p>Email: info@fernesta.com</p>
-              <p>Phone: +91 701 412 7724</p>
-              <p>Response time: within 1 business day</p>
+              <div className="contact-details">
+                <p><strong>Fernesta Digital Marketing Agency</strong></p>
+                <p>Jaipur, Rajasthan, India</p>
+                <p>Email: info@fernesta.com</p>
+                <p>Phone: +91 701 412 7724</p>
+                <p>Working Hours: Monday-Saturday, 9:00 AM to 7:00 PM IST</p>
+                <p>Response time: within 1 business day</p>
+              </div>
             </article>
           </Reveal>
           <Reveal delayMs={180}>
@@ -186,6 +191,25 @@ function ContactPage() {
                 alt="Client strategy planning session with the Fernesta team"
               />
             </figure>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section section-border">
+        <div className="container">
+          <Reveal className="section-head">
+            <p className="meta">Office Location</p>
+            <h2>Find Us in Jaipur</h2>
+          </Reveal>
+          <Reveal>
+            <div className="panel interactive-card map-embed">
+              <iframe
+                title="Fernesta location map - Jaipur"
+                src="https://www.google.com/maps?q=Jaipur%2C%20Rajasthan&output=embed"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
           </Reveal>
         </div>
       </section>
