@@ -1,0 +1,264 @@
+Publish Change Log
+==================
+
+Commit: 8d20ddef966c429b3ae407dfe336b174736daa43
+Short Commit: 8d20dde
+Date: 2026-03-03T21:44:25+05:30
+Author: Tarun Gupta <info@fernesta.com>
+Message: Switch leads to Cloudflare Resend endpoint and refine mobile nav dropdown
+
+Changed Files (Name/Status)
+---------------------------
+A	LEAD_EMAIL_SETUP.md
+A	functions/api/lead.ts
+M	src/App.css
+M	src/lib/leadMailer.ts
+
+Full Diff
+---------
+commit 8d20ddef966c429b3ae407dfe336b174736daa43
+Author: Tarun Gupta <info@fernesta.com>
+Date:   Tue Mar 3 21:44:25 2026 +0530
+
+    Switch leads to Cloudflare Resend endpoint and refine mobile nav dropdown
+
+diff --git a/LEAD_EMAIL_SETUP.md b/LEAD_EMAIL_SETUP.md
+new file mode 100644
+index 0000000..0a3ff2f
+--- /dev/null
++++ b/LEAD_EMAIL_SETUP.md
+@@ -0,0 +1,19 @@
++Lead Email Setup (Resend + Cloudflare Pages Functions)
++======================================================
++
++This project now sends form leads through `functions/api/lead.ts`.
++
++Required environment variables in Cloudflare Pages:
++- `RESEND_API_KEY`
++- `LEAD_FROM_EMAIL` (example: `leads@fernesta.com`)
++- `LEAD_TO_EMAIL` (example: `info@fernesta.com`)
++
++Where to set:
++- Cloudflare Dashboard -> Workers & Pages -> fernesta -> Settings -> Variables and Secrets
++
++Recommended provider:
++- Resend (free tier available, low-cost paid upgrades)
++
++Notes:
++- `LEAD_FROM_EMAIL` should be a verified sender/domain in Resend.
++- Forms will fail with `Lead email provider not configured.` if secrets are missing.
+diff --git a/functions/api/lead.ts b/functions/api/lead.ts
+new file mode 100644
+index 0000000..5798460
+--- /dev/null
++++ b/functions/api/lead.ts
+@@ -0,0 +1,96 @@
++interface Env {
++  RESEND_API_KEY?: string;
++  LEAD_TO_EMAIL?: string;
++  LEAD_FROM_EMAIL?: string;
++}
++
++type LeadPayload = {
++  subject?: string;
++  formName?: string;
++  fields?: Record<string, string>;
++};
++
++function json(body: unknown, status = 200) {
++  return new Response(JSON.stringify(body), {
++    status,
++    headers: {
++      "Content-Type": "application/json",
++      "Access-Control-Allow-Origin": "*",
++      "Access-Control-Allow-Methods": "POST, OPTIONS",
++      "Access-Control-Allow-Headers": "Content-Type",
++    },
++  });
++}
++
++function escapeHtml(value: string) {
++  return value
++    .replace(/&/g, "&amp;")
++    .replace(/</g, "&lt;")
++    .replace(/>/g, "&gt;")
++    .replace(/"/g, "&quot;")
++    .replace(/'/g, "&#39;");
++}
++
++function buildHtml(formName: string, fields: Record<string, string>) {
++  const rows = Object.entries(fields)
++    .map(
++      ([key, value]) =>
++        `<tr><td style="padding:8px 10px;border:1px solid #d6d8d0;"><strong>${escapeHtml(
++          key
++        )}</strong></td><td style="padding:8px 10px;border:1px solid #d6d8d0;">${escapeHtml(
++          value
++        )}</td></tr>`
++    )
++    .join("");
++
++  return `
++    <div style="font-family:Arial,sans-serif;max-width:680px;margin:0 auto;">
++      <h2 style="color:#2d4430;">New Lead Submission</h2>
++      <p><strong>Form:</strong> ${escapeHtml(formName)}</p>
++      <table style="border-collapse:collapse;width:100%;border:1px solid #d6d8d0;">${rows}</table>
++    </div>
++  `;
++}
++
++export const onRequestOptions = async () => json({ ok: true });
++
++export const onRequestPost: PagesFunction<Env> = async (context) => {
++  const { RESEND_API_KEY, LEAD_FROM_EMAIL, LEAD_TO_EMAIL } = context.env;
++  if (!RESEND_API_KEY || !LEAD_FROM_EMAIL || !LEAD_TO_EMAIL) {
++    return json({ error: "Lead email provider not configured." }, 500);
++  }
++
++  const payload = (await context.request.json().catch(() => ({}))) as LeadPayload;
++  const subject = payload.subject?.trim() || "New Lead";
++  const formName = payload.formName?.trim() || "Website Form";
++  const fields = payload.fields || {};
++
++  if (!Object.keys(fields).length) {
++    return json({ error: "Invalid payload" }, 400);
++  }
++
++  const html = buildHtml(formName, fields);
++  const text = [`Form: ${formName}`, ...Object.entries(fields).map(([k, v]) => `${k}: ${v}`)].join("\n");
++
++  const resendResponse = await fetch("https://api.resend.com/emails", {
++    method: "POST",
++    headers: {
++      Authorization: `Bearer ${RESEND_API_KEY}`,
++      "Content-Type": "application/json",
++    },
++    body: JSON.stringify({
++      from: LEAD_FROM_EMAIL,
++      to: [LEAD_TO_EMAIL],
++      subject,
++      html,
++      text,
++    }),
++  });
++
++  if (!resendResponse.ok) {
++    const details = await resendResponse.text();
++    return json({ error: "Failed to send lead email", details }, 502);
++  }
++
++  return json({ success: true });
++};
+diff --git a/src/App.css b/src/App.css
+index f9a36c7..2587af1 100644
+--- a/src/App.css
++++ b/src/App.css
+@@ -227,6 +227,8 @@ p {
+   border-radius: 4px;
+   display: block;
+   height: 2px;
++  transform-origin: center;
++  transition: transform 0.2s ease, opacity 0.2s ease;
+   width: 15px;
+ }
+ 
+@@ -234,6 +236,18 @@ p {
+   line-height: 1;
+ }
+ 
++.nav-toggle[aria-expanded="true"] .nav-toggle-icon span:nth-child(1) {
++  transform: translateY(6px) rotate(45deg);
++}
++
++.nav-toggle[aria-expanded="true"] .nav-toggle-icon span:nth-child(2) {
++  opacity: 0;
++}
++
++.nav-toggle[aria-expanded="true"] .nav-toggle-icon span:nth-child(3) {
++  transform: translateY(-6px) rotate(-45deg);
++}
++
+ .nav-backdrop {
+   display: none;
+ }
+diff --git a/src/lib/leadMailer.ts b/src/lib/leadMailer.ts
+index a3a4d79..2ceed19 100644
+--- a/src/lib/leadMailer.ts
++++ b/src/lib/leadMailer.ts
+@@ -4,62 +4,27 @@ type LeadEmailInput = {
+   fields: Record<string, string>;
+ };
+ 
+-const DEFAULT_ENDPOINT = "https://formsubmit.co/ajax/info@fernesta.com";
++const DEFAULT_ENDPOINT = "/api/lead";
+ 
+-async function fallbackNoCorsPost(input: LeadEmailInput) {
+-  const fallbackEndpoint = "https://formsubmit.co/info@fernesta.com";
+-  const params = new URLSearchParams({
+-    _subject: input.subject,
+-    _template: "table",
+-    _captcha: "false",
+-    form_name: input.formName,
+-    ...input.fields,
+-  });
+-
+-  await fetch(fallbackEndpoint, {
++export async function sendLeadEmail(input: LeadEmailInput): Promise<void> {
++  const endpoint = import.meta.env.VITE_LEAD_ENDPOINT || DEFAULT_ENDPOINT;
++  const response = await fetch(endpoint, {
+     method: "POST",
+-    mode: "no-cors",
+     headers: {
+-      "Content-Type": "application/x-www-form-urlencoded",
++      "Content-Type": "application/json",
++      Accept: "application/json",
+     },
+-    body: params.toString(),
++    body: JSON.stringify({
++      subject: input.subject,
++      formName: input.formName,
++      fields: input.fields,
++    }),
+   });
+-}
+-
+-export async function sendLeadEmail(input: LeadEmailInput): Promise<void> {
+-  const endpoint = import.meta.env.VITE_LEAD_ENDPOINT || DEFAULT_ENDPOINT;
+-
+-  try {
+-    const response = await fetch(endpoint, {
+-      method: "POST",
+-      headers: {
+-        "Content-Type": "application/json",
+-        Accept: "application/json",
+-      },
+-      body: JSON.stringify({
+-        _subject: input.subject,
+-        _template: "table",
+-        _captcha: "false",
+-        form_name: input.formName,
+-        ...input.fields,
+-      }),
+-    });
+-
+-    if (!response.ok) {
+-      throw new Error(`Lead request failed with status ${response.status}`);
+-    }
+ 
++  if (!response.ok) {
+     const payload = (await response.json().catch(() => null)) as
+-      | { success?: string | boolean; message?: string }
++      | { error?: string; details?: string }
+       | null;
+-
+-    if (payload && payload.success !== undefined) {
+-      const ok = payload.success === true || payload.success === "true";
+-      if (!ok) {
+-        throw new Error(payload.message || "Lead request was rejected.");
+-      }
+-    }
+-  } catch {
+-    await fallbackNoCorsPost(input);
++    throw new Error(payload?.error || "Lead submission failed.");
+   }
+ }
