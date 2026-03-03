@@ -50,6 +50,13 @@ export default function Navbar() {
               {link.label}
             </NavLink>
           ))}
+          <NavLink
+            className="button button-primary nav-mobile-cta"
+            to="/contact-us"
+            onClick={() => setMenuOpen(false)}
+          >
+            Request Assessment
+          </NavLink>
         </nav>
         <NavLink className="button button-primary nav-button" to="/contact-us">
           Request Assessment
