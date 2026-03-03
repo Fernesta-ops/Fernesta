@@ -17,7 +17,7 @@ function upsertMeta(selector: string, attr: "name" | "property", key: string, co
   meta.setAttribute("content", content);
 }
 
-function SeoMeta({ title, description, keywords, image = "/images/hero-bg.jpg" }: SeoMetaProps) {
+function SeoMeta({ title, description, keywords, image = "/images/site/seo/default-share.jpg" }: SeoMetaProps) {
   useEffect(() => {
     const url = `${window.location.origin}${window.location.pathname}`;
     const imageUrl = image.startsWith("http") ? image : `${window.location.origin}${image}`;

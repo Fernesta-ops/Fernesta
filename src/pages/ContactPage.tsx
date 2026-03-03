@@ -187,7 +187,7 @@ function ContactPage() {
           <Reveal delayMs={180}>
             <figure className="media-card interactive-card">
               <img
-                src="/images/boardroom.jpg"
+                src="/images/pages/contact/section/strategy-session.jpg"
                 alt="Client strategy planning session with the Fernesta team"
               />
             </figure>

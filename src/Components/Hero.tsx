@@ -29,7 +29,7 @@ function Hero() {
           <div className="dashboard-frame">
             <p className="meta">Performance Dashboard</p>
             <img
-              src="/images/dashboard.jpg"
+              src="/images/components/hero/performance-dashboard.jpg"
               alt="Structured growth performance dashboard"
             />
           </div>

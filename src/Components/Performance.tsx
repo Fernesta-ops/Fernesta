@@ -15,7 +15,7 @@ export default function Performance() {
           </div>
 
           <div className="performance-image">
-            <img src="/images/growth.jpg" alt="Performance Dashboard" />
+            <img src="/images/components/performance/performance-dashboard.jpg" alt="Performance Dashboard" />
           </div>
 
         </div>

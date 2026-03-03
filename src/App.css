@@ -16,6 +16,11 @@
   --dock-height: 76px;
   --radius-lg: 22px;
   --radius-md: 16px;
+  --radius-sm: 10px;
+  --control-bg: #f7f6ef;
+  --control-border: #6f7e6f;
+  --control-border-focus: #2d4430;
+  --control-text: #18231b;
 }
 
 * {
@@ -82,7 +87,7 @@ button {
 
 main {
   padding-bottom: calc(var(--dock-height) + 20px);
-  padding-top: var(--nav-height);
+  padding-top: calc(var(--nav-height) + env(safe-area-inset-top));
 }
 
 .route-fade {
@@ -156,7 +161,7 @@ p {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 40;
+  z-index: 100;
 }
 
 .skip-link {
@@ -179,6 +184,7 @@ p {
   gap: 24px;
   grid-template-columns: auto 1fr auto;
   height: var(--nav-height);
+  min-height: var(--nav-height);
   position: relative;
 }
 
@@ -196,7 +202,9 @@ p {
 }
 
 .nav-toggle {
+  background: rgba(239, 236, 221, 0.96);
   border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
   color: var(--text);
   display: none;
   font-size: 0.76rem;
@@ -244,6 +252,7 @@ p {
 .button {
   align-items: center;
   border: 1px solid transparent;
+  border-radius: var(--radius-sm);
   cursor: pointer;
   display: inline-flex;
   font-size: 0.78rem;
@@ -276,6 +285,7 @@ p {
 
 .button-secondary:hover {
   border-color: #4a7464;
+  background: rgba(239, 236, 221, 0.95);
 }
 
 .button:hover {
@@ -289,23 +299,23 @@ p {
 }
 
 .hero-home {
-  background-image: url("/images/hero-bg.jpg");
+  background-image: url("/images/pages/home/hero/background.jpg");
 }
 
 .hero-about {
-  background-image: url("/images/boardroom.jpg");
+  background-image: url("/images/pages/about/hero/background.jpg");
 }
 
 .hero-services {
-  background-image: url("/images/grain.jpg");
+  background-image: url("/images/pages/services/hero/background.jpg");
 }
 
 .hero-clientele {
-  background-image: url("/images/dashboard.jpg");
+  background-image: url("/images/pages/clientele/hero/background.jpg");
 }
 
 .hero-contact {
-  background-image: url("/images/growth.jpg");
+  background-image: url("/images/pages/contact/hero/background.jpg");
 }
 
 .hero-overlay {
@@ -657,8 +667,9 @@ p {
 }
 
 .filter-pill {
-  background: rgba(239, 236, 221, 0.8);
+  background: rgba(239, 236, 221, 0.9);
   border: 1px solid #75806f;
+  border-radius: var(--radius-sm);
   color: #243128;
   cursor: pointer;
   font-size: 0.78rem;
@@ -724,6 +735,9 @@ p {
 
 .faq-q {
   align-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius-sm);
   color: var(--text);
   display: flex;
   font-family: "Cormorant Garamond", serif;
@@ -968,7 +982,9 @@ p {
 }
 
 .audit-head button {
+  background: rgba(239, 236, 221, 0.95);
   border: 1px solid #5f6f5f;
+  border-radius: var(--radius-sm);
   color: var(--accent-strong);
   font-size: 0.78rem;
   min-height: 32px;
@@ -993,11 +1009,24 @@ p {
 
 .audit-form input,
 .audit-form select {
-  background: #f8f7f2;
-  border: 1px solid #717f70;
-  color: var(--text);
+  appearance: none;
+  background: var(--control-bg);
+  border: 1px solid var(--control-border);
+  border-radius: var(--radius-sm);
+  color: var(--control-text);
+  font-family: inherit;
+  font-size: 0.95rem;
   min-height: 40px;
   padding: 0 10px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.audit-form input:focus,
+.audit-form select:focus {
+  background: #fcfcf7;
+  border-color: var(--control-border-focus);
+  box-shadow: 0 0 0 2px rgba(45, 68, 48, 0.16);
+  outline: none;
 }
 
 .audit-form button:disabled {
@@ -1037,11 +1066,24 @@ p {
 .contact-form input,
 .contact-form select,
 .contact-form textarea {
-  background: #f8f7f2;
-  border: 1px solid #717f70;
-  color: var(--text);
+  appearance: none;
+  background: var(--control-bg);
+  border: 1px solid var(--control-border);
+  border-radius: var(--radius-sm);
+  color: var(--control-text);
   font-family: inherit;
+  font-size: 0.95rem;
   padding: 10px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  background: #fcfcf7;
+  border-color: var(--control-border-focus);
+  box-shadow: 0 0 0 2px rgba(45, 68, 48, 0.16);
+  outline: none;
 }
 
 .contact-form textarea {
@@ -1180,6 +1222,10 @@ p {
 }
 
 @media (max-width: 1080px) {
+  .nav {
+    padding-top: env(safe-area-inset-top);
+  }
+
   .nav-container {
     grid-template-columns: minmax(0, 1fr) auto;
     height: var(--nav-height);

@@ -30,32 +30,32 @@ const catalog = [
   {
     title: "Search Engine Optimization",
     detail: "On-page, off-page, and technical SEO for durable organic growth.",
-    image: "/images/grain.jpg",
+    image: "/images/pages/home/services/seo.jpg",
   },
   {
     title: "Performance Marketing",
     detail: "Google Ads and Meta Ads systems focused on quality leads and ROAS.",
-    image: "/images/dashboard.jpg",
+    image: "/images/pages/home/services/performance.jpg",
   },
   {
     title: "Social Media Management",
     detail: "Organic social strategy, community management, and paid social execution.",
-    image: "/images/hero-bg.jpg",
+    image: "/images/pages/home/services/social-media.jpg",
   },
   {
     title: "Website and Conversion Systems",
     detail: "Website structure, landing page flow, and conversion architecture optimization.",
-    image: "/images/ai.jpg",
+    image: "/images/pages/home/services/web-conversion.jpg",
   },
   {
     title: "Branding and Visual Identity",
     detail: "Brand profile, design language, and positioning clarity across channels.",
-    image: "/images/boardroom.jpg",
+    image: "/images/pages/home/services/branding.jpg",
   },
   {
     title: "E-Commerce Growth",
     detail: "Marketplace ads, listing optimization, and catalog-level profitability control.",
-    image: "/images/growth.jpg",
+    image: "/images/pages/home/services/ecommerce.jpg",
   },
 ];
 
@@ -89,7 +89,7 @@ function HomePage() {
           <Reveal delayMs={180}>
             <figure className="media-card interactive-card">
               <img
-                src="/images/ai.jpg"
+                src="/images/pages/home/hero/visual.jpg"
                 alt="AI-powered marketing intelligence and reporting setup"
               />
             </figure>

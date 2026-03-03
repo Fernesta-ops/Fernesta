@@ -72,7 +72,7 @@ function ClientelePage() {
           <Reveal delayMs={190}>
             <figure className="media-card interactive-card">
               <img
-                src="/images/dashboard.jpg"
+                src="/images/pages/clientele/section/reporting-dashboard.jpg"
                 alt="Performance dashboard used for transparent client reporting"
               />
             </figure>

@@ -3,7 +3,7 @@ export default function Home() {
     <section
       className="hero"
       style={{
-        backgroundImage: `url("/images/dark data dashboard background.jpg")`,
+        backgroundImage: `url("/images/components/home/background.jpg")`,
       }}
     >
       <div className="hero-dark-overlay"></div>
@@ -36,7 +36,7 @@ export default function Home() {
         <div className="hero-visual">
           <div className="image-frame">
             <img
-              src="/images/ai.jpg"
+              src="/images/components/home/ai-visual.jpg"
               alt="AI Marketing Interface"
             />
           </div>

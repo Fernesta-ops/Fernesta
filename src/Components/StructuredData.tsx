@@ -155,7 +155,7 @@ function buildLocalBusiness(origin: string): JsonLd {
     "@id": `${origin}/#localbusiness`,
     name: "Fernesta Digital Marketing Agency",
     url: origin,
-    image: `${origin}/images/hero-bg.jpg`,
+    image: `${origin}/images/site/seo/default-share.jpg`,
     telephone: PHONE,
     email: EMAIL,
     address: {
