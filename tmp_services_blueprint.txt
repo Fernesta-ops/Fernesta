@@ -1,0 +1,643 @@
+--- PAGE 1 ---
+JAIPUR MARKETING AGENCY
+Digital Marketing
+Services Blueprint
+Complete Task Framework for All 7 Core Services
+1
+■
+Search Engine
+Optimization
+2
+■
+Social Media
+Management
+3
+■
+Paid Ads
+Google & Meta
+4
+■
+Website
+Creation
+5
+■
+Graphic
+Designing
+6
+■
+E-Commerce
+Ads
+7
+■
+Branding &
+Profiling
+Prepared for Internal Team Use · Jaipur Marketing Agency
+Page 1 of 8
+Jaipur Marketing Agency · Digital Marketing Services Blueprint
+Page 1 of 8
+
+--- PAGE 2 ---
+■  SEO Services
+On-Page · Off-Page · Technical — Complete Task Breakdown
+Page 2 of 8
+■  On-Page SEO
+1
+Keyword Research
+Find words people type on Google to discover businesses
+like yours.
+2
+Title Tag Writing
+Write the blue clickable headline shown in Google
+search results.
+3
+Meta Description
+Write the short summary shown below the title in search
+results.
+4
+Header Tags (H1–H3)
+Organize page content with headings like chapters in a
+book.
+5
+Content Optimization
+Improve page text to naturally include target keywords.
+6
+Image Alt Text
+Add text descriptions to every image so Google them.
+understands
+7
+Internal Linking
+Link related pages together so users and Google easily.
+navigate
+8
+URL Structure
+Make URLs short and keyword-rich (e.g. /seo-services
+not /page?id=4).
+■  Off-Page SEO
+1
+Backlink Building
+Get other websites to link to ours — like votes of for
+trust Google.
+2
+Guest Posting
+Write articles on other blogs in exchange for a link to
+back the site.
+3
+Directory Submissions
+List the business on Justdial, Sulekha, Google Business
+etc.
+4
+Social Bookmarking
+Share pages on Mix, Tumblr, Reddit to create extra
+entry points.
+5
+Forum & Q&A Replies
+Answer questions on Quora and forums with a natural
+site link.
+6
+Competitor Link Audit
+Study competitor backlinks with Ahrefs to target same
+sources.
+7
+Bad Link Removal
+Find and disavow spammy backlinks that can hurt
+rankings.
+8
+PR & Brand Mentions
+Get journalists or bloggers to mention and link to the
+brand.
+■■  Technical SEO
+1
+Page Speed Optimization
+Compress images and clean code so pages load fast.
+2
+Mobile Responsiveness
+Ensure the site looks perfect on phones and tablets.
+3
+XML Sitemap
+Submit a map of all pages to Google so it indexes them
+properly.
+4
+Robots.txt Setup
+Tell Google which pages to crawl and which to ignore.
+5
+SSL / HTTPS
+Ensure the site has a security certificate (the green
+padlock).
+6
+Broken Link Fixing
+Find and repair links that lead to error / 404 pages.
+7
+Core Web Vitals
+Fix loading, interactivity & visual stability scores in
+Search Console.
+8
+Schema Markup
+Add hidden code so Google shows star ratings, FAQs in
+results.
+Jaipur Marketing Agency · Digital Marketing Services Blueprint
+Page 2 of 8
+
+--- PAGE 3 ---
+■  Social Media Management
+Organic Content · Community · Paid Social
+Page 3 of 8
+✏■  Organic Content Creation
+1
+Content Calendar
+Plan all posts for the month — topics, dates, formats —
+in advance.
+2
+Static Post Design
+Create branded image posts using Canva or Photoshop.
+3
+Reel / Short Video
+Shoot or edit 15–60s videos for Instagram Reels /
+YouTube Shorts.
+4
+Caption Copywriting
+Write engaging captions with a clear call-to-action.
+5
+Hashtag Research
+Find the best hashtags to make posts discoverable.
+6
+Story & Carousel Design
+Design multi-slide posts or Stories with polls and
+quizzes.
+7
+Scheduling & Publishing
+Schedule posts at peak times using tools like Buffer or
+Meta Suite.
+■  Community Management
+1
+Comment Replies
+Respond to all post comments within 24 hours.
+2
+DM Management
+Reply to direct messages, answer queries, redirect
+leads.
+3
+Follower Growth
+Like, comment, follow targeted accounts to attract the
+right people.
+4
+Influencer Coordination
+Find, contact, and manage influencer collabs. Track
+performance.
+5
+User-Generated Content
+Reshare customer posts tagging the brand for social
+proof.
+6
+Giveaway Management
+Plan and run "tag a friend" contests to boost followers
+fast.
+7
+Negative Comment Handling
+Professionally resolve complaints before they escalate.
+■  Paid Social (Meta Ads)
+1
+Audience Research
+Define the ideal customer: age, location, interests,
+behaviors.
+2
+Campaign Setup
+Create Facebook/Instagram ad campaigns with correct
+objectives.
+3
+Ad Creative Design
+Design scroll-stopping image or video ads with strong
+copy.
+4
+A/B Testing
+Run two versions of an ad to see which performs better.
+5
+Retargeting Campaigns
+Show ads to people who visited the website but didn't
+buy yet.
+6
+Budget Management
+Allocate daily/monthly budget across campaigns for best
+ROI.
+7
+Performance Reporting
+Share monthly report: reach, clicks, leads, cost per
+result.
+Jaipur Marketing Agency · Digital Marketing Services Blueprint
+Page 3 of 8
+
+--- PAGE 4 ---
+■  Paid Ads — Google & Meta
+Search · Display & YouTube · Meta Ads
+Page 4 of 8
+■  Google Search Ads
+1
+Google Ads Account Setup
+Create and configure the Google Ads account and
+billing.
+2
+Search Campaign Creation
+Build campaigns targeting users actively searching for
+the service.
+3
+Keyword Targeting
+Choose exact/broad/phrase match keywords to trigger
+ads.
+4
+Negative Keyword List
+Block irrelevant searches so budget isn't wasted on bad
+clicks.
+5
+Ad Copywriting
+Write headlines and descriptions that convince users to
+click.
+6
+Ad Extensions Setup
+Add phone numbers, site links, location to make ads
+bigger.
+7
+Quality Score Optimization
+Improve relevance score to pay less per click on
+Google.
+8
+Conversion Tracking
+Set up tracking to see which ads generate leads or
+sales.
+■  Google Display & YouTube
+1
+Display Campaign Setup
+Create banner ads shown on Google's millions of partner
+websites.
+2
+Audience Targeting
+Target users by interests, demographics, or past
+behavior.
+3
+Banner Ad Design
+Design various ad sizes (300x250, 728x90 etc.) for
+display network.
+4
+YouTube Video Ads
+Set up skippable/non-skippable video ads on YouTube.
+5
+Remarketing Lists
+Re-target past website visitors with relevant display
+ads.
+6
+Smart Campaigns
+Use Google's AI to auto-optimize campaigns for best
+performance.
+■  Meta (Facebook/Instagram) Ads
+1
+Business Manager Setup
+Configure Meta Business Manager, pixel, and ad account.
+2
+Campaign Objective Selection
+Choose the right goal: awareness, traffic, leads or
+sales.
+3
+Audience Building
+Build custom audiences using email lists, website
+visitors, lookalikes.
+4
+Ad Creative Production
+Create image, carousel, or video ad creatives for each
+audience.
+5
+Landing Page Alignment
+Ensure the ad leads to a relevant, fast-loading landing
+page.
+6
+Meta Pixel Setup
+Install tracking code on the website to measure
+conversions.
+7
+Budget Optimization
+Use CBO (Campaign Budget Optimization) to auto-allocate
+spend.
+8
+Monthly Performance Report
+Report on ROAS, CPL, CTR, and cost-per-purchase
+monthly.
+Jaipur Marketing Agency · Digital Marketing Services Blueprint
+Page 4 of 8
+
+--- PAGE 5 ---
+■  Website Creation
+Planning & Design · Development · SEO & Launch
+Page 5 of 8
+■■  Planning & Design
+1
+Requirement Gathering
+Understand client's business, goals, target audience
+and vision.
+2
+Sitemap Creation
+Plan all pages the website needs: Home, About, Contact
+Services, etc.
+3
+Wireframe Design
+Sketch the layout of each page before any visual design
+begins.
+4
+UI/UX Design
+Create the final visual design — colors, fonts, button
+styles, spacing.
+5
+Mobile-First Design
+Design the phone version first, then scale up to
+desktop.
+6
+Client Approval
+Share mockups with client and incorporate feedback
+before development.
+■  Development
+1
+Domain & Hosting Setup
+Purchase a domain name and set up web hosting for the
+site.
+2
+CMS Installation
+Install WordPress or chosen platform as the website's
+backend.
+3
+Theme / Template Setup
+Install and configure the approved design theme.
+4
+Page Development
+Build each page using the approved design: Home, Blog
+Services, etc.
+5
+Form & CTA Integration
+Add contact forms, WhatsApp buttons, and lead capture
+elements.
+6
+Speed Optimization
+Compress images and install caching plugins for fast
+load times.
+7
+SSL Certificate
+Set up HTTPS security on the live website.
+■  SEO & Launch
+1
+On-Page SEO Setup
+Add titles, meta descriptions, and keywords to every
+page.
+2
+Google Analytics Setup
+Connect Analytics to track visitor behavior and traffic
+sources.
+3
+Search Console Setup
+Submit site to Google Search Console and verify
+ownership.
+4
+Cross-Browser Testing
+Test the site on Chrome, Firefox, Safari and multiple
+devices.
+5
+Go-Live & DNS Setup
+Point the domain to the hosting server and launch the
+website.
+6
+Post-Launch Review
+Check all links, forms, and pages work correctly after
+launch.
+Jaipur Marketing Agency · Digital Marketing Services Blueprint
+Page 5 of 8
+
+--- PAGE 6 ---
+■  Graphic Designing
+Social Media · Business & Marketing · Ad Creatives
+Page 6 of 8
+■  Social Media Graphics
+1
+Brand Kit Setup
+Document the brand's logo, colors, fonts for consistent
+design.
+2
+Post Templates
+Create reusable Canva/Photoshop templates for regular
+posts.
+3
+Reel Thumbnails
+Design attractive cover images for Instagram Reels.
+4
+Story Graphics
+Design branded Story templates with polls, countdowns
+and CTAs.
+5
+Festival / Event Posts
+Design special posts for festivals, holidays and
+promotions.
+6
+Product Showcase Graphics
+Create clean product images for social media promotion.
+■  Business & Marketing
+1
+Logo Design
+Design a unique, memorable logo representing the brand
+identity.
+2
+Business Card Design
+Design professional print-ready business cards.
+3
+Brochure / Flyer Design
+Create marketing brochures or flyers for offline
+promotions.
+4
+Presentation Design
+Design professional pitch decks or company
+presentations.
+5
+Banner / Hoarding Design
+Create large format print designs for outdoor
+advertising.
+6
+Email Template Design
+Design HTML email templates for newsletters or
+campaigns.
+■■  Ad Creatives
+1
+Google Display Banners
+Design banners in all required sizes for Google Display
+Network.
+2
+Facebook/Instagram Ads
+Create scroll-stopping ad images or carousel frames.
+3
+Video Ad Thumbnails
+Design click-worthy thumbnails for YouTube and video
+ads.
+4
+Infographic Design
+Visualize data or processes as easy-to-share
+infographics.
+5
+WhatsApp Marketing Graphics
+Create promotional images sized for WhatsApp broadcast.
+Jaipur Marketing Agency · Digital Marketing Services Blueprint
+Page 6 of 8
+
+--- PAGE 7 ---
+■  E-Commerce Ads
+Listing Optimization · Marketplace Ads · ROAS Strategy
+Page 7 of 8
+■  Listing Optimization
+1
+Product Title Optimization
+Write keyword-rich product titles following rules.
+Amazon/Flipkart
+2
+Bullet Points & Description
+Write benefit-focused bullet points that convert to
+browsers buyers.
+3
+Product Image Guidelines
+Ensure all product images meet marketplace quality
+standards.
+4
+A+ Content Creation
+Build rich brand story sections with images and tables.
+comparison
+5
+Category & Keyword Setup
+Place products in the correct categories with backend
+keywords.
+6
+Pricing Strategy
+Research competitors and set competitive, profitable
+price points.
+7
+Review Management
+Respond to customer reviews and flag fake or harmful
+reviews.
+■  Marketplace Advertising
+1
+Sponsored Product Ads
+Run keyword-targeted ads to place products top of
+search results.
+2
+Sponsored Brand Ads
+Run banner ads showcasing multiple products with brand
+logo.
+3
+Product Display Ads
+Show ads on competitor product pages to capture their
+traffic.
+4
+Campaign Budget Control
+Set daily/monthly budgets and adjust bids to control
+spend.
+5
+Search Term Reports
+Analyze which keywords are driving sales and cut ones.
+wasteful
+6
+Deal & Coupon Setup
+Set up Lightning Deals or Coupon discounts to boost
+conversions.
+■  ROAS & Strategy
+1
+ROAS Tracking
+Monitor Return on Ad Spend — how many rupees earned per
+rupee spent.
+2
+Catalog Ads Setup
+Create dynamic ads that auto-show products to shoppers.
+interested
+3
+Retargeting Setup
+Re-target users who viewed a product but didn't yet.
+purchase
+4
+Inventory Monitoring
+Track stock levels so ads don't run for out-of-stock
+products.
+5
+Competitor Analysis
+Monitor competitor pricing, ratings, and ad strategies
+weekly.
+6
+Monthly Performance Report
+Report sales, ACoS, ROAS, impressions, and revenue
+monthly.
+Jaipur Marketing Agency · Digital Marketing Services Blueprint
+Page 7 of 8
+
+--- PAGE 8 ---
+■  Branding & Profiling
+Brand Identity · Digital Presence · Pitch & Presentation
+Page 8 of 8
+■  Brand Identity
+1
+Brand Discovery Session
+Understand client's vision, values, target audience,
+and competitors.
+2
+Logo Design
+Create the primary logo and all variants (dark, light,
+icon-only).
+3
+Color Palette
+Select 2–4 brand colors with exact HEX, RGB, and CMYK
+codes.
+4
+Typography Selection
+Choose primary and secondary fonts that match brand
+personality.
+5
+Brand Guidelines Doc
+Document all brand rules in a shareable PDF guide for
+the team.
+6
+Brand Voice & Tone
+Define how the brand sounds: friendly, professional,
+witty etc.
+■  Digital Presence
+1
+Google Business Profile
+Create and optimize Google Business listing for local
+visibility.
+2
+LinkedIn Company Page
+Set up and optimize the brand's LinkedIn page with all
+details.
+3
+Instagram Business Profile
+Configure Instagram bio, highlights, and profile
+picture.
+4
+Facebook Business Page
+Set up the brand page with cover photo, CTA button, and
+info.
+5
+Social Media Bio Writing
+Write optimized bios for all platforms with keywords
+and CTA.
+6
+Profile Photo & Covers
+Design consistent profile and cover images for all
+platforms.
+■  Pitch & Presentation
+1
+Pitch Deck Creation
+Design a compelling presentation for investors or
+clients.
+2
+Company Profile Design
+Create a branded PDF showcasing the business story and
+offerings.
+3
+Email Signature Design
+Design a professional HTML email signature for the
+team.
+4
+Letterhead & Stationery
+Design branded letterhead, invoice, and document
+templates.
+5
+Proposal Template
+Build a reusable client proposal template with brand
+styling.
+Jaipur Marketing Agency · Digital Marketing Services Blueprint
+Page 8 of 8
