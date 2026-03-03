@@ -1,4 +1,4 @@
-﻿import { useState } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 const links = [
@@ -25,14 +25,30 @@ export default function Navbar() {
         <button
           type="button"
           className="nav-toggle"
+          aria-controls="primary-nav"
           aria-label="Toggle navigation menu"
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((prev) => !prev)}
         >
-          Menu
+          <span className="nav-toggle-icon" aria-hidden="true">
+            <span />
+            <span />
+            <span />
+          </span>
+          <span className="nav-toggle-label">{menuOpen ? "Close" : "Menu"}</span>
         </button>
 
+        {menuOpen && (
+          <button
+            type="button"
+            className="nav-backdrop"
+            aria-label="Close menu"
+            onClick={() => setMenuOpen(false)}
+          />
+        )}
+
         <nav
+          id="primary-nav"
           className={menuOpen ? "nav-links nav-links-open" : "nav-links"}
           aria-label="Primary"
         >
