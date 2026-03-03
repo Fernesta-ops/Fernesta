@@ -1,4 +1,5 @@
-﻿import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
+import { sendLeadEmail } from "../lib/leadMailer";
 
 type AuditFormData = {
   name: string;
@@ -19,6 +20,7 @@ function StrategyAuditWidget() {
   const [formData, setFormData] = useState<AuditFormData>(initialForm);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
     if (!open) return;
@@ -42,7 +44,7 @@ function StrategyAuditWidget() {
     return () => window.removeEventListener("open-audit", onOpen as EventListener);
   }, []);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!formData.name || !formData.email || !formData.stage || !formData.budget) {
       setStatus("error");
@@ -50,22 +52,29 @@ function StrategyAuditWidget() {
       return;
     }
 
-    const subject = encodeURIComponent(`Strategy Audit Request - ${formData.name}`);
-    const body = encodeURIComponent(
-      [
-        `Name: ${formData.name}`,
-        `Email: ${formData.email}`,
-        `Business Stage: ${formData.stage}`,
-        `Monthly Marketing Budget: ${formData.budget}`,
-        "",
-        "Submitted from fernesta.com Strategy Audit form.",
-      ].join("\n")
-    );
-
-    setStatus("success");
-    setMessage("Opening your email app to send this request to info@fernesta.com.");
-    window.location.href = `mailto:info@fernesta.com?subject=${subject}&body=${body}`;
-    setFormData(initialForm);
+    try {
+      setSubmitting(true);
+      setStatus("idle");
+      await sendLeadEmail({
+        subject: `Strategy Audit Request - ${formData.name}`,
+        formName: "Strategy Audit Widget",
+        fields: {
+          name: formData.name,
+          email: formData.email,
+          business_stage: formData.stage,
+          monthly_marketing_budget: formData.budget,
+          source: "fernesta.com/audit-widget",
+        },
+      });
+      setStatus("success");
+      setMessage("Request submitted successfully. Our team will reach out shortly.");
+      setFormData(initialForm);
+    } catch {
+      setStatus("error");
+      setMessage("Submission failed. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -143,8 +152,8 @@ function StrategyAuditWidget() {
                   <option>Rs. 1,00,000+</option>
                 </select>
               </label>
-              <button type="submit" className="button button-primary">
-                Submit Request
+              <button type="submit" className="button button-primary" disabled={submitting}>
+                {submitting ? "Submitting..." : "Submit Request"}
               </button>
             </form>
             {message && (

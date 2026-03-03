@@ -7,7 +7,6 @@ const links = [
   { label: "Services", to: "/services" },
   { label: "Clientele", to: "/clientele" },
   { label: "Case Studies", to: "/case-studies" },
-  { label: "Contact Us", to: "/contact-us" },
 ];
 
 export default function Navbar() {

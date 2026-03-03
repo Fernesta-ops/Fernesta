@@ -2,6 +2,7 @@ import { useState, type FormEvent } from "react";
 import { Link } from "react-router-dom";
 import Reveal from "../Components/Reveal";
 import SeoMeta from "../Components/SeoMeta";
+import { sendLeadEmail } from "../lib/leadMailer";
 
 const phases = [
   {
@@ -34,9 +35,10 @@ const initialForm = {
 function ContactPage() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
+  const [submitting, setSubmitting] = useState(false);
   const [formData, setFormData] = useState(initialForm);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!formData.name || !formData.email || !formData.phone || !formData.company || !formData.service || !formData.message) {
       setStatus("error");
@@ -44,26 +46,31 @@ function ContactPage() {
       return;
     }
 
-    const subject = encodeURIComponent(`Consultation Request - ${formData.company}`);
-    const body = encodeURIComponent(
-      [
-        `Name: ${formData.name}`,
-        `Email: ${formData.email}`,
-        `Phone: ${formData.phone}`,
-        `Company: ${formData.company}`,
-        `Interested Service: ${formData.service}`,
-        "",
-        "Business Goals:",
-        formData.message,
-        "",
-        "Submitted from fernesta.com Contact form.",
-      ].join("\n")
-    );
-
-    setStatus("success");
-    setMessage("Opening your email app to send this inquiry to info@fernesta.com.");
-    window.location.href = `mailto:info@fernesta.com?subject=${subject}&body=${body}`;
-    setFormData(initialForm);
+    try {
+      setSubmitting(true);
+      setStatus("idle");
+      await sendLeadEmail({
+        subject: `Consultation Request - ${formData.company}`,
+        formName: "Contact Form",
+        fields: {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          interested_service: formData.service,
+          business_goals: formData.message,
+          source: "fernesta.com/contact-us",
+        },
+      });
+      setStatus("success");
+      setMessage("Inquiry submitted successfully. Our team will contact you within 1 business day.");
+      setFormData(initialForm);
+    } catch {
+      setStatus("error");
+      setMessage("Submission failed. Please try again or email info@fernesta.com.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -162,8 +169,8 @@ function ContactPage() {
                     placeholder="Tell us your current challenge and growth target."
                   />
                 </label>
-                <button className="button button-primary" type="submit">
-                  Submit Inquiry
+                <button className="button button-primary" type="submit" disabled={submitting}>
+                  {submitting ? "Submitting..." : "Submit Inquiry"}
                 </button>
               </form>
               {message && (
