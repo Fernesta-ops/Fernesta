@@ -1,0 +1,890 @@
+Publish Change Log
+==================
+
+Commit: 1f73c90ec6c4a647e2307c22fc61b2ce07be3cc1
+Short Commit: 1f73c90
+Date: 2026-03-03T20:50:11+05:30
+Author: Tarun Gupta <info@fernesta.com>
+Message: Implement SEO audit updates and mobile responsiveness fixes
+
+Changed Files (Name/Status)
+---------------------------
+M	index.html
+A	public/robots.txt
+A	public/sitemap.xml
+M	src/App.css
+M	src/App.tsx
+M	src/Components/Footer.tsx
+M	src/Components/SeoMeta.tsx
+M	src/Components/ServiceFaq.tsx
+M	src/Components/StructuredData.tsx
+M	src/pages/AboutPage.tsx
+M	src/pages/CaseStudiesPage.tsx
+M	src/pages/CaseStudyDetailPage.tsx
+M	src/pages/ClientelePage.tsx
+M	src/pages/ContactPage.tsx
+M	src/pages/HomePage.tsx
+A	src/pages/NotFoundPage.tsx
+M	src/pages/ServicesPage.tsx
+
+Full Diff
+---------
+commit 1f73c90ec6c4a647e2307c22fc61b2ce07be3cc1
+Author: Tarun Gupta <info@fernesta.com>
+Date:   Tue Mar 3 20:50:11 2026 +0530
+
+    Implement SEO audit updates and mobile responsiveness fixes
+
+diff --git a/index.html b/index.html
+index 9e6cf8b..1079e26 100644
+--- a/index.html
++++ b/index.html
+@@ -4,7 +4,27 @@
+     <meta charset="UTF-8" />
+     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+-    <title>fernesta</title>
++    <title>Digital Marketing Agency in Jaipur | Fernesta</title>
++    <meta
++      name="description"
++      content="Fernesta is a digital marketing agency in Jaipur offering SEO, Google Ads, social media marketing, and website growth services."
++    />
++    <meta name="robots" content="index,follow" />
++    <meta property="og:type" content="website" />
++    <meta property="og:title" content="Digital Marketing Agency in Jaipur | Fernesta" />
++    <meta
++      property="og:description"
++      content="Result-focused SEO, PPC, social media, and web growth services for Jaipur businesses."
++    />
++    <meta property="og:image" content="/images/hero-bg.jpg" />
++    <meta name="twitter:card" content="summary_large_image" />
++    <meta name="twitter:title" content="Digital Marketing Agency in Jaipur | Fernesta" />
++    <meta
++      name="twitter:description"
++      content="Result-focused SEO, PPC, social media, and web growth services for Jaipur businesses."
++    />
++    <meta name="twitter:image" content="/images/hero-bg.jpg" />
++    <link rel="canonical" href="https://fernesta.pages.dev/" />
+   </head>
+   <body>
+     <div id="root"></div>
+diff --git a/public/robots.txt b/public/robots.txt
+new file mode 100644
+index 0000000..f4ae14c
+--- /dev/null
++++ b/public/robots.txt
+@@ -0,0 +1,4 @@
++User-agent: *
++Allow: /
++
++Sitemap: https://fernesta.pages.dev/sitemap.xml
+diff --git a/public/sitemap.xml b/public/sitemap.xml
+new file mode 100644
+index 0000000..7cafb8f
+--- /dev/null
++++ b/public/sitemap.xml
+@@ -0,0 +1,33 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
++  <url>
++    <loc>https://fernesta.pages.dev/</loc>
++  </url>
++  <url>
++    <loc>https://fernesta.pages.dev/about-us</loc>
++  </url>
++  <url>
++    <loc>https://fernesta.pages.dev/services</loc>
++  </url>
++  <url>
++    <loc>https://fernesta.pages.dev/clientele</loc>
++  </url>
++  <url>
++    <loc>https://fernesta.pages.dev/case-studies</loc>
++  </url>
++  <url>
++    <loc>https://fernesta.pages.dev/contact-us</loc>
++  </url>
++  <url>
++    <loc>https://fernesta.pages.dev/case-studies/consumer-retail-brand-retention</loc>
++  </url>
++  <url>
++    <loc>https://fernesta.pages.dev/case-studies/education-seo-lead-engine</loc>
++  </url>
++  <url>
++    <loc>https://fernesta.pages.dev/case-studies/d2c-skincare-performance-turnaround</loc>
++  </url>
++  <url>
++    <loc>https://fernesta.pages.dev/case-studies/b2b-services-cpl-optimization</loc>
++  </url>
++</urlset>
+diff --git a/src/App.css b/src/App.css
+index 075c3c1..43f5860 100644
+--- a/src/App.css
++++ b/src/App.css
+@@ -24,6 +24,13 @@
+   padding: 0;
+ }
+ 
++html,
++body,
++#root {
++  max-width: 100%;
++  width: 100%;
++}
++
+ body {
+   background: var(--bg);
+   color: var(--text);
+@@ -32,6 +39,12 @@ body {
+   overflow-x: hidden;
+ }
+ 
++img,
++svg,
++iframe {
++  max-width: 100%;
++}
++
+ a,
+ button {
+   color: inherit;
+@@ -166,6 +179,7 @@ p {
+   gap: 24px;
+   grid-template-columns: auto 1fr auto;
+   height: var(--nav-height);
++  position: relative;
+ }
+ 
+ .logo {
+@@ -358,6 +372,10 @@ p {
+   color: var(--accent);
+ }
+ 
++.breadcrumb-wrap span {
++  overflow-wrap: anywhere;
++}
++
+ .crumb-sep {
+   color: #688679;
+   margin: 0 6px;
+@@ -1047,6 +1065,24 @@ p {
+   min-height: 100%;
+ }
+ 
++.contact-details {
++  display: grid;
++  gap: 4px;
++  margin-top: 10px;
++}
++
++.map-embed {
++  overflow: hidden;
++  padding: 0;
++}
++
++.map-embed iframe {
++  border: 0;
++  display: block;
++  height: 340px;
++  width: 100%;
++}
++
+ .media-card,
+ .service-blueprint-card,
+ .case-card,
+@@ -1064,11 +1100,17 @@ p {
+ .footer-inner {
+   color: var(--text-muted);
+   display: flex;
++  flex-wrap: wrap;
+   font-size: 0.9rem;
+   gap: 16px;
+   justify-content: space-between;
+ }
+ 
++.footer-nap {
++  display: grid;
++  gap: 2px;
++}
++
+ .footer-links {
+   display: flex;
+   gap: 12px;
+@@ -1139,9 +1181,9 @@ p {
+ 
+ @media (max-width: 1080px) {
+   .nav-container {
+-    grid-template-columns: auto auto;
+-    height: auto;
+-    padding: 16px 0;
++    grid-template-columns: minmax(0, 1fr) auto;
++    height: var(--nav-height);
++    padding: 0;
+   }
+ 
+   .nav-toggle {
+@@ -1149,12 +1191,27 @@ p {
+     justify-self: end;
+   }
+ 
++  .nav-button {
++    display: none;
++  }
++
+   .nav-links {
+     display: none;
+-    gap: 12px;
+-    grid-column: 1 / -1;
+-    justify-content: flex-start;
+-    padding-top: 6px;
++    align-items: flex-start;
++    background: rgba(239, 236, 221, 0.98);
++    border: 1px solid var(--line);
++    border-radius: 14px;
++    box-shadow: 0 14px 24px rgba(0, 0, 0, 0.14);
++    flex-direction: column;
++    gap: 10px;
++    left: 0;
++    max-height: calc(100dvh - var(--nav-height) - 24px);
++    overflow-y: auto;
++    padding: 14px;
++    position: absolute;
++    right: 0;
++    top: calc(100% + 8px);
++    z-index: 45;
+   }
+ 
+   .nav-links-open {
+@@ -1177,6 +1234,11 @@ p {
+     padding: 72px 0;
+   }
+ 
++  .hero-grid,
++  .page-hero {
++    min-height: calc(100dvh - var(--nav-height));
++  }
++
+   .service-portfolio-card {
+     min-height: 260px;
+   }
+@@ -1202,18 +1264,41 @@ p {
+ }
+ 
+ @media (max-width: 760px) {
+-  .container {
+-    padding: 0 18px;
++  :root {
++    --dock-height: 212px;
+   }
+ 
+-  .nav-button {
+-    display: none;
++  .container {
++    padding: 0 18px;
+   }
+ 
+   .nav-toggle {
+     display: inline-flex;
+   }
+ 
++  .nav-link {
++    font-size: 0.9rem;
++  }
++
++  .button-row {
++    display: grid;
++    grid-template-columns: 1fr;
++    width: 100%;
++  }
++
++  .button-row .button,
++  .case-actions .button,
++  .case-link {
++    min-width: 0;
++    width: 100%;
++  }
++
++  .button {
++    min-height: 46px;
++    padding: 8px 14px;
++    white-space: normal;
++  }
++
+   .audit-fab {
+     border-radius: 12px;
+     min-height: 42px;
+@@ -1230,15 +1315,37 @@ p {
+   }
+ 
+   .conversion-dock .button {
+-    width: calc(100% - 12px);
++    width: 100%;
+   }
+ 
+   main {
+-    padding-bottom: 184px;
++    padding-bottom: calc(var(--dock-height) + env(safe-area-inset-bottom) + 16px);
+   }
+ 
+-  .case-link,
+-  .case-actions .button {
+-    width: 100%;
++  .conversion-dock {
++    padding-bottom: calc(10px + env(safe-area-inset-bottom));
++  }
++}
++
++@media (max-width: 480px) {
++  :root {
++    --dock-height: 228px;
++  }
++
++  h1 {
++    font-size: clamp(1.8rem, 9vw, 2.3rem);
++  }
++
++  .meta {
++    letter-spacing: 0.08em;
++  }
++
++  .hero-grid {
++    padding: 54px 0;
++  }
++
++  .panel,
++  .media-card {
++    padding: 16px;
+   }
+ }
+diff --git a/src/App.tsx b/src/App.tsx
+index 75b2bf6..89c1fe4 100644
+--- a/src/App.tsx
++++ b/src/App.tsx
+@@ -1,4 +1,4 @@
+-?import { Navigate, Route, Routes, useLocation } from "react-router-dom";
++import { Route, Routes, useLocation } from "react-router-dom";
+ import { useEffect } from "react";
+ import Navbar from "./Components/Navbar";
+ import Footer from "./Components/Footer";
+@@ -15,6 +15,7 @@ import ClientelePage from "./pages/ClientelePage";
+ import ContactPage from "./pages/ContactPage";
+ import CaseStudiesPage from "./pages/CaseStudiesPage";
+ import CaseStudyDetailPage from "./pages/CaseStudyDetailPage";
++import NotFoundPage from "./pages/NotFoundPage";
+ 
+ function App() {
+   const location = useLocation();
+@@ -39,7 +40,7 @@ function App() {
+             <Route path="/case-studies" element={<CaseStudiesPage />} />
+             <Route path="/case-studies/:slug" element={<CaseStudyDetailPage />} />
+             <Route path="/contact-us" element={<ContactPage />} />
+-            <Route path="*" element={<Navigate to="/" replace />} />
++            <Route path="*" element={<NotFoundPage />} />
+           </Routes>
+         </div>
+       </main>
+@@ -52,3 +53,4 @@ function App() {
+ }
+ 
+ export default App;
++
+diff --git a/src/Components/Footer.tsx b/src/Components/Footer.tsx
+index 96b30f2..bd706ca 100644
+--- a/src/Components/Footer.tsx
++++ b/src/Components/Footer.tsx
+@@ -5,7 +5,11 @@ function Footer() {
+     <footer className="footer">
+       <div className="container footer-inner">
+         <p>© 2026 Fernesta</p>
+-        <p>Full-Service Marketing Agency for Indian SMEs and D2C Brands</p>
++        <p>Digital Marketing Agency in Jaipur for SEO, PPC, and Social Media</p>
++        <div className="footer-nap">
++          <p>Jaipur, Rajasthan, India</p>
++          <p>+91 701 412 7724 | info@fernesta.com</p>
++        </div>
+         <div className="footer-links">
+           <Link to="/services">Services</Link>
+           <Link to="/case-studies">Case Studies</Link>
+diff --git a/src/Components/SeoMeta.tsx b/src/Components/SeoMeta.tsx
+index 43b3cec..cc7a297 100644
+--- a/src/Components/SeoMeta.tsx
++++ b/src/Components/SeoMeta.tsx
+@@ -4,6 +4,7 @@ type SeoMetaProps = {
+   title: string;
+   description: string;
+   keywords?: string;
++  image?: string;
+ };
+ 
+ function upsertMeta(selector: string, attr: "name" | "property", key: string, content: string) {
+@@ -16,22 +17,28 @@ function upsertMeta(selector: string, attr: "name" | "property", key: string, co
+   meta.setAttribute("content", content);
+ }
+ 
+-function SeoMeta({ title, description, keywords }: SeoMetaProps) {
++function SeoMeta({ title, description, keywords, image = "/images/hero-bg.jpg" }: SeoMetaProps) {
+   useEffect(() => {
+     const url = `${window.location.origin}${window.location.pathname}`;
++    const imageUrl = image.startsWith("http") ? image : `${window.location.origin}${image}`;
+ 
+     document.title = title;
+     upsertMeta('meta[name="description"]', "name", "description", description);
+     if (keywords) upsertMeta('meta[name="keywords"]', "name", "keywords", keywords);
+ 
+     upsertMeta('meta[name="robots"]', "name", "robots", "index,follow");
++    upsertMeta('meta[name="author"]', "name", "author", "Fernesta");
+     upsertMeta('meta[property="og:title"]', "property", "og:title", title);
+     upsertMeta('meta[property="og:description"]', "property", "og:description", description);
+     upsertMeta('meta[property="og:type"]', "property", "og:type", "website");
+     upsertMeta('meta[property="og:url"]', "property", "og:url", url);
++    upsertMeta('meta[property="og:image"]', "property", "og:image", imageUrl);
++    upsertMeta('meta[property="og:site_name"]', "property", "og:site_name", "Fernesta");
++    upsertMeta('meta[property="og:locale"]', "property", "og:locale", "en_IN");
+     upsertMeta('meta[name="twitter:card"]', "name", "twitter:card", "summary_large_image");
+     upsertMeta('meta[name="twitter:title"]', "name", "twitter:title", title);
+     upsertMeta('meta[name="twitter:description"]', "name", "twitter:description", description);
++    upsertMeta('meta[name="twitter:image"]', "name", "twitter:image", imageUrl);
+ 
+     let canonical = document.querySelector('link[rel="canonical"]');
+     if (!canonical) {
+@@ -40,7 +47,7 @@ function SeoMeta({ title, description, keywords }: SeoMetaProps) {
+       document.head.appendChild(canonical);
+     }
+     canonical.setAttribute("href", url);
+-  }, [title, description, keywords]);
++  }, [title, description, keywords, image]);
+ 
+   return null;
+ }
+diff --git a/src/Components/ServiceFaq.tsx b/src/Components/ServiceFaq.tsx
+index ca4618d..f20c9ba 100644
+--- a/src/Components/ServiceFaq.tsx
++++ b/src/Components/ServiceFaq.tsx
+@@ -8,7 +8,7 @@ const faqs = [
+   },
+   {
+     q: "Do you provide SEO and paid ads together?",
+-    a: "Yes. We build integrated plans where SEO, Google Ads, and Meta Ads support the same business goals.",
++    a: "Yes. We build integrated plans where SEO, Google Ads, and Meta Ads support the same business goals for Jaipur businesses.",
+   },
+   {
+     q: "How is reporting handled across channels?",
+diff --git a/src/Components/StructuredData.tsx b/src/Components/StructuredData.tsx
+index 4af5dcd..7bd027f 100644
+--- a/src/Components/StructuredData.tsx
++++ b/src/Components/StructuredData.tsx
+@@ -5,6 +5,21 @@ import { caseStudies } from "../data/caseStudies";
+ type JsonLd = Record<string, unknown>;
+ 
+ const SITE_NAME = "Fernesta";
++const PHONE = "+91-701-412-7724";
++const EMAIL = "info@fernesta.com";
++const CITY = "Jaipur";
++const STATE = "Rajasthan";
++const COUNTRY = "IN";
++
++const SERVICE_TYPES = [
++  "SEO Services",
++  "Social Media Marketing",
++  "Google Ads Management",
++  "Meta Ads Management",
++  "Website Design and Development",
++  "Content Marketing",
++  "Branding and Profiling",
++];
+ 
+ function labelFromPath(pathname: string) {
+   switch (pathname) {
+@@ -102,16 +117,11 @@ function buildService(pathname: string, origin: string): JsonLd | null {
+       name: SITE_NAME,
+       url: origin,
+     },
+-    areaServed: "India",
+-    serviceType: [
+-      "SEO Services",
+-      "Social Media Management",
+-      "Google Ads Management",
+-      "Meta Ads Management",
+-      "Website Design and Development",
+-      "E-Commerce Advertising",
+-      "Branding and Profiling",
+-    ],
++    areaServed: {
++      "@type": "City",
++      name: CITY,
++    },
++    serviceType: SERVICE_TYPES,
+     url: `${origin}/services`,
+   };
+ }
+@@ -122,13 +132,74 @@ function buildOrganization(origin: string): JsonLd {
+     "@type": "Organization",
+     name: SITE_NAME,
+     url: origin,
++    logo: `${origin}/vite.svg`,
++    areaServed: {
++      "@type": "City",
++      name: CITY,
++    },
+     contactPoint: {
+       "@type": "ContactPoint",
+       contactType: "sales",
+-      email: "info@fernesta.com",
+-      telephone: "+91-701-412-7724",
++      email: EMAIL,
++      telephone: PHONE,
++      areaServed: "IN",
++      availableLanguage: ["en", "hi"],
++    },
++  };
++}
++
++function buildLocalBusiness(origin: string): JsonLd {
++  return {
++    "@context": "https://schema.org",
++    "@type": "LocalBusiness",
++    "@id": `${origin}/#localbusiness`,
++    name: "Fernesta Digital Marketing Agency",
++    url: origin,
++    image: `${origin}/images/hero-bg.jpg`,
++    telephone: PHONE,
++    email: EMAIL,
++    address: {
++      "@type": "PostalAddress",
++      addressLocality: CITY,
++      addressRegion: STATE,
++      addressCountry: COUNTRY,
+     },
+-    sameAs: [],
++    areaServed: [
++      {
++        "@type": "City",
++        name: CITY,
++      },
++      {
++        "@type": "State",
++        name: STATE,
++      },
++    ],
++    openingHoursSpecification: [
++      {
++        "@type": "OpeningHoursSpecification",
++        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
++        opens: "09:00",
++        closes: "19:00",
++      },
++    ],
++    priceRange: "INR",
++    makesOffer: SERVICE_TYPES.map((service) => ({
++      "@type": "Offer",
++      itemOffered: {
++        "@type": "Service",
++        name: service,
++      },
++    })),
++  };
++}
++
++function buildWebSite(origin: string): JsonLd {
++  return {
++    "@context": "https://schema.org",
++    "@type": "WebSite",
++    name: SITE_NAME,
++    url: origin,
++    inLanguage: "en-IN",
+   };
+ }
+ 
+@@ -159,7 +230,9 @@ function StructuredData() {
+     const pathname = location.pathname;
+ 
+     const payloads: JsonLd[] = [
++      buildWebSite(origin),
+       buildOrganization(origin),
++      buildLocalBusiness(origin),
+       buildBreadcrumb(pathname, origin),
+     ];
+ 
+diff --git a/src/pages/AboutPage.tsx b/src/pages/AboutPage.tsx
+index 3e2e549..67684da 100644
+--- a/src/pages/AboutPage.tsx
++++ b/src/pages/AboutPage.tsx
+@@ -13,9 +13,9 @@ function AboutPage() {
+   return (
+     <>
+       <SeoMeta
+-        title="About Fernesta | Growth-Focused Digital Marketing Partner"
+-        description="Learn about Fernesta, a systems-driven digital marketing partner for Indian SMEs and D2C brands focused on strategy, accountability, and measurable outcomes."
+-        keywords="about fernesta, digital marketing company India, performance marketing partner"
++        title="About Fernesta | Digital Marketing Agency in Jaipur"
++        description="Learn about Fernesta, a Jaipur-based digital marketing agency focused on strategy, accountability, and measurable business outcomes."
++        keywords="about fernesta, digital marketing agency in Jaipur, SEO and performance marketing Jaipur"
+       />
+ 
+       <section className="page-hero hero-about">
+@@ -23,9 +23,9 @@ function AboutPage() {
+         <div className="container hero-grid hero-grid-single">
+           <Reveal className="hero-copy" delayMs={80}>
+             <p className="meta">About Us</p>
+-            <h1>About Fernesta: A Scalable Digital Marketing Agency in India.</h1>
++            <h1>About Fernesta: A Results-Driven Digital Marketing Agency in Jaipur.</h1>
+             <p>
+-              Fernesta was founded to solve one persistent market gap: Indian businesses need reliable marketing execution, but most can only choose between expensive agencies and inconsistent freelancers.
++              Fernesta was founded to solve one persistent market gap: Jaipur businesses need reliable marketing execution, but most can only choose between expensive agencies and inconsistent freelancers.
+             </p>
+           </Reveal>
+         </div>
+@@ -43,9 +43,9 @@ function AboutPage() {
+           </Reveal>
+           <Reveal className="section-head split-head" delayMs={170}>
+             <p className="meta">Mission and Vision</p>
+-            <h2>Trusted SME and D2C Marketing Partner for Measurable Growth</h2>
++            <h2>Trusted Jaipur Marketing Partner for Measurable Growth</h2>
+             <p>
+-              Our mission is to deliver consistent, data-led, accountable marketing that creates real business outcomes. Our vision is to build India&apos;s leading scalable marketing platform for SMEs and D2C brands.
++              Our mission is to deliver consistent, data-led, accountable marketing that creates real business outcomes. Our vision is to become the most trusted growth partner for Jaipur businesses scaling online.
+             </p>
+             <div className="tag-list">
+               {strengths.map((item) => (
+diff --git a/src/pages/CaseStudiesPage.tsx b/src/pages/CaseStudiesPage.tsx
+index d4bd39e..6bf9a38 100644
+--- a/src/pages/CaseStudiesPage.tsx
++++ b/src/pages/CaseStudiesPage.tsx
+@@ -23,9 +23,9 @@ function CaseStudiesPage() {
+   return (
+     <>
+       <SeoMeta
+-        title="Digital Marketing Case Studies | Fernesta"
+-        description="Explore Fernesta case studies covering SEO growth, paid ads optimization, brand positioning, and measurable lead and revenue outcomes."
+-        keywords="digital marketing case studies, SEO case study, performance marketing results"
++        title="Digital Marketing Case Studies Jaipur | Fernesta"
++        description="Explore Fernesta case studies covering SEO growth, paid ads optimization, and measurable lead outcomes for Jaipur-focused businesses."
++        keywords="digital marketing case studies Jaipur, SEO case study Jaipur, PPC results Jaipur"
+       />
+ 
+       <section className="page-hero hero-clientele">
+diff --git a/src/pages/CaseStudyDetailPage.tsx b/src/pages/CaseStudyDetailPage.tsx
+index a27b1f6..722e078 100644
+--- a/src/pages/CaseStudyDetailPage.tsx
++++ b/src/pages/CaseStudyDetailPage.tsx
+@@ -14,9 +14,9 @@ function CaseStudyDetailPage() {
+   return (
+     <>
+       <SeoMeta
+-        title={`${study.client} Case Study | Fernesta`}
+-        description={`${study.client}: ${study.metric} ${study.result} through structured SEO, paid ads, and conversion optimization systems by Fernesta.`}
+-        keywords="case study, digital marketing results, SEO and paid ads success"
++        title={`${study.client} Case Study | Fernesta Jaipur`}
++        description={`${study.client}: ${study.metric} ${study.result} through structured SEO, paid ads, and conversion optimization systems by Fernesta in Jaipur.`}
++        keywords="case study Jaipur, digital marketing results Jaipur, SEO and paid ads success"
+       />
+ 
+       <section className="page-hero hero-services">
+diff --git a/src/pages/ClientelePage.tsx b/src/pages/ClientelePage.tsx
+index e4a0adf..2492a96 100644
+--- a/src/pages/ClientelePage.tsx
++++ b/src/pages/ClientelePage.tsx
+@@ -33,9 +33,9 @@ function ClientelePage() {
+   return (
+     <>
+       <SeoMeta
+-        title="Clientele and Industries We Serve | Fernesta"
+-        description="Fernesta works with founder-led SMEs, D2C brands, and growth-stage businesses seeking structured digital marketing systems and accountable execution."
+-        keywords="SME marketing services, D2C marketing services, industries served digital agency"
++        title="Industries We Serve in Jaipur | Fernesta Digital Marketing Agency"
++        description="Fernesta works with Jaipur SMEs, D2C brands, and growth-stage businesses seeking structured digital marketing systems and accountable execution."
++        keywords="digital marketing agency Jaipur industries, SME marketing Jaipur, D2C marketing Jaipur"
+       />
+ 
+       <section className="page-hero hero-clientele">
+@@ -43,7 +43,7 @@ function ClientelePage() {
+         <div className="container hero-grid hero-grid-single">
+           <Reveal className="hero-copy" delayMs={80}>
+             <p className="meta">Clientele</p>
+-            <h1>Digital Marketing Partner for SMEs, D2C Brands, and Growth Teams in India.</h1>
++            <h1>Digital Marketing Partner for Jaipur SMEs, D2C Brands, and Growth Teams.</h1>
+             <p>
+               We work best with businesses that value transparency, structured execution, and direct founder-led accountability.
+             </p>
+diff --git a/src/pages/ContactPage.tsx b/src/pages/ContactPage.tsx
+index 72bfa5b..3789946 100644
+--- a/src/pages/ContactPage.tsx
++++ b/src/pages/ContactPage.tsx
+@@ -69,9 +69,9 @@ function ContactPage() {
+   return (
+     <>
+       <SeoMeta
+-        title="Contact Fernesta | Book a Digital Marketing Consultation"
+-        description="Contact Fernesta to discuss SEO, paid ads, social media, website growth, and performance marketing services for your business."
+-        keywords="contact digital marketing agency, SEO consultation, paid ads consultation India"
++        title="Contact Fernesta | Digital Marketing Agency in Jaipur"
++        description="Contact Fernesta, a digital marketing agency in Jaipur, for SEO, Google Ads, social media marketing, and website growth consultation."
++        keywords="contact digital marketing agency Jaipur, SEO consultation Jaipur, PPC agency Jaipur contact"
+       />
+ 
+       <section className="page-hero hero-contact">
+@@ -79,9 +79,9 @@ function ContactPage() {
+         <div className="container hero-grid hero-grid-single">
+           <Reveal className="hero-copy" delayMs={80}>
+             <p className="meta">Contact Us</p>
+-            <h1>Contact Fernesta for SEO, Paid Ads, and Website Growth Consulting.</h1>
++            <h1>Contact Fernesta for SEO, Paid Ads, and Website Growth in Jaipur.</h1>
+             <p>
+-              Share your current growth stage and channel challenges. We will map the right retainer tier and operating cadence for your business.
++              Share your current growth stage and channel challenges. We will map the right service mix and execution cadence for your Jaipur business.
+             </p>
+           </Reveal>
+         </div>
+@@ -174,9 +174,14 @@ function ContactPage() {
+                   {message}
+                 </p>
+               )}
+-              <p>Email: info@fernesta.com</p>
+-              <p>Phone: +91 701 412 7724</p>
+-              <p>Response time: within 1 business day</p>
++              <div className="contact-details">
++                <p><strong>Fernesta Digital Marketing Agency</strong></p>
++                <p>Jaipur, Rajasthan, India</p>
++                <p>Email: info@fernesta.com</p>
++                <p>Phone: +91 701 412 7724</p>
++                <p>Working Hours: Monday-Saturday, 9:00 AM to 7:00 PM IST</p>
++                <p>Response time: within 1 business day</p>
++              </div>
+             </article>
+           </Reveal>
+           <Reveal delayMs={180}>
+@@ -190,6 +195,25 @@ function ContactPage() {
+         </div>
+       </section>
+ 
++      <section className="section section-border">
++        <div className="container">
++          <Reveal className="section-head">
++            <p className="meta">Office Location</p>
++            <h2>Find Us in Jaipur</h2>
++          </Reveal>
++          <Reveal>
++            <div className="panel interactive-card map-embed">
++              <iframe
++                title="Fernesta location map - Jaipur"
++                src="https://www.google.com/maps?q=Jaipur%2C%20Rajasthan&output=embed"
++                loading="lazy"
++                referrerPolicy="no-referrer-when-downgrade"
++              />
++            </div>
++          </Reveal>
++        </div>
++      </section>
++
+       <section className="section section-border">
+         <div className="container">
+           <Reveal className="section-head">
+diff --git a/src/pages/HomePage.tsx b/src/pages/HomePage.tsx
+index 1a7fc2f..2ee3cb4 100644
+--- a/src/pages/HomePage.tsx
++++ b/src/pages/HomePage.tsx
+@@ -63,19 +63,19 @@ function HomePage() {
+   return (
+     <>
+       <SeoMeta
+-        title="Digital Marketing Agency for SMEs and D2C Brands | Fernesta"
+-        description="Fernesta is a full-service digital marketing agency helping Indian SMEs and D2C brands with SEO, paid ads, content, analytics, and growth systems."
+-        keywords="digital marketing agency India, SME marketing agency, D2C marketing agency, SEO and paid ads services"
++        title="Digital Marketing Agency in Jaipur | Fernesta SEO, PPC and Social Media"
++        description="Fernesta is a results-focused digital marketing agency in Jaipur helping businesses grow through SEO, Google Ads, social media marketing, and conversion-ready websites."
++        keywords="digital marketing agency in Jaipur, SEO company in Jaipur, PPC agency Jaipur, social media marketing Jaipur, digital marketing services Jaipur"
+       />
+ 
+       <section className="page-hero hero-home">
+         <div className="hero-overlay" />
+         <div className="container hero-grid">
+           <Reveal className="hero-copy" delayMs={80}>
+-            <p className="meta">Full-Service Marketing Agency</p>
+-            <h1>Digital Marketing Agency in India for SMEs and D2C Brands.</h1>
++            <p className="meta">Jaipur Digital Marketing Agency</p>
++            <h1>Digital Marketing Agency in Jaipur for SEO, PPC, and Social Media Growth.</h1>
+             <p>
+-              Fernesta combines brand strategy, performance marketing, content, SEO, and analytics under one accountable operating model.
++              Fernesta helps Jaipur businesses generate measurable growth with data-led SEO, performance ads, social media management, and conversion-driven web strategy.
+             </p>
+             <div className="button-row">
+               <Link className="button button-primary" to="/services">
+diff --git a/src/pages/NotFoundPage.tsx b/src/pages/NotFoundPage.tsx
+new file mode 100644
+index 0000000..e40d2d2
+--- /dev/null
++++ b/src/pages/NotFoundPage.tsx
+@@ -0,0 +1,35 @@
++import { Link } from "react-router-dom";
++import SeoMeta from "../Components/SeoMeta";
++
++function NotFoundPage() {
++  return (
++    <>
++      <SeoMeta
++        title="Page Not Found | Fernesta Jaipur"
++        description="The page you are looking for could not be found. Explore Fernesta's digital marketing services in Jaipur."
++        keywords="page not found, fernesta jaipur"
++      />
++      <section className="section section-border">
++        <div className="container">
++          <article className="panel interactive-card">
++            <p className="meta">404</p>
++            <h1>Page Not Found</h1>
++            <p>
++              This URL does not exist. Visit our homepage or services page to continue.
++            </p>
++            <div className="button-row">
++              <Link className="button button-primary" to="/">
++                Go to Homepage
++              </Link>
++              <Link className="button button-secondary" to="/services">
++                View Services
++              </Link>
++            </div>
++          </article>
++        </div>
++      </section>
++    </>
++  );
++}
++
++export default NotFoundPage;
+diff --git a/src/pages/ServicesPage.tsx b/src/pages/ServicesPage.tsx
+index d080b1a..c6148ca 100644
+--- a/src/pages/ServicesPage.tsx
++++ b/src/pages/ServicesPage.tsx
+@@ -87,9 +87,9 @@ function ServicesPage() {
+   return (
+     <>
+       <SeoMeta
+-        title="Digital Marketing Services in India | Fernesta"
+-        description="Fernesta offers SEO services, social media management, Google and Meta ads, website development, graphic design, e-commerce ads, and branding services for Indian SMEs and D2C brands."
+-        keywords="digital marketing services, SEO services, social media management, Google ads agency, Meta ads management, website development, e-commerce ads, branding agency India"
++        title="Digital Marketing Services Jaipur | SEO, PPC, Social Media and Web | Fernesta"
++        description="Explore Fernesta's digital marketing services in Jaipur including SEO, Google Ads, Meta Ads, social media marketing, website development, and branding."
++        keywords="digital marketing services Jaipur, SEO services Jaipur, Google Ads agency Jaipur, social media agency Jaipur, website design Jaipur"
+       />
+ 
+       <section className="page-hero hero-services">
+@@ -97,9 +97,9 @@ function ServicesPage() {
+         <div className="container hero-grid hero-grid-single">
+           <Reveal className="hero-copy" delayMs={80}>
+             <p className="meta">Services</p>
+-            <h1>SEO, Paid Ads, Social Media, and Website Services for Business Growth</h1>
++            <h1>SEO, Paid Ads, Social Media, and Website Services for Jaipur Business Growth</h1>
+             <p>
+-              Based on our Digital Marketing Services Blueprint, Fernesta delivers seven core services through a structured, execution-ready system for Indian SMEs and D2C brands.
++              Based on our Digital Marketing Services Blueprint, Fernesta delivers seven core services through a structured, execution-ready system for startups, SMEs, and growth-stage teams in Jaipur.
+             </p>
+             <div className="button-row">
+               <Link className="button button-primary" to="/contact-us">
+@@ -117,7 +117,7 @@ function ServicesPage() {
+         <div className="container">
+           <Reveal className="section-head">
+             <p className="meta">Core Services</p>
+-            <h2>Complete Digital Marketing Services in India</h2>
++            <h2>Complete Digital Marketing Services in Jaipur</h2>
+             <p>
+               Every service includes planning, execution, optimization, and reporting so growth decisions remain data-led and accountable.
+             </p>

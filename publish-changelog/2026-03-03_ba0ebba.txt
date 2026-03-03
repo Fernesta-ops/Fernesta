@@ -1,0 +1,565 @@
+Publish Change Log
+==================
+
+Commit: ba0ebba61505db420abb59aeb3634c9a6386a55d
+Short Commit: ba0ebba
+Date: 2026-03-03T20:58:32+05:30
+Author: Tarun Gupta <info@fernesta.com>
+Message: Finalize mobile header visibility and align controls to brand system
+
+Changed Files (Name/Status)
+---------------------------
+M	index.html
+A	public/images/README.md
+R100	public/images/boardroom.jpg	public/images/components/hero/performance-dashboard.jpg
+R100	public/images/ai.jpg	public/images/components/home/ai-visual.jpg
+R100	public/images/dashboard.jpg	public/images/components/home/background.jpg
+R100	public/images/growth.jpg	public/images/components/performance/performance-dashboard.jpg
+A	public/images/pages/about/hero/background.jpg
+A	public/images/pages/about/section/team-visual.jpg
+A	public/images/pages/clientele/hero/background.jpg
+A	public/images/pages/clientele/section/reporting-dashboard.jpg
+A	public/images/pages/contact/hero/background.jpg
+A	public/images/pages/contact/section/strategy-session.jpg
+R100	public/images/hero-bg.jpg	public/images/pages/home/hero/background.jpg
+A	public/images/pages/home/hero/visual.jpg
+A	public/images/pages/home/services/branding.jpg
+A	public/images/pages/home/services/ecommerce.jpg
+A	public/images/pages/home/services/performance.jpg
+R100	public/images/grain.jpg	public/images/pages/home/services/seo.jpg
+A	public/images/pages/home/services/social-media.jpg
+A	public/images/pages/home/services/web-conversion.jpg
+A	public/images/pages/services/hero/background.jpg
+A	public/images/site/seo/default-share.jpg
+M	src/App.css
+M	src/Components/Hero.tsx
+M	src/Components/Home.tsx
+M	src/Components/Performance.tsx
+M	src/Components/SeoMeta.tsx
+M	src/Components/StructuredData.tsx
+M	src/pages/AboutPage.tsx
+M	src/pages/ClientelePage.tsx
+M	src/pages/ContactPage.tsx
+M	src/pages/HomePage.tsx
+
+Full Diff
+---------
+commit ba0ebba61505db420abb59aeb3634c9a6386a55d
+Author: Tarun Gupta <info@fernesta.com>
+Date:   Tue Mar 3 20:58:32 2026 +0530
+
+    Finalize mobile header visibility and align controls to brand system
+
+diff --git a/index.html b/index.html
+index 1079e26..e896c6a 100644
+--- a/index.html
++++ b/index.html
+@@ -16,14 +16,14 @@
+       property="og:description"
+       content="Result-focused SEO, PPC, social media, and web growth services for Jaipur businesses."
+     />
+-    <meta property="og:image" content="/images/hero-bg.jpg" />
++    <meta property="og:image" content="/images/site/seo/default-share.jpg" />
+     <meta name="twitter:card" content="summary_large_image" />
+     <meta name="twitter:title" content="Digital Marketing Agency in Jaipur | Fernesta" />
+     <meta
+       name="twitter:description"
+       content="Result-focused SEO, PPC, social media, and web growth services for Jaipur businesses."
+     />
+-    <meta name="twitter:image" content="/images/hero-bg.jpg" />
++    <meta name="twitter:image" content="/images/site/seo/default-share.jpg" />
+     <link rel="canonical" href="https://fernesta.pages.dev/" />
+   </head>
+   <body>
+diff --git a/public/images/README.md b/public/images/README.md
+new file mode 100644
+index 0000000..6cfe69a
+--- /dev/null
++++ b/public/images/README.md
+@@ -0,0 +1,32 @@
++Fernesta image folders are organized by page and placement so you can replace files quickly.
++
++How to replace images:
++- Keep the same filename and extension.
++- Replace only the file in the matching folder.
++- Do not change paths unless you also update code references.
++
++SEO default image:
++- `site/seo/default-share.jpg`
++
++Page images:
++- `pages/home/hero/background.jpg`
++- `pages/home/hero/visual.jpg`
++- `pages/home/services/seo.jpg`
++- `pages/home/services/performance.jpg`
++- `pages/home/services/social-media.jpg`
++- `pages/home/services/web-conversion.jpg`
++- `pages/home/services/branding.jpg`
++- `pages/home/services/ecommerce.jpg`
++- `pages/about/hero/background.jpg`
++- `pages/about/section/team-visual.jpg`
++- `pages/services/hero/background.jpg`
++- `pages/clientele/hero/background.jpg`
++- `pages/clientele/section/reporting-dashboard.jpg`
++- `pages/contact/hero/background.jpg`
++- `pages/contact/section/strategy-session.jpg`
++
++Component-level reusable images:
++- `components/hero/performance-dashboard.jpg`
++- `components/home/background.jpg`
++- `components/home/ai-visual.jpg`
++- `components/performance/performance-dashboard.jpg`
+diff --git a/public/images/boardroom.jpg b/public/images/components/hero/performance-dashboard.jpg
+similarity index 100%
+rename from public/images/boardroom.jpg
+rename to public/images/components/hero/performance-dashboard.jpg
+diff --git a/public/images/ai.jpg b/public/images/components/home/ai-visual.jpg
+similarity index 100%
+rename from public/images/ai.jpg
+rename to public/images/components/home/ai-visual.jpg
+diff --git a/public/images/dashboard.jpg b/public/images/components/home/background.jpg
+similarity index 100%
+rename from public/images/dashboard.jpg
+rename to public/images/components/home/background.jpg
+diff --git a/public/images/growth.jpg b/public/images/components/performance/performance-dashboard.jpg
+similarity index 100%
+rename from public/images/growth.jpg
+rename to public/images/components/performance/performance-dashboard.jpg
+diff --git a/public/images/pages/about/hero/background.jpg b/public/images/pages/about/hero/background.jpg
+new file mode 100644
+index 0000000..d6ee3f7
+Binary files /dev/null and b/public/images/pages/about/hero/background.jpg differ
+diff --git a/public/images/pages/about/section/team-visual.jpg b/public/images/pages/about/section/team-visual.jpg
+new file mode 100644
+index 0000000..d6ee3f7
+Binary files /dev/null and b/public/images/pages/about/section/team-visual.jpg differ
+diff --git a/public/images/pages/clientele/hero/background.jpg b/public/images/pages/clientele/hero/background.jpg
+new file mode 100644
+index 0000000..d6ee3f7
+Binary files /dev/null and b/public/images/pages/clientele/hero/background.jpg differ
+diff --git a/public/images/pages/clientele/section/reporting-dashboard.jpg b/public/images/pages/clientele/section/reporting-dashboard.jpg
+new file mode 100644
+index 0000000..d6ee3f7
+Binary files /dev/null and b/public/images/pages/clientele/section/reporting-dashboard.jpg differ
+diff --git a/public/images/pages/contact/hero/background.jpg b/public/images/pages/contact/hero/background.jpg
+new file mode 100644
+index 0000000..ff3f11d
+Binary files /dev/null and b/public/images/pages/contact/hero/background.jpg differ
+diff --git a/public/images/pages/contact/section/strategy-session.jpg b/public/images/pages/contact/section/strategy-session.jpg
+new file mode 100644
+index 0000000..d6ee3f7
+Binary files /dev/null and b/public/images/pages/contact/section/strategy-session.jpg differ
+diff --git a/public/images/hero-bg.jpg b/public/images/pages/home/hero/background.jpg
+similarity index 100%
+rename from public/images/hero-bg.jpg
+rename to public/images/pages/home/hero/background.jpg
+diff --git a/public/images/pages/home/hero/visual.jpg b/public/images/pages/home/hero/visual.jpg
+new file mode 100644
+index 0000000..c6b2143
+Binary files /dev/null and b/public/images/pages/home/hero/visual.jpg differ
+diff --git a/public/images/pages/home/services/branding.jpg b/public/images/pages/home/services/branding.jpg
+new file mode 100644
+index 0000000..d6ee3f7
+Binary files /dev/null and b/public/images/pages/home/services/branding.jpg differ
+diff --git a/public/images/pages/home/services/ecommerce.jpg b/public/images/pages/home/services/ecommerce.jpg
+new file mode 100644
+index 0000000..ff3f11d
+Binary files /dev/null and b/public/images/pages/home/services/ecommerce.jpg differ
+diff --git a/public/images/pages/home/services/performance.jpg b/public/images/pages/home/services/performance.jpg
+new file mode 100644
+index 0000000..d6ee3f7
+Binary files /dev/null and b/public/images/pages/home/services/performance.jpg differ
+diff --git a/public/images/grain.jpg b/public/images/pages/home/services/seo.jpg
+similarity index 100%
+rename from public/images/grain.jpg
+rename to public/images/pages/home/services/seo.jpg
+diff --git a/public/images/pages/home/services/social-media.jpg b/public/images/pages/home/services/social-media.jpg
+new file mode 100644
+index 0000000..c1c7fe7
+Binary files /dev/null and b/public/images/pages/home/services/social-media.jpg differ
+diff --git a/public/images/pages/home/services/web-conversion.jpg b/public/images/pages/home/services/web-conversion.jpg
+new file mode 100644
+index 0000000..c6b2143
+Binary files /dev/null and b/public/images/pages/home/services/web-conversion.jpg differ
+diff --git a/public/images/pages/services/hero/background.jpg b/public/images/pages/services/hero/background.jpg
+new file mode 100644
+index 0000000..88f45e2
+Binary files /dev/null and b/public/images/pages/services/hero/background.jpg differ
+diff --git a/public/images/site/seo/default-share.jpg b/public/images/site/seo/default-share.jpg
+new file mode 100644
+index 0000000..c1c7fe7
+Binary files /dev/null and b/public/images/site/seo/default-share.jpg differ
+diff --git a/src/App.css b/src/App.css
+index 43f5860..1e8eeee 100644
+--- a/src/App.css
++++ b/src/App.css
+@@ -16,6 +16,11 @@
+   --dock-height: 76px;
+   --radius-lg: 22px;
+   --radius-md: 16px;
++  --radius-sm: 10px;
++  --control-bg: #f7f6ef;
++  --control-border: #6f7e6f;
++  --control-border-focus: #2d4430;
++  --control-text: #18231b;
+ }
+ 
+ * {
+@@ -82,7 +87,7 @@ button {
+ 
+ main {
+   padding-bottom: calc(var(--dock-height) + 20px);
+-  padding-top: var(--nav-height);
++  padding-top: calc(var(--nav-height) + env(safe-area-inset-top));
+ }
+ 
+ .route-fade {
+@@ -156,7 +161,7 @@ p {
+   position: fixed;
+   top: 0;
+   width: 100%;
+-  z-index: 40;
++  z-index: 100;
+ }
+ 
+ .skip-link {
+@@ -179,6 +184,7 @@ p {
+   gap: 24px;
+   grid-template-columns: auto 1fr auto;
+   height: var(--nav-height);
++  min-height: var(--nav-height);
+   position: relative;
+ }
+ 
+@@ -196,7 +202,9 @@ p {
+ }
+ 
+ .nav-toggle {
++  background: rgba(239, 236, 221, 0.96);
+   border: 1px solid var(--line-strong);
++  border-radius: var(--radius-sm);
+   color: var(--text);
+   display: none;
+   font-size: 0.76rem;
+@@ -244,6 +252,7 @@ p {
+ .button {
+   align-items: center;
+   border: 1px solid transparent;
++  border-radius: var(--radius-sm);
+   cursor: pointer;
+   display: inline-flex;
+   font-size: 0.78rem;
+@@ -276,6 +285,7 @@ p {
+ 
+ .button-secondary:hover {
+   border-color: #4a7464;
++  background: rgba(239, 236, 221, 0.95);
+ }
+ 
+ .button:hover {
+@@ -289,23 +299,23 @@ p {
+ }
+ 
+ .hero-home {
+-  background-image: url("/images/hero-bg.jpg");
++  background-image: url("/images/pages/home/hero/background.jpg");
+ }
+ 
+ .hero-about {
+-  background-image: url("/images/boardroom.jpg");
++  background-image: url("/images/pages/about/hero/background.jpg");
+ }
+ 
+ .hero-services {
+-  background-image: url("/images/grain.jpg");
++  background-image: url("/images/pages/services/hero/background.jpg");
+ }
+ 
+ .hero-clientele {
+-  background-image: url("/images/dashboard.jpg");
++  background-image: url("/images/pages/clientele/hero/background.jpg");
+ }
+ 
+ .hero-contact {
+-  background-image: url("/images/growth.jpg");
++  background-image: url("/images/pages/contact/hero/background.jpg");
+ }
+ 
+ .hero-overlay {
+@@ -657,8 +667,9 @@ p {
+ }
+ 
+ .filter-pill {
+-  background: rgba(239, 236, 221, 0.8);
++  background: rgba(239, 236, 221, 0.9);
+   border: 1px solid #75806f;
++  border-radius: var(--radius-sm);
+   color: #243128;
+   cursor: pointer;
+   font-size: 0.78rem;
+@@ -724,6 +735,9 @@ p {
+ 
+ .faq-q {
+   align-items: center;
++  background: transparent;
++  border: 0;
++  border-radius: var(--radius-sm);
+   color: var(--text);
+   display: flex;
+   font-family: "Cormorant Garamond", serif;
+@@ -968,7 +982,9 @@ p {
+ }
+ 
+ .audit-head button {
++  background: rgba(239, 236, 221, 0.95);
+   border: 1px solid #5f6f5f;
++  border-radius: var(--radius-sm);
+   color: var(--accent-strong);
+   font-size: 0.78rem;
+   min-height: 32px;
+@@ -993,11 +1009,24 @@ p {
+ 
+ .audit-form input,
+ .audit-form select {
+-  background: #f8f7f2;
+-  border: 1px solid #717f70;
+-  color: var(--text);
++  appearance: none;
++  background: var(--control-bg);
++  border: 1px solid var(--control-border);
++  border-radius: var(--radius-sm);
++  color: var(--control-text);
++  font-family: inherit;
++  font-size: 0.95rem;
+   min-height: 40px;
+   padding: 0 10px;
++  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
++}
++
++.audit-form input:focus,
++.audit-form select:focus {
++  background: #fcfcf7;
++  border-color: var(--control-border-focus);
++  box-shadow: 0 0 0 2px rgba(45, 68, 48, 0.16);
++  outline: none;
+ }
+ 
+ .audit-form button:disabled {
+@@ -1037,11 +1066,24 @@ p {
+ .contact-form input,
+ .contact-form select,
+ .contact-form textarea {
+-  background: #f8f7f2;
+-  border: 1px solid #717f70;
+-  color: var(--text);
++  appearance: none;
++  background: var(--control-bg);
++  border: 1px solid var(--control-border);
++  border-radius: var(--radius-sm);
++  color: var(--control-text);
+   font-family: inherit;
++  font-size: 0.95rem;
+   padding: 10px;
++  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
++}
++
++.contact-form input:focus,
++.contact-form select:focus,
++.contact-form textarea:focus {
++  background: #fcfcf7;
++  border-color: var(--control-border-focus);
++  box-shadow: 0 0 0 2px rgba(45, 68, 48, 0.16);
++  outline: none;
+ }
+ 
+ .contact-form textarea {
+@@ -1180,6 +1222,10 @@ p {
+ }
+ 
+ @media (max-width: 1080px) {
++  .nav {
++    padding-top: env(safe-area-inset-top);
++  }
++
+   .nav-container {
+     grid-template-columns: minmax(0, 1fr) auto;
+     height: var(--nav-height);
+diff --git a/src/Components/Hero.tsx b/src/Components/Hero.tsx
+index 1b4d3a1..dc19fa4 100644
+--- a/src/Components/Hero.tsx
++++ b/src/Components/Hero.tsx
+@@ -29,7 +29,7 @@ function Hero() {
+           <div className="dashboard-frame">
+             <p className="meta">Performance Dashboard</p>
+             <img
+-              src="/images/dashboard.jpg"
++              src="/images/components/hero/performance-dashboard.jpg"
+               alt="Structured growth performance dashboard"
+             />
+           </div>
+diff --git a/src/Components/Home.tsx b/src/Components/Home.tsx
+index 1a1fb90..e91bbb3 100644
+--- a/src/Components/Home.tsx
++++ b/src/Components/Home.tsx
+@@ -3,7 +3,7 @@ export default function Home() {
+     <section
+       className="hero"
+       style={{
+-        backgroundImage: `url("/images/dark data dashboard background.jpg")`,
++        backgroundImage: `url("/images/components/home/background.jpg")`,
+       }}
+     >
+       <div className="hero-dark-overlay"></div>
+@@ -36,7 +36,7 @@ export default function Home() {
+         <div className="hero-visual">
+           <div className="image-frame">
+             <img
+-              src="/images/ai.jpg"
++              src="/images/components/home/ai-visual.jpg"
+               alt="AI Marketing Interface"
+             />
+           </div>
+@@ -44,4 +44,4 @@ export default function Home() {
+       </div>
+     </section>
+   );
+-}
+\ No newline at end of file
++}
+diff --git a/src/Components/Performance.tsx b/src/Components/Performance.tsx
+index fc3ff8b..702b530 100644
+--- a/src/Components/Performance.tsx
++++ b/src/Components/Performance.tsx
+@@ -15,7 +15,7 @@ export default function Performance() {
+           </div>
+ 
+           <div className="performance-image">
+-            <img src="/images/growth.jpg" alt="Performance Dashboard" />
++            <img src="/images/components/performance/performance-dashboard.jpg" alt="Performance Dashboard" />
+           </div>
+ 
+         </div>
+@@ -55,4 +55,4 @@ export default function Performance() {
+       </div>
+     </section>
+   );
+-}
+\ No newline at end of file
++}
+diff --git a/src/Components/SeoMeta.tsx b/src/Components/SeoMeta.tsx
+index cc7a297..29c2446 100644
+--- a/src/Components/SeoMeta.tsx
++++ b/src/Components/SeoMeta.tsx
+@@ -17,7 +17,7 @@ function upsertMeta(selector: string, attr: "name" | "property", key: string, co
+   meta.setAttribute("content", content);
+ }
+ 
+-function SeoMeta({ title, description, keywords, image = "/images/hero-bg.jpg" }: SeoMetaProps) {
++function SeoMeta({ title, description, keywords, image = "/images/site/seo/default-share.jpg" }: SeoMetaProps) {
+   useEffect(() => {
+     const url = `${window.location.origin}${window.location.pathname}`;
+     const imageUrl = image.startsWith("http") ? image : `${window.location.origin}${image}`;
+diff --git a/src/Components/StructuredData.tsx b/src/Components/StructuredData.tsx
+index 7bd027f..e50ccb4 100644
+--- a/src/Components/StructuredData.tsx
++++ b/src/Components/StructuredData.tsx
+@@ -155,7 +155,7 @@ function buildLocalBusiness(origin: string): JsonLd {
+     "@id": `${origin}/#localbusiness`,
+     name: "Fernesta Digital Marketing Agency",
+     url: origin,
+-    image: `${origin}/images/hero-bg.jpg`,
++    image: `${origin}/images/site/seo/default-share.jpg`,
+     telephone: PHONE,
+     email: EMAIL,
+     address: {
+diff --git a/src/pages/AboutPage.tsx b/src/pages/AboutPage.tsx
+index 67684da..b4da163 100644
+--- a/src/pages/AboutPage.tsx
++++ b/src/pages/AboutPage.tsx
+@@ -36,7 +36,7 @@ function AboutPage() {
+           <Reveal delayMs={80}>
+             <figure className="media-card interactive-card">
+               <img
+-                src="/images/boardroom.jpg"
++                src="/images/pages/about/section/team-visual.jpg"
+                 alt="Leadership team aligned on strategy and delivery systems"
+               />
+             </figure>
+diff --git a/src/pages/ClientelePage.tsx b/src/pages/ClientelePage.tsx
+index 2492a96..ded055e 100644
+--- a/src/pages/ClientelePage.tsx
++++ b/src/pages/ClientelePage.tsx
+@@ -72,7 +72,7 @@ function ClientelePage() {
+           <Reveal delayMs={190}>
+             <figure className="media-card interactive-card">
+               <img
+-                src="/images/dashboard.jpg"
++                src="/images/pages/clientele/section/reporting-dashboard.jpg"
+                 alt="Performance dashboard used for transparent client reporting"
+               />
+             </figure>
+diff --git a/src/pages/ContactPage.tsx b/src/pages/ContactPage.tsx
+index 3789946..0d52405 100644
+--- a/src/pages/ContactPage.tsx
++++ b/src/pages/ContactPage.tsx
+@@ -187,7 +187,7 @@ function ContactPage() {
+           <Reveal delayMs={180}>
+             <figure className="media-card interactive-card">
+               <img
+-                src="/images/boardroom.jpg"
++                src="/images/pages/contact/section/strategy-session.jpg"
+                 alt="Client strategy planning session with the Fernesta team"
+               />
+             </figure>
+diff --git a/src/pages/HomePage.tsx b/src/pages/HomePage.tsx
+index 2ee3cb4..26f3f0e 100644
+--- a/src/pages/HomePage.tsx
++++ b/src/pages/HomePage.tsx
+@@ -30,32 +30,32 @@ const catalog = [
+   {
+     title: "Search Engine Optimization",
+     detail: "On-page, off-page, and technical SEO for durable organic growth.",
+-    image: "/images/grain.jpg",
++    image: "/images/pages/home/services/seo.jpg",
+   },
+   {
+     title: "Performance Marketing",
+     detail: "Google Ads and Meta Ads systems focused on quality leads and ROAS.",
+-    image: "/images/dashboard.jpg",
++    image: "/images/pages/home/services/performance.jpg",
+   },
+   {
+     title: "Social Media Management",
+     detail: "Organic social strategy, community management, and paid social execution.",
+-    image: "/images/hero-bg.jpg",
++    image: "/images/pages/home/services/social-media.jpg",
+   },
+   {
+     title: "Website and Conversion Systems",
+     detail: "Website structure, landing page flow, and conversion architecture optimization.",
+-    image: "/images/ai.jpg",
++    image: "/images/pages/home/services/web-conversion.jpg",
+   },
+   {
+     title: "Branding and Visual Identity",
+     detail: "Brand profile, design language, and positioning clarity across channels.",
+-    image: "/images/boardroom.jpg",
++    image: "/images/pages/home/services/branding.jpg",
+   },
+   {
+     title: "E-Commerce Growth",
+     detail: "Marketplace ads, listing optimization, and catalog-level profitability control.",
+-    image: "/images/growth.jpg",
++    image: "/images/pages/home/services/ecommerce.jpg",
+   },
+ ];
+ 
+@@ -89,7 +89,7 @@ function HomePage() {
+           <Reveal delayMs={180}>
+             <figure className="media-card interactive-card">
+               <img
+-                src="/images/ai.jpg"
++                src="/images/pages/home/hero/visual.jpg"
+                 alt="AI-powered marketing intelligence and reporting setup"
+               />
+             </figure>
