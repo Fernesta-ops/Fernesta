@@ -1,0 +1,34 @@
+Publish Change Log
+==================
+
+Commit: b290259735464899a74b2ea86362e4e9942576a0
+Short Commit: b290259
+Date: 2026-03-03T21:49:39+05:30
+Author: Tarun Gupta <info@fernesta.com>
+Message: Use generic dummy phone placeholder in contact form
+
+Changed Files (Name/Status)
+---------------------------
+M	src/pages/ContactPage.tsx
+
+Full Diff
+---------
+commit b290259735464899a74b2ea86362e4e9942576a0
+Author: Tarun Gupta <info@fernesta.com>
+Date:   Tue Mar 3 21:49:39 2026 +0530
+
+    Use generic dummy phone placeholder in contact form
+
+diff --git a/src/pages/ContactPage.tsx b/src/pages/ContactPage.tsx
+index fe28cc2..10fbaa4 100644
+--- a/src/pages/ContactPage.tsx
++++ b/src/pages/ContactPage.tsx
+@@ -128,7 +128,7 @@ function ContactPage() {
+                     type="tel"
+                     value={formData.phone}
+                     onChange={(event) => setFormData((prev) => ({ ...prev, phone: event.target.value }))}
+-                    placeholder="+91 701 412 7724"
++                    placeholder="99999 99999"
+                   />
+                 </label>
+                 <label>
