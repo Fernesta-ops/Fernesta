@@ -249,7 +249,7 @@ p {
   color: var(--text);
 }
 
-.nav-mobile-cta {
+.nav-mobile-cta.button {
   display: none;
 }
 
@@ -1287,7 +1287,7 @@ p {
     display: none;
   }
 
-  .nav-mobile-cta {
+  .nav-mobile-cta.button {
     display: inline-flex;
     margin-top: 4px;
     width: 100%;
