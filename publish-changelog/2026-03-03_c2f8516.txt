@@ -1,0 +1,255 @@
+Publish Change Log
+==================
+
+Commit: c2f851626efbae6a2ec0216c1db6ed30e6916100
+Short Commit: c2f8516
+Date: 2026-03-03T21:27:12+05:30
+Author: Tarun Gupta <info@fernesta.com>
+Message: Enable automated lead emails for forms and finalize top-nav CTA
+
+Changed Files (Name/Status)
+---------------------------
+M	src/Components/Navbar.tsx
+M	src/Components/StrategyAuditWidget.tsx
+A	src/lib/leadMailer.ts
+M	src/pages/ContactPage.tsx
+
+Full Diff
+---------
+commit c2f851626efbae6a2ec0216c1db6ed30e6916100
+Author: Tarun Gupta <info@fernesta.com>
+Date:   Tue Mar 3 21:27:12 2026 +0530
+
+    Enable automated lead emails for forms and finalize top-nav CTA
+
+diff --git a/src/Components/Navbar.tsx b/src/Components/Navbar.tsx
+index 8a44ef0..9c8490a 100644
+--- a/src/Components/Navbar.tsx
++++ b/src/Components/Navbar.tsx
+@@ -7,7 +7,6 @@ const links = [
+   { label: "Services", to: "/services" },
+   { label: "Clientele", to: "/clientele" },
+   { label: "Case Studies", to: "/case-studies" },
+-  { label: "Contact Us", to: "/contact-us" },
+ ];
+ 
+ export default function Navbar() {
+diff --git a/src/Components/StrategyAuditWidget.tsx b/src/Components/StrategyAuditWidget.tsx
+index df43e0f..6000a3d 100644
+--- a/src/Components/StrategyAuditWidget.tsx
++++ b/src/Components/StrategyAuditWidget.tsx
+@@ -1,4 +1,5 @@
+-?import { useEffect, useState, type FormEvent } from "react";
++import { useEffect, useState, type FormEvent } from "react";
++import { sendLeadEmail } from "../lib/leadMailer";
+ 
+ type AuditFormData = {
+   name: string;
+@@ -19,6 +20,7 @@ function StrategyAuditWidget() {
+   const [formData, setFormData] = useState<AuditFormData>(initialForm);
+   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+   const [message, setMessage] = useState("");
++  const [submitting, setSubmitting] = useState(false);
+ 
+   useEffect(() => {
+     if (!open) return;
+@@ -42,7 +44,7 @@ function StrategyAuditWidget() {
+     return () => window.removeEventListener("open-audit", onOpen as EventListener);
+   }, []);
+ 
+-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
++  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+     event.preventDefault();
+     if (!formData.name || !formData.email || !formData.stage || !formData.budget) {
+       setStatus("error");
+@@ -50,22 +52,29 @@ function StrategyAuditWidget() {
+       return;
+     }
+ 
+-    const subject = encodeURIComponent(`Strategy Audit Request - ${formData.name}`);
+-    const body = encodeURIComponent(
+-      [
+-        `Name: ${formData.name}`,
+-        `Email: ${formData.email}`,
+-        `Business Stage: ${formData.stage}`,
+-        `Monthly Marketing Budget: ${formData.budget}`,
+-        "",
+-        "Submitted from fernesta.com Strategy Audit form.",
+-      ].join("\n")
+-    );
+-
+-    setStatus("success");
+-    setMessage("Opening your email app to send this request to info@fernesta.com.");
+-    window.location.href = `mailto:info@fernesta.com?subject=${subject}&body=${body}`;
+-    setFormData(initialForm);
++    try {
++      setSubmitting(true);
++      setStatus("idle");
++      await sendLeadEmail({
++        subject: `Strategy Audit Request - ${formData.name}`,
++        formName: "Strategy Audit Widget",
++        fields: {
++          name: formData.name,
++          email: formData.email,
++          business_stage: formData.stage,
++          monthly_marketing_budget: formData.budget,
++          source: "fernesta.com/audit-widget",
++        },
++      });
++      setStatus("success");
++      setMessage("Request submitted successfully. Our team will reach out shortly.");
++      setFormData(initialForm);
++    } catch {
++      setStatus("error");
++      setMessage("Submission failed. Please try again.");
++    } finally {
++      setSubmitting(false);
++    }
+   };
+ 
+   return (
+@@ -143,8 +152,8 @@ function StrategyAuditWidget() {
+                   <option>Rs. 1,00,000+</option>
+                 </select>
+               </label>
+-              <button type="submit" className="button button-primary">
+-                Submit Request
++              <button type="submit" className="button button-primary" disabled={submitting}>
++                {submitting ? "Submitting..." : "Submit Request"}
+               </button>
+             </form>
+             {message && (
+diff --git a/src/lib/leadMailer.ts b/src/lib/leadMailer.ts
+new file mode 100644
+index 0000000..024cb7a
+--- /dev/null
++++ b/src/lib/leadMailer.ts
+@@ -0,0 +1,41 @@
++type LeadEmailInput = {
++  subject: string;
++  formName: string;
++  fields: Record<string, string>;
++};
++
++const DEFAULT_ENDPOINT = "https://formsubmit.co/ajax/info@fernesta.com";
++
++export async function sendLeadEmail(input: LeadEmailInput): Promise<void> {
++  const endpoint = import.meta.env.VITE_LEAD_ENDPOINT || DEFAULT_ENDPOINT;
++
++  const response = await fetch(endpoint, {
++    method: "POST",
++    headers: {
++      "Content-Type": "application/json",
++      Accept: "application/json",
++    },
++    body: JSON.stringify({
++      _subject: input.subject,
++      _template: "table",
++      _captcha: "false",
++      form_name: input.formName,
++      ...input.fields,
++    }),
++  });
++
++  if (!response.ok) {
++    throw new Error(`Lead request failed with status ${response.status}`);
++  }
++
++  const payload = (await response.json().catch(() => null)) as
++    | { success?: string | boolean; message?: string }
++    | null;
++
++  if (payload && payload.success !== undefined) {
++    const ok = payload.success === true || payload.success === "true";
++    if (!ok) {
++      throw new Error(payload.message || "Lead request was rejected.");
++    }
++  }
++}
+diff --git a/src/pages/ContactPage.tsx b/src/pages/ContactPage.tsx
+index 0d52405..fe28cc2 100644
+--- a/src/pages/ContactPage.tsx
++++ b/src/pages/ContactPage.tsx
+@@ -2,6 +2,7 @@ import { useState, type FormEvent } from "react";
+ import { Link } from "react-router-dom";
+ import Reveal from "../Components/Reveal";
+ import SeoMeta from "../Components/SeoMeta";
++import { sendLeadEmail } from "../lib/leadMailer";
+ 
+ const phases = [
+   {
+@@ -34,9 +35,10 @@ const initialForm = {
+ function ContactPage() {
+   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+   const [message, setMessage] = useState("");
++  const [submitting, setSubmitting] = useState(false);
+   const [formData, setFormData] = useState(initialForm);
+ 
+-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
++  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+     event.preventDefault();
+     if (!formData.name || !formData.email || !formData.phone || !formData.company || !formData.service || !formData.message) {
+       setStatus("error");
+@@ -44,26 +46,31 @@ function ContactPage() {
+       return;
+     }
+ 
+-    const subject = encodeURIComponent(`Consultation Request - ${formData.company}`);
+-    const body = encodeURIComponent(
+-      [
+-        `Name: ${formData.name}`,
+-        `Email: ${formData.email}`,
+-        `Phone: ${formData.phone}`,
+-        `Company: ${formData.company}`,
+-        `Interested Service: ${formData.service}`,
+-        "",
+-        "Business Goals:",
+-        formData.message,
+-        "",
+-        "Submitted from fernesta.com Contact form.",
+-      ].join("\n")
+-    );
+-
+-    setStatus("success");
+-    setMessage("Opening your email app to send this inquiry to info@fernesta.com.");
+-    window.location.href = `mailto:info@fernesta.com?subject=${subject}&body=${body}`;
+-    setFormData(initialForm);
++    try {
++      setSubmitting(true);
++      setStatus("idle");
++      await sendLeadEmail({
++        subject: `Consultation Request - ${formData.company}`,
++        formName: "Contact Form",
++        fields: {
++          name: formData.name,
++          email: formData.email,
++          phone: formData.phone,
++          company: formData.company,
++          interested_service: formData.service,
++          business_goals: formData.message,
++          source: "fernesta.com/contact-us",
++        },
++      });
++      setStatus("success");
++      setMessage("Inquiry submitted successfully. Our team will contact you within 1 business day.");
++      setFormData(initialForm);
++    } catch {
++      setStatus("error");
++      setMessage("Submission failed. Please try again or email info@fernesta.com.");
++    } finally {
++      setSubmitting(false);
++    }
+   };
+ 
+   return (
+@@ -162,8 +169,8 @@ function ContactPage() {
+                     placeholder="Tell us your current challenge and growth target."
+                   />
+                 </label>
+-                <button className="button button-primary" type="submit">
+-                  Submit Inquiry
++                <button className="button button-primary" type="submit" disabled={submitting}>
++                  {submitting ? "Submitting..." : "Submit Inquiry"}
+                 </button>
+               </form>
+               {message && (
