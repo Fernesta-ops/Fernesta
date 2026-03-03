@@ -128,7 +128,7 @@ function ContactPage() {
                     type="tel"
                     value={formData.phone}
                     onChange={(event) => setFormData((prev) => ({ ...prev, phone: event.target.value }))}
-                    placeholder="+91 701 412 7724"
+                    placeholder="99999 99999"
                   />
                 </label>
                 <label>
