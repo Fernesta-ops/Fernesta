@@ -57,6 +57,11 @@ const catalog = [
     detail: "Marketplace ads, listing optimization, and catalog-level profitability control.",
     image: "/images/pages/home/services/ecommerce.jpg",
   },
+  {
+    title: "PR and Influencer Management",
+    detail: "Strategic PR campaigns and influencer partnerships to amplify brand reach and credibility.",
+    image: "/images/pages/home/services/pr-influencer.jpg",
+  },
 ];
 
 function HomePage() {
@@ -136,7 +141,7 @@ function HomePage() {
             <p className="meta">Core Philosophy</p>
             <h2>SEO, Paid Ads, Social Media, and Growth Systems with Accountability</h2>
           </Reveal>
-          <div className="card-grid card-grid-four">
+          <div className="card-grid card-grid-four card-numbered">
             {principles.map((item, index) => (
               <Reveal key={item.title} delayMs={80 * (index + 1)}>
                 <article className="panel interactive-card">

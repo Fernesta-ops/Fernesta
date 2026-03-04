@@ -81,6 +81,17 @@ const serviceBlueprint = [
       "Pitch deck, company profile, and proposal templates",
     ],
   },
+  {
+    title: "PR and Influencer Management",
+    summary:
+      "Strategic public relations and influencer partnership management to amplify brand reach, build media presence, and drive credibility.",
+    tasks: [
+      "PR strategy, press release writing, and media outreach",
+      "Influencer identification, brief creation, and campaign coordination",
+      "Campaign performance tracking and ROI measurement",
+      "Reputation monitoring and brand sentiment analysis",
+    ],
+  },
 ];
 
 function ServicesPage() {
@@ -99,7 +110,7 @@ function ServicesPage() {
             <p className="meta">Services</p>
             <h1>SEO, Paid Ads, Social Media, and Website Services for Jaipur Business Growth</h1>
             <p>
-              Based on our Digital Marketing Services Blueprint, Fernesta delivers seven core services through a structured, execution-ready system for startups, SMEs, and growth-stage teams in Jaipur.
+              Based on our Digital Marketing Services Blueprint, Fernesta delivers eight core services through a structured, execution-ready system for startups, SMEs, and growth-stage teams in Jaipur.
             </p>
             <div className="button-row">
               <Link className="button button-primary" to="/contact-us">
@@ -123,7 +134,7 @@ function ServicesPage() {
             </p>
           </Reveal>
 
-          <div className="card-grid card-grid-two">
+          <div className="card-grid card-grid-two card-numbered">
             {serviceBlueprint.map((service, index) => (
               <Reveal key={service.title} delayMs={70 * (index + 1)}>
                 <article className="panel interactive-card service-blueprint-card">

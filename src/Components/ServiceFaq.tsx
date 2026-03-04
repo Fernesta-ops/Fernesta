@@ -18,6 +18,10 @@ const faqs = [
     q: "Is website optimization included in marketing engagements?",
     a: "Yes. Landing page optimization and conversion-focused UX improvements are part of growth delivery.",
   },
+  {
+    q: "Does Fernesta offer PR and influencer marketing services?",
+    a: "Yes. We manage end-to-end PR campaigns and influencer partnerships — from media outreach and press release writing to influencer brief creation, campaign execution, and ROI tracking.",
+  },
 ];
 
 function ServiceFaq() {

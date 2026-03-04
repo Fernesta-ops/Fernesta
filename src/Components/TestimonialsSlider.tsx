@@ -1,4 +1,5 @@
-﻿import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import Reveal from "./Reveal";
 
 const testimonials = [
@@ -39,8 +40,18 @@ function TestimonialsSlider() {
         </Reveal>
         <Reveal>
           <article className="panel testimonial-card interactive-card">
-            <p className="testimonial-quote">"{testimonials[active].quote}"</p>
-            <p className="testimonial-person">{testimonials[active].person}</p>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={active}
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -14 }}
+                transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <p className="testimonial-quote">"{testimonials[active].quote}"</p>
+                <p className="testimonial-person">{testimonials[active].person}</p>
+              </motion.div>
+            </AnimatePresence>
             <div className="testimonial-controls">
               <button
                 type="button"

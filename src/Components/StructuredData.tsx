@@ -19,6 +19,7 @@ const SERVICE_TYPES = [
   "Website Design and Development",
   "Content Marketing",
   "Branding and Profiling",
+  "PR and Influencer Management",
 ];
 
 function labelFromPath(pathname: string) {
@@ -132,7 +133,7 @@ function buildOrganization(origin: string): JsonLd {
     "@type": "Organization",
     name: SITE_NAME,
     url: origin,
-    logo: `${origin}/vite.svg`,
+    logo: `${origin}/images/site/seo/default-share.jpg`,
     areaServed: {
       "@type": "City",
       name: CITY,

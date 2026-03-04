@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
 
 const links = [
   { label: "Home", to: "/" },
@@ -30,40 +31,78 @@ export default function Navbar() {
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((prev) => !prev)}
         >
-          <span className="nav-toggle-icon" aria-hidden="true">
-            <span />
-            <span />
-            <span />
-          </span>
+          <motion.span
+            className="nav-toggle-icon"
+            aria-hidden="true"
+            animate={menuOpen ? "open" : "closed"}
+          >
+            <motion.span
+              variants={{
+                closed: { rotate: 0, y: 0, opacity: 1 },
+                open: { rotate: 45, y: 7, opacity: 1 },
+              }}
+              transition={{ duration: 0.22 }}
+            />
+            <motion.span
+              variants={{
+                closed: { opacity: 1, scaleX: 1 },
+                open: { opacity: 0, scaleX: 0 },
+              }}
+              transition={{ duration: 0.16 }}
+            />
+            <motion.span
+              variants={{
+                closed: { rotate: 0, y: 0, opacity: 1 },
+                open: { rotate: -45, y: -7, opacity: 1 },
+              }}
+              transition={{ duration: 0.22 }}
+            />
+          </motion.span>
           <span className="nav-toggle-label">{menuOpen ? "Close" : "Menu"}</span>
         </button>
 
-        {menuOpen && (
-          <button
-            type="button"
-            className="nav-backdrop"
-            aria-label="Close menu"
-            onClick={() => setMenuOpen(false)}
-          />
-        )}
+        <AnimatePresence>
+          {menuOpen && (
+            <motion.button
+              type="button"
+              className="nav-backdrop"
+              aria-label="Close menu"
+              onClick={() => setMenuOpen(false)}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            />
+          )}
+        </AnimatePresence>
 
         <nav
           id="primary-nav"
           className={menuOpen ? "nav-links nav-links-open" : "nav-links"}
           aria-label="Primary"
         >
-          {links.map((link) => (
-            <NavLink
+          {links.map((link, i) => (
+            <motion.div
               key={link.to}
-              to={link.to}
-              className={({ isActive }) =>
-                isActive ? "nav-link nav-link-active" : "nav-link"
-              }
-              end={link.to === "/"}
-              onClick={() => setMenuOpen(false)}
+              initial={false}
+              animate={menuOpen ? { opacity: 1, x: 0 } : { opacity: 1, x: 0 }}
             >
-              {link.label}
-            </NavLink>
+              <NavLink
+                to={link.to}
+                className={({ isActive }) =>
+                  isActive ? "nav-link nav-link-active" : "nav-link"
+                }
+                end={link.to === "/"}
+                onClick={() => setMenuOpen(false)}
+                style={
+                  menuOpen
+                    ? { transitionDelay: `${i * 40}ms` }
+                    : undefined
+                }
+              >
+                {link.label}
+              </NavLink>
+            </motion.div>
           ))}
           <NavLink
             className="button button-primary nav-mobile-cta"

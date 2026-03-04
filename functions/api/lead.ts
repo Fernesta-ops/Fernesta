@@ -10,14 +10,18 @@ type LeadPayload = {
   fields?: Record<string, string>;
 };
 
-function json(body: unknown, status = 200) {
+const ALLOWED_ORIGINS = ["https://fernesta.com", "https://www.fernesta.com"];
+
+function json(body: unknown, status = 200, origin = "") {
+  const allowOrigin = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
   return new Response(JSON.stringify(body), {
     status,
     headers: {
       "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Origin": allowOrigin,
       "Access-Control-Allow-Methods": "POST, OPTIONS",
       "Access-Control-Allow-Headers": "Content-Type",
+      "Vary": "Origin",
     },
   });
 }
@@ -52,12 +56,16 @@ function buildHtml(formName: string, fields: Record<string, string>) {
   `;
 }
 
-export const onRequestOptions = async () => json({ ok: true });
+export const onRequestOptions = async (context: { request: Request }) => {
+  const origin = context.request.headers.get("Origin") || "";
+  return json({ ok: true }, 200, origin);
+};
 
 export const onRequestPost: PagesFunction<Env> = async (context) => {
+  const origin = context.request.headers.get("Origin") || "";
   const { RESEND_API_KEY, LEAD_FROM_EMAIL, LEAD_TO_EMAIL } = context.env;
   if (!RESEND_API_KEY || !LEAD_FROM_EMAIL || !LEAD_TO_EMAIL) {
-    return json({ error: "Lead email provider not configured." }, 500);
+    return json({ error: "Lead email provider not configured." }, 500, origin);
   }
 
   const payload = (await context.request.json().catch(() => ({}))) as LeadPayload;
@@ -66,7 +74,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
   const fields = payload.fields || {};
 
   if (!Object.keys(fields).length) {
-    return json({ error: "Invalid payload" }, 400);
+    return json({ error: "Invalid payload" }, 400, origin);
   }
 
   const html = buildHtml(formName, fields);
@@ -89,8 +97,8 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
 
   if (!resendResponse.ok) {
     const details = await resendResponse.text();
-    return json({ error: "Failed to send lead email", details }, 502);
+    return json({ error: "Failed to send lead email", details }, 502, origin);
   }
 
-  return json({ success: true });
+  return json({ success: true }, 200, origin);
 };

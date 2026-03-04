@@ -1,5 +1,8 @@
-import { useState, type FormEvent } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { toast } from "sonner";
+import { z } from "zod";
 import Reveal from "../Components/Reveal";
 import SeoMeta from "../Components/SeoMeta";
 import { sendLeadEmail } from "../lib/leadMailer";
@@ -23,7 +26,21 @@ const phases = [
   },
 ];
 
-const initialForm = {
+const contactSchema = z.object({
+  name: z.string().trim().min(2, "Please enter your full name."),
+  email: z.string().trim().email("Please enter a valid work email."),
+  phone: z
+    .string()
+    .trim()
+    .regex(/^\+?[0-9()\-.\s]{8,20}$/, "Please enter a valid phone number."),
+  company: z.string().trim().min(2, "Please enter your business name."),
+  service: z.string().trim().min(1, "Please select a service."),
+  message: z.string().trim().min(20, "Please share at least 20 characters about your goals."),
+});
+
+type ContactFormValues = z.infer<typeof contactSchema>;
+
+const initialForm: ContactFormValues = {
   name: "",
   email: "",
   phone: "",
@@ -33,43 +50,41 @@ const initialForm = {
 };
 
 function ContactPage() {
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
-  const [message, setMessage] = useState("");
-  const [submitting, setSubmitting] = useState(false);
-  const [formData, setFormData] = useState(initialForm);
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<ContactFormValues>({
+    resolver: zodResolver(contactSchema),
+    defaultValues: initialForm,
+  });
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (!formData.name || !formData.email || !formData.phone || !formData.company || !formData.service || !formData.message) {
-      setStatus("error");
-      setMessage("Please fill all required fields.");
-      return;
-    }
-
+  const onSubmit = async (values: ContactFormValues) => {
+    const loadingToast = toast.loading("Submitting inquiry...");
     try {
-      setSubmitting(true);
-      setStatus("idle");
       await sendLeadEmail({
-        subject: `Consultation Request - ${formData.company}`,
+        subject: `Consultation Request - ${values.company}`,
         formName: "Contact Form",
         fields: {
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          company: formData.company,
-          interested_service: formData.service,
-          business_goals: formData.message,
+          name: values.name,
+          email: values.email,
+          phone: values.phone,
+          company: values.company,
+          interested_service: values.service,
+          business_goals: values.message,
           source: "fernesta.com/contact-us",
         },
       });
-      setStatus("success");
-      setMessage("Inquiry submitted successfully. Our team will contact you within 1 business day.");
-      setFormData(initialForm);
-    } catch {
-      setStatus("error");
-      setMessage("Submission failed. Please try again or email info@fernesta.com.");
-    } finally {
-      setSubmitting(false);
+      toast.success("Inquiry submitted successfully. Our team will contact you within 1 business day.", {
+        id: loadingToast,
+      });
+      reset(initialForm);
+    } catch (error) {
+      const reason = error instanceof Error ? error.message : "Please try again.";
+      toast.error(`Submission failed. ${reason} If this continues, email info@fernesta.com.`, {
+        id: loadingToast,
+      });
     }
   };
 
@@ -100,53 +115,73 @@ function ContactPage() {
             <article className="panel contact-card interactive-card">
               <p className="meta">Strategy Intake</p>
               <h2>Book a Digital Marketing Consultation Call</h2>
-              <form className="contact-form" onSubmit={handleSubmit}>
+              <form className="contact-form" noValidate onSubmit={handleSubmit(onSubmit)}>
                 <label>
                   Name
                   <input
-                    required
                     type="text"
-                    value={formData.name}
-                    onChange={(event) => setFormData((prev) => ({ ...prev, name: event.target.value }))}
                     placeholder="Your full name"
+                    aria-invalid={Boolean(errors.name)}
+                    aria-describedby={errors.name ? "contact-name-error" : undefined}
+                    {...register("name")}
                   />
+                  {errors.name && (
+                    <span id="contact-name-error" className="field-error" role="alert">
+                      {errors.name.message}
+                    </span>
+                  )}
                 </label>
                 <label>
                   Work Email
                   <input
-                    required
                     type="email"
-                    value={formData.email}
-                    onChange={(event) => setFormData((prev) => ({ ...prev, email: event.target.value }))}
                     placeholder="name@company.com"
+                    aria-invalid={Boolean(errors.email)}
+                    aria-describedby={errors.email ? "contact-email-error" : undefined}
+                    {...register("email")}
                   />
+                  {errors.email && (
+                    <span id="contact-email-error" className="field-error" role="alert">
+                      {errors.email.message}
+                    </span>
+                  )}
                 </label>
                 <label>
                   Phone
                   <input
-                    required
                     type="tel"
-                    value={formData.phone}
-                    onChange={(event) => setFormData((prev) => ({ ...prev, phone: event.target.value }))}
                     placeholder="99999 99999"
+                    aria-invalid={Boolean(errors.phone)}
+                    aria-describedby={errors.phone ? "contact-phone-error" : undefined}
+                    {...register("phone")}
                   />
+                  {errors.phone && (
+                    <span id="contact-phone-error" className="field-error" role="alert">
+                      {errors.phone.message}
+                    </span>
+                  )}
                 </label>
                 <label>
                   Company
                   <input
-                    required
                     type="text"
-                    value={formData.company}
-                    onChange={(event) => setFormData((prev) => ({ ...prev, company: event.target.value }))}
                     placeholder="Your business name"
+                    aria-invalid={Boolean(errors.company)}
+                    aria-describedby={errors.company ? "contact-company-error" : undefined}
+                    {...register("company")}
                   />
+                  {errors.company && (
+                    <span id="contact-company-error" className="field-error" role="alert">
+                      {errors.company.message}
+                    </span>
+                  )}
                 </label>
                 <label>
                   Interested Service
                   <select
-                    required
-                    value={formData.service}
-                    onChange={(event) => setFormData((prev) => ({ ...prev, service: event.target.value }))}
+                    aria-invalid={Boolean(errors.service)}
+                    aria-describedby={errors.service ? "contact-service-error" : undefined}
+                    {...register("service")}
                   >
                     <option value="" disabled>
                       Select service
@@ -157,30 +192,33 @@ function ContactPage() {
                     <option>Website Design and Development</option>
                     <option>Branding and Visual Identity</option>
                     <option>E-Commerce Growth</option>
+                    <option>PR and Influencer Management</option>
                   </select>
+                  {errors.service && (
+                    <span id="contact-service-error" className="field-error" role="alert">
+                      {errors.service.message}
+                    </span>
+                  )}
                 </label>
                 <label>
                   Business Goals
                   <textarea
-                    required
                     rows={4}
-                    value={formData.message}
-                    onChange={(event) => setFormData((prev) => ({ ...prev, message: event.target.value }))}
                     placeholder="Tell us your current challenge and growth target."
+                    aria-invalid={Boolean(errors.message)}
+                    aria-describedby={errors.message ? "contact-message-error" : undefined}
+                    {...register("message")}
                   />
+                  {errors.message && (
+                    <span id="contact-message-error" className="field-error" role="alert">
+                      {errors.message.message}
+                    </span>
+                  )}
                 </label>
-                <button className="button button-primary" type="submit" disabled={submitting}>
-                  {submitting ? "Submitting..." : "Submit Inquiry"}
+                <button className="button button-primary" type="submit" disabled={isSubmitting}>
+                  {isSubmitting ? "Submitting..." : "Submit Inquiry"}
                 </button>
               </form>
-              {message && (
-                <p
-                  aria-live="polite"
-                  className={status === "success" ? "contact-message contact-success" : "contact-message contact-error"}
-                >
-                  {message}
-                </p>
-              )}
               <div className="contact-details">
                 <p><strong>Fernesta Digital Marketing Agency</strong></p>
                 <p>Jaipur, Rajasthan, India</p>
