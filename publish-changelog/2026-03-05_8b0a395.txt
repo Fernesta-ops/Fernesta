@@ -1,0 +1,121 @@
+Publish Change Log
+==================
+
+Commit: 8b0a395cb47d10484e4a523ff3ce69eb7ec825b5
+Short Commit: 8b0a395
+Date: 2026-03-05T00:51:39+05:30
+Author: Tarun Gupta <info@fernesta.com>
+Message: Remove hover sheen and box glow effects from cards and buttons
+
+Changed Files (Name/Status)
+---------------------------
+M	src/App.css
+
+Full Diff
+---------
+commit 8b0a395cb47d10484e4a523ff3ce69eb7ec825b5
+Author: Tarun Gupta <info@fernesta.com>
+Date:   Thu Mar 5 00:51:39 2026 +0530
+
+    Remove hover sheen and box glow effects from cards and buttons
+
+diff --git a/src/App.css b/src/App.css
+index b37f44e..b6cc0e1 100644
+--- a/src/App.css
++++ b/src/App.css
+@@ -344,19 +344,6 @@ p {
+   white-space: nowrap;
+ }
+ 
+-.button::before {
+-  background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.24) 45%, transparent 100%);
+-  content: "";
+-  height: 220%;
+-  left: -170%;
+-  pointer-events: none;
+-  position: absolute;
+-  top: -60%;
+-  transform: rotate(14deg);
+-  transition: left 0.42s ease;
+-  width: 120%;
+-}
+-
+ .button-primary {
+   background: linear-gradient(140deg, #375742 0%, var(--accent) 55%, #233429 100%);
+   box-shadow: 0 8px 18px rgba(45, 68, 48, 0.24);
+@@ -365,7 +352,7 @@ p {
+ 
+ .button-primary:hover {
+   background: linear-gradient(140deg, #3d5f49 0%, var(--accent-strong) 55%, #1f3126 100%);
+-  box-shadow: var(--glow-accent);
++  box-shadow: 0 8px 18px rgba(45, 68, 48, 0.24);
+ }
+ 
+ .button-secondary {
+@@ -380,11 +367,7 @@ p {
+ }
+ 
+ .button:hover {
+-  transform: translateY(-2px);
+-}
+-
+-.button:hover::before {
+-  left: 170%;
++  transform: translateY(0);
+ }
+ 
+ .button:active {
+@@ -526,7 +509,7 @@ p {
+   background: linear-gradient(180deg, rgba(244, 241, 230, 0.96), rgba(234, 232, 221, 0.92));
+   border: 1px solid rgba(94, 113, 96, 0.38);
+   border-radius: var(--radius-lg);
+-  box-shadow: var(--shadow-soft);
++  box-shadow: none;
+   padding: 12px;
+   transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+ }
+@@ -539,31 +522,14 @@ p {
+ }
+ 
+ .interactive-card {
+-  position: relative;
+-  transform: translateY(0);
+-  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease, background-color 0.28s ease;
+-}
+-
+-.interactive-card::after {
+-  background: linear-gradient(110deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0));
+-  content: "";
+-  inset: 0;
+-  left: -120%;
+-  pointer-events: none;
+-  position: absolute;
+-  transition: left 0.42s ease;
++  transform: none;
++  transition: border-color 0.2s ease, background-color 0.2s ease;
+ }
+ 
+ .interactive-card:hover {
+   border-color: #4f7a69;
+-  border-left-color: var(--accent);
+-  border-left-width: 3px;
+-  box-shadow: var(--shadow-strong);
+-  transform: translateY(-4px);
+-}
+-
+-.interactive-card:hover::after {
+-  left: 115%;
++  box-shadow: none;
++  transform: none;
+ }
+ 
+ .section-head {
+@@ -624,7 +590,7 @@ p {
+   background: linear-gradient(180deg, #dde0d7 0%, var(--panel) 80%);
+   border: 1px solid rgba(109, 126, 109, 0.38);
+   border-radius: var(--radius-md);
+-  box-shadow: 0 10px 24px rgba(24, 34, 27, 0.08);
++  box-shadow: none;
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
