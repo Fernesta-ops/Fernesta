@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
@@ -50,6 +51,7 @@ const initialForm: ContactFormValues = {
 };
 
 function ContactPage() {
+  const [websiteTrap, setWebsiteTrap] = useState("");
   const {
     register,
     handleSubmit,
@@ -73,6 +75,7 @@ function ContactPage() {
           company: values.company,
           interested_service: values.service,
           business_goals: values.message,
+          website: websiteTrap.trim(),
           source: "fernesta.com/contact-us",
         },
       });
@@ -116,11 +119,22 @@ function ContactPage() {
               <p className="meta">Strategy Intake</p>
               <h2>Book a Digital Marketing Consultation Call</h2>
               <form className="contact-form" noValidate onSubmit={handleSubmit(onSubmit)}>
+                <label className="honeypot-field" aria-hidden="true">
+                  Website
+                  <input
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={websiteTrap}
+                    onChange={(event) => setWebsiteTrap(event.target.value)}
+                  />
+                </label>
                 <label>
                   Name
                   <input
                     type="text"
                     placeholder="Your full name"
+                    autoComplete="name"
                     aria-invalid={Boolean(errors.name)}
                     aria-describedby={errors.name ? "contact-name-error" : undefined}
                     {...register("name")}
@@ -136,6 +150,7 @@ function ContactPage() {
                   <input
                     type="email"
                     placeholder="name@company.com"
+                    autoComplete="email"
                     aria-invalid={Boolean(errors.email)}
                     aria-describedby={errors.email ? "contact-email-error" : undefined}
                     {...register("email")}
@@ -151,6 +166,8 @@ function ContactPage() {
                   <input
                     type="tel"
                     placeholder="99999 99999"
+                    autoComplete="tel"
+                    inputMode="tel"
                     aria-invalid={Boolean(errors.phone)}
                     aria-describedby={errors.phone ? "contact-phone-error" : undefined}
                     {...register("phone")}
@@ -166,6 +183,7 @@ function ContactPage() {
                   <input
                     type="text"
                     placeholder="Your business name"
+                    autoComplete="organization"
                     aria-invalid={Boolean(errors.company)}
                     aria-describedby={errors.company ? "contact-company-error" : undefined}
                     {...register("company")}
@@ -218,6 +236,9 @@ function ContactPage() {
                 <button className="button button-primary" type="submit" disabled={isSubmitting}>
                   {isSubmitting ? "Submitting..." : "Submit Inquiry"}
                 </button>
+                <p className="contact-form-note">
+                  By submitting, you agree to be contacted about your inquiry.
+                </p>
               </form>
               <div className="contact-details">
                 <p><strong>Fernesta Digital Marketing Agency</strong></p>
@@ -232,8 +253,10 @@ function ContactPage() {
           <Reveal delayMs={180}>
             <figure className="media-card interactive-card">
               <img
-                src="/images/pages/contact/section/strategy-session.jpg"
+                src="/images/pages/contact/section/strategy-session-opt.jpg"
                 alt="Client strategy planning session with the Fernesta team"
+                loading="lazy"
+                decoding="async"
               />
             </figure>
           </Reveal>

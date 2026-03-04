@@ -19,15 +19,19 @@ function CaseStudyShowcase() {
         <Reveal className="section-head">
           <p className="meta">Case Study Highlights</p>
           <h2>Proof-Driven Outcomes Across Service Lines</h2>
+          <p>
+            Browse concise transformation snapshots to understand context, intervention, and business impact before booking.
+          </p>
         </Reveal>
 
-        <div className="filter-row" role="tablist" aria-label="Case study filters">
+        <div className="filter-row" role="group" aria-label="Case study filters">
           {filters.map((filter) => (
             <button
               key={filter}
               type="button"
               className={activeFilter === filter ? "filter-pill filter-pill-active" : "filter-pill"}
               onClick={() => setActiveFilter(filter)}
+              aria-pressed={activeFilter === filter}
             >
               {filter}
             </button>
@@ -42,10 +46,20 @@ function CaseStudyShowcase() {
                 <h3>{study.client}</h3>
                 <p className="case-metric">{study.metric}</p>
                 <p className="case-result">{study.result}</p>
-                <p>{study.detail}</p>
+                <div className="case-story">
+                  <p>
+                    <strong>Context:</strong> {study.objective}
+                  </p>
+                  <p>
+                    <strong>Intervention:</strong> {study.approach[0]}
+                  </p>
+                  <p>
+                    <strong>Impact:</strong> {study.businessImpact[0]}
+                  </p>
+                </div>
                 <div className="button-row case-actions">
                   <Link className="button button-secondary case-link" to={`/case-studies/${study.slug}`}>
-                    View Full Case
+                    View Full Breakdown
                   </Link>
                   <a className="button button-secondary case-link" href={study.download} download>
                     Download PDF

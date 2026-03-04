@@ -8,6 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "generate:capabilities-deck": "node scripts/generate-capabilities-deck.mjs",
     "generate:case-study-pdfs": "node scripts/generate-case-study-pdfs-branded.mjs",
     "generate:case-study-pdfs:text": "node scripts/generate-case-study-pdfs.mjs"
   },

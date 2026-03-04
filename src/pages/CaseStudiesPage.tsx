@@ -44,13 +44,25 @@ function CaseStudiesPage() {
       <section className="section section-border">
         <div className="container">
           <div className="case-toolbar">
-            <input
-              type="search"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search by client or result"
-              aria-label="Search case studies"
-            />
+            <div className="case-search-row">
+              <input
+                type="search"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Search by client or result"
+                aria-label="Search case studies"
+              />
+              {query && (
+                <button
+                  type="button"
+                  className="filter-pill case-clear"
+                  onClick={() => setQuery("")}
+                  aria-label="Clear case study search"
+                >
+                  Clear
+                </button>
+              )}
+            </div>
             <div className="filter-row">
               {categories.map((item) => (
                 <button
@@ -58,11 +70,15 @@ function CaseStudiesPage() {
                   type="button"
                   className={category === item ? "filter-pill filter-pill-active" : "filter-pill"}
                   onClick={() => setCategory(item)}
+                  aria-pressed={category === item}
                 >
                   {item}
                 </button>
               ))}
             </div>
+            <p className="case-result-count">
+              {filtered.length} case {filtered.length === 1 ? "study" : "studies"} found
+            </p>
           </div>
 
           <div className="card-grid card-grid-two">
@@ -73,10 +89,20 @@ function CaseStudiesPage() {
                   <h3>{study.client}</h3>
                   <p className="case-metric">{study.metric}</p>
                   <p className="case-result">{study.result}</p>
-                  <p>{study.detail}</p>
+                  <div className="case-story">
+                    <p>
+                      <strong>Context:</strong> {study.objective}
+                    </p>
+                    <p>
+                      <strong>Intervention:</strong> {study.approach[0]}
+                    </p>
+                    <p>
+                      <strong>Impact:</strong> {study.businessImpact[0]}
+                    </p>
+                  </div>
                   <div className="button-row case-actions">
                     <Link className="button button-secondary case-link" to={`/case-studies/${study.slug}`}>
-                      View Full Case
+                      View Full Breakdown
                     </Link>
                     <a className="button button-secondary case-link" href={study.download} download>
                       Download PDF

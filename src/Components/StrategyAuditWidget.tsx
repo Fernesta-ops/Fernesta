@@ -1,4 +1,4 @@
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { sendLeadEmail } from "../lib/leadMailer";
 
 type AuditFormData = {
@@ -6,6 +6,7 @@ type AuditFormData = {
   email: string;
   stage: string;
   budget: string;
+  website: string;
 };
 
 const initialForm: AuditFormData = {
@@ -13,6 +14,7 @@ const initialForm: AuditFormData = {
   email: "",
   stage: "",
   budget: "",
+  website: "",
 };
 
 function StrategyAuditWidget() {
@@ -21,20 +23,50 @@ function StrategyAuditWidget() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement | null>(null);
+  const dialogRef = useRef<HTMLDivElement | null>(null);
+  const firstInputRef = useRef<HTMLInputElement | null>(null);
+  const lastFocusedRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     if (!open) return;
 
+    lastFocusedRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(false);
+      if (event.key === "Escape") {
+        setOpen(false);
+        return;
+      }
+
+      if (event.key !== "Tab" || !dialogRef.current) return;
+      const focusables = dialogRef.current.querySelectorAll<HTMLElement>(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      if (!focusables.length) return;
+
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      const active = document.activeElement;
+
+      if (event.shiftKey && active === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
 
+    const frame = window.requestAnimationFrame(() => firstInputRef.current?.focus());
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onKeyDown);
 
     return () => {
+      window.cancelAnimationFrame(frame);
       document.body.style.overflow = "";
       window.removeEventListener("keydown", onKeyDown);
+      lastFocusedRef.current?.focus();
     };
   }, [open]);
 
@@ -63,6 +95,7 @@ function StrategyAuditWidget() {
           email: formData.email,
           business_stage: formData.stage,
           monthly_marketing_budget: formData.budget,
+          website: formData.website,
           source: "fernesta.com/audit-widget",
         },
       });
@@ -80,6 +113,7 @@ function StrategyAuditWidget() {
   return (
     <>
       <button
+        ref={triggerRef}
         type="button"
         className="audit-fab"
         onClick={() => setOpen(true)}
@@ -89,18 +123,42 @@ function StrategyAuditWidget() {
       </button>
 
       {open && (
-        <div className="audit-overlay" role="dialog" aria-modal="true" aria-label="Growth audit form">
-          <div className="audit-modal">
+        <div
+          className="audit-overlay"
+          onClick={(event) => {
+            if (event.currentTarget === event.target) setOpen(false);
+          }}
+          role="presentation"
+        >
+          <div
+            ref={dialogRef}
+            className="audit-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="audit-title"
+          >
             <div className="audit-head">
-              <h3>Request a Strategy Audit</h3>
+              <h3 id="audit-title">Request a Strategy Audit</h3>
               <button type="button" onClick={() => setOpen(false)} aria-label="Close form">
                 Close
               </button>
             </div>
             <form className="audit-form" onSubmit={handleSubmit}>
+              <label className="honeypot-field" aria-hidden="true">
+                Website
+                <input
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={formData.website}
+                  onChange={(event) => setFormData((prev) => ({ ...prev, website: event.target.value }))}
+                />
+              </label>
               <label>
                 Name
                 <input
+                  ref={firstInputRef}
                   required
                   type="text"
                   name="name"

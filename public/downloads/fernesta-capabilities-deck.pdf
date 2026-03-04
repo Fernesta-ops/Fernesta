@@ -1,39 +1,95 @@
-%PDF-1.1
+%PDF-1.4
 1 0 obj
-<< /Type /Catalog /Pages 2 0 R >>
+<< /Type /Pages /Kids [4 0 R] /Count 1 >>
 endobj
 2 0 obj
-<< /Type /Pages /Count 1 /Kids [3 0 R] >>
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
 endobj
 3 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
-endobj
-4 0 obj
-<< /Length 93 >>
+<< /Length 1382 >>
 stream
 BT
-/F1 20 Tf
-72 720 Td
-(Fernesta Service Capabilities Deck) Tj
-0 -30 Td
-/F1 12 Tf
-(Dummy downloadable document for Fernesta website demo.) Tj
+/F1 10 Tf
+14 TL
+50 760 Td
+(Fernesta Capabilities Deck) Tj
+T*
+(Digital Marketing Growth Systems for Jaipur Businesses) Tj
+T*
+() Tj
+T*
+(This deck summarizes the service architecture, operating model, and execution cadence used) Tj
+T*
+(in Fernesta engagements.) Tj
+T*
+() Tj
+T*
+(Core Service Lines) Tj
+T*
+(Search Engine Optimization \(on-page, off-page, technical\).) Tj
+T*
+(Performance Marketing across Google Ads and Meta Ads.) Tj
+T*
+(Social Media Management with content and paid support.) Tj
+T*
+(Website and Conversion Systems for lead and sales journeys.) Tj
+T*
+(Branding, Graphic Design, and PR or Influencer programs.) Tj
+T*
+() Tj
+T*
+(How Engagement Starts) Tj
+T*
+(Step 1: Discovery and baseline audit of existing channel performance.) Tj
+T*
+(Step 2: Growth architecture with KPI-linked channel priorities.) Tj
+T*
+(Step 3: Execution sprint with weekly governance and reporting.) Tj
+T*
+() Tj
+T*
+(Reporting and Governance) Tj
+T*
+(Clients receive weekly decision-oriented reports, transparent KPIs, and next-action) Tj
+T*
+(priorities.) Tj
+T*
+(Each campaign is mapped to a commercial objective with accountable ownership.) Tj
+T*
+() Tj
+T*
+(Recommended Next Step) Tj
+T*
+(Book a strategy consultation at https://www.fernesta.com/contact-us to receive a tailored) Tj
+T*
+(growth roadmap.) Tj
+T*
+() Tj
+T*
+(Prepared by Fernesta \(Updated March 2026\)) Tj
+T*
+() Tj
+T*
+(Page 1 of 1) Tj
 ET
 endstream
 endobj
+4 0 obj
+<< /Type /Page /Parent 1 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 2 0 R >> >> /Contents 3 0 R >>
+endobj
 5 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+<< /Type /Catalog /Pages 1 0 R >>
 endobj
 xref
 0 6
 0000000000 65535 f 
-0000000010 00000 n 
-0000000063 00000 n 
-0000000120 00000 n 
-0000000268 00000 n 
-0000000412 00000 n 
+0000000009 00000 n 
+0000000066 00000 n 
+0000000136 00000 n 
+0000001569 00000 n 
+0000001695 00000 n 
 trailer
-<< /Size 6 /Root 1 0 R >>
+<< /Size 6 /Root 5 0 R >>
 startxref
-482
+1744
 %%EOF

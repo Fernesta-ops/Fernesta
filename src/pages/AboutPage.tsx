@@ -36,8 +36,10 @@ function AboutPage() {
           <Reveal delayMs={80}>
             <figure className="media-card interactive-card">
               <img
-                src="/images/pages/about/section/team-visual.jpg"
+                src="/images/pages/about/section/team-visual-opt.jpg"
                 alt="Leadership team aligned on strategy and delivery systems"
+                loading="lazy"
+                decoding="async"
               />
             </figure>
           </Reveal>

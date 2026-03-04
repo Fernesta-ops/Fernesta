@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import Reveal from "./Reveal";
 
 const testimonials = [
@@ -22,14 +22,17 @@ const testimonials = [
 
 function TestimonialsSlider() {
   const [active, setActive] = useState(0);
+  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
+    if (prefersReducedMotion) return;
+
     const timer = window.setInterval(() => {
       setActive((prev) => (prev + 1) % testimonials.length);
     }, 4200);
 
     return () => window.clearInterval(timer);
-  }, []);
+  }, [prefersReducedMotion]);
 
   return (
     <section className="section section-border">
@@ -43,10 +46,14 @@ function TestimonialsSlider() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={active}
-                initial={{ opacity: 0, y: 14 }}
+                initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -14 }}
-                transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
+                exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: -14 }}
+                transition={
+                  prefersReducedMotion
+                    ? { duration: 0.01 }
+                    : { duration: 0.38, ease: [0.22, 1, 0.36, 1] }
+                }
               >
                 <p className="testimonial-quote">"{testimonials[active].quote}"</p>
                 <p className="testimonial-person">{testimonials[active].person}</p>
