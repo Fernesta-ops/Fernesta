@@ -1,0 +1,1261 @@
+Publish Change Log
+==================
+
+Commit: 297c3a9b7e378e390ca97ba07c663de5404b94d7
+Short Commit: 297c3a9
+Date: 2026-03-04T17:29:31+05:30
+Author: Tarun Gupta <info@fernesta.com>
+Message: Add branded case study content and visual PDF pipeline
+
+Changed Files (Name/Status)
+---------------------------
+M	package-lock.json
+M	package.json
+M	public/downloads/b2b-services-cpl-optimization.pdf
+M	public/downloads/consumer-retail-brand-retention.pdf
+M	public/downloads/d2c-skincare-performance-turnaround.pdf
+M	public/downloads/education-seo-lead-engine.pdf
+A	scripts/generate-case-study-pdfs-branded.mjs
+A	scripts/generate-case-study-pdfs.mjs
+M	src/App.css
+M	src/data/caseStudies.ts
+M	src/pages/CaseStudyDetailPage.tsx
+
+Full Diff
+---------
+commit 297c3a9b7e378e390ca97ba07c663de5404b94d7
+Author: Tarun Gupta <info@fernesta.com>
+Date:   Wed Mar 4 17:29:31 2026 +0530
+
+    Add branded case study content and visual PDF pipeline
+
+diff --git a/package-lock.json b/package-lock.json
+index 18b239f..b1bb8ec 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -40,6 +40,7 @@
+         "eslint-plugin-react-refresh": "^0.4.24",
+         "globals": "^16.5.0",
+         "jest-axe": "^10.0.0",
++        "playwright-core": "^1.58.2",
+         "postcss": "^8.5.8",
+         "tailwindcss": "^4.2.1",
+         "typescript": "~5.9.3",
+@@ -5805,6 +5806,19 @@
+         "url": "https://github.com/sponsors/jonschlinkert"
+       }
+     },
++    "node_modules/playwright-core": {
++      "version": "1.58.2",
++      "resolved": "https://registry.npmjs.org/playwright-core/-/playwright-core-1.58.2.tgz",
++      "integrity": "sha512-yZkEtftgwS8CsfYo7nm0KE8jsvm6i/PTgVtB8DL726wNf6H2IMsDuxCpJj59KDaxCtSnrWan2AeDqM7JBaultg==",
++      "dev": true,
++      "license": "Apache-2.0",
++      "bin": {
++        "playwright-core": "cli.js"
++      },
++      "engines": {
++        "node": ">=18"
++      }
++    },
+     "node_modules/possible-typed-array-names": {
+       "version": "1.1.0",
+       "resolved": "https://registry.npmjs.org/possible-typed-array-names/-/possible-typed-array-names-1.1.0.tgz",
+diff --git a/package.json b/package.json
+index aedb039..9420504 100644
+--- a/package.json
++++ b/package.json
+@@ -7,7 +7,9 @@
+     "dev": "vite",
+     "build": "tsc -b && vite build",
+     "lint": "eslint .",
+-    "preview": "vite preview"
++    "preview": "vite preview",
++    "generate:case-study-pdfs": "node scripts/generate-case-study-pdfs-branded.mjs",
++    "generate:case-study-pdfs:text": "node scripts/generate-case-study-pdfs.mjs"
+   },
+   "dependencies": {
+     "@hookform/resolvers": "^5.2.2",
+@@ -42,6 +44,7 @@
+     "eslint-plugin-react-refresh": "^0.4.24",
+     "globals": "^16.5.0",
+     "jest-axe": "^10.0.0",
++    "playwright-core": "^1.58.2",
+     "postcss": "^8.5.8",
+     "tailwindcss": "^4.2.1",
+     "typescript": "~5.9.3",
+diff --git a/public/downloads/b2b-services-cpl-optimization.pdf b/public/downloads/b2b-services-cpl-optimization.pdf
+index 9830110..ad6ccf4 100644
+Binary files a/public/downloads/b2b-services-cpl-optimization.pdf and b/public/downloads/b2b-services-cpl-optimization.pdf differ
+diff --git a/public/downloads/consumer-retail-brand-retention.pdf b/public/downloads/consumer-retail-brand-retention.pdf
+index 344d701..c892933 100644
+Binary files a/public/downloads/consumer-retail-brand-retention.pdf and b/public/downloads/consumer-retail-brand-retention.pdf differ
+diff --git a/public/downloads/d2c-skincare-performance-turnaround.pdf b/public/downloads/d2c-skincare-performance-turnaround.pdf
+index 2a1810f..8d6a9f0 100644
+Binary files a/public/downloads/d2c-skincare-performance-turnaround.pdf and b/public/downloads/d2c-skincare-performance-turnaround.pdf differ
+diff --git a/public/downloads/education-seo-lead-engine.pdf b/public/downloads/education-seo-lead-engine.pdf
+index 7398ff1..5f73421 100644
+Binary files a/public/downloads/education-seo-lead-engine.pdf and b/public/downloads/education-seo-lead-engine.pdf differ
+diff --git a/scripts/generate-case-study-pdfs-branded.mjs b/scripts/generate-case-study-pdfs-branded.mjs
+new file mode 100644
+index 0000000..f73642d
+--- /dev/null
++++ b/scripts/generate-case-study-pdfs-branded.mjs
+@@ -0,0 +1,537 @@
++import fs from "node:fs";
++import path from "node:path";
++import { chromium } from "playwright-core";
++
++const rootDir = process.cwd();
++const caseStudiesPath = path.join(rootDir, "src", "data", "caseStudies.ts");
++const downloadsDir = path.join(rootDir, "public", "downloads");
++const defaultCoverImagePath = path.join(rootDir, "public", "images", "site", "seo", "default-share.jpg");
++
++function loadCaseStudies() {
++  const source = fs.readFileSync(caseStudiesPath, "utf8");
++  const marker = "export const caseStudies";
++  const markerIndex = source.indexOf(marker);
++  if (markerIndex === -1) {
++    throw new Error("Could not locate `caseStudies` export in src/data/caseStudies.ts");
++  }
++
++  const arrayStart = source.indexOf("[", markerIndex);
++  const arrayEnd = source.lastIndexOf("];");
++  if (arrayStart === -1 || arrayEnd === -1) {
++    throw new Error("Could not parse caseStudies array literal.");
++  }
++
++  const arrayLiteral = source.slice(arrayStart, arrayEnd + 1);
++  const data = Function(`"use strict"; return (${arrayLiteral});`)();
++  if (!Array.isArray(data)) {
++    throw new Error("Parsed caseStudies is not an array.");
++  }
++  return data;
++}
++
++function escapeHtml(value) {
++  return String(value)
++    .replace(/&/g, "&amp;")
++    .replace(/</g, "&lt;")
++    .replace(/>/g, "&gt;")
++    .replace(/"/g, "&quot;")
++    .replace(/'/g, "&#39;");
++}
++
++function formatMetric(value, suffix) {
++  return `${value}${suffix}`;
++}
++
++function getMimeTypeFromExtension(filePath) {
++  const ext = path.extname(filePath).toLowerCase();
++  if (ext === ".jpg" || ext === ".jpeg") return "image/jpeg";
++  if (ext === ".png") return "image/png";
++  if (ext === ".webp") return "image/webp";
++  return "application/octet-stream";
++}
++
++function asDataUri(filePath) {
++  const bytes = fs.readFileSync(filePath);
++  const mime = getMimeTypeFromExtension(filePath);
++  return `data:${mime};base64,${bytes.toString("base64")}`;
++}
++
++function renderChartSvg(study) {
++  const width = 920;
++  const height = 300;
++  const left = 84;
++  const right = 30;
++  const top = 34;
++  const bottom = 72;
++  const innerWidth = width - left - right;
++  const innerHeight = height - top - bottom;
++  const points = study.chart.points;
++  const maxValue = Math.max(...points.flatMap((point) => [point.before, point.after]), 1);
++  const paddedMax = maxValue * 1.16;
++  const groupWidth = innerWidth / points.length;
++  const barWidth = Math.min(46, groupWidth / 3.2);
++  const baselineY = top + innerHeight;
++
++  const y = (value) => top + innerHeight - (value / paddedMax) * innerHeight;
++  const xBefore = (index) => left + groupWidth * index + groupWidth * 0.25 - barWidth / 2;
++  const xAfter = (index) => left + groupWidth * index + groupWidth * 0.55 - barWidth / 2;
++
++  const axisYTicks = [0, 0.25, 0.5, 0.75, 1].map((ratio) => {
++    const value = paddedMax * ratio;
++    const yPos = y(value);
++    return `
++      <line x1="${left}" y1="${yPos}" x2="${width - right}" y2="${yPos}" stroke="#d5ddd8" stroke-width="1"/>
++      <text x="${left - 8}" y="${yPos + 4}" text-anchor="end" font-size="11" fill="#567265">${value.toFixed(1)}</text>
++    `;
++  });
++
++  const bars = points
++    .map((point, index) => {
++      const beforeY = y(point.before);
++      const afterY = y(point.after);
++      const beforeHeight = baselineY - beforeY;
++      const afterHeight = baselineY - afterY;
++      const centerX = left + groupWidth * index + groupWidth * 0.4;
++      return `
++        <rect x="${xBefore(index)}" y="${beforeY}" width="${barWidth}" height="${beforeHeight}" rx="6" fill="#a7b6ad"/>
++        <rect x="${xAfter(index)}" y="${afterY}" width="${barWidth}" height="${afterHeight}" rx="6" fill="#2f5a49"/>
++        <text x="${xBefore(index) + barWidth / 2}" y="${beforeY - 8}" text-anchor="middle" font-size="11" fill="#4f6b5e">${escapeHtml(
++          formatMetric(point.before, point.suffix)
++        )}</text>
++        <text x="${xAfter(index) + barWidth / 2}" y="${afterY - 8}" text-anchor="middle" font-size="11" fill="#15372b">${escapeHtml(
++          formatMetric(point.after, point.suffix)
++        )}</text>
++        <text x="${centerX}" y="${baselineY + 20}" text-anchor="middle" font-size="12" fill="#20372d">${escapeHtml(
++          point.label
++        )}</text>
++      `;
++    })
++    .join("");
++
++  return `
++    <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeHtml(
++      study.chart.title
++    )}">
++      <rect x="0" y="0" width="${width}" height="${height}" fill="#f8faf9" rx="14"/>
++      ${axisYTicks.join("")}
++      <line x1="${left}" y1="${baselineY}" x2="${width - right}" y2="${baselineY}" stroke="#8ba497" stroke-width="1.5"/>
++      ${bars}
++    </svg>
++  `;
++}
++
++function renderList(items) {
++  return items.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
++}
++
++function renderTimeline(items) {
++  return items
++    .map(
++      (step) => `
++        <li class="timeline-item">
++          <p class="timeline-phase">${escapeHtml(step.phase)}</p>
++          <p class="timeline-window">${escapeHtml(step.window)}</p>
++          <p>${escapeHtml(step.focus)}</p>
++        </li>
++      `
++    )
++    .join("");
++}
++
++function buildHtml(study, coverImageDataUri) {
++  const chartSvg = renderChartSvg(study);
++  return `<!doctype html>
++<html lang="en">
++  <head>
++    <meta charset="utf-8" />
++    <meta name="viewport" content="width=device-width, initial-scale=1" />
++    <title>${escapeHtml(study.client)} Case Study</title>
++    <style>
++      @page { size: A4; margin: 0; }
++      * { box-sizing: border-box; }
++      body {
++        margin: 0;
++        color: #16261f;
++        font-family: "Source Sans 3", "Segoe UI", Arial, sans-serif;
++        background: #f2f0e7;
++      }
++      .page {
++        min-height: 297mm;
++        padding: 16mm 14mm;
++      }
++      .cover {
++        color: #f0f3ef;
++        display: grid;
++        grid-template-rows: auto 1fr auto;
++        gap: 14mm;
++        background:
++          linear-gradient(130deg, rgba(23, 48, 39, 0.84), rgba(27, 61, 49, 0.66)),
++          url("${coverImageDataUri}") center / cover no-repeat;
++      }
++      .brand {
++        display: flex;
++        justify-content: space-between;
++        align-items: center;
++        border-bottom: 1px solid rgba(235, 243, 238, 0.35);
++        padding-bottom: 6mm;
++      }
++      .brand-mark {
++        font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
++        font-size: 11mm;
++        letter-spacing: 0.8mm;
++      }
++      .brand-sub {
++        text-transform: uppercase;
++        letter-spacing: 0.5mm;
++        font-size: 3.3mm;
++      }
++      .cover-main {
++        align-self: center;
++        max-width: 150mm;
++        display: grid;
++        gap: 4mm;
++      }
++      .cover-kicker {
++        font-size: 3.2mm;
++        text-transform: uppercase;
++        letter-spacing: 0.5mm;
++        opacity: 0.9;
++      }
++      .cover h1 {
++        font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
++        font-size: 16mm;
++        line-height: 1.04;
++        margin: 0;
++      }
++      .cover-intro {
++        font-size: 4.4mm;
++        line-height: 1.45;
++        margin: 0;
++        color: #e3ece7;
++      }
++      .cover-metric {
++        display: inline-flex;
++        gap: 3mm;
++        align-items: baseline;
++        margin-top: 2mm;
++        background: rgba(228, 239, 232, 0.14);
++        border: 1px solid rgba(233, 241, 236, 0.34);
++        border-radius: 8px;
++        padding: 3mm 4mm;
++      }
++      .cover-metric strong {
++        font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
++        font-size: 8mm;
++        line-height: 1;
++      }
++      .cover-metric span {
++        font-size: 3.4mm;
++        letter-spacing: 0.3mm;
++        text-transform: uppercase;
++      }
++      .cover-foot {
++        display: flex;
++        justify-content: space-between;
++        font-size: 3.2mm;
++        text-transform: uppercase;
++        letter-spacing: 0.3mm;
++        opacity: 0.94;
++      }
++      .content {
++        background: #f4f5ef;
++        color: #172a22;
++      }
++      .grid {
++        display: grid;
++        gap: 6mm;
++        grid-template-columns: 1fr 1fr;
++      }
++      .panel {
++        background: #ffffff;
++        border: 1px solid #cfd8d1;
++        border-radius: 10px;
++        padding: 5mm;
++      }
++      h2 {
++        margin: 0 0 3mm;
++        font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
++        font-size: 7mm;
++        color: #1b4336;
++      }
++      h3 {
++        margin: 0 0 2.5mm;
++        font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
++        font-size: 5.4mm;
++        color: #204b3d;
++      }
++      p {
++        margin: 0;
++        font-size: 3.7mm;
++        line-height: 1.5;
++        color: #243b32;
++      }
++      ul {
++        margin: 0;
++        padding-left: 4.8mm;
++        display: grid;
++        gap: 2mm;
++      }
++      li {
++        font-size: 3.55mm;
++        line-height: 1.46;
++        color: #263f35;
++      }
++      .kpi-strip {
++        margin: 0 0 6mm;
++        display: grid;
++        gap: 4mm;
++        grid-template-columns: repeat(3, minmax(0, 1fr));
++      }
++      .kpi {
++        border: 1px solid #c2d1c8;
++        border-radius: 10px;
++        padding: 4mm;
++        background: linear-gradient(180deg, #f8fbf9, #edf3ef);
++      }
++      .kpi-label {
++        margin: 0 0 2mm;
++        color: #3a5f50;
++        font-size: 3.1mm;
++        letter-spacing: 0.2mm;
++        text-transform: uppercase;
++      }
++      .kpi-value {
++        margin: 0;
++        font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
++        font-size: 6.8mm;
++        color: #173a2e;
++        line-height: 1.02;
++      }
++      .timeline {
++        list-style: none;
++        padding: 0;
++        margin: 0;
++        display: grid;
++        gap: 2.5mm;
++      }
++      .timeline-item {
++        background: #f7faf8;
++        border: 1px solid #cfdbd3;
++        border-radius: 8px;
++        padding: 3.2mm 3.5mm;
++      }
++      .timeline-phase {
++        font-weight: 700;
++        color: #1f4b3b;
++        margin-bottom: 0.8mm;
++      }
++      .timeline-window {
++        color: #3d6959;
++        font-size: 3.2mm;
++        margin-bottom: 1.2mm;
++        text-transform: uppercase;
++        letter-spacing: 0.2mm;
++      }
++      .chart-wrap {
++        margin-top: 6mm;
++        border: 1px solid #c6d2cb;
++        border-radius: 12px;
++        background: #ffffff;
++        padding: 4mm;
++      }
++      .chart-head {
++        margin: 0 0 3mm;
++        display: flex;
++        justify-content: space-between;
++        align-items: baseline;
++      }
++      .legend {
++        display: flex;
++        gap: 3.5mm;
++        font-size: 2.9mm;
++        text-transform: uppercase;
++        letter-spacing: 0.16mm;
++      }
++      .legend-item {
++        display: inline-flex;
++        gap: 1.2mm;
++        align-items: center;
++      }
++      .legend-swatch {
++        width: 3mm;
++        height: 3mm;
++        border-radius: 99px;
++      }
++      .footnote {
++        margin-top: 4mm;
++        font-size: 2.8mm;
++        color: #577566;
++      }
++      .page-break {
++        break-before: page;
++      }
++    </style>
++  </head>
++  <body>
++    <section class="page cover">
++      <header class="brand">
++        <div class="brand-mark">FERNESTA</div>
++        <div class="brand-sub">Digital Growth Systems</div>
++      </header>
++      <div class="cover-main">
++        <p class="cover-kicker">Case Study | ${escapeHtml(study.category)}</p>
++        <h1>${escapeHtml(study.client)}</h1>
++        <p class="cover-intro">${escapeHtml(study.detail)}</p>
++        <div class="cover-metric">
++          <strong>${escapeHtml(study.metric)}</strong>
++          <span>${escapeHtml(study.result)}</span>
++        </div>
++      </div>
++      <footer class="cover-foot">
++        <span>Engagement Timeline: ${escapeHtml(study.timeline)}</span>
++        <span>www.fernesta.com</span>
++      </footer>
++    </section>
++
++    <section class="page content page-break">
++      <div class="kpi-strip">
++        <article class="kpi">
++          <p class="kpi-label">Category</p>
++          <p class="kpi-value">${escapeHtml(study.category)}</p>
++        </article>
++        <article class="kpi">
++          <p class="kpi-label">Timeline</p>
++          <p class="kpi-value">${escapeHtml(study.timeline)}</p>
++        </article>
++        <article class="kpi">
++          <p class="kpi-label">Headline Result</p>
++          <p class="kpi-value">${escapeHtml(study.metric)}</p>
++        </article>
++      </div>
++
++      <div class="grid">
++        <article class="panel">
++          <h2>Objective</h2>
++          <p>${escapeHtml(study.objective)}</p>
++        </article>
++        <article class="panel">
++          <h2>Engagement Scope</h2>
++          <ul>${renderList(study.services)}</ul>
++        </article>
++      </div>
++
++      <div class="grid" style="margin-top: 6mm;">
++        <article class="panel">
++          <h2>Approach</h2>
++          <ul>${renderList(study.approach)}</ul>
++        </article>
++        <article class="panel">
++          <h2>Execution Timeline</h2>
++          <ol class="timeline">${renderTimeline(study.executionTimeline)}</ol>
++        </article>
++      </div>
++
++      <div class="grid" style="margin-top: 6mm;">
++        <article class="panel">
++          <h2>Before</h2>
++          <ul>${renderList(study.before)}</ul>
++        </article>
++        <article class="panel">
++          <h2>After</h2>
++          <ul>${renderList(study.after)}</ul>
++        </article>
++      </div>
++
++      <article class="panel" style="margin-top: 6mm;">
++        <h2>Business Impact</h2>
++        <ul>${renderList(study.businessImpact)}</ul>
++      </article>
++
++      <section class="chart-wrap">
++        <div class="chart-head">
++          <h3>${escapeHtml(study.chart.title)}</h3>
++          <div class="legend">
++            <span class="legend-item"><span class="legend-swatch" style="background:#a7b6ad"></span> Before</span>
++            <span class="legend-item"><span class="legend-swatch" style="background:#2f5a49"></span> After</span>
++          </div>
++        </div>
++        ${chartSvg}
++        <p class="footnote">Indexed values use baseline = 100 where noted, to show directional improvement in business performance.</p>
++      </section>
++    </section>
++  </body>
++</html>`;
++}
++
++function resolveBrowserExecutable() {
++  if (process.env.PDF_BROWSER_PATH && fs.existsSync(process.env.PDF_BROWSER_PATH)) {
++    return process.env.PDF_BROWSER_PATH;
++  }
++
++  const candidates = [
++    path.join(process.env["PROGRAMFILES(X86)"] || "", "Microsoft", "Edge", "Application", "msedge.exe"),
++    path.join(process.env.PROGRAMFILES || "", "Microsoft", "Edge", "Application", "msedge.exe"),
++    path.join(process.env["PROGRAMFILES(X86)"] || "", "Google", "Chrome", "Application", "chrome.exe"),
++    path.join(process.env.PROGRAMFILES || "", "Google", "Chrome", "Application", "chrome.exe"),
++  ].filter(Boolean);
++
++  for (const filePath of candidates) {
++    if (fs.existsSync(filePath)) {
++      return filePath;
++    }
++  }
++
++  throw new Error(
++    [
++      "No browser executable found for PDF rendering.",
++      "Set `PDF_BROWSER_PATH` to a local Edge/Chrome executable path.",
++      "Example: set PDF_BROWSER_PATH=C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
++    ].join(" ")
++  );
++}
++
++async function generate() {
++  const caseStudies = loadCaseStudies();
++  const coverImageDataUri = asDataUri(defaultCoverImagePath);
++  const executablePath = resolveBrowserExecutable();
++
++  const browser = await chromium.launch({
++    executablePath,
++    headless: true,
++    args: ["--disable-gpu", "--font-render-hinting=none"],
++  });
++
++  try {
++    const context = await browser.newContext({
++      viewport: { width: 1240, height: 1754 },
++      deviceScaleFactor: 1.5,
++    });
++
++    for (const study of caseStudies) {
++      const page = await context.newPage();
++      const html = buildHtml(study, coverImageDataUri);
++      await page.setContent(html, { waitUntil: "networkidle" });
++
++      const outputPath = path.join(downloadsDir, path.basename(study.download));
++      await page.pdf({
++        path: outputPath,
++        format: "A4",
++        printBackground: true,
++        margin: { top: "0", right: "0", bottom: "0", left: "0" },
++      });
++      await page.close();
++
++      const size = fs.statSync(outputPath).size;
++      console.log(`Generated ${path.basename(outputPath)} (${size} bytes)`);
++    }
++
++    await context.close();
++  } finally {
++    await browser.close();
++  }
++}
++
++generate().catch((error) => {
++  console.error(error.message || error);
++  process.exit(1);
++});
+diff --git a/scripts/generate-case-study-pdfs.mjs b/scripts/generate-case-study-pdfs.mjs
+new file mode 100644
+index 0000000..a7b69f1
+--- /dev/null
++++ b/scripts/generate-case-study-pdfs.mjs
+@@ -0,0 +1,187 @@
++import fs from "node:fs";
++import path from "node:path";
++
++const rootDir = process.cwd();
++const caseStudiesPath = path.join(rootDir, "src", "data", "caseStudies.ts");
++const downloadsDir = path.join(rootDir, "public", "downloads");
++
++function loadCaseStudies() {
++  const source = fs.readFileSync(caseStudiesPath, "utf8");
++  const marker = "export const caseStudies";
++  const markerIndex = source.indexOf(marker);
++  if (markerIndex === -1) {
++    throw new Error("Could not locate `caseStudies` export in src/data/caseStudies.ts");
++  }
++
++  const arrayStart = source.indexOf("[", markerIndex);
++  const arrayEnd = source.lastIndexOf("];");
++  if (arrayStart === -1 || arrayEnd === -1) {
++    throw new Error("Could not parse caseStudies array literal.");
++  }
++
++  const arrayLiteral = source.slice(arrayStart, arrayEnd + 1);
++  const data = Function(`"use strict"; return (${arrayLiteral});`)();
++  if (!Array.isArray(data)) {
++    throw new Error("Parsed caseStudies is not an array.");
++  }
++  return data;
++}
++
++function toAscii(value) {
++  return value.normalize("NFKD").replace(/[^\x20-\x7E]/g, "");
++}
++
++function escapePdfText(value) {
++  return toAscii(value).replace(/\\/g, "\\\\").replace(/\(/g, "\\(").replace(/\)/g, "\\)");
++}
++
++function wrapText(text, maxChars = 90, firstPrefix = "", nextPrefix = firstPrefix) {
++  const words = toAscii(text).split(/\s+/).filter(Boolean);
++  if (words.length === 0) {
++    return [firstPrefix.trimEnd()];
++  }
++
++  const lines = [];
++  let current = firstPrefix;
++
++  for (const word of words) {
++    const candidate = current.trim().length === 0 ? `${current}${word}` : `${current} ${word}`;
++    if (candidate.length <= maxChars) {
++      current = candidate;
++      continue;
++    }
++    lines.push(current);
++    current = `${nextPrefix}${word}`;
++  }
++
++  if (current.trim().length > 0) {
++    lines.push(current);
++  }
++  return lines;
++}
++
++function bulletLines(items) {
++  return items.flatMap((item) => wrapText(item, 90, "- ", "  "));
++}
++
++function sectionLines(title, bodyLines) {
++  return ["", title, ...bodyLines];
++}
++
++function buildCaseStudyLines(study) {
++  const timelineLines = study.executionTimeline.flatMap((step) => [
++    ...wrapText(`${step.phase} (${step.window})`, 90, "- ", "  "),
++    ...wrapText(step.focus, 90, "  ", "  "),
++  ]);
++
++  return [
++    "Fernesta Case Study",
++    "",
++    ...wrapText(`Client: ${study.client}`),
++    ...wrapText(`Category: ${study.category}`),
++    ...wrapText(`Primary Outcome: ${study.metric} ${study.result}`),
++    ...wrapText(`Engagement Timeline: ${study.timeline}`),
++    ...sectionLines("Objective", wrapText(study.objective)),
++    ...sectionLines("Engagement Scope", bulletLines(study.services)),
++    ...sectionLines("Approach", bulletLines(study.approach)),
++    ...sectionLines("Execution Timeline", timelineLines),
++    ...sectionLines("Before", bulletLines(study.before)),
++    ...sectionLines("After", bulletLines(study.after)),
++    ...sectionLines("Business Impact", bulletLines(study.businessImpact)),
++    "",
++    "Source: fernesta.com case-study content",
++  ];
++}
++
++function buildPdfTextPages(lines, maxLinesPerPage = 48) {
++  const pages = [];
++  for (let i = 0; i < lines.length; i += maxLinesPerPage) {
++    pages.push(lines.slice(i, i + maxLinesPerPage));
++  }
++  return pages;
++}
++
++function linesToPdf(pages) {
++  const objects = [];
++  const addObject = (value) => {
++    objects.push(value);
++    return objects.length;
++  };
++
++  const pagesObjectId = addObject("");
++  const fontObjectId = addObject("<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>");
++  const pageObjectIds = [];
++
++  for (const [pageIndex, pageLines] of pages.entries()) {
++    const pageNumberLine = `Page ${pageIndex + 1} of ${pages.length}`;
++    const linesWithPageNumber = [...pageLines, "", pageNumberLine];
++    const streamLines = [
++      "BT",
++      "/F1 10 Tf",
++      "14 TL",
++      "50 760 Td",
++      ...linesWithPageNumber.flatMap((line, index) => {
++        const command = `(${escapePdfText(line)}) Tj`;
++        if (index === linesWithPageNumber.length - 1) {
++          return [command];
++        }
++        return [command, "T*"];
++      }),
++      "ET",
++    ];
++    const stream = `${streamLines.join("\n")}\n`;
++    const contentObjectId = addObject(
++      `<< /Length ${Buffer.byteLength(stream, "utf8")} >>\nstream\n${stream}endstream`
++    );
++    const pageObjectId = addObject(
++      `<< /Type /Page /Parent ${pagesObjectId} 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 ${fontObjectId} 0 R >> >> /Contents ${contentObjectId} 0 R >>`
++    );
++    pageObjectIds.push(pageObjectId);
++  }
++
++  objects[pagesObjectId - 1] = `<< /Type /Pages /Kids [${pageObjectIds
++    .map((id) => `${id} 0 R`)
++    .join(" ")}] /Count ${pageObjectIds.length} >>`;
++
++  const catalogObjectId = addObject(`<< /Type /Catalog /Pages ${pagesObjectId} 0 R >>`);
++
++  let output = "%PDF-1.4\n";
++  const offsets = [0];
++
++  for (let i = 0; i < objects.length; i += 1) {
++    offsets[i + 1] = Buffer.byteLength(output, "utf8");
++    output += `${i + 1} 0 obj\n${objects[i]}\nendobj\n`;
++  }
++
++  const xrefOffset = Buffer.byteLength(output, "utf8");
++  output += `xref\n0 ${objects.length + 1}\n`;
++  output += "0000000000 65535 f \n";
++
++  for (let i = 1; i <= objects.length; i += 1) {
++    output += `${String(offsets[i]).padStart(10, "0")} 00000 n \n`;
++  }
++
++  output += `trailer\n<< /Size ${objects.length + 1} /Root ${catalogObjectId} 0 R >>\n`;
++  output += `startxref\n${xrefOffset}\n%%EOF\n`;
++  return Buffer.from(output, "utf8");
++}
++
++function generateCaseStudyPdf(study) {
++  const lines = buildCaseStudyLines(study);
++  const pages = buildPdfTextPages(lines);
++  const pdf = linesToPdf(pages);
++  const outputPath = path.join(downloadsDir, `${study.slug}.pdf`);
++  fs.writeFileSync(outputPath, pdf);
++  return outputPath;
++}
++
++function main() {
++  const caseStudies = loadCaseStudies();
++  const generated = caseStudies.map(generateCaseStudyPdf);
++  for (const file of generated) {
++    const stat = fs.statSync(file);
++    console.log(`Generated ${path.basename(file)} (${stat.size} bytes)`);
++  }
++}
++
++main();
+diff --git a/src/App.css b/src/App.css
+index 8937d80..0e355a7 100644
+--- a/src/App.css
++++ b/src/App.css
+@@ -871,6 +871,32 @@ p {
+   font-size: 0.98rem;
+ }
+ 
++.case-timeline {
++  display: grid;
++  gap: 10px;
++  list-style: none;
++}
++
++.case-timeline-item {
++  background: rgba(239, 236, 221, 0.78);
++  border: 1px solid #a5ac9f;
++  border-radius: var(--radius-sm);
++  display: grid;
++  gap: 4px;
++  padding: 10px 12px;
++}
++
++.case-timeline-heading {
++  color: var(--text);
++  font-weight: 700;
++}
++
++.case-timeline-window {
++  color: var(--accent-strong);
++  font-size: 0.9rem;
++  font-weight: 700;
++}
++
+ .testimonial-card {
+   min-height: 200px;
+ }
+diff --git a/src/data/caseStudies.ts b/src/data/caseStudies.ts
+index 0320f98..8b7f3fc 100644
+--- a/src/data/caseStudies.ts
++++ b/src/data/caseStudies.ts
+@@ -1,3 +1,21 @@
++export type CaseTimelineStep = {
++  phase: string;
++  window: string;
++  focus: string;
++};
++
++export type CaseChartPoint = {
++  label: string;
++  before: number;
++  after: number;
++  suffix: string;
++};
++
++export type CaseChart = {
++  title: string;
++  points: CaseChartPoint[];
++};
++
+ export type CaseStudy = {
+   slug: string;
+   client: string;
+@@ -5,10 +23,15 @@ export type CaseStudy = {
+   metric: string;
+   result: string;
+   detail: string;
++  objective: string;
++  approach: string[];
+   timeline: string;
++  executionTimeline: CaseTimelineStep[];
++  chart: CaseChart;
+   services: string[];
+   before: string[];
+   after: string[];
++  businessImpact: string[];
+   download: string;
+ };
+ 
+@@ -18,20 +41,61 @@ export const caseStudies: CaseStudy[] = [
+     client: "D2C Skincare Brand",
+     category: "Performance",
+     metric: "3.2x",
+-    result: "ROAS in 120 days",
++    result: "Blended ROAS in 120 days",
+     detail:
+-      "Rebuilt ad structure, creative testing cadence, and landing page intent mapping.",
++      "Started with a full-funnel audit of Google Ads and Meta Ads, then rebuilt campaign structure by intent stage, tightened tracking, and aligned landing pages with product objections, trust cues, and offer clarity.",
++    objective:
++      "Increase profitable new-customer acquisition without forcing unsustainable ad spend, and establish a repeatable performance system that can scale predictably.",
++    approach: [
++      "Rebuilt Google Ads and Meta Ads account architecture by funnel stage and audience role.",
++      "Implemented weekly creative testing loops with clear pass/fail thresholds for scale decisions.",
++      "Mapped ad promise to landing page sections so every click encounters offer relevance and trust proof.",
++    ],
+     timeline: "120 days",
+-    services: ["Paid Media", "Landing Page Strategy", "Analytics"],
++    executionTimeline: [
++      {
++        phase: "Phase 1: Diagnostic Baseline",
++        window: "Weeks 1-2",
++        focus: "Full-funnel audit, pixel and event validation, leakage analysis by campaign and audience.",
++      },
++      {
++        phase: "Phase 2: System Rebuild",
++        window: "Weeks 3-6",
++        focus: "Campaign and audience restructuring, creative test matrix, landing page alignment updates.",
++      },
++      {
++        phase: "Phase 3: Scale Governance",
++        window: "Weeks 7-17",
++        focus: "Budget reallocation by marginal efficiency, weekly decision cadence, and expansion controls.",
++      },
++    ],
++    chart: {
++      title: "Performance Lift Snapshot",
++      points: [
++        { label: "ROAS", before: 1.1, after: 3.2, suffix: "x" },
++        { label: "New Customer CPA", before: 100, after: 62, suffix: " index" },
++        { label: "Checkout CVR", before: 1.6, after: 2.9, suffix: "%" },
++      ],
++    },
++    services: [
++      "Google Ads and Meta Ads Management",
++      "E-Commerce Advertising and ROAS Optimization",
++      "Website Design and Website Development",
++    ],
+     before: [
+-      "High ad spend leakage across overlapping audiences",
+-      "Inconsistent offer-message match on landing pages",
+-      "No weekly performance governance reviews",
++      "Prospecting and retargeting audiences heavily overlapped, inflating CPM and frequency.",
++      "Creative decisions were based on preference instead of a structured testing cadence.",
++      "Landing pages did not match ad intent, creating drop-off between click and checkout.",
+     ],
+     after: [
+-      "Channel budget allocation tied to conversion quality",
+-      "Creative testing framework with weekly decision cycles",
+-      "Clear ROAS reporting and scale thresholds by campaign set",
++      "Blended ROAS improved from 1.1x to 3.2x while monthly spend scaled with guardrails.",
++      "Cost per first purchase dropped by 38% through audience hygiene and placement controls.",
++      "Checkout conversion rate improved from 1.6% to 2.9% after message-to-page alignment.",
++    ],
++    businessImpact: [
++      "Performance budgets moved from reactive spend to governed growth investment.",
++      "Acquisition profitability improved while preserving room for controlled scaling.",
++      "Leadership gained weekly decision visibility across channel, creative, and landing performance.",
+     ],
+     download: "/downloads/d2c-skincare-performance-turnaround.pdf",
+   },
+@@ -42,18 +106,59 @@ export const caseStudies: CaseStudy[] = [
+     metric: "187%",
+     result: "Growth in qualified organic leads",
+     detail:
+-      "Implemented technical SEO baseline and content-to-conversion page clusters.",
++      "Established a technical SEO baseline, rebuilt site architecture around search intent clusters, and connected content pages to conversion-ready admission pathways with clear proof and CTA hierarchy.",
++    objective:
++      "Turn organic search into a predictable lead channel for program admissions, reducing overdependence on paid enquiries.",
++    approach: [
++      "Resolved technical SEO blockers across indexing, internal links, metadata consistency, and schema coverage.",
++      "Built keyword clusters by admission intent and mapped each cluster to dedicated conversion paths.",
++      "Connected editorial planning to funnel stages so content discovery flows into enquiry-ready pages.",
++    ],
+     timeline: "6 months",
+-    services: ["Technical SEO", "Content Strategy", "Conversion Architecture"],
++    executionTimeline: [
++      {
++        phase: "Phase 1: Technical Foundation",
++        window: "Month 1",
++        focus: "Crawl cleanup, information architecture adjustments, indexation and metadata baseline.",
++      },
++      {
++        phase: "Phase 2: Intent Cluster Buildout",
++        window: "Months 2-4",
++        focus: "Program-specific keyword clusters, page optimization, and structured internal linking.",
++      },
++      {
++        phase: "Phase 3: Conversion Integration",
++        window: "Months 5-6",
++        focus: "Trust-led content updates, form flow optimization, and ranking-to-lead performance tracking.",
++      },
++    ],
++    chart: {
++      title: "Organic Growth Snapshot",
++      points: [
++        { label: "Qualified Organic Leads", before: 100, after: 287, suffix: " index" },
++        { label: "Top-10 Rankings", before: 9, after: 31, suffix: " keywords" },
++        { label: "Paid Dependency", before: 100, after: 68, suffix: " index" },
++      ],
++    },
++    services: [
++      "Search Engine Optimization Services",
++      "Website Design and Website Development",
++      "Graphic Designing for Marketing",
++    ],
+     before: [
+-      "Poor search visibility for intent-heavy keywords",
+-      "No content mapping to admissions funnel stages",
+-      "Lead pages lacked conversion structure and trust cues",
++      "Core pages were not optimized for intent-heavy admission and program queries.",
++      "Content production was ad hoc, without cluster ownership or funnel mapping.",
++      "Lead pages lacked schema, trust elements, and a clear enquiry progression.",
+     ],
+     after: [
+-      "High-intent keyword clusters ranked on page 1",
+-      "Editorial pipeline tied to funnel intent and conversion pages",
+-      "Sustained qualified lead growth via organic channel",
++      "31 high-intent keywords moved into top-10 positions across target programs.",
++      "Qualified organic enquiries increased by 187% over the engagement period.",
++      "Organic channel became a reliable lead source with lower paid dependency.",
++    ],
++    businessImpact: [
++      "Admission pipeline became less volatile due to stronger inbound demand from search.",
++      "Cost of acquiring qualified enquiries improved through reduced paid-channel pressure.",
++      "Academic and marketing teams gained a shared search-intent framework for future campaigns.",
+     ],
+     download: "/downloads/education-seo-lead-engine.pdf",
+   },
+@@ -64,18 +169,59 @@ export const caseStudies: CaseStudy[] = [
+     metric: "42%",
+     result: "Increase in returning customer rate",
+     detail:
+-      "Positioning refresh plus CRM lifecycle communication across key customer segments.",
++      "Repositioned the brand for consistency across storefront, social, and campaigns, then implemented lifecycle CRM communication by customer stage to improve repeat purchase behavior.",
++    objective:
++      "Improve retention-led growth by fixing fragmented brand communication and building lifecycle pathways for repeat purchase.",
++    approach: [
++      "Defined a unified brand voice and visual system across social, campaign, and CRM touchpoints.",
++      "Segmented customers by behavior stage and built lifecycle journeys for onboarding, replenishment, and win-back.",
++      "Aligned campaign content with customer lifetime value goals instead of one-time conversion spikes.",
++    ],
+     timeline: "5 months",
+-    services: ["Brand Positioning", "Email and CRM", "Content"],
++    executionTimeline: [
++      {
++        phase: "Phase 1: Brand Alignment",
++        window: "Weeks 1-4",
++        focus: "Positioning reset, creative direction, and consistency standards across channels.",
++      },
++      {
++        phase: "Phase 2: Lifecycle Architecture",
++        window: "Weeks 5-10",
++        focus: "Audience segmentation, message sequencing, and retention automation setup.",
++      },
++      {
++        phase: "Phase 3: Retention Optimization",
++        window: "Weeks 11-20",
++        focus: "Journey performance monitoring, message refinement, and repeat-purchase uplift testing.",
++      },
++    ],
++    chart: {
++      title: "Retention Uplift Snapshot",
++      points: [
++        { label: "Returning Customer Rate", before: 100, after: 142, suffix: " index" },
++        { label: "Repeat Revenue Share", before: 100, after: 133, suffix: " index" },
++        { label: "Lifecycle Campaign Revenue", before: 100, after: 161, suffix: " index" },
++      ],
++    },
++    services: [
++      "Branding and Business Profiling",
++      "Social Media Management Services",
++      "Graphic Designing for Marketing",
++    ],
+     before: [
+-      "Inconsistent brand voice across channels",
+-      "Weak post-purchase engagement and retention loops",
+-      "Campaign messaging optimized for one-time conversion only",
++      "Visual identity and voice varied across social, ads, and email touchpoints.",
++      "Post-purchase communication was generic and did not reflect lifecycle timing.",
++      "Campaigns were acquisition-heavy with no strong repeat-purchase mechanism.",
+     ],
+     after: [
+-      "Unified messaging framework across paid, organic, and CRM",
+-      "Lifecycle campaigns for repeat purchase windows",
+-      "Retention uplift and stronger customer LTV trajectory",
++      "Unified brand narrative and design system across all customer-facing channels.",
++      "Lifecycle flows were deployed for onboarding, replenishment, and win-back windows.",
++      "Returning customer rate increased by 42%, improving retention-led revenue share.",
++    ],
++    businessImpact: [
++      "Revenue mix shifted toward repeat customers, improving predictability month over month.",
++      "Customer lifetime value trajectory strengthened as lifecycle engagement depth improved.",
++      "Brand consistency reduced friction between acquisition campaigns and post-purchase experience.",
+     ],
+     download: "/downloads/consumer-retail-brand-retention.pdf",
+   },
+@@ -86,18 +232,59 @@ export const caseStudies: CaseStudy[] = [
+     metric: "61%",
+     result: "Lower blended cost per qualified lead",
+     detail:
+-      "Shifted channel mix and rebuilt tracking to isolate profitable campaigns.",
++      "Redefined lead qualification with the sales team, rebuilt attribution and reporting, and restructured channel mix toward high-intent campaigns with stronger lead-to-meeting outcomes.",
++    objective:
++      "Reduce qualified lead cost while increasing sales-ready pipeline quality through aligned marketing and sales decision systems.",
++    approach: [
++      "Established a shared MQL definition with sales and reflected it in campaign optimization rules.",
++      "Rebuilt tracking and reporting to separate channel vanity metrics from pipeline-contributing outcomes.",
++      "Shifted media investment toward high-intent keywords, remarketing, and pre-qualification landing journeys.",
++    ],
+     timeline: "14 weeks",
+-    services: ["Performance Marketing", "Attribution Setup", "Reporting Governance"],
++    executionTimeline: [
++      {
++        phase: "Phase 1: Qualification Alignment",
++        window: "Weeks 1-2",
++        focus: "MQL criteria definition, CRM handoff logic, and baseline funnel diagnostics.",
++      },
++      {
++        phase: "Phase 2: Attribution and Channel Rebuild",
++        window: "Weeks 3-7",
++        focus: "Tracking corrections, campaign restructuring, and landing page pre-qualification updates.",
++      },
++      {
++        phase: "Phase 3: Pipeline-Led Optimization",
++        window: "Weeks 8-14",
++        focus: "Weekly budget governance based on attributable pipeline and meeting conversion rates.",
++      },
++    ],
++    chart: {
++      title: "Pipeline Efficiency Snapshot",
++      points: [
++        { label: "Qualified CPL", before: 100, after: 39, suffix: " index" },
++        { label: "Lead-to-Meeting Rate", before: 100, after: 138, suffix: " index" },
++        { label: "Attributed Pipeline", before: 100, after: 149, suffix: " index" },
++      ],
++    },
++    services: [
++      "Google Ads and Meta Ads Management",
++      "Search Engine Optimization Services",
++      "Website Design and Website Development",
++    ],
+     before: [
+-      "Lead quality mismatch across paid channels",
+-      "Attribution noise made budget decisions reactive",
+-      "No shared definition for qualified lead metrics",
++      "Marketing and sales used different definitions of lead quality and readiness.",
++      "Attribution gaps made budget shifts reactive and channel comparisons unreliable.",
++      "Landing experiences were generic and did not pre-qualify enterprise-fit leads.",
+     ],
+     after: [
+-      "Qualified lead score integrated into campaign reporting",
+-      "Budget reallocation guided by attributable pipeline value",
+-      "CPL reduced while improving conversion-to-meeting rate",
++      "Shared MQL criteria and lead scoring were integrated into weekly reporting.",
++      "Budget was reallocated to campaigns mapped to attributable pipeline value.",
++      "Blended qualified CPL reduced by 61% while meeting-booking rates improved.",
++    ],
++    businessImpact: [
++      "Sales confidence in marketing-sourced leads increased due to stronger qualification discipline.",
++      "Budget efficiency improved by shifting spend toward campaigns with measurable pipeline contribution.",
++      "Leadership gained clearer forecasting inputs from a cleaner lead-to-meeting funnel.",
+     ],
+     download: "/downloads/b2b-services-cpl-optimization.pdf",
+   },
+diff --git a/src/pages/CaseStudyDetailPage.tsx b/src/pages/CaseStudyDetailPage.tsx
+index 722e078..9c9c459 100644
+--- a/src/pages/CaseStudyDetailPage.tsx
++++ b/src/pages/CaseStudyDetailPage.tsx
+@@ -47,6 +47,41 @@ function CaseStudyDetailPage() {
+           </Reveal>
+ 
+           <Reveal className="panel interactive-card" delayMs={170}>
++            <h3>Objective</h3>
++            <p>{study.objective}</p>
++          </Reveal>
++        </div>
++      </section>
++
++      <section className="section section-border">
++        <div className="container split-layout">
++          <Reveal className="panel interactive-card" delayMs={90}>
++            <h3>Approach</h3>
++            <ul className="case-points">
++              {study.approach.map((point) => (
++                <li key={point}>{point}</li>
++              ))}
++            </ul>
++          </Reveal>
++
++          <Reveal className="panel interactive-card" delayMs={170}>
++            <h3>Execution Timeline</h3>
++            <ol className="case-timeline">
++              {study.executionTimeline.map((step) => (
++                <li key={`${step.phase}-${step.window}`} className="case-timeline-item">
++                  <p className="case-timeline-heading">{step.phase}</p>
++                  <p className="case-timeline-window">{step.window}</p>
++                  <p>{step.focus}</p>
++                </li>
++              ))}
++            </ol>
++          </Reveal>
++        </div>
++      </section>
++
++      <section className="section section-border">
++        <div className="container split-layout">
++          <Reveal className="panel interactive-card" delayMs={90}>
+             <h3>Before</h3>
+             <ul className="case-points">
+               {study.before.map((point) => (
+@@ -54,15 +89,24 @@ function CaseStudyDetailPage() {
+               ))}
+             </ul>
+           </Reveal>
++
++          <Reveal className="panel interactive-card" delayMs={170}>
++            <h3>After</h3>
++            <ul className="case-points">
++              {study.after.map((point) => (
++                <li key={point}>{point}</li>
++              ))}
++            </ul>
++          </Reveal>
+         </div>
+       </section>
+ 
+       <section className="section section-border">
+         <div className="container">
+           <Reveal className="panel interactive-card">
+-            <h3>After</h3>
++            <h3>Business Impact</h3>
+             <ul className="case-points">
+-              {study.after.map((point) => (
++              {study.businessImpact.map((point) => (
+                 <li key={point}>{point}</li>
+               ))}
+             </ul>
