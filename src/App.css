@@ -871,6 +871,32 @@ p {
   font-size: 0.98rem;
 }
 
+.case-timeline {
+  display: grid;
+  gap: 10px;
+  list-style: none;
+}
+
+.case-timeline-item {
+  background: rgba(239, 236, 221, 0.78);
+  border: 1px solid #a5ac9f;
+  border-radius: var(--radius-sm);
+  display: grid;
+  gap: 4px;
+  padding: 10px 12px;
+}
+
+.case-timeline-heading {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.case-timeline-window {
+  color: var(--accent-strong);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
 .testimonial-card {
   min-height: 200px;
 }

@@ -47,9 +47,53 @@ function CaseStudyDetailPage() {
           </Reveal>
 
           <Reveal className="panel interactive-card" delayMs={170}>
+            <h3>Objective</h3>
+            <p>{study.objective}</p>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section section-border">
+        <div className="container split-layout">
+          <Reveal className="panel interactive-card" delayMs={90}>
+            <h3>Approach</h3>
+            <ul className="case-points">
+              {study.approach.map((point) => (
+                <li key={point}>{point}</li>
+              ))}
+            </ul>
+          </Reveal>
+
+          <Reveal className="panel interactive-card" delayMs={170}>
+            <h3>Execution Timeline</h3>
+            <ol className="case-timeline">
+              {study.executionTimeline.map((step) => (
+                <li key={`${step.phase}-${step.window}`} className="case-timeline-item">
+                  <p className="case-timeline-heading">{step.phase}</p>
+                  <p className="case-timeline-window">{step.window}</p>
+                  <p>{step.focus}</p>
+                </li>
+              ))}
+            </ol>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section section-border">
+        <div className="container split-layout">
+          <Reveal className="panel interactive-card" delayMs={90}>
             <h3>Before</h3>
             <ul className="case-points">
               {study.before.map((point) => (
+                <li key={point}>{point}</li>
+              ))}
+            </ul>
+          </Reveal>
+
+          <Reveal className="panel interactive-card" delayMs={170}>
+            <h3>After</h3>
+            <ul className="case-points">
+              {study.after.map((point) => (
                 <li key={point}>{point}</li>
               ))}
             </ul>
@@ -60,9 +104,9 @@ function CaseStudyDetailPage() {
       <section className="section section-border">
         <div className="container">
           <Reveal className="panel interactive-card">
-            <h3>After</h3>
+            <h3>Business Impact</h3>
             <ul className="case-points">
-              {study.after.map((point) => (
+              {study.businessImpact.map((point) => (
                 <li key={point}>{point}</li>
               ))}
             </ul>

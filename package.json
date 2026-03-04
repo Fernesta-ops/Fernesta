@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate:case-study-pdfs": "node scripts/generate-case-study-pdfs-branded.mjs",
+    "generate:case-study-pdfs:text": "node scripts/generate-case-study-pdfs.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -42,6 +44,7 @@
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
     "jest-axe": "^10.0.0",
+    "playwright-core": "^1.58.2",
     "postcss": "^8.5.8",
     "tailwindcss": "^4.2.1",
     "typescript": "~5.9.3",
