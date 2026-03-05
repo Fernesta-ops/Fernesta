@@ -1,0 +1,496 @@
+Publish Change Log
+==================
+
+Commit: dec09db436323f754b7078de46c655c60051dbed
+Short Commit: dec09db
+Date: 2026-03-05T19:23:29+05:30
+Author: Tarun Gupta <info@fernesta.com>
+Message: Run Playwright UI audit and apply frontend polish primitives
+
+Changed Files (Name/Status)
+---------------------------
+M	package-lock.json
+M	package.json
+M	public/images/site/branding/logo-wordmark-clean.png
+A	scripts/playwright-ui-audit.mjs
+M	src/App.css
+M	src/Components/CTA.tsx
+M	src/Components/ConversionDock.tsx
+M	src/Components/Hero.tsx
+M	src/Components/Navbar.tsx
+A	src/Components/ui/button.tsx
+A	src/lib/cn.ts
+
+Full Diff
+---------
+commit dec09db436323f754b7078de46c655c60051dbed
+Author: Tarun Gupta <info@fernesta.com>
+Date:   Thu Mar 5 19:23:29 2026 +0530
+
+    Run Playwright UI audit and apply frontend polish primitives
+
+diff --git a/package-lock.json b/package-lock.json
+index b1bb8ec..ae361a8 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -10,6 +10,7 @@
+       "dependencies": {
+         "@hookform/resolvers": "^5.2.2",
+         "@radix-ui/react-slot": "^1.2.4",
++        "class-variance-authority": "^0.7.1",
+         "clsx": "^2.1.1",
+         "embla-carousel-react": "^8.6.0",
+         "framer-motion": "^12.34.5",
+@@ -3032,6 +3033,18 @@
+         "node": ">= 16"
+       }
+     },
++    "node_modules/class-variance-authority": {
++      "version": "0.7.1",
++      "resolved": "https://registry.npmjs.org/class-variance-authority/-/class-variance-authority-0.7.1.tgz",
++      "integrity": "sha512-Ka+9Trutv7G8M6WT6SeiRWz792K5qEqIGEGzXKhAE6xOWAY6pPH8U+9IY3oCMv6kqTmLsv7Xh/2w2RigkePMsg==",
++      "license": "Apache-2.0",
++      "dependencies": {
++        "clsx": "^2.1.1"
++      },
++      "funding": {
++        "url": "https://polar.sh/cva"
++      }
++    },
+     "node_modules/clsx": {
+       "version": "2.1.1",
+       "resolved": "https://registry.npmjs.org/clsx/-/clsx-2.1.1.tgz",
+diff --git a/package.json b/package.json
+index e592041..570e4f8 100644
+--- a/package.json
++++ b/package.json
+@@ -15,6 +15,7 @@
+   "dependencies": {
+     "@hookform/resolvers": "^5.2.2",
+     "@radix-ui/react-slot": "^1.2.4",
++    "class-variance-authority": "^0.7.1",
+     "clsx": "^2.1.1",
+     "embla-carousel-react": "^8.6.0",
+     "framer-motion": "^12.34.5",
+diff --git a/public/images/site/branding/logo-wordmark-clean.png b/public/images/site/branding/logo-wordmark-clean.png
+index 694aa7b..5117a29 100644
+Binary files a/public/images/site/branding/logo-wordmark-clean.png and b/public/images/site/branding/logo-wordmark-clean.png differ
+diff --git a/scripts/playwright-ui-audit.mjs b/scripts/playwright-ui-audit.mjs
+new file mode 100644
+index 0000000..51dc18f
+--- /dev/null
++++ b/scripts/playwright-ui-audit.mjs
+@@ -0,0 +1,91 @@
++import fs from "node:fs";
++import path from "node:path";
++import { chromium } from "playwright-core";
++
++const rootDir = process.cwd();
++const outputDir = path.join(rootDir, "output", "playwright", "audit");
++const baseUrl = process.env.AUDIT_BASE_URL || "http://127.0.0.1:4173";
++const routes = ["/", "/services", "/case-studies", "/contact-us"];
++
++function resolveBrowserExecutable() {
++  if (process.env.PDF_BROWSER_PATH && fs.existsSync(process.env.PDF_BROWSER_PATH)) {
++    return process.env.PDF_BROWSER_PATH;
++  }
++
++  const candidates = [
++    path.join(process.env["PROGRAMFILES(X86)"] || "", "Microsoft", "Edge", "Application", "msedge.exe"),
++    path.join(process.env.PROGRAMFILES || "", "Microsoft", "Edge", "Application", "msedge.exe"),
++    path.join(process.env["PROGRAMFILES(X86)"] || "", "Google", "Chrome", "Application", "chrome.exe"),
++    path.join(process.env.PROGRAMFILES || "", "Google", "Chrome", "Application", "chrome.exe"),
++  ].filter(Boolean);
++
++  for (const filePath of candidates) {
++    if (fs.existsSync(filePath)) {
++      return filePath;
++    }
++  }
++
++  throw new Error(
++    [
++      "No browser executable found for Playwright audit.",
++      "Set `PDF_BROWSER_PATH` to an Edge/Chrome executable path.",
++    ].join(" ")
++  );
++}
++
++function safeName(route) {
++  return route === "/" ? "home" : route.replace(/^\//, "").replace(/[^\w-]/g, "-");
++}
++
++async function captureViewport(browser, viewport, suffix) {
++  const context = await browser.newContext({
++    viewport,
++    deviceScaleFactor: 1,
++  });
++
++  try {
++    for (const route of routes) {
++      const page = await context.newPage();
++      const url = new URL(route, baseUrl).toString();
++      await page.goto(url, { waitUntil: "networkidle" });
++      await page.evaluate(async () => {
++        const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
++        const step = Math.max(240, Math.floor(window.innerHeight * 0.75));
++        for (let y = 0; y < document.body.scrollHeight; y += step) {
++          window.scrollTo(0, y);
++          await delay(120);
++        }
++        window.scrollTo(0, 0);
++      });
++      await page.waitForTimeout(600);
++      const filePath = path.join(outputDir, `${safeName(route)}-${suffix}.png`);
++      await page.screenshot({ path: filePath, fullPage: true });
++      await page.close();
++      console.log(`Captured ${path.relative(rootDir, filePath)}`);
++    }
++  } finally {
++    await context.close();
++  }
++}
++
++async function main() {
++  fs.mkdirSync(outputDir, { recursive: true });
++  const executablePath = resolveBrowserExecutable();
++  const browser = await chromium.launch({
++    executablePath,
++    headless: true,
++    args: ["--disable-gpu", "--font-render-hinting=none"],
++  });
++
++  try {
++    await captureViewport(browser, { width: 1440, height: 900 }, "desktop");
++    await captureViewport(browser, { width: 390, height: 844 }, "mobile");
++  } finally {
++    await browser.close();
++  }
++}
++
++main().catch((error) => {
++  console.error(error.message || error);
++  process.exit(1);
++});
+diff --git a/src/App.css b/src/App.css
+index 756a670..a0e1c5b 100644
+--- a/src/App.css
++++ b/src/App.css
+@@ -227,10 +227,10 @@ p {
+   border-radius: 999px;
+   box-shadow: 0 4px 14px rgba(28, 42, 33, 0.09);
+   display: inline-flex;
+-  gap: 9px;
++  gap: 10px;
+   line-height: 1;
+-  min-height: 52px;
+-  padding: 5px 14px 5px 6px;
++  min-height: 56px;
++  padding: 6px 16px 6px 7px;
+ }
+ 
+ .logo-mark-shell {
+@@ -239,15 +239,15 @@ p {
+   border: 1px solid rgba(110, 127, 111, 0.4);
+   border-radius: 999px;
+   display: inline-flex;
+-  height: 40px;
++  height: 44px;
+   justify-content: center;
+   overflow: hidden;
+-  width: 40px;
++  width: 44px;
+ }
+ 
+ .logo-monogram {
+   display: block;
+-  height: 30px;
++  height: 32px;
+   object-fit: contain;
+   width: auto;
+ }
+@@ -256,7 +256,7 @@ p {
+   display: block;
+   height: auto;
+   object-fit: contain;
+-  width: min(154px, 31vw);
++  width: min(188px, 36vw);
+ }
+ 
+ .nav-links {
+@@ -397,6 +397,45 @@ p {
+   background: rgba(248, 246, 236, 0.88);
+ }
+ 
++.button-ghost {
++  background: transparent;
++  border-color: rgba(55, 87, 66, 0.28);
++  color: var(--accent-strong);
++}
++
++.button-magic {
++  isolation: isolate;
++  overflow: hidden;
++  position: relative;
++}
++
++.button-magic::after {
++  background: linear-gradient(105deg, transparent 22%, rgba(236, 241, 226, 0.34) 48%, transparent 74%);
++  content: "";
++  inset: -60% -38%;
++  pointer-events: none;
++  position: absolute;
++  transform: translateX(-140%) rotate(9deg);
++  transition: transform 0.58s ease;
++  z-index: -1;
++}
++
++.button-magic:hover::after {
++  transform: translateX(136%) rotate(9deg);
++}
++
++.button-sm {
++  font-size: 0.72rem;
++  min-height: 36px;
++  padding: 0 12px;
++}
++
++.button-lg {
++  font-size: 0.86rem;
++  min-height: 48px;
++  padding: 0 20px;
++}
++
+ .button:hover {
+   transform: translateY(0);
+ }
+@@ -1548,7 +1587,7 @@ p {
+ 
+ .footer-brand .footer-monogram {
+   display: block;
+-  height: 30px;
++  height: 32px;
+   object-fit: contain;
+   width: auto;
+ }
+@@ -1557,7 +1596,7 @@ p {
+   display: block;
+   height: auto;
+   object-fit: contain;
+-  width: min(154px, 52vw);
++  width: min(176px, 52vw);
+ }
+ 
+ .footer-brand p {
+@@ -1785,16 +1824,16 @@ p {
+   }
+ 
+   .logo-monogram {
+-    height: 24px;
++    height: 26px;
+   }
+ 
+   .logo-mark-shell {
+-    height: 34px;
+-    width: 34px;
++    height: 36px;
++    width: 36px;
+   }
+ 
+   .logo-wordmark {
+-    width: min(124px, 40vw);
++    width: min(146px, 48vw);
+   }
+ 
+   .button-row {
+diff --git a/src/Components/CTA.tsx b/src/Components/CTA.tsx
+index ed91e00..ddd9331 100644
+--- a/src/Components/CTA.tsx
++++ b/src/Components/CTA.tsx
+@@ -1,3 +1,6 @@
++import { Link } from "react-router-dom";
++import { Button } from "./ui/button";
++
+ function CTA() {
+   return (
+     <section id="cta" className="section cta section-border">
+@@ -6,9 +9,9 @@ function CTA() {
+           <p className="meta">Strategic Engagement</p>
+           <h2>Structured Growth Begins with Strategic Clarity.</h2>
+         </div>
+-        <button type="button" className="button button-primary">
+-          Request Strategic Assessment
+-        </button>
++        <Button asChild variant="primary">
++          <Link to="/contact-us">Request Strategic Assessment</Link>
++        </Button>
+       </div>
+     </section>
+   );
+diff --git a/src/Components/ConversionDock.tsx b/src/Components/ConversionDock.tsx
+index 363f9e0..c8753d1 100644
+--- a/src/Components/ConversionDock.tsx
++++ b/src/Components/ConversionDock.tsx
+@@ -1,25 +1,24 @@
+ import { Link } from "react-router-dom";
++import { Button } from "./ui/button";
+ 
+ function ConversionDock() {
+   return (
+     <aside className="conversion-dock" aria-label="Quick conversion actions">
+-      <Link className="button button-primary" to="/contact-us">
+-        Book 20-min Call
+-      </Link>
+-      <button
++      <Button asChild variant="primary">
++        <Link to="/contact-us">Book 20-min Call</Link>
++      </Button>
++      <Button
+         type="button"
+-        className="button button-secondary"
++        variant="secondary"
+         onClick={() => window.dispatchEvent(new CustomEvent("open-audit"))}
+       >
+         Request Free Audit
+-      </button>
+-      <a
+-        className="button button-secondary"
+-        href="/downloads/fernesta-capabilities-deck.pdf"
+-        download
+-      >
+-        Get Capabilities Deck
+-      </a>
++      </Button>
++      <Button asChild variant="secondary">
++        <a href="/downloads/fernesta-capabilities-deck.pdf" download>
++          Get Capabilities Deck
++        </a>
++      </Button>
+     </aside>
+   );
+ }
+diff --git a/src/Components/Hero.tsx b/src/Components/Hero.tsx
+index dc19fa4..ca43bf9 100644
+--- a/src/Components/Hero.tsx
++++ b/src/Components/Hero.tsx
+@@ -1,3 +1,5 @@
++import { Button } from "./ui/button";
++
+ function Hero() {
+   return (
+     <section id="top" className="hero section">
+@@ -17,12 +19,12 @@ function Hero() {
+             attribution discipline into one accountable operating model.
+           </p>
+           <div className="button-row">
+-            <a href="#cta" className="button button-primary">
+-              Request Strategic Assessment
+-            </a>
+-            <a href="#systems" className="button button-secondary">
+-              View Framework
+-            </a>
++            <Button asChild variant="primary">
++              <a href="#cta">Request Strategic Assessment</a>
++            </Button>
++            <Button asChild variant="secondary">
++              <a href="#systems">View Framework</a>
++            </Button>
+           </div>
+         </div>
+         <div className="hero-visual">
+diff --git a/src/Components/Navbar.tsx b/src/Components/Navbar.tsx
+index 51e70d3..7a7bc93 100644
+--- a/src/Components/Navbar.tsx
++++ b/src/Components/Navbar.tsx
+@@ -1,6 +1,7 @@
+ import { useEffect, useState } from "react";
+ import { NavLink } from "react-router-dom";
+ import { AnimatePresence, motion } from "framer-motion";
++import { Button } from "./ui/button";
+ 
+ const links = [
+   { label: "Home", to: "/" },
+@@ -133,17 +134,15 @@ export default function Navbar() {
+               </NavLink>
+             </motion.div>
+           ))}
+-          <NavLink
+-            className="button button-primary nav-mobile-cta"
+-            to="/contact-us"
+-            onClick={() => setMenuOpen(false)}
+-          >
+-            Request Assessment
+-          </NavLink>
++          <Button asChild className="nav-mobile-cta" variant="primary">
++            <NavLink to="/contact-us" onClick={() => setMenuOpen(false)}>
++              Request Assessment
++            </NavLink>
++          </Button>
+         </nav>
+-        <NavLink className="button button-primary nav-button" to="/contact-us">
+-          Request Assessment
+-        </NavLink>
++        <Button asChild className="nav-button" variant="primary">
++          <NavLink to="/contact-us">Request Assessment</NavLink>
++        </Button>
+       </div>
+     </header>
+   );
+diff --git a/src/Components/ui/button.tsx b/src/Components/ui/button.tsx
+new file mode 100644
+index 0000000..1788d61
+--- /dev/null
++++ b/src/Components/ui/button.tsx
+@@ -0,0 +1,40 @@
++import * as React from "react";
++import { Slot } from "@radix-ui/react-slot";
++import { cva, type VariantProps } from "class-variance-authority";
++import { cn } from "../../lib/cn";
++
++const buttonVariants = cva("button", {
++  variants: {
++    variant: {
++      primary: "button-primary button-magic",
++      secondary: "button-secondary",
++      ghost: "button-ghost",
++    },
++    size: {
++      default: "",
++      sm: "button-sm",
++      lg: "button-lg",
++    },
++  },
++  defaultVariants: {
++    variant: "primary",
++    size: "default",
++  },
++});
++
++export interface ButtonProps
++  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
++    VariantProps<typeof buttonVariants> {
++  asChild?: boolean;
++}
++
++const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
++  ({ className, variant, size, asChild = false, ...props }, ref) => {
++    const Comp = asChild ? Slot : "button";
++    return <Comp className={cn(buttonVariants({ variant, size }), className)} ref={ref} {...props} />;
++  }
++);
++
++Button.displayName = "Button";
++
++export { Button, buttonVariants };
+diff --git a/src/lib/cn.ts b/src/lib/cn.ts
+new file mode 100644
+index 0000000..a5ef193
+--- /dev/null
++++ b/src/lib/cn.ts
+@@ -0,0 +1,6 @@
++import { clsx, type ClassValue } from "clsx";
++import { twMerge } from "tailwind-merge";
++
++export function cn(...inputs: ClassValue[]) {
++  return twMerge(clsx(inputs));
++}
