@@ -1,0 +1,175 @@
+Publish Change Log
+==================
+
+Commit: e9ddb8cc738ddedbf634dc5d103fbda9842a7540
+Short Commit: e9ddb8c
+Date: 2026-03-05T18:12:24+05:30
+Author: Tarun Gupta <info@fernesta.com>
+Message: Update site branding with new logo and monogram assets
+
+Changed Files (Name/Status)
+---------------------------
+M	index.html
+A	public/images/site/branding/logo-final.png
+A	public/images/site/branding/monogram.png
+M	src/App.css
+M	src/Components/Footer.tsx
+M	src/Components/Navbar.tsx
+
+Full Diff
+---------
+commit e9ddb8cc738ddedbf634dc5d103fbda9842a7540
+Author: Tarun Gupta <info@fernesta.com>
+Date:   Thu Mar 5 18:12:24 2026 +0530
+
+    Update site branding with new logo and monogram assets
+
+diff --git a/index.html b/index.html
+index 3ec27d2..4687c99 100644
+--- a/index.html
++++ b/index.html
+@@ -2,7 +2,7 @@
+ <html lang="en">
+   <head>
+     <meta charset="UTF-8" />
+-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
++    <link rel="icon" type="image/png" href="/images/site/branding/monogram.png" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <title>Digital Marketing Agency in Jaipur | Fernesta</title>
+     <meta
+diff --git a/public/images/site/branding/logo-final.png b/public/images/site/branding/logo-final.png
+new file mode 100644
+index 0000000..8f326ac
+Binary files /dev/null and b/public/images/site/branding/logo-final.png differ
+diff --git a/public/images/site/branding/monogram.png b/public/images/site/branding/monogram.png
+new file mode 100644
+index 0000000..57ed327
+Binary files /dev/null and b/public/images/site/branding/monogram.png differ
+diff --git a/src/App.css b/src/App.css
+index b6cc0e1..75470b4 100644
+--- a/src/App.css
++++ b/src/App.css
+@@ -221,11 +221,25 @@ p {
+ }
+ 
+ .logo {
+-  color: #172019;
+-  font-family: "Cormorant Garamond", serif;
+-  font-size: 1.18rem;
+-  font-weight: 700;
+-  letter-spacing: 0.14em;
++  align-items: center;
++  display: inline-flex;
++  gap: 10px;
++  line-height: 1;
++  min-height: 46px;
++}
++
++.logo-monogram {
++  display: block;
++  height: 42px;
++  object-fit: contain;
++  width: 42px;
++}
++
++.logo-wordmark {
++  display: block;
++  height: auto;
++  object-fit: contain;
++  width: min(168px, 34vw);
+ }
+ 
+ .nav-links {
+@@ -1495,12 +1509,23 @@ p {
+ }
+ 
+ .footer-brand .footer-logo {
+-  color: #efeedd;
+-  font-family: "Cormorant Garamond", serif;
+-  font-size: 1.5rem;
+-  font-weight: 700;
+-  letter-spacing: 0.08em;
+-  text-transform: uppercase;
++  align-items: center;
++  display: inline-flex;
++  gap: 10px;
++}
++
++.footer-brand .footer-monogram {
++  display: block;
++  height: 42px;
++  object-fit: contain;
++  width: 42px;
++}
++
++.footer-brand .footer-wordmark {
++  display: block;
++  height: auto;
++  object-fit: contain;
++  width: min(180px, 52vw);
+ }
+ 
+ .footer-brand p {
+@@ -1727,6 +1752,15 @@ p {
+     font-size: 0.9rem;
+   }
+ 
++  .logo-monogram {
++    height: 34px;
++    width: 34px;
++  }
++
++  .logo-wordmark {
++    width: min(134px, 42vw);
++  }
++
+   .button-row {
+     display: grid;
+     grid-template-columns: 1fr;
+diff --git a/src/Components/Footer.tsx b/src/Components/Footer.tsx
+index 2820214..46e982c 100644
+--- a/src/Components/Footer.tsx
++++ b/src/Components/Footer.tsx
+@@ -5,6 +5,19 @@ function Footer() {
+     <footer className="footer">
+       <div className="container footer-inner">
+         <div className="footer-brand">
++          <div className="footer-logo" aria-label="Fernesta">
++            <img
++              className="footer-monogram"
++              src="/images/site/branding/monogram.png"
++              alt=""
++              aria-hidden="true"
++            />
++            <img
++              className="footer-wordmark"
++              src="/images/site/branding/logo-final.png"
++              alt="Fernesta"
++            />
++          </div>
+           <p className="footer-tagline">Digital Marketing Agency in Jaipur</p>
+           <p>SEO, Performance Ads, Social Media, and Growth Systems for Jaipur Businesses.</p>
+           <p className="footer-copy">© 2026 Fernesta. All rights reserved.</p>
+diff --git a/src/Components/Navbar.tsx b/src/Components/Navbar.tsx
+index 6fdab82..66ac2b3 100644
+--- a/src/Components/Navbar.tsx
++++ b/src/Components/Navbar.tsx
+@@ -37,7 +37,17 @@ export default function Navbar() {
+       </a>
+       <div className="container nav-container">
+         <NavLink className="logo" to="/" onClick={() => setMenuOpen(false)}>
+-          FERNESTA
++          <img
++            className="logo-monogram"
++            src="/images/site/branding/monogram.png"
++            alt=""
++            aria-hidden="true"
++          />
++          <img
++            className="logo-wordmark"
++            src="/images/site/branding/logo-final.png"
++            alt="Fernesta"
++          />
+         </NavLink>
+ 
+         <button
