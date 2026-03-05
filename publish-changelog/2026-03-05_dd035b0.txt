@@ -1,0 +1,170 @@
+Publish Change Log
+==================
+
+Commit: dd035b081ee94524dcc8b4aeb31d408e2fae85a2
+Short Commit: dd035b0
+Date: 2026-03-05T19:39:55+05:30
+Author: Tarun Gupta <info@fernesta.com>
+Message: Improve logo/footer contrast and fix mobile centering overflow
+
+Changed Files (Name/Status)
+---------------------------
+M	src/App.css
+
+Full Diff
+---------
+commit dd035b081ee94524dcc8b4aeb31d408e2fae85a2
+Author: Tarun Gupta <info@fernesta.com>
+Date:   Thu Mar 5 19:39:55 2026 +0530
+
+    Improve logo/footer contrast and fix mobile centering overflow
+
+diff --git a/src/App.css b/src/App.css
+index a0e1c5b..dd9b53c 100644
+--- a/src/App.css
++++ b/src/App.css
+@@ -222,15 +222,15 @@ p {
+ 
+ .logo {
+   align-items: center;
+-  background: linear-gradient(180deg, rgba(248, 246, 238, 0.95), rgba(239, 235, 221, 0.9));
+-  border: 1px solid rgba(109, 126, 109, 0.36);
++  background: transparent;
++  border: 0;
+   border-radius: 999px;
+-  box-shadow: 0 4px 14px rgba(28, 42, 33, 0.09);
++  box-shadow: none;
+   display: inline-flex;
+   gap: 10px;
+   line-height: 1;
+-  min-height: 56px;
+-  padding: 6px 16px 6px 7px;
++  min-height: 50px;
++  padding: 2px 0;
+ }
+ 
+ .logo-mark-shell {
+@@ -1554,7 +1554,7 @@ p {
+ }
+ 
+ .footer {
+-  background: var(--accent);
++  background: linear-gradient(180deg, #264133 0%, #1f372b 56%, #1a2f24 100%);
+   padding: 52px 0 32px;
+ }
+ 
+@@ -1566,8 +1566,8 @@ p {
+ 
+ .footer-brand .footer-logo {
+   align-items: center;
+-  background: rgba(239, 238, 221, 0.08);
+-  border: 1px solid rgba(239, 238, 221, 0.2);
++  background: rgba(239, 238, 221, 0.14);
++  border: 1px solid rgba(239, 238, 221, 0.32);
+   border-radius: 999px;
+   display: inline-flex;
+   gap: 9px;
+@@ -1576,7 +1576,8 @@ p {
+ 
+ .footer-brand .footer-mark-shell {
+   align-items: center;
+-  background: rgba(239, 238, 221, 0.9);
++  background: rgba(242, 241, 231, 0.98);
++  border: 1px solid rgba(28, 42, 33, 0.18);
+   border-radius: 999px;
+   display: inline-flex;
+   height: 40px;
+@@ -1594,26 +1595,27 @@ p {
+ 
+ .footer-brand .footer-wordmark {
+   display: block;
++  filter: brightness(1.25) contrast(1.12);
+   height: auto;
+   object-fit: contain;
+   width: min(176px, 52vw);
+ }
+ 
+ .footer-brand p {
+-  color: rgba(239, 238, 221, 0.65);
++  color: rgba(239, 238, 221, 0.88);
+   font-size: 0.88rem;
+   line-height: 1.55;
+   margin-top: 10px;
+ }
+ 
+ .footer-brand .footer-copy {
+-  color: rgba(239, 238, 221, 0.4);
++  color: rgba(239, 238, 221, 0.72);
+   font-size: 0.8rem;
+   margin-top: 20px;
+ }
+ 
+ .footer-col h4 {
+-  color: rgba(239, 238, 221, 0.5);
++  color: rgba(239, 238, 221, 0.82);
+   font-family: "Source Sans 3", sans-serif;
+   font-size: 0.72rem;
+   font-weight: 700;
+@@ -1622,39 +1624,35 @@ p {
+   text-transform: uppercase;
+ }
+ 
+-.footer-nav {
++.footer-col nav,
++.footer-nav-links {
+   display: grid;
+   gap: 8px;
+ }
+ 
+-.footer-nav a {
+-  color: rgba(239, 238, 221, 0.8);
++.footer-col nav a,
++.footer-nav-links a {
++  color: rgba(239, 238, 221, 0.94);
+   font-size: 0.9rem;
+   transition: color 0.2s ease;
+ }
+ 
+-.footer-nav a:hover {
+-  color: #efeedd;
++.footer-col nav a:hover,
++.footer-nav-links a:hover {
++  color: #ffffff;
+ }
+ 
+-.footer-nap {
++.footer-col address {
+   display: grid;
++  font-style: normal;
+   gap: 6px;
++  margin-bottom: 12px;
+ }
+ 
+-.footer-nap p {
+-  color: rgba(239, 238, 221, 0.8);
+-  font-size: 0.88rem;
+-}
+-
+-.footer-nap a {
+-  color: rgba(239, 238, 221, 0.8);
++.footer-col address p,
++.footer-col address a {
++  color: rgba(239, 238, 221, 0.9);
+   font-size: 0.88rem;
+-  transition: color 0.2s ease;
+-}
+-
+-.footer-nap a:hover {
+-  color: #efeedd;
+ }
+ 
+ 
+@@ -1775,7 +1773,7 @@ p {
+   }
+ 
+   .service-portfolio-card {
+-    min-height: 260px;
++    min-height: 0;
+   }
+ 
+   .conversion-dock .button {
