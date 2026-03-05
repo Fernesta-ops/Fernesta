@@ -1,0 +1,46 @@
+Publish Change Log
+==================
+
+Commit: 3bb31a7bfb8e6714b7e269a95cf2ede958a1a5d7
+Short Commit: 3bb31a7
+Date: 2026-03-05T18:59:36+05:30
+Author: Tarun Gupta <info@fernesta.com>
+Message: Refine brand lockup in UI and regenerate branded PDFs
+
+Changed Files (Name/Status)
+---------------------------
+M	index.html
+M	public/downloads/b2b-services-cpl-optimization.pdf
+M	public/downloads/consumer-retail-brand-retention.pdf
+M	public/downloads/d2c-skincare-performance-turnaround.pdf
+M	public/downloads/education-seo-lead-engine.pdf
+M	public/downloads/fernesta-capabilities-deck.pdf
+A	public/images/site/branding/logo-wordmark-clean.png
+A	public/images/site/branding/monogram-clean.png
+M	scripts/generate-capabilities-deck.mjs
+M	scripts/generate-case-study-pdfs-branded.mjs
+M	src/App.css
+M	src/Components/Footer.tsx
+M	src/Components/Navbar.tsx
+
+Full Diff
+---------
+commit 3bb31a7bfb8e6714b7e269a95cf2ede958a1a5d7
+Author: Tarun Gupta <info@fernesta.com>
+Date:   Thu Mar 5 18:59:36 2026 +0530
+
+    Refine brand lockup in UI and regenerate branded PDFs
+
+diff --git a/index.html b/index.html
+index 4687c99..c58ac4a 100644
+--- a/index.html
++++ b/index.html
+@@ -2,7 +2,7 @@
+ <html lang="en">
+   <head>
+     <meta charset="UTF-8" />
+-    <link rel="icon" type="image/png" href="/images/site/branding/monogram.png" />
++    <link rel="icon" type="image/png" href="/images/site/branding/monogram-clean.png" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <title>Digital Marketing Agency in Jaipur | Fernesta</title>
+     <meta
