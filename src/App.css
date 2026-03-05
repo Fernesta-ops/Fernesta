@@ -1554,7 +1554,9 @@ p {
 }
 
 .footer {
-  background: linear-gradient(180deg, #3d6a56 0%, #345d4a 58%, #2c5140 100%);
+  background:
+    linear-gradient(180deg, #f3f0e4 0%, #ece8d8 58%, #e4dfcc 100%);
+  border-top: 1px solid rgba(109, 126, 109, 0.26);
   padding: 52px 0 32px;
 }
 
@@ -1571,29 +1573,34 @@ p {
   padding: 0;
 }
 
+.footer-brand .footer-mark-shell,
+.footer-brand .footer-monogram {
+  display: none !important;
+}
+
 .footer-brand .footer-wordmark {
   display: block;
-  filter: brightness(1.42) contrast(1.1) saturate(1.08) drop-shadow(0 1px 1px rgba(19, 36, 28, 0.22));
+  filter: saturate(1.02) contrast(1.05);
   height: auto;
   object-fit: contain;
   width: min(188px, 52vw);
 }
 
 .footer-brand p {
-  color: rgba(239, 238, 221, 0.88);
+  color: #2a382f;
   font-size: 0.88rem;
   line-height: 1.55;
   margin-top: 10px;
 }
 
 .footer-brand .footer-copy {
-  color: rgba(239, 238, 221, 0.72);
+  color: #4f6255;
   font-size: 0.8rem;
   margin-top: 20px;
 }
 
 .footer-col h4 {
-  color: rgba(239, 238, 221, 0.82);
+  color: #30483b;
   font-family: "Source Sans 3", sans-serif;
   font-size: 0.72rem;
   font-weight: 700;
@@ -1610,14 +1617,14 @@ p {
 
 .footer-col nav a,
 .footer-nav-links a {
-  color: rgba(239, 238, 221, 0.94);
+  color: #223329;
   font-size: 0.9rem;
   transition: color 0.2s ease;
 }
 
 .footer-col nav a:hover,
 .footer-nav-links a:hover {
-  color: #ffffff;
+  color: #1a2a21;
 }
 
 .footer-col address {
@@ -1629,7 +1636,7 @@ p {
 
 .footer-col address p,
 .footer-col address a {
-  color: rgba(239, 238, 221, 0.9);
+  color: #2a3d32;
   font-size: 0.88rem;
 }
 
