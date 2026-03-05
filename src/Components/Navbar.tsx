@@ -36,16 +36,18 @@ export default function Navbar() {
         Skip to main content
       </a>
       <div className="container nav-container">
-        <NavLink className="logo" to="/" onClick={() => setMenuOpen(false)}>
-          <img
-            className="logo-monogram"
-            src="/images/site/branding/monogram.png"
-            alt=""
-            aria-hidden="true"
-          />
+        <NavLink className="logo" to="/" onClick={() => setMenuOpen(false)} aria-label="Fernesta home">
+          <span className="logo-mark-shell" aria-hidden="true">
+            <img
+              className="logo-monogram"
+              src="/images/site/branding/monogram-clean.png"
+              alt=""
+              aria-hidden="true"
+            />
+          </span>
           <img
             className="logo-wordmark"
-            src="/images/site/branding/logo-final.png"
+            src="/images/site/branding/logo-wordmark-clean.png"
             alt="Fernesta"
           />
         </NavLink>

@@ -222,24 +222,41 @@ p {
 
 .logo {
   align-items: center;
+  background: linear-gradient(180deg, rgba(248, 246, 238, 0.95), rgba(239, 235, 221, 0.9));
+  border: 1px solid rgba(109, 126, 109, 0.36);
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(28, 42, 33, 0.09);
   display: inline-flex;
-  gap: 10px;
+  gap: 9px;
   line-height: 1;
-  min-height: 46px;
+  min-height: 52px;
+  padding: 5px 14px 5px 6px;
+}
+
+.logo-mark-shell {
+  align-items: center;
+  background: linear-gradient(145deg, rgba(245, 244, 236, 0.96), rgba(227, 232, 222, 0.9));
+  border: 1px solid rgba(110, 127, 111, 0.4);
+  border-radius: 999px;
+  display: inline-flex;
+  height: 40px;
+  justify-content: center;
+  overflow: hidden;
+  width: 40px;
 }
 
 .logo-monogram {
   display: block;
-  height: 42px;
+  height: 30px;
   object-fit: contain;
-  width: 42px;
+  width: auto;
 }
 
 .logo-wordmark {
   display: block;
   height: auto;
   object-fit: contain;
-  width: min(168px, 34vw);
+  width: min(154px, 31vw);
 }
 
 .nav-links {
@@ -1510,22 +1527,37 @@ p {
 
 .footer-brand .footer-logo {
   align-items: center;
+  background: rgba(239, 238, 221, 0.08);
+  border: 1px solid rgba(239, 238, 221, 0.2);
+  border-radius: 999px;
   display: inline-flex;
-  gap: 10px;
+  gap: 9px;
+  padding: 5px 14px 5px 6px;
+}
+
+.footer-brand .footer-mark-shell {
+  align-items: center;
+  background: rgba(239, 238, 221, 0.9);
+  border-radius: 999px;
+  display: inline-flex;
+  height: 40px;
+  justify-content: center;
+  overflow: hidden;
+  width: 40px;
 }
 
 .footer-brand .footer-monogram {
   display: block;
-  height: 42px;
+  height: 30px;
   object-fit: contain;
-  width: 42px;
+  width: auto;
 }
 
 .footer-brand .footer-wordmark {
   display: block;
   height: auto;
   object-fit: contain;
-  width: min(180px, 52vw);
+  width: min(154px, 52vw);
 }
 
 .footer-brand p {
@@ -1753,12 +1785,16 @@ p {
   }
 
   .logo-monogram {
+    height: 24px;
+  }
+
+  .logo-mark-shell {
     height: 34px;
     width: 34px;
   }
 
   .logo-wordmark {
-    width: min(134px, 42vw);
+    width: min(124px, 40vw);
   }
 
   .button-row {

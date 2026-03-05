@@ -6,15 +6,17 @@ function Footer() {
       <div className="container footer-inner">
         <div className="footer-brand">
           <div className="footer-logo" aria-label="Fernesta">
-            <img
-              className="footer-monogram"
-              src="/images/site/branding/monogram.png"
-              alt=""
-              aria-hidden="true"
-            />
+            <span className="footer-mark-shell" aria-hidden="true">
+              <img
+                className="footer-monogram"
+                src="/images/site/branding/monogram-clean.png"
+                alt=""
+                aria-hidden="true"
+              />
+            </span>
             <img
               className="footer-wordmark"
-              src="/images/site/branding/logo-final.png"
+              src="/images/site/branding/logo-wordmark-clean.png"
               alt="Fernesta"
             />
           </div>
