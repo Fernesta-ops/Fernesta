@@ -1,3 +1,5 @@
+import { Button } from "./ui/button";
+
 function Hero() {
   return (
     <section id="top" className="hero section">
@@ -17,12 +19,12 @@ function Hero() {
             attribution discipline into one accountable operating model.
           </p>
           <div className="button-row">
-            <a href="#cta" className="button button-primary">
-              Request Strategic Assessment
-            </a>
-            <a href="#systems" className="button button-secondary">
-              View Framework
-            </a>
+            <Button asChild variant="primary">
+              <a href="#cta">Request Strategic Assessment</a>
+            </Button>
+            <Button asChild variant="secondary">
+              <a href="#systems">View Framework</a>
+            </Button>
           </div>
         </div>
         <div className="hero-visual">

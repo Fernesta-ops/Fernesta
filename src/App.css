@@ -227,10 +227,10 @@ p {
   border-radius: 999px;
   box-shadow: 0 4px 14px rgba(28, 42, 33, 0.09);
   display: inline-flex;
-  gap: 9px;
+  gap: 10px;
   line-height: 1;
-  min-height: 52px;
-  padding: 5px 14px 5px 6px;
+  min-height: 56px;
+  padding: 6px 16px 6px 7px;
 }
 
 .logo-mark-shell {
@@ -239,15 +239,15 @@ p {
   border: 1px solid rgba(110, 127, 111, 0.4);
   border-radius: 999px;
   display: inline-flex;
-  height: 40px;
+  height: 44px;
   justify-content: center;
   overflow: hidden;
-  width: 40px;
+  width: 44px;
 }
 
 .logo-monogram {
   display: block;
-  height: 30px;
+  height: 32px;
   object-fit: contain;
   width: auto;
 }
@@ -256,7 +256,7 @@ p {
   display: block;
   height: auto;
   object-fit: contain;
-  width: min(154px, 31vw);
+  width: min(188px, 36vw);
 }
 
 .nav-links {
@@ -395,6 +395,45 @@ p {
 .button-secondary:hover {
   border-color: #4a7464;
   background: rgba(248, 246, 236, 0.88);
+}
+
+.button-ghost {
+  background: transparent;
+  border-color: rgba(55, 87, 66, 0.28);
+  color: var(--accent-strong);
+}
+
+.button-magic {
+  isolation: isolate;
+  overflow: hidden;
+  position: relative;
+}
+
+.button-magic::after {
+  background: linear-gradient(105deg, transparent 22%, rgba(236, 241, 226, 0.34) 48%, transparent 74%);
+  content: "";
+  inset: -60% -38%;
+  pointer-events: none;
+  position: absolute;
+  transform: translateX(-140%) rotate(9deg);
+  transition: transform 0.58s ease;
+  z-index: -1;
+}
+
+.button-magic:hover::after {
+  transform: translateX(136%) rotate(9deg);
+}
+
+.button-sm {
+  font-size: 0.72rem;
+  min-height: 36px;
+  padding: 0 12px;
+}
+
+.button-lg {
+  font-size: 0.86rem;
+  min-height: 48px;
+  padding: 0 20px;
 }
 
 .button:hover {
@@ -1548,7 +1587,7 @@ p {
 
 .footer-brand .footer-monogram {
   display: block;
-  height: 30px;
+  height: 32px;
   object-fit: contain;
   width: auto;
 }
@@ -1557,7 +1596,7 @@ p {
   display: block;
   height: auto;
   object-fit: contain;
-  width: min(154px, 52vw);
+  width: min(176px, 52vw);
 }
 
 .footer-brand p {
@@ -1785,16 +1824,16 @@ p {
   }
 
   .logo-monogram {
-    height: 24px;
+    height: 26px;
   }
 
   .logo-mark-shell {
-    height: 34px;
-    width: 34px;
+    height: 36px;
+    width: 36px;
   }
 
   .logo-wordmark {
-    width: min(124px, 40vw);
+    width: min(146px, 48vw);
   }
 
   .button-row {

@@ -1,25 +1,24 @@
 import { Link } from "react-router-dom";
+import { Button } from "./ui/button";
 
 function ConversionDock() {
   return (
     <aside className="conversion-dock" aria-label="Quick conversion actions">
-      <Link className="button button-primary" to="/contact-us">
-        Book 20-min Call
-      </Link>
-      <button
+      <Button asChild variant="primary">
+        <Link to="/contact-us">Book 20-min Call</Link>
+      </Button>
+      <Button
         type="button"
-        className="button button-secondary"
+        variant="secondary"
         onClick={() => window.dispatchEvent(new CustomEvent("open-audit"))}
       >
         Request Free Audit
-      </button>
-      <a
-        className="button button-secondary"
-        href="/downloads/fernesta-capabilities-deck.pdf"
-        download
-      >
-        Get Capabilities Deck
-      </a>
+      </Button>
+      <Button asChild variant="secondary">
+        <a href="/downloads/fernesta-capabilities-deck.pdf" download>
+          Get Capabilities Deck
+        </a>
+      </Button>
     </aside>
   );
 }

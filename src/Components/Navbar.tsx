@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
+import { Button } from "./ui/button";
 
 const links = [
   { label: "Home", to: "/" },
@@ -133,17 +134,15 @@ export default function Navbar() {
               </NavLink>
             </motion.div>
           ))}
-          <NavLink
-            className="button button-primary nav-mobile-cta"
-            to="/contact-us"
-            onClick={() => setMenuOpen(false)}
-          >
-            Request Assessment
-          </NavLink>
+          <Button asChild className="nav-mobile-cta" variant="primary">
+            <NavLink to="/contact-us" onClick={() => setMenuOpen(false)}>
+              Request Assessment
+            </NavLink>
+          </Button>
         </nav>
-        <NavLink className="button button-primary nav-button" to="/contact-us">
-          Request Assessment
-        </NavLink>
+        <Button asChild className="nav-button" variant="primary">
+          <NavLink to="/contact-us">Request Assessment</NavLink>
+        </Button>
       </div>
     </header>
   );
