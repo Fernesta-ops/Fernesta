@@ -227,36 +227,17 @@ p {
   border-radius: 999px;
   box-shadow: none;
   display: inline-flex;
-  gap: 10px;
+  gap: 0;
   line-height: 1;
   min-height: 50px;
   padding: 2px 0;
-}
-
-.logo-mark-shell {
-  align-items: center;
-  background: linear-gradient(145deg, rgba(245, 244, 236, 0.96), rgba(227, 232, 222, 0.9));
-  border: 1px solid rgba(110, 127, 111, 0.4);
-  border-radius: 999px;
-  display: inline-flex;
-  height: 44px;
-  justify-content: center;
-  overflow: hidden;
-  width: 44px;
-}
-
-.logo-monogram {
-  display: block;
-  height: 32px;
-  object-fit: contain;
-  width: auto;
 }
 
 .logo-wordmark {
   display: block;
   height: auto;
   object-fit: contain;
-  width: min(188px, 36vw);
+  width: min(202px, 40vw);
 }
 
 .nav-links {
@@ -1806,17 +1787,8 @@ p {
     font-size: 0.9rem;
   }
 
-  .logo-monogram {
-    height: 26px;
-  }
-
-  .logo-mark-shell {
-    height: 36px;
-    width: 36px;
-  }
-
   .logo-wordmark {
-    width: min(146px, 48vw);
+    width: min(164px, 55vw);
   }
 
   .button-row {
