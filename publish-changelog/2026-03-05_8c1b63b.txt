@@ -1,0 +1,144 @@
+Publish Change Log
+==================
+
+Commit: 8c1b63b8c1a091c1cbb0b8d48d7333779153cb50
+Short Commit: 8c1b63b
+Date: 2026-03-05T20:23:38+05:30
+Author: Tarun Gupta <info@fernesta.com>
+Message: Refresh all site images with curated free-license assets
+
+Changed Files (Name/Status)
+---------------------------
+M	public/images/components/hero/performance-dashboard.jpg
+M	public/images/components/home/ai-visual.jpg
+M	public/images/components/home/background.jpg
+M	public/images/components/performance/performance-dashboard.jpg
+M	public/images/pages/about/hero/background-opt.jpg
+M	public/images/pages/about/hero/background.jpg
+M	public/images/pages/about/section/team-visual-opt.jpg
+M	public/images/pages/about/section/team-visual.jpg
+M	public/images/pages/clientele/hero/background-opt.jpg
+M	public/images/pages/clientele/hero/background.jpg
+M	public/images/pages/clientele/section/reporting-dashboard-opt.jpg
+M	public/images/pages/clientele/section/reporting-dashboard.jpg
+M	public/images/pages/contact/hero/background.jpg
+M	public/images/pages/contact/section/strategy-session-opt.jpg
+M	public/images/pages/contact/section/strategy-session.jpg
+M	public/images/pages/home/hero/background.jpg
+M	public/images/pages/home/hero/visual-opt.jpg
+M	public/images/pages/home/hero/visual.jpg
+M	public/images/pages/home/services/branding-opt.jpg
+M	public/images/pages/home/services/branding.jpg
+M	public/images/pages/home/services/ecommerce.jpg
+M	public/images/pages/home/services/performance-opt.jpg
+M	public/images/pages/home/services/performance.jpg
+M	public/images/pages/home/services/seo-opt.jpg
+M	public/images/pages/home/services/seo.jpg
+M	public/images/pages/home/services/social-media.jpg
+M	public/images/pages/home/services/web-conversion-opt.jpg
+M	public/images/pages/home/services/web-conversion.jpg
+M	public/images/pages/services/hero/background-opt.jpg
+M	public/images/pages/services/hero/background.jpg
+M	public/images/site/seo/default-share.jpg
+
+Full Diff
+---------
+commit 8c1b63b8c1a091c1cbb0b8d48d7333779153cb50
+Author: Tarun Gupta <info@fernesta.com>
+Date:   Thu Mar 5 20:23:38 2026 +0530
+
+    Refresh all site images with curated free-license assets
+
+diff --git a/public/images/components/hero/performance-dashboard.jpg b/public/images/components/hero/performance-dashboard.jpg
+index d6ee3f7..291fb0d 100644
+Binary files a/public/images/components/hero/performance-dashboard.jpg and b/public/images/components/hero/performance-dashboard.jpg differ
+diff --git a/public/images/components/home/ai-visual.jpg b/public/images/components/home/ai-visual.jpg
+index c6b2143..4747a68 100644
+Binary files a/public/images/components/home/ai-visual.jpg and b/public/images/components/home/ai-visual.jpg differ
+diff --git a/public/images/components/home/background.jpg b/public/images/components/home/background.jpg
+index d6ee3f7..1653338 100644
+Binary files a/public/images/components/home/background.jpg and b/public/images/components/home/background.jpg differ
+diff --git a/public/images/components/performance/performance-dashboard.jpg b/public/images/components/performance/performance-dashboard.jpg
+index ff3f11d..6483e7e 100644
+Binary files a/public/images/components/performance/performance-dashboard.jpg and b/public/images/components/performance/performance-dashboard.jpg differ
+diff --git a/public/images/pages/about/hero/background-opt.jpg b/public/images/pages/about/hero/background-opt.jpg
+index 1cb5ef1..01fd695 100644
+Binary files a/public/images/pages/about/hero/background-opt.jpg and b/public/images/pages/about/hero/background-opt.jpg differ
+diff --git a/public/images/pages/about/hero/background.jpg b/public/images/pages/about/hero/background.jpg
+index d6ee3f7..12b94bc 100644
+Binary files a/public/images/pages/about/hero/background.jpg and b/public/images/pages/about/hero/background.jpg differ
+diff --git a/public/images/pages/about/section/team-visual-opt.jpg b/public/images/pages/about/section/team-visual-opt.jpg
+index 1cb5ef1..ca0a133 100644
+Binary files a/public/images/pages/about/section/team-visual-opt.jpg and b/public/images/pages/about/section/team-visual-opt.jpg differ
+diff --git a/public/images/pages/about/section/team-visual.jpg b/public/images/pages/about/section/team-visual.jpg
+index d6ee3f7..128c58c 100644
+Binary files a/public/images/pages/about/section/team-visual.jpg and b/public/images/pages/about/section/team-visual.jpg differ
+diff --git a/public/images/pages/clientele/hero/background-opt.jpg b/public/images/pages/clientele/hero/background-opt.jpg
+index 1cb5ef1..0307662 100644
+Binary files a/public/images/pages/clientele/hero/background-opt.jpg and b/public/images/pages/clientele/hero/background-opt.jpg differ
+diff --git a/public/images/pages/clientele/hero/background.jpg b/public/images/pages/clientele/hero/background.jpg
+index d6ee3f7..80153ed 100644
+Binary files a/public/images/pages/clientele/hero/background.jpg and b/public/images/pages/clientele/hero/background.jpg differ
+diff --git a/public/images/pages/clientele/section/reporting-dashboard-opt.jpg b/public/images/pages/clientele/section/reporting-dashboard-opt.jpg
+index 1cb5ef1..7e71ec4 100644
+Binary files a/public/images/pages/clientele/section/reporting-dashboard-opt.jpg and b/public/images/pages/clientele/section/reporting-dashboard-opt.jpg differ
+diff --git a/public/images/pages/clientele/section/reporting-dashboard.jpg b/public/images/pages/clientele/section/reporting-dashboard.jpg
+index d6ee3f7..6483e7e 100644
+Binary files a/public/images/pages/clientele/section/reporting-dashboard.jpg and b/public/images/pages/clientele/section/reporting-dashboard.jpg differ
+diff --git a/public/images/pages/contact/hero/background.jpg b/public/images/pages/contact/hero/background.jpg
+index ff3f11d..4bdaabf 100644
+Binary files a/public/images/pages/contact/hero/background.jpg and b/public/images/pages/contact/hero/background.jpg differ
+diff --git a/public/images/pages/contact/section/strategy-session-opt.jpg b/public/images/pages/contact/section/strategy-session-opt.jpg
+index 1cb5ef1..8af19f9 100644
+Binary files a/public/images/pages/contact/section/strategy-session-opt.jpg and b/public/images/pages/contact/section/strategy-session-opt.jpg differ
+diff --git a/public/images/pages/contact/section/strategy-session.jpg b/public/images/pages/contact/section/strategy-session.jpg
+index d6ee3f7..c079725 100644
+Binary files a/public/images/pages/contact/section/strategy-session.jpg and b/public/images/pages/contact/section/strategy-session.jpg differ
+diff --git a/public/images/pages/home/hero/background.jpg b/public/images/pages/home/hero/background.jpg
+index c1c7fe7..1653338 100644
+Binary files a/public/images/pages/home/hero/background.jpg and b/public/images/pages/home/hero/background.jpg differ
+diff --git a/public/images/pages/home/hero/visual-opt.jpg b/public/images/pages/home/hero/visual-opt.jpg
+index 0cfc3be..e87a5b0 100644
+Binary files a/public/images/pages/home/hero/visual-opt.jpg and b/public/images/pages/home/hero/visual-opt.jpg differ
+diff --git a/public/images/pages/home/hero/visual.jpg b/public/images/pages/home/hero/visual.jpg
+index c6b2143..158c167 100644
+Binary files a/public/images/pages/home/hero/visual.jpg and b/public/images/pages/home/hero/visual.jpg differ
+diff --git a/public/images/pages/home/services/branding-opt.jpg b/public/images/pages/home/services/branding-opt.jpg
+index 1cb5ef1..115bbda 100644
+Binary files a/public/images/pages/home/services/branding-opt.jpg and b/public/images/pages/home/services/branding-opt.jpg differ
+diff --git a/public/images/pages/home/services/branding.jpg b/public/images/pages/home/services/branding.jpg
+index d6ee3f7..47f1821 100644
+Binary files a/public/images/pages/home/services/branding.jpg and b/public/images/pages/home/services/branding.jpg differ
+diff --git a/public/images/pages/home/services/ecommerce.jpg b/public/images/pages/home/services/ecommerce.jpg
+index ff3f11d..3d9f641 100644
+Binary files a/public/images/pages/home/services/ecommerce.jpg and b/public/images/pages/home/services/ecommerce.jpg differ
+diff --git a/public/images/pages/home/services/performance-opt.jpg b/public/images/pages/home/services/performance-opt.jpg
+index 1cb5ef1..bf4f215 100644
+Binary files a/public/images/pages/home/services/performance-opt.jpg and b/public/images/pages/home/services/performance-opt.jpg differ
+diff --git a/public/images/pages/home/services/performance.jpg b/public/images/pages/home/services/performance.jpg
+index d6ee3f7..f900a66 100644
+Binary files a/public/images/pages/home/services/performance.jpg and b/public/images/pages/home/services/performance.jpg differ
+diff --git a/public/images/pages/home/services/seo-opt.jpg b/public/images/pages/home/services/seo-opt.jpg
+index 1605894..a59e299 100644
+Binary files a/public/images/pages/home/services/seo-opt.jpg and b/public/images/pages/home/services/seo-opt.jpg differ
+diff --git a/public/images/pages/home/services/seo.jpg b/public/images/pages/home/services/seo.jpg
+index 88f45e2..dc20b7e 100644
+Binary files a/public/images/pages/home/services/seo.jpg and b/public/images/pages/home/services/seo.jpg differ
+diff --git a/public/images/pages/home/services/social-media.jpg b/public/images/pages/home/services/social-media.jpg
+index c1c7fe7..1b3df9f 100644
+Binary files a/public/images/pages/home/services/social-media.jpg and b/public/images/pages/home/services/social-media.jpg differ
+diff --git a/public/images/pages/home/services/web-conversion-opt.jpg b/public/images/pages/home/services/web-conversion-opt.jpg
+index 0cfc3be..c7227c9 100644
+Binary files a/public/images/pages/home/services/web-conversion-opt.jpg and b/public/images/pages/home/services/web-conversion-opt.jpg differ
+diff --git a/public/images/pages/home/services/web-conversion.jpg b/public/images/pages/home/services/web-conversion.jpg
+index c6b2143..e93abfc 100644
+Binary files a/public/images/pages/home/services/web-conversion.jpg and b/public/images/pages/home/services/web-conversion.jpg differ
+diff --git a/public/images/pages/services/hero/background-opt.jpg b/public/images/pages/services/hero/background-opt.jpg
+index 1605894..8a0f85c 100644
+Binary files a/public/images/pages/services/hero/background-opt.jpg and b/public/images/pages/services/hero/background-opt.jpg differ
+diff --git a/public/images/pages/services/hero/background.jpg b/public/images/pages/services/hero/background.jpg
+index 88f45e2..8d80f84 100644
+Binary files a/public/images/pages/services/hero/background.jpg and b/public/images/pages/services/hero/background.jpg differ
+diff --git a/public/images/site/seo/default-share.jpg b/public/images/site/seo/default-share.jpg
+index c1c7fe7..718a1d4 100644
+Binary files a/public/images/site/seo/default-share.jpg and b/public/images/site/seo/default-share.jpg differ
