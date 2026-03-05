@@ -1,4 +1,4 @@
-﻿import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import CaseStudyShowcase from "../Components/CaseStudyShowcase";
 import Reveal from "../Components/Reveal";
 import SeoMeta from "../Components/SeoMeta";
@@ -54,37 +54,37 @@ const catalog = [
   {
     title: "Search Engine Optimization",
     detail: "On-page, off-page, and technical SEO for durable organic growth.",
-    image: "/images/pages/home/services/seo-opt.jpg",
+    image: "/images/pages/home/services/seo-analytics-dark.jpg",
   },
   {
     title: "Performance Marketing",
     detail: "Google Ads and Meta Ads systems focused on quality leads and ROAS.",
-    image: "/images/pages/home/services/performance-opt.jpg",
+    image: "/images/pages/home/services/performance-marketing-dark.jpg",
   },
   {
     title: "Social Media Management",
     detail: "Organic social strategy, community management, and paid social execution.",
-    image: "/images/pages/home/services/social-media.jpg",
+    image: "/images/pages/home/services/social-media-strategy-dark.jpg",
   },
   {
     title: "Website and Conversion Systems",
     detail: "Website structure, landing page flow, and conversion architecture optimization.",
-    image: "/images/pages/home/services/web-conversion-opt.jpg",
+    image: "/images/pages/home/services/web-conversion-dark.jpg",
   },
   {
     title: "Branding and Visual Identity",
     detail: "Brand profile, design language, and positioning clarity across channels.",
-    image: "/images/pages/home/services/branding-opt.jpg",
+    image: "/images/pages/home/services/branding-identity-dark.jpg",
   },
   {
     title: "E-Commerce Growth",
     detail: "Marketplace ads, listing optimization, and catalog-level profitability control.",
-    image: "/images/pages/home/services/ecommerce.jpg",
+    image: "/images/pages/home/services/ecommerce-growth-dark.jpg",
   },
   {
     title: "PR and Influencer Management",
     detail: "Strategic PR campaigns and influencer partnerships to amplify brand reach and credibility.",
-    image: "/images/pages/home/services/branding-opt.jpg",
+    image: "/images/pages/home/services/pr-influencer-dark.jpg",
   },
 ];
 
