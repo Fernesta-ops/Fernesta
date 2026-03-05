@@ -1554,7 +1554,7 @@ p {
 }
 
 .footer {
-  background: linear-gradient(180deg, #264133 0%, #1f372b 56%, #1a2f24 100%);
+  background: linear-gradient(180deg, #3d6a56 0%, #345d4a 58%, #2c5140 100%);
   padding: 52px 0 32px;
 }
 
@@ -1566,39 +1566,17 @@ p {
 
 .footer-brand .footer-logo {
   align-items: center;
-  background: rgba(239, 238, 221, 0.14);
-  border: 1px solid rgba(239, 238, 221, 0.32);
-  border-radius: 999px;
   display: inline-flex;
-  gap: 9px;
-  padding: 5px 14px 5px 6px;
-}
-
-.footer-brand .footer-mark-shell {
-  align-items: center;
-  background: rgba(242, 241, 231, 0.98);
-  border: 1px solid rgba(28, 42, 33, 0.18);
-  border-radius: 999px;
-  display: inline-flex;
-  height: 40px;
-  justify-content: center;
-  overflow: hidden;
-  width: 40px;
-}
-
-.footer-brand .footer-monogram {
-  display: block;
-  height: 32px;
-  object-fit: contain;
-  width: auto;
+  gap: 0;
+  padding: 0;
 }
 
 .footer-brand .footer-wordmark {
   display: block;
-  filter: brightness(1.25) contrast(1.12);
+  filter: brightness(1.42) contrast(1.1) saturate(1.08) drop-shadow(0 1px 1px rgba(19, 36, 28, 0.22));
   height: auto;
   object-fit: contain;
-  width: min(176px, 52vw);
+  width: min(188px, 52vw);
 }
 
 .footer-brand p {
