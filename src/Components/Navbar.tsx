@@ -37,7 +37,17 @@ export default function Navbar() {
       </a>
       <div className="container nav-container">
         <NavLink className="logo" to="/" onClick={() => setMenuOpen(false)}>
-          FERNESTA
+          <img
+            className="logo-monogram"
+            src="/images/site/branding/monogram.png"
+            alt=""
+            aria-hidden="true"
+          />
+          <img
+            className="logo-wordmark"
+            src="/images/site/branding/logo-final.png"
+            alt="Fernesta"
+          />
         </NavLink>
 
         <button

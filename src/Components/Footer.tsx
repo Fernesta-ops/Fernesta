@@ -5,6 +5,19 @@ function Footer() {
     <footer className="footer">
       <div className="container footer-inner">
         <div className="footer-brand">
+          <div className="footer-logo" aria-label="Fernesta">
+            <img
+              className="footer-monogram"
+              src="/images/site/branding/monogram.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <img
+              className="footer-wordmark"
+              src="/images/site/branding/logo-final.png"
+              alt="Fernesta"
+            />
+          </div>
           <p className="footer-tagline">Digital Marketing Agency in Jaipur</p>
           <p>SEO, Performance Ads, Social Media, and Growth Systems for Jaipur Businesses.</p>
           <p className="footer-copy">© 2026 Fernesta. All rights reserved.</p>

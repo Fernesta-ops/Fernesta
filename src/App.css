@@ -221,11 +221,25 @@ p {
 }
 
 .logo {
-  color: #172019;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1.18rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  align-items: center;
+  display: inline-flex;
+  gap: 10px;
+  line-height: 1;
+  min-height: 46px;
+}
+
+.logo-monogram {
+  display: block;
+  height: 42px;
+  object-fit: contain;
+  width: 42px;
+}
+
+.logo-wordmark {
+  display: block;
+  height: auto;
+  object-fit: contain;
+  width: min(168px, 34vw);
 }
 
 .nav-links {
@@ -1495,12 +1509,23 @@ p {
 }
 
 .footer-brand .footer-logo {
-  color: #efeedd;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  align-items: center;
+  display: inline-flex;
+  gap: 10px;
+}
+
+.footer-brand .footer-monogram {
+  display: block;
+  height: 42px;
+  object-fit: contain;
+  width: 42px;
+}
+
+.footer-brand .footer-wordmark {
+  display: block;
+  height: auto;
+  object-fit: contain;
+  width: min(180px, 52vw);
 }
 
 .footer-brand p {
@@ -1725,6 +1750,15 @@ p {
 
   .nav-link {
     font-size: 0.9rem;
+  }
+
+  .logo-monogram {
+    height: 34px;
+    width: 34px;
+  }
+
+  .logo-wordmark {
+    width: min(134px, 42vw);
   }
 
   .button-row {
