@@ -38,6 +38,7 @@ body,
 #root {
   max-width: 100%;
   width: 100%;
+  overflow-x: clip;
 }
 
 body {
@@ -428,6 +429,7 @@ p {
 .page-hero {
   background-position: center;
   background-size: cover;
+  overflow: clip;
   position: relative;
 }
 
@@ -453,8 +455,9 @@ p {
 
 .hero-overlay {
   background:
-    linear-gradient(104deg, rgba(21, 30, 24, 0.74), rgba(32, 47, 37, 0.46) 54%, rgba(22, 32, 25, 0.28)),
-    radial-gradient(circle at 76% 18%, rgba(160, 190, 173, 0.2), transparent 36%);
+    linear-gradient(110deg, rgba(16, 31, 22, 0.84), rgba(30, 54, 40, 0.64) 52%, rgba(18, 34, 24, 0.42)),
+    radial-gradient(circle at 74% 16%, rgba(137, 171, 151, 0.24), transparent 38%),
+    linear-gradient(180deg, rgba(17, 33, 24, 0.36), rgba(17, 33, 24, 0.14));
   inset: 0;
   position: absolute;
 }
@@ -569,6 +572,8 @@ p {
   border: 1px solid #9ea58f;
   border-radius: 12px;
   display: block;
+  filter: sepia(0.12) saturate(0.84) contrast(1.04) brightness(0.92) hue-rotate(-8deg);
+  transition: filter 0.35s ease, transform 0.35s ease;
   width: 100%;
 }
 
@@ -748,9 +753,16 @@ p {
 
 .service-portfolio-card img {
   display: block;
+  filter: sepia(0.14) saturate(0.82) contrast(1.05) brightness(0.9) hue-rotate(-10deg);
   height: 100%;
   object-fit: cover;
+  transition: filter 0.35s ease, transform 0.35s ease;
   width: 100%;
+}
+
+.media-card:hover img,
+.service-portfolio-card:hover img {
+  filter: sepia(0.1) saturate(0.9) contrast(1.06) brightness(0.94) hue-rotate(-6deg);
 }
 
 .service-portfolio-overlay {
@@ -846,16 +858,22 @@ p {
 .marquee {
   border-bottom: 1px solid var(--line);
   border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: center;
   mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
   overflow: hidden;
   padding: 16px 0;
+  width: 100%;
 }
 
 .marquee-track {
   animation: marquee 26s linear infinite;
   display: flex;
+  flex: 0 0 auto;
   gap: 14px;
+  min-width: max-content;
+  will-change: transform;
   width: max-content;
 }
 
