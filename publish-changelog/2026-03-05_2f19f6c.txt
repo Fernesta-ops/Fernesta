@@ -1,0 +1,122 @@
+Publish Change Log
+==================
+
+Commit: 2f19f6cd18259a0b6f7a614cb97aec2d4b89fe26
+Short Commit: 2f19f6c
+Date: 2026-03-05T20:07:55+05:30
+Author: Tarun Gupta <info@fernesta.com>
+Message: Remove header monogram and add visible tab favicon monogram
+
+Changed Files (Name/Status)
+---------------------------
+M	index.html
+A	public/images/site/branding/favicon-monogram.png
+M	src/App.css
+M	src/Components/Navbar.tsx
+
+Full Diff
+---------
+commit 2f19f6cd18259a0b6f7a614cb97aec2d4b89fe26
+Author: Tarun Gupta <info@fernesta.com>
+Date:   Thu Mar 5 20:07:55 2026 +0530
+
+    Remove header monogram and add visible tab favicon monogram
+
+diff --git a/index.html b/index.html
+index c58ac4a..ff4aeda 100644
+--- a/index.html
++++ b/index.html
+@@ -2,7 +2,7 @@
+ <html lang="en">
+   <head>
+     <meta charset="UTF-8" />
+-    <link rel="icon" type="image/png" href="/images/site/branding/monogram-clean.png" />
++    <link rel="icon" type="image/png" href="/images/site/branding/favicon-monogram.png" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <title>Digital Marketing Agency in Jaipur | Fernesta</title>
+     <meta
+diff --git a/public/images/site/branding/favicon-monogram.png b/public/images/site/branding/favicon-monogram.png
+new file mode 100644
+index 0000000..e76be08
+Binary files /dev/null and b/public/images/site/branding/favicon-monogram.png differ
+diff --git a/src/App.css b/src/App.css
+index 769e6cf..df3dbda 100644
+--- a/src/App.css
++++ b/src/App.css
+@@ -227,36 +227,17 @@ p {
+   border-radius: 999px;
+   box-shadow: none;
+   display: inline-flex;
+-  gap: 10px;
++  gap: 0;
+   line-height: 1;
+   min-height: 50px;
+   padding: 2px 0;
+ }
+ 
+-.logo-mark-shell {
+-  align-items: center;
+-  background: linear-gradient(145deg, rgba(245, 244, 236, 0.96), rgba(227, 232, 222, 0.9));
+-  border: 1px solid rgba(110, 127, 111, 0.4);
+-  border-radius: 999px;
+-  display: inline-flex;
+-  height: 44px;
+-  justify-content: center;
+-  overflow: hidden;
+-  width: 44px;
+-}
+-
+-.logo-monogram {
+-  display: block;
+-  height: 32px;
+-  object-fit: contain;
+-  width: auto;
+-}
+-
+ .logo-wordmark {
+   display: block;
+   height: auto;
+   object-fit: contain;
+-  width: min(188px, 36vw);
++  width: min(202px, 40vw);
+ }
+ 
+ .nav-links {
+@@ -1806,17 +1787,8 @@ p {
+     font-size: 0.9rem;
+   }
+ 
+-  .logo-monogram {
+-    height: 26px;
+-  }
+-
+-  .logo-mark-shell {
+-    height: 36px;
+-    width: 36px;
+-  }
+-
+   .logo-wordmark {
+-    width: min(146px, 48vw);
++    width: min(164px, 55vw);
+   }
+ 
+   .button-row {
+diff --git a/src/Components/Navbar.tsx b/src/Components/Navbar.tsx
+index 7a7bc93..53aa967 100644
+--- a/src/Components/Navbar.tsx
++++ b/src/Components/Navbar.tsx
+@@ -38,14 +38,6 @@ export default function Navbar() {
+       </a>
+       <div className="container nav-container">
+         <NavLink className="logo" to="/" onClick={() => setMenuOpen(false)} aria-label="Fernesta home">
+-          <span className="logo-mark-shell" aria-hidden="true">
+-            <img
+-              className="logo-monogram"
+-              src="/images/site/branding/monogram-clean.png"
+-              alt=""
+-              aria-hidden="true"
+-            />
+-          </span>
+           <img
+             className="logo-wordmark"
+             src="/images/site/branding/logo-wordmark-clean.png"
