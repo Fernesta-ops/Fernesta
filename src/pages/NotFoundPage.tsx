@@ -5,9 +5,9 @@ function NotFoundPage() {
   return (
     <>
       <SeoMeta
-        title="Page Not Found | Fernesta Jaipur"
-        description="The page you are looking for could not be found. Explore Fernesta's digital marketing services in Jaipur."
-        keywords="page not found, fernesta jaipur"
+        title="Page Not Found | Fernesta"
+        description="The page you are looking for could not be found. Explore Fernesta's global digital marketing services."
+        keywords="page not found, fernesta"
       />
       <section className="section section-border">
         <div className="container">

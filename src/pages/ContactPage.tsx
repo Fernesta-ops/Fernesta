@@ -94,9 +94,9 @@ function ContactPage() {
   return (
     <>
       <SeoMeta
-        title="Contact Fernesta | Digital Marketing Agency in Jaipur"
-        description="Contact Fernesta, a digital marketing agency in Jaipur, for SEO, Google Ads, social media marketing, and website growth consultation."
-        keywords="contact digital marketing agency Jaipur, SEO consultation Jaipur, PPC agency Jaipur contact"
+        title="Contact Fernesta | Global Digital Marketing Agency"
+        description="Contact Fernesta for SEO, Google Ads, social media marketing, and website growth consultation for global markets."
+        keywords="contact digital marketing agency, SEO consultation, PPC agency contact"
       />
 
       <section className="page-hero hero-contact">
@@ -104,9 +104,9 @@ function ContactPage() {
         <div className="container hero-grid hero-grid-single">
           <Reveal className="hero-copy" delayMs={80}>
             <p className="meta">Contact Us</p>
-            <h1>Contact Fernesta for SEO, Paid Ads, and Website Growth in Jaipur.</h1>
+            <h1>Contact Fernesta for SEO, Paid Ads, and Website Growth.</h1>
             <p>
-              Share your current growth stage and channel challenges. We will map the right service mix and execution cadence for your Jaipur business.
+              Share your growth stage and channel challenges. We will map the right service mix and execution cadence for your market.
             </p>
           </Reveal>
         </div>
@@ -242,7 +242,7 @@ function ContactPage() {
               </form>
               <div className="contact-details">
                 <p><strong>Fernesta Digital Marketing Agency</strong></p>
-                <p>Jaipur, Rajasthan, India</p>
+                <p>Global Remote Delivery | Operated from India</p>
                 <p>Email: info@fernesta.com</p>
                 <p>Phone: +91 701 412 7724</p>
                 <p>Working Hours: Monday-Saturday, 9:00 AM to 7:00 PM IST</p>
@@ -266,14 +266,14 @@ function ContactPage() {
       <section className="section section-border">
         <div className="container">
           <Reveal className="section-head">
-            <p className="meta">Office Location</p>
-            <h2>Find Us in Jaipur</h2>
+            <p className="meta">Global Presence</p>
+            <h2>Global Delivery, Operated from India</h2>
           </Reveal>
           <Reveal>
             <div className="panel interactive-card map-embed">
               <iframe
-                title="Fernesta location map - Jaipur"
-                src="https://www.google.com/maps?q=Jaipur%2C%20Rajasthan&output=embed"
+                title="Fernesta delivery base map - India"
+                src="https://www.google.com/maps?q=India&output=embed"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />

@@ -33,9 +33,9 @@ function ClientelePage() {
   return (
     <>
       <SeoMeta
-        title="Industries We Serve in Jaipur | Fernesta Digital Marketing Agency"
-        description="Fernesta works with Jaipur SMEs, D2C brands, and growth-stage businesses seeking structured digital marketing systems and accountable execution."
-        keywords="digital marketing agency Jaipur industries, SME marketing Jaipur, D2C marketing Jaipur"
+        title="Industries We Serve | Fernesta Digital Marketing Agency"
+        description="Fernesta works with SMEs, D2C brands, and growth-stage businesses worldwide seeking structured digital marketing systems and accountable execution."
+        keywords="digital marketing agency industries, SME marketing, D2C marketing"
       />
 
       <section className="page-hero hero-clientele">
@@ -43,7 +43,7 @@ function ClientelePage() {
         <div className="container hero-grid hero-grid-single">
           <Reveal className="hero-copy" delayMs={80}>
             <p className="meta">Clientele</p>
-            <h1>Digital Marketing Partner for Jaipur SMEs, D2C Brands, and Growth Teams.</h1>
+            <h1>Digital Marketing Partner for SMEs, D2C Brands, and Growth Teams Worldwide.</h1>
             <p>
               We work best with businesses that value transparency, structured execution, and direct founder-led accountability.
             </p>

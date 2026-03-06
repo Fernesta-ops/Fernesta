@@ -6,8 +6,7 @@ const rootDir = process.cwd();
 const caseStudiesPath = path.join(rootDir, "src", "data", "caseStudies.ts");
 const downloadsDir = path.join(rootDir, "public", "downloads");
 const defaultCoverImagePath = path.join(rootDir, "public", "images", "site", "seo", "default-share.jpg");
-const logoWordmarkPath = path.join(rootDir, "public", "images", "site", "branding", "logo-wordmark-clean.png");
-const monogramPath = path.join(rootDir, "public", "images", "site", "branding", "monogram-clean.png");
+const logoWordmarkPath = path.join(rootDir, "public", "images", "site", "branding", "logo-wordmark-white.png");
 
 function loadCaseStudies() {
   const source = fs.readFileSync(caseStudiesPath, "utf8");
@@ -140,7 +139,7 @@ function renderTimeline(items) {
     .join("");
 }
 
-function buildHtml(study, coverImageDataUri, logoWordmarkDataUri, monogramDataUri) {
+function buildHtml(study, coverImageDataUri, logoWordmarkDataUri) {
   const chartSvg = renderChartSvg(study);
   return `<!doctype html>
 <html lang="en">
@@ -180,29 +179,12 @@ function buildHtml(study, coverImageDataUri, logoWordmarkDataUri, monogramDataUr
       .brand-lockup {
         align-items: center;
         display: inline-flex;
-        gap: 2.2mm;
-      }
-      .brand-mark-shell {
-        align-items: center;
-        background: rgba(241, 244, 236, 0.92);
-        border-radius: 999px;
-        display: inline-flex;
-        height: 10.4mm;
-        justify-content: center;
-        padding: 1mm;
-        width: 10.4mm;
-      }
-      .brand-monogram {
-        display: block;
-        height: 7.2mm;
-        object-fit: contain;
-        width: auto;
       }
       .brand-wordmark {
         display: block;
-        height: 7mm;
+        width: 54mm;
+        max-width: 54mm;
         object-fit: contain;
-        width: auto;
       }
       .brand-sub {
         text-transform: uppercase;
@@ -400,7 +382,6 @@ function buildHtml(study, coverImageDataUri, logoWordmarkDataUri, monogramDataUr
     <section class="page cover">
       <header class="brand">
         <div class="brand-lockup">
-          <span class="brand-mark-shell"><img class="brand-monogram" src="${monogramDataUri}" alt="" /></span>
           <img class="brand-wordmark" src="${logoWordmarkDataUri}" alt="Fernesta" />
         </div>
         <div class="brand-sub">Digital Growth Systems</div>
@@ -521,7 +502,6 @@ async function generate() {
   const caseStudies = loadCaseStudies();
   const coverImageDataUri = asDataUri(defaultCoverImagePath);
   const logoWordmarkDataUri = asDataUri(logoWordmarkPath);
-  const monogramDataUri = asDataUri(monogramPath);
   const executablePath = resolveBrowserExecutable();
 
   const browser = await chromium.launch({
@@ -538,7 +518,7 @@ async function generate() {
 
     for (const study of caseStudies) {
       const page = await context.newPage();
-      const html = buildHtml(study, coverImageDataUri, logoWordmarkDataUri, monogramDataUri);
+      const html = buildHtml(study, coverImageDataUri, logoWordmarkDataUri);
       await page.setContent(html, { waitUntil: "networkidle" });
 
       const outputPath = path.join(downloadsDir, path.basename(study.download));

@@ -14,9 +14,9 @@ function CaseStudyDetailPage() {
   return (
     <>
       <SeoMeta
-        title={`${study.client} Case Study | Fernesta Jaipur`}
-        description={`${study.client}: ${study.metric} ${study.result} through structured SEO, paid ads, and conversion optimization systems by Fernesta in Jaipur.`}
-        keywords="case study Jaipur, digital marketing results Jaipur, SEO and paid ads success"
+        title={`${study.client} Case Study | Fernesta`}
+        description={`${study.client}: ${study.metric} ${study.result} through structured SEO, paid ads, and conversion optimization systems by Fernesta.`}
+        keywords="digital marketing case study, SEO and paid ads success, growth outcomes"
       />
 
       <section className="page-hero hero-services">

@@ -12,8 +12,8 @@ function Footer() {
               alt="Fernesta"
             />
           </div>
-          <p className="footer-tagline">Digital Marketing Agency in Jaipur</p>
-          <p>SEO, Performance Ads, Social Media, and Growth Systems for Jaipur Businesses.</p>
+          <p className="footer-tagline">Global Digital Marketing Agency</p>
+          <p>SEO, Performance Ads, Social Media, and Growth Systems for global growth-stage businesses.</p>
           <p className="footer-copy">© 2026 Fernesta. All rights reserved.</p>
         </div>
 
@@ -32,7 +32,7 @@ function Footer() {
         <div className="footer-col">
           <h4>Contact</h4>
           <address>
-            <p>Jaipur, Rajasthan, India</p>
+            <p>Global Remote Delivery | Operated from India</p>
             <p>
               <a href="tel:+917014127724">+91 701 412 7724</a>
             </p>

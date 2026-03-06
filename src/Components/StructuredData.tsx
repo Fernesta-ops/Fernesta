@@ -7,9 +7,9 @@ type JsonLd = Record<string, unknown>;
 const SITE_NAME = "Fernesta";
 const PHONE = "+91-701-412-7724";
 const EMAIL = "info@fernesta.com";
-const CITY = "Jaipur";
-const STATE = "Rajasthan";
+const BASE_REGION = "India";
 const COUNTRY = "IN";
+const AREA_SERVED = "Worldwide";
 
 const SERVICE_TYPES = [
   "SEO Services",
@@ -119,8 +119,8 @@ function buildService(pathname: string, origin: string): JsonLd | null {
       url: origin,
     },
     areaServed: {
-      "@type": "City",
-      name: CITY,
+      "@type": "Place",
+      name: AREA_SERVED,
     },
     serviceType: SERVICE_TYPES,
     url: `${origin}/services`,
@@ -135,15 +135,15 @@ function buildOrganization(origin: string): JsonLd {
     url: origin,
     logo: `${origin}/images/site/seo/default-share.jpg`,
     areaServed: {
-      "@type": "City",
-      name: CITY,
+      "@type": "Place",
+      name: AREA_SERVED,
     },
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "sales",
       email: EMAIL,
       telephone: PHONE,
-      areaServed: "IN",
+      areaServed: AREA_SERVED,
       availableLanguage: ["en", "hi"],
     },
   };
@@ -161,18 +161,13 @@ function buildLocalBusiness(origin: string): JsonLd {
     email: EMAIL,
     address: {
       "@type": "PostalAddress",
-      addressLocality: CITY,
-      addressRegion: STATE,
+      addressRegion: BASE_REGION,
       addressCountry: COUNTRY,
     },
     areaServed: [
       {
-        "@type": "City",
-        name: CITY,
-      },
-      {
-        "@type": "State",
-        name: STATE,
+        "@type": "Place",
+        name: AREA_SERVED,
       },
     ],
     openingHoursSpecification: [
@@ -200,7 +195,7 @@ function buildWebSite(origin: string): JsonLd {
     "@type": "WebSite",
     name: SITE_NAME,
     url: origin,
-    inLanguage: "en-IN",
+    inLanguage: "en",
   };
 }
 
