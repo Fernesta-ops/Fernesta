@@ -8,7 +8,7 @@ const faqs = [
   },
   {
     q: "Do you provide SEO and paid ads together?",
-    a: "Yes. We build integrated plans where SEO, Google Ads, and Meta Ads support the same business goals across markets.",
+    a: "Yes. We build integrated plans where SEO, Google Ads, and Meta Ads support the same business goals for Jaipur businesses.",
   },
   {
     q: "How is reporting handled across channels?",

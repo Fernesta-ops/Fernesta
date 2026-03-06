@@ -98,9 +98,9 @@ function ServicesPage() {
   return (
     <>
       <SeoMeta
-        title="Global Digital Marketing Services | SEO, PPC, Social Media and Web | Fernesta"
-        description="Explore Fernesta's global digital marketing services including SEO, Google Ads, Meta Ads, social media marketing, website development, and branding."
-        keywords="digital marketing services, SEO services, Google Ads agency, social media agency, website design services"
+        title="Digital Marketing Services Jaipur | SEO, PPC, Social Media and Web | Fernesta"
+        description="Explore Fernesta's digital marketing services in Jaipur including SEO, Google Ads, Meta Ads, social media marketing, website development, and branding."
+        keywords="digital marketing services Jaipur, SEO services Jaipur, Google Ads agency Jaipur, social media agency Jaipur, website design Jaipur"
       />
 
       <section className="page-hero hero-services">
@@ -108,9 +108,9 @@ function ServicesPage() {
         <div className="container hero-grid hero-grid-single">
           <Reveal className="hero-copy" delayMs={80}>
             <p className="meta">Services</p>
-            <h1>SEO, Paid Ads, Social Media, and Website Services for Global Business Growth</h1>
+            <h1>SEO, Paid Ads, Social Media, and Website Services for Jaipur Business Growth</h1>
             <p>
-              Based on our Digital Marketing Services Blueprint, Fernesta delivers eight core services through a structured, execution-ready system for startups, SMEs, and growth-stage teams across markets.
+              Based on our Digital Marketing Services Blueprint, Fernesta delivers eight core services through a structured, execution-ready system for startups, SMEs, and growth-stage teams in Jaipur.
             </p>
             <div className="button-row">
               <Link className="button button-primary" to="/contact-us">
@@ -128,7 +128,7 @@ function ServicesPage() {
         <div className="container">
           <Reveal className="section-head">
             <p className="meta">Core Services</p>
-            <h2>Complete Digital Marketing Services for Global Brands</h2>
+            <h2>Complete Digital Marketing Services in Jaipur</h2>
             <p>
               Every service includes planning, execution, optimization, and reporting so growth decisions remain data-led and accountable.
             </p>

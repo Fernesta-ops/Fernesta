@@ -4,51 +4,39 @@ import { chromium } from "playwright-core";
 
 const rootDir = process.cwd();
 const outputPath = path.join(rootDir, "public", "downloads", "fernesta-capabilities-deck.pdf");
-const logoFullPath = path.join(rootDir, "public", "images", "site", "branding", "logo-wordmark-white.png");
+const logoWordmarkPath = path.join(rootDir, "public", "images", "site", "branding", "logo-wordmark-clean.png");
+const monogramPath = path.join(rootDir, "public", "images", "site", "branding", "monogram-clean.png");
 
 const sections = [
   {
-    title: "Core Service Architecture",
+    title: "Core Service Lines",
     points: [
-      "Search Engine Optimization with technical, content, and authority-building tracks.",
-      "Paid media systems across Google Ads and Meta Ads with funnel-aware budget control.",
-      "Social media growth operations across strategy, creative, community, and performance.",
-      "Conversion-focused website and landing page architecture for lead and revenue journeys.",
-      "Brand, design, PR, and influencer systems tied to commercial objectives.",
+      "Search Engine Optimization (on-page, off-page, technical).",
+      "Performance Marketing across Google Ads and Meta Ads.",
+      "Social Media Management with content and paid support.",
+      "Website and Conversion Systems for lead and sales journeys.",
+      "Branding, Graphic Design, and PR or Influencer programs.",
     ],
   },
   {
     title: "How Engagement Starts",
     points: [
-      "Step 1: Discovery sprint covering channel baseline, ICP clarity, and funnel leak points.",
-      "Step 2: Growth architecture with KPI-linked channel priorities and role ownership.",
-      "Step 3: 30-day execution sprint with weekly decision checkpoints and transparent reporting.",
+      "Step 1: Discovery and baseline audit of existing channel performance.",
+      "Step 2: Growth architecture with KPI-linked channel priorities.",
+      "Step 3: Execution sprint with weekly governance and reporting.",
     ],
   },
   {
-    title: "Client Fit and Delivery Model",
+    title: "Reporting and Governance",
     points: [
-      "Best fit: growth-stage teams, SME founders, and marketing leaders needing accountable execution.",
-      "Remote-first delivery with India-based operations and global collaboration cadence.",
-      "Weekly tactical reports plus monthly strategic review for executive-level visibility.",
-      "Single owner per workstream to avoid delivery ambiguity and execution lag.",
-    ],
-  },
-  {
-    title: "What Clients Get in the First 90 Days",
-    points: [
-      "A documented growth baseline and channel KPI map within the first two weeks.",
-      "Structured campaign and creative operating cadence by month one.",
-      "Lead-quality and conversion improvements through ongoing test-and-learn loops.",
-      "A prioritised next-quarter roadmap tied to revenue or pipeline objectives.",
+      "Clients receive weekly decision-oriented reports, transparent KPIs, and next-action priorities.",
+      "Each campaign is mapped to a commercial objective with accountable ownership.",
     ],
   },
   {
     title: "Recommended Next Step",
     points: [
-      "Book a strategy consultation at https://www.fernesta.com/contact-us.",
-      "Request a tailored 90-day growth roadmap aligned to your market and current stage.",
-      "Contact: info@fernesta.com | +91 701 412 7724",
+      "Book a strategy consultation at https://www.fernesta.com/contact-us to receive a tailored growth roadmap.",
     ],
   },
 ];
@@ -103,7 +91,7 @@ function resolveBrowserExecutable() {
   );
 }
 
-function buildHtml(logoFullDataUri) {
+function buildHtml(logoWordmarkDataUri, monogramDataUri) {
   return `<!doctype html>
 <html lang="en">
   <head>
@@ -143,12 +131,28 @@ function buildHtml(logoFullDataUri) {
       .brand-lockup {
         align-items: center;
         display: inline-flex;
+        gap: 2.2mm;
       }
-      .brand-full {
+      .brand-mark-shell {
+        align-items: center;
+        background: rgba(242, 245, 237, 0.94);
+        border-radius: 999px;
+        display: inline-flex;
+        height: 10.4mm;
+        justify-content: center;
+        width: 10.4mm;
+      }
+      .brand-monogram {
         display: block;
-        width: 54mm;
-        max-width: 54mm;
+        height: 7.2mm;
         object-fit: contain;
+        width: auto;
+      }
+      .brand-wordmark {
+        display: block;
+        height: 7mm;
+        object-fit: contain;
+        width: auto;
       }
       .brand-sub {
         font-size: 3.2mm;
@@ -271,21 +275,22 @@ function buildHtml(logoFullDataUri) {
     <section class="page cover">
       <header class="brand">
         <div class="brand-lockup">
-          <img class="brand-full" src="${logoFullDataUri}" alt="Fernesta" />
+          <span class="brand-mark-shell"><img class="brand-monogram" src="${monogramDataUri}" alt="" /></span>
+          <img class="brand-wordmark" src="${logoWordmarkDataUri}" alt="Fernesta" />
         </div>
-        <div class="brand-sub">Global Growth Delivery</div>
+        <div class="brand-sub">Digital Growth Systems</div>
       </header>
 
       <div>
         <p class="cover-kicker">Capabilities Deck | Updated March 2026</p>
-        <h1>Digital Marketing Growth Systems for Global, Growth-Stage Businesses</h1>
-        <p class="cover-intro">This deck summarizes Fernesta's service architecture, delivery standards, and execution cadence for performance-focused partnerships across regions.</p>
+        <h1>Digital Marketing Growth Systems for Jaipur Businesses</h1>
+        <p class="cover-intro">This deck summarizes Fernesta's service architecture, operating model, and execution cadence for growth-focused partnerships.</p>
       </div>
 
       <div class="signals">
-        <div class="signal"><strong>SEO + Content</strong><span>Demand Capture</span></div>
-        <div class="signal"><strong>Paid Media</strong><span>Revenue Systems</span></div>
-        <div class="signal"><strong>Creative + CRO</strong><span>Conversion Lift</span></div>
+        <div class="signal"><strong>SEO</strong><span>Visibility Systems</span></div>
+        <div class="signal"><strong>Performance</strong><span>Revenue Campaigns</span></div>
+        <div class="signal"><strong>Conversion</strong><span>Funnel Optimization</span></div>
       </div>
 
       <footer class="cover-foot">
@@ -297,7 +302,7 @@ function buildHtml(logoFullDataUri) {
     <section class="page content">
       <div class="content-head">
         <h2>Execution Framework</h2>
-        <p>Every engagement is mapped to measurable commercial outcomes with transparent governance, market-ready creative standards, and channel-level accountability.</p>
+        <p>Every engagement is mapped to measurable commercial outcomes, with transparent weekly reporting and channel-level accountability.</p>
       </div>
 
       <div class="section-grid">
@@ -317,7 +322,7 @@ function buildHtml(logoFullDataUri) {
 
       <footer class="content-foot">
         <span>Fernesta Capabilities Deck</span>
-        <span>www.fernesta.com | Page 2</span>
+        <span>Page 2</span>
       </footer>
     </section>
   </body>
@@ -325,7 +330,8 @@ function buildHtml(logoFullDataUri) {
 }
 
 async function main() {
-  const logoFullDataUri = asDataUri(logoFullPath);
+  const logoWordmarkDataUri = asDataUri(logoWordmarkPath);
+  const monogramDataUri = asDataUri(monogramPath);
   const executablePath = resolveBrowserExecutable();
 
   const browser = await chromium.launch({
@@ -339,7 +345,7 @@ async function main() {
       viewport: { width: 1240, height: 1754 },
       deviceScaleFactor: 1.5,
     });
-    await page.setContent(buildHtml(logoFullDataUri), { waitUntil: "networkidle" });
+    await page.setContent(buildHtml(logoWordmarkDataUri, monogramDataUri), { waitUntil: "networkidle" });
     await page.pdf({
       path: outputPath,
       format: "A4",

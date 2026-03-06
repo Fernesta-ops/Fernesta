@@ -6,7 +6,6 @@ import SocialProofStrip from "../Components/SocialProofStrip";
 import TestimonialsSlider from "../Components/TestimonialsSlider";
 import TrustMetricsBar from "../Components/TrustMetricsBar";
 import GrowthSimulator from "../Components/GrowthSimulator";
-import { HeroSectionDemo } from "@/Components/blocks/demo";
 
 const principles = [
   {
@@ -93,21 +92,19 @@ function HomePage() {
   return (
     <>
       <SeoMeta
-        title="Global Digital Marketing Agency | Fernesta SEO, PPC and Social Media"
-        description="Fernesta is a results-focused global digital marketing agency helping businesses grow through SEO, Google Ads, social media marketing, and conversion-ready websites."
-        keywords="global digital marketing agency, SEO company, PPC agency, social media marketing agency, digital marketing services"
+        title="Digital Marketing Agency in Jaipur | Fernesta SEO, PPC and Social Media"
+        description="Fernesta is a results-focused digital marketing agency in Jaipur helping businesses grow through SEO, Google Ads, social media marketing, and conversion-ready websites."
+        keywords="digital marketing agency in Jaipur, SEO company in Jaipur, PPC agency Jaipur, social media marketing Jaipur, digital marketing services Jaipur"
       />
-
-      <HeroSectionDemo />
 
       <section className="page-hero hero-home">
         <div className="hero-overlay" />
         <div className="container hero-grid">
           <Reveal className="hero-copy" delayMs={80}>
-            <p className="meta">Global Digital Marketing Agency</p>
-            <h1>Global Digital Marketing Agency for SEO, PPC, and Social Media Growth.</h1>
+            <p className="meta">Jaipur Digital Marketing Agency</p>
+            <h1>Digital Marketing Agency in Jaipur for SEO, PPC, and Social Media Growth.</h1>
             <p>
-              Fernesta helps growth-stage businesses across markets generate measurable outcomes with data-led SEO, performance ads, social media management, and conversion-driven web strategy.
+              Fernesta helps Jaipur businesses generate measurable growth with data-led SEO, performance ads, social media management, and conversion-driven web strategy.
             </p>
             <div className="button-row">
               <Link className="button button-primary" to="/contact-us">

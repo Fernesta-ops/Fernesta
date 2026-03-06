@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap");
-@import "tailwindcss";
 
 :root {
   --brand-primary: #2d4430;
@@ -1885,69 +1884,5 @@ p {
   .panel,
   .media-card {
     padding: 16px;
-  }
-}
-
-@layer utilities {
-  .delay-100 {
-    animation-delay: 100ms;
-  }
-
-  .delay-300 {
-    animation-delay: 300ms;
-  }
-
-  .delay-700 {
-    animation-delay: 700ms;
-  }
-
-  .delay-1000 {
-    animation-delay: 1000ms;
-  }
-
-  .fade-bottom {
-    mask-image: linear-gradient(to bottom, black 72%, transparent 100%);
-  }
-}
-
-@layer base {
-  :root {
-    --background: 48 37% 92%;
-    --foreground: 142 19% 13%;
-    --muted: 53 18% 84%;
-    --muted-foreground: 143 10% 32%;
-    --primary: 133 21% 22%;
-    --primary-foreground: 50 35% 96%;
-    --secondary: 64 15% 73%;
-    --secondary-foreground: 142 19% 13%;
-    --accent: 63 16% 79%;
-    --accent-foreground: 142 19% 13%;
-    --border: 94 11% 74%;
-    --input: 94 11% 74%;
-    --ring: 133 21% 22%;
-    --destructive: 0 72% 50%;
-    --destructive-foreground: 0 0% 100%;
-    --brand: 27 96% 61%;
-    --brand-foreground: 31 97% 72%;
-  }
-
-  .dark {
-    --background: 140 15% 10%;
-    --foreground: 48 37% 92%;
-    --muted: 145 10% 20%;
-    --muted-foreground: 145 10% 70%;
-    --primary: 31 97% 72%;
-    --primary-foreground: 142 19% 13%;
-    --secondary: 142 10% 18%;
-    --secondary-foreground: 48 37% 92%;
-    --accent: 142 10% 18%;
-    --accent-foreground: 48 37% 92%;
-    --border: 145 8% 24%;
-    --input: 145 8% 24%;
-    --ring: 31 97% 72%;
-    --destructive: 0 63% 40%;
-    --destructive-foreground: 48 37% 92%;
-    --brand: 31 97% 72%;
-    --brand-foreground: 27 96% 61%;
   }
 }
