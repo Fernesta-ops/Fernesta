@@ -92,25 +92,25 @@ function HomePage() {
   return (
     <>
       <SeoMeta
-        title="Digital Marketing Agency in Jaipur | Fernesta SEO, PPC and Social Media"
-        description="Fernesta is a results-focused digital marketing agency in Jaipur helping businesses grow through SEO, Google Ads, social media marketing, and conversion-ready websites."
-        keywords="digital marketing agency in Jaipur, SEO company in Jaipur, PPC agency Jaipur, social media marketing Jaipur, digital marketing services Jaipur"
+        title="AI-First Digital Marketing Agency for Indian SMEs | Fernesta"
+        description="Fernesta builds governance-led acquisition infrastructure for Indian SMEs and D2C brands — integrating paid media, SEO, conversion architecture, and attribution into one accountable growth system."
+        keywords="digital marketing agency India, SEO agency India, performance marketing agency, D2C growth agency, paid media management India"
       />
 
       <section className="page-hero hero-home">
         <div className="hero-overlay" />
         <div className="container hero-grid">
           <Reveal className="hero-copy" delayMs={80}>
-            <p className="meta">Jaipur Digital Marketing Agency</p>
-            <h1>Digital Marketing Agency in Jaipur for SEO, PPC, and Social Media Growth.</h1>
+            <p className="meta">AI-First Marketing Infrastructure Firm</p>
+            <h1>AI-First Marketing Infrastructure Designed for Structured Growth.</h1>
             <p>
-              Fernesta helps Jaipur businesses generate measurable growth with data-led SEO, performance ads, social media management, and conversion-driven web strategy.
+              Fernesta builds governance-led acquisition infrastructure for Indian SMEs and D2C brands scaling beyond Rs. 3Cr revenue, integrating paid media control, conversion architecture, and attribution discipline into one accountable operating model.
             </p>
             <div className="button-row">
               <Link className="button button-primary" to="/contact-us">
                 Book Strategy Consultation
               </Link>
-              <Link className="button button-secondary" to="/services">
+              <Link className="button button-primary" to="/services">
                 View Service Architecture
               </Link>
             </div>
@@ -158,7 +158,7 @@ function HomePage() {
             ))}
           </div>
           <div className="button-row">
-            <Link className="button button-primary" to="/contact-us">
+            <Link className="button button-secondary" to="/contact-us">
               Start With Discovery Call
             </Link>
             <Link className="button button-secondary" to="/case-studies">

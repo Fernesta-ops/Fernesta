@@ -611,7 +611,7 @@ p {
   height: 100%;
 }
 
-.split-layout > .reveal > * {
+.split-layout > .reveal > .panel {
   height: 100%;
 }
 
@@ -844,10 +844,10 @@ p {
   color: var(--accent);
   content: counter(card-counter, decimal-leading-zero);
   font-family: "Cormorant Garamond", serif;
-  font-size: 4.5rem;
+  font-size: 3.5rem;
   font-weight: 700;
   line-height: 1;
-  opacity: 0.07;
+  opacity: 0.15;
   pointer-events: none;
   position: absolute;
   right: 10px;
@@ -1159,6 +1159,25 @@ p {
 
 .simulator-controls input[type="range"] {
   width: 100%;
+}
+
+.simulator-controls input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #2d4430;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 18px;
+  width: 18px;
+}
+
+.simulator-controls input[type="range"]::-moz-range-thumb {
+  background: #2d4430;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 18px;
+  width: 18px;
 }
 
 .simulator-controls strong {
@@ -1642,6 +1661,62 @@ p {
   font-size: 0.88rem;
 }
 
+
+/* ── Prompt Library ──────────────────────────────────────────────────────── */
+
+.prompt-card {
+  gap: 12px;
+  min-height: 260px;
+}
+
+.prompt-card-desc {
+  font-size: 0.9rem;
+}
+
+.prompt-body {
+  background: rgba(243, 246, 235, 0.62);
+  border: 1px solid rgba(97, 118, 97, 0.24);
+  border-radius: var(--radius-sm);
+  display: grid;
+  gap: 8px;
+  padding: 10px 12px;
+}
+
+.prompt-text {
+  color: #1f3326;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.prompt-toggle {
+  background: transparent;
+  border: 0;
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.prompt-tags {
+  margin-top: auto;
+}
+
+.prompt-tag-chip {
+  font-size: 0.76rem;
+  padding: 4px 9px;
+}
+
+.prompt-copy {
+  align-self: start;
+  flex-shrink: 0;
+}
 
 @keyframes drift {
   0% {

@@ -2,7 +2,7 @@
 import Reveal from "./Reveal";
 
 const metrics = [
-  { end: 7, suffix: "", label: "Integrated service lines under one partner" },
+  { end: 8, suffix: "", label: "Integrated service lines under one partner" },
   { end: 24, suffix: "h", label: "Response SLA for new client inquiries" },
   { end: 90, suffix: "d", label: "Execution roadmap for early growth traction" },
   { end: 100, suffix: "%", label: "Transparent reporting with measurable KPIs" },

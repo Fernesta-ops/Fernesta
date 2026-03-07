@@ -12,8 +12,8 @@ function Footer() {
               alt="Fernesta"
             />
           </div>
-          <p className="footer-tagline">Digital Marketing Agency in Jaipur</p>
-          <p>SEO, Performance Ads, Social Media, and Growth Systems for Jaipur Businesses.</p>
+          <p className="footer-tagline">AI-First Marketing Infrastructure Firm</p>
+          <p>SEO, Performance Ads, Social Media, and Growth Systems for Indian SMEs and D2C Brands.</p>
           <p className="footer-copy">© 2026 Fernesta. All rights reserved.</p>
         </div>
 
