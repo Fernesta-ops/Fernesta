@@ -1,0 +1,2107 @@
+Publish Change Log
+==================
+
+Commit: 3fd3b5380dae3ae94f08f03c139103fed89b6606
+Short Commit: 3fd3b53
+Date: 2026-03-08T02:24:00+05:30
+Author: Tarun Gupta <info@fernesta.com>
+Message: feat: publish workflow automation site refresh
+
+Changed Files (Name/Status)
+---------------------------
+M	SEO_KEYWORD_MAP.md
+M	public/downloads/b2b-services-cpl-optimization.pdf
+A	public/downloads/boutique-hospitality-social-pr-launch.pdf
+M	public/downloads/consumer-retail-brand-retention.pdf
+M	public/downloads/d2c-skincare-performance-turnaround.pdf
+A	public/downloads/distribution-workflow-automation-reset.pdf
+M	public/downloads/education-seo-lead-engine.pdf
+M	public/downloads/fernesta-capabilities-deck.pdf
+M	scripts/generate-capabilities-deck.mjs
+M	src/App.css
+M	src/App.tsx
+M	src/Components/Footer.tsx
+M	src/Components/Navbar.tsx
+M	src/Components/ServiceFaq.tsx
+M	src/Components/StructuredData.tsx
+M	src/Components/TrustMetricsBar.tsx
+M	src/data/caseStudies.ts
+M	src/pages/AboutPage.tsx
+M	src/pages/CaseStudiesPage.tsx
+M	src/pages/CaseStudyDetailPage.tsx
+M	src/pages/ClientelePage.tsx
+M	src/pages/ContactPage.tsx
+M	src/pages/HomePage.tsx
+M	src/pages/NotFoundPage.tsx
+M	src/pages/ServicesPage.tsx
+M	vite.config.ts
+
+Full Diff
+---------
+commit 3fd3b5380dae3ae94f08f03c139103fed89b6606
+Author: Tarun Gupta <info@fernesta.com>
+Date:   Sun Mar 8 02:24:00 2026 +0530
+
+    feat: publish workflow automation site refresh
+
+diff --git a/SEO_KEYWORD_MAP.md b/SEO_KEYWORD_MAP.md
+index 9446770..647fe7c 100644
+--- a/SEO_KEYWORD_MAP.md
++++ b/SEO_KEYWORD_MAP.md
+@@ -2,11 +2,11 @@
+ 
+ ## Home (`/`)
+ - Primary keyword: `digital marketing agency india`
+-- Secondary keywords: `SME marketing agency`, `D2C marketing agency`, `full-service digital marketing`
++- Secondary keywords: `SME marketing agency`, `D2C marketing agency`, `workflow automation agency`, `full-service digital marketing`
+ - Search intent: Commercial investigation
+ - H1 target: `Digital Marketing Agency in India for SMEs and D2C Brands`
+ - H2 targets:
+-  - `SEO, Paid Ads, Social Media, and Growth Systems with Accountability`
++  - `SEO, Paid Ads, Workflow Automation, and Growth Systems with Accountability`
+   - `Plan Your Growth with Service and Case Study Clarity`
+ - Internal links:
+   - `/services`
+@@ -15,10 +15,10 @@
+ 
+ ## About Us (`/about-us`)
+ - Primary keyword: `about digital marketing agency india`
+-- Secondary keywords: `performance marketing partner`, `SME digital marketing partner`
++- Secondary keywords: `performance marketing partner`, `workflow automation partner`, `SME digital marketing partner`
+ - Search intent: Navigational + trust validation
+-- H1 target: `About Fernesta: A Scalable Digital Marketing Agency in India`
+-- H2 target: `Trusted SME and D2C Marketing Partner for Measurable Growth`
++- H1 target: `About Fernesta: A Scalable Growth Systems Partner in India`
++- H2 target: `Trusted SME and D2C Growth Partner for Measurable Outcomes`
+ - Internal links:
+   - `/services`
+   - `/case-studies`
+@@ -32,10 +32,11 @@
+   - `Google Ads management`
+   - `Meta Ads management`
+   - `website development services`
++  - `workflow automation services`
+   - `e-commerce advertising services`
+ - Search intent: Commercial investigation + service comparison
+-- H1 target: `SEO, Paid Ads, Social Media, and Website Services for Business Growth`
+-- H2 target: `Complete Digital Marketing Services in India`
++- H1 target: `SEO, Paid Ads, Workflow Automation, and Website Services for Business Growth`
++- H2 target: `Complete Growth and Workflow Services in India`
+ - Internal links:
+   - `/case-studies`
+   - `/clientele`
+@@ -80,9 +81,9 @@
+ 
+ ## Contact (`/contact-us`)
+ - Primary keyword: `digital marketing consultation`
+-- Secondary keywords: `SEO consultation`, `paid ads consultation india`
++- Secondary keywords: `SEO consultation`, `paid ads consultation india`, `workflow automation consultation`
+ - Search intent: Transactional
+-- H1 target: `Contact Fernesta for SEO, Paid Ads, and Website Growth Consulting`
++- H1 target: `Contact Fernesta for SEO, Workflow Automation, and Website Growth Consulting`
+ - H2 targets:
+   - `Book a Digital Marketing Consultation Call`
+   - `How We Deliver Digital Marketing Services with Structured Execution`
+diff --git a/public/downloads/b2b-services-cpl-optimization.pdf b/public/downloads/b2b-services-cpl-optimization.pdf
+index ef0becd..aef55c4 100644
+--- a/public/downloads/b2b-services-cpl-optimization.pdf
++++ b/public/downloads/b2b-services-cpl-optimization.pdf
+@@ -1,75 +1,75 @@
+-                                                                           DIGITAL GROWTH SYSTEMS
++Fernesta Case Study
+ 
+-CASE STUDY | PERFORMANCE
++Client: B2B Services Company
++Category: Performance
++Primary Outcome: 61% Lower blended cost per qualified lead
++Engagement Timeline: 14 weeks
+ 
+-B2B Services
+-Company
++Objective
++Reduce qualified lead cost while increasing sales-ready pipeline quality through aligned
++marketing and sales decision systems.
+ 
+-Redefined lead qualification with the sales team, rebuilt attribution and
+-reporting, and restructured channel mix toward high-intent campaigns with
+-stronger lead-to-meeting outcomes.
++Engagement Scope
++- Google Ads and Meta Ads Management
++- Search Engine Optimization Services
++- Workflow Automation and Reporting Systems
++- Website Design and Website Development
+ 
+- 61% LOWER BLENDED COST PER QUALIFIED LEAD
++Approach
++- Established a shared MQL definition with sales and reflected it in campaign
+ 
+-ENGAGEMENT TIMELINE: 14 WEEKS                                              WWW.FERNESTA.COM
+-CATEGORY     TIMELINE                                                HEADLINE RESULT
++ optimization rules.
++- Rebuilt tracking and reporting to separate channel vanity metrics from
+ 
+-Performance  14 weeks                                                61%
++ pipeline-contributing outcomes.
++- Shifted media investment toward high-intent keywords, remarketing, and
+ 
+-Objective                                                            Engagement Scope
++ pre-qualification landing journeys.
++- Added workflow automation for lead routing and follow-up visibility so qualified
+ 
+-Reduce qualified lead cost while increasing sales-ready pipeline         Google Ads and Meta Ads Management
+-quality through aligned marketing and sales decision systems.            Search Engine Optimization Services
+-                                                                         Website Design and Website Development
++ enquiries reached sales faster.
+ 
+-Approach                                                             Execution Timeline
++Execution Timeline
++- Phase 1: Qualification Alignment (Weeks 1-2)
+ 
+-    Established a shared MQL definition with sales and reflected it     Phase 1: Qualification Alignment
+-    in campaign optimization rules.
+-                                                                        WEEKS 1-2
+-    Rebuilt tracking and reporting to separate channel vanity
+-    metrics from pipeline-contributing outcomes.                        MQL criteria definition, CRM handoff logic, and baseline
+-                                                                        funnel diagnostics.
+-    Shifted media investment toward high-intent keywords,
+-    remarketing, and pre-qualification landing journeys.                Phase 2: Attribution and Channel Rebuild
++ MQL criteria definition, CRM handoff logic, and baseline funnel diagnostics.
++- Phase 2: Attribution and Channel Rebuild (Weeks 3-7)
+ 
+-                                                                        WEEKS 3-7
++ Tracking corrections, campaign restructuring, and landing page pre-qualification
++ updates.
++- Phase 3: Pipeline-Led Optimization (Weeks 8-14)
++ Weekly budget governance based on attributable pipeline and meeting conversion rates.
+ 
+-                                                                        Tracking corrections, campaign restructuring, and landing
+-                                                                        page pre-qualification updates.
++Before
++- Marketing and sales used different definitions of lead quality and readiness.
++- Attribution gaps made budget shifts reactive and channel comparisons unreliable.
++- Landing experiences were generic and did not pre-qualify enterprise-fit leads.
++- Lead handoff delays created avoidable leakage between form fill and first sales
+ 
+-                                                                        Phase 3: Pipeline-Led Optimization
++ contact.
+ 
+-                                                                        WEEKS 8-14
++After
++- Shared MQL criteria and lead scoring were integrated into weekly reporting.
++- Budget was reallocated to campaigns mapped to attributable pipeline value.
++- Blended qualified CPL reduced by 61% while meeting-booking rates improved.
++- Lead routing and follow-up visibility improved the speed and consistency of sales
+ 
+-                                                                        Weekly budget governance based on attributable pipeline
+-                                                                        and meeting conversion rates.
++Page 1 of 2
++ response.
+ 
+-Before                                                               After
++Business Impact
++- Sales confidence in marketing-sourced leads increased due to stronger qualification
+ 
+-    Marketing and sales used different definitions of lead quality       Shared MQL criteria and lead scoring were integrated into
+-    and readiness.                                                       weekly reporting.
++ discipline.
++- Budget efficiency improved by shifting spend toward campaigns with measurable pipeline
+ 
+-    Attribution gaps made budget shifts reactive and channel             Budget was reallocated to campaigns mapped to attributable
+-    comparisons unreliable.                                              pipeline value.
++ contribution.
++- Leadership gained clearer forecasting inputs from a cleaner lead-to-meeting funnel.
++- The commercial team gained one operating view across demand generation, lead
+ 
+-    Landing experiences were generic and did not pre-qualify             Blended qualified CPL reduced by 61% while meeting-booking
+-    enterprise-fit leads.                                                rates improved.
++ qualification, and first-response execution.
+ 
+-Business Impact                                                                                                  BEFORE  AFTER
++Source: fernesta.com case-study content
+ 
+-    Sales confidence in marketing-sourced leads increased due to stronger qualification discipline.
+-    Budget efficiency improved by shifting spend toward campaigns with measurable pipeline contribution.
+-    Leadership gained clearer forecasting inputs from a cleaner lead-to-meeting funnel.
+-
+-Pipeline Efficiency Snapshot
+-172.8   100 index                                              138 index                                                       149 index
+-129.6                          39 index  100 index                                                       100 index
+-
+- 86.4          Qualified CPL              Lead-to-Meeting Rate                                              Attributed Pipeline
+- 43.2
+-
+-   0.0
+-
+-Indexed values use baseline = 100 where noted, to show directional improvement in business performance.
++Page 2 of 2
+ 
+diff --git a/public/downloads/boutique-hospitality-social-pr-launch.pdf b/public/downloads/boutique-hospitality-social-pr-launch.pdf
+new file mode 100644
+index 0000000..d4fd31e
+--- /dev/null
++++ b/public/downloads/boutique-hospitality-social-pr-launch.pdf
+@@ -0,0 +1,91 @@
++Fernesta Case Study
++
++Client: Boutique Hospitality Group
++Category: PR
++Primary Outcome: 3.6x Increase in qualified event enquiries
++Engagement Timeline: 16 weeks
++
++Objective
++Increase event and staycation enquiries by coordinating social media, influencer activity,
++PR timing, and conversion-ready landing experiences under one launch playbook.
++
++Engagement Scope
++- Social Media Management Services
++- PR and Influencer Management
++- Graphic Designing for Marketing
++- Website Design and Website Development
++
++Approach
++- Built a weekly social content and distribution calendar tied to launch milestones,
++
++ offer windows, and enquiry targets.
++- Created creator shortlists, briefing templates, and posting windows so influencer
++
++ output landed around booking-intent peaks.
++- Reworked landing page sections, proof blocks, and response flows so campaign traffic
++
++ encountered clearer conversion pathways.
++- Introduced performance reporting that separated vanity reach from creator-assisted
++
++ enquiries and assisted booking signals.
++
++Execution Timeline
++- Phase 1: Narrative and Offer Structuring (Weeks 1-3)
++
++ Offer framing, message hierarchy, content pillars, and creator brief design.
++- Phase 2: Social and Creator Rollout (Weeks 4-8)
++
++ Content deployment, creator posts, PR outreach, and landing page response alignment.
++- Phase 3: Signal Optimization (Weeks 9-12)
++
++ Audience response review, content iteration, and enquiry source-quality filtering.
++- Phase 4: Scale and Reputation Reinforcement (Weeks 13-16)
++
++ High-performing format expansion, creator relationship retention, and press-proof
++ amplification.
++
++Before
++- Social posting was inconsistent and not sequenced against offer windows or launch
++
++ milestones.
++- Creator partnerships were ad hoc, with limited briefing rigor and unclear expectations
++
++ on output.
++- Press mentions and influencer activity were not tied back to enquiry generation or
++
++ landing performance.
++- Landing pages did not convert launch traffic efficiently because proof and next-step
++
++ structure were too weak.
++
++Page 1 of 2
++After
++- The launch calendar aligned social, PR, and influencer activity to commercially
++
++ important booking moments.
++- Creator posts were briefed and timed against clear enquiry goals instead of generic
++
++ visibility output.
++- Landing page refinements improved traffic-to-enquiry conversion across launch periods.
++- Qualified event enquiries grew 3.6x while brand visibility became easier to attribute
++
++ and govern.
++
++Business Impact
++- The business gained a reusable launch playbook spanning content, creators, PR, and
++
++ conversion surfaces.
++- Management could see which awareness efforts were assisting qualified booking demand
++
++ instead of only reach.
++- Social and PR work shifted from isolated tactics to a governed commercial
++
++ communications system.
++- The team retained a stronger creator and PR operating base for future seasonal
++
++ campaigns.
++
++Source: fernesta.com case-study content
++
++Page 2 of 2
++
+diff --git a/public/downloads/consumer-retail-brand-retention.pdf b/public/downloads/consumer-retail-brand-retention.pdf
+index d4447ee..c354189 100644
+--- a/public/downloads/consumer-retail-brand-retention.pdf
++++ b/public/downloads/consumer-retail-brand-retention.pdf
+@@ -1,77 +1,71 @@
+-                                                                       DIGITAL GROWTH SYSTEMS
++Fernesta Case Study
+ 
+-CASE STUDY | BRAND
++Client: Consumer Retail SME
++Category: Brand
++Primary Outcome: 42% Increase in returning customer rate
++Engagement Timeline: 5 months
+ 
+-Consumer Retail
+-SME
++Objective
++Improve retention-led growth by fixing fragmented brand communication and building
++lifecycle pathways for repeat purchase.
+ 
+-Repositioned the brand for consistency across storefront, social, and
+-campaigns, then implemented lifecycle CRM communication by customer
+-stage to improve repeat purchase behavior.
++Engagement Scope
++- Branding and Business Profiling
++- Social Media Management Services
++- Workflow Automation and Reporting Systems
++- Graphic Designing for Marketing
+ 
+- 42% INCREASE IN RETURNING CUSTOMER RATE
++Approach
++- Defined a unified brand voice and visual system across social, campaign, and CRM
+ 
+-ENGAGEMENT TIMELINE: 5 MONTHS                                          WWW.FERNESTA.COM
+-CATEGORY  TIMELINE                                                  HEADLINE RESULT
++ touchpoints.
++- Segmented customers by behavior stage and built lifecycle journeys for onboarding,
+ 
+-Brand     5 months                                                  42%
++ replenishment, and win-back.
++- Aligned campaign content with customer lifetime value goals instead of one-time
+ 
+-Objective                                                           Engagement Scope
++ conversion spikes.
++- Introduced workflow automation for retention reporting so repeat-purchase performance
+ 
+-Improve retention-led growth by fixing fragmented brand                 Branding and Business Profiling
+-communication and building lifecycle pathways for repeat                Social Media Management Services
+-purchase.                                                               Graphic Designing for Marketing
++ stayed visible every week.
+ 
+-Approach                                                            Execution Timeline
++Execution Timeline
++- Phase 1: Brand Alignment (Weeks 1-4)
+ 
+-    Defined a unified brand voice and visual system across social,     Phase 1: Brand Alignment
+-    campaign, and CRM touchpoints.
+-                                                                       WEEKS 1-4
+-    Segmented customers by behavior stage and built lifecycle
+-    journeys for onboarding, replenishment, and win-back.              Positioning reset, creative direction, and consistency
+-                                                                       standards across channels.
+-    Aligned campaign content with customer lifetime value goals
+-    instead of one-time conversion spikes.                             Phase 2: Lifecycle Architecture
++ Positioning reset, creative direction, and consistency standards across channels.
++- Phase 2: Lifecycle Architecture (Weeks 5-10)
+ 
+-                                                                       WEEKS 5-10
++ Audience segmentation, message sequencing, and retention automation setup.
++- Phase 3: Retention Optimization (Weeks 11-20)
+ 
+-                                                                       Audience segmentation, message sequencing, and
+-                                                                       retention automation setup.
++ Journey performance monitoring, message refinement, and repeat-purchase uplift testing.
+ 
+-                                                                       Phase 3: Retention Optimization
++Before
++- Visual identity and voice varied across social, ads, and email touchpoints.
++- Post-purchase communication was generic and did not reflect lifecycle timing.
++- Campaigns were acquisition-heavy with no strong repeat-purchase mechanism.
++- Retention reporting was too manual to support fast iteration across journeys.
+ 
+-                                                                       WEEKS 11-20
++After
++- Unified brand narrative and design system across all customer-facing channels.
++- Lifecycle flows were deployed for onboarding, replenishment, and win-back windows.
++- Returning customer rate increased by 42%, improving retention-led revenue share.
++- Retention decisions became easier because journey performance and drop-offs were
+ 
+-                                                                       Journey performance monitoring, message refinement,
+-                                                                       and repeat-purchase uplift testing.
++ visible in one reporting rhythm.
+ 
+-Before                                                              After
++Page 1 of 2
++Business Impact
++- Revenue mix shifted toward repeat customers, improving predictability month over month.
++- Customer lifetime value trajectory strengthened as lifecycle engagement depth improved.
++- Brand consistency reduced friction between acquisition campaigns and post-purchase
+ 
+-    Visual identity and voice varied across social, ads, and email      Unified brand narrative and design system across all customer-
+-    touchpoints.                                                        facing channels.
++ experience.
++- Leadership gained better visibility into how lifecycle automation affected repeat
+ 
+-    Post-purchase communication was generic and did not reflect         Lifecycle flows were deployed for onboarding, replenishment,
+-    lifecycle timing.                                                   and win-back windows.
++ revenue performance.
+ 
+-    Campaigns were acquisition-heavy with no strong repeat-             Returning customer rate increased by 42%, improving
+-    purchase mechanism.                                                 retention-led revenue share.
++Source: fernesta.com case-study content
+ 
+-Business Impact                                                                                           BEFORE               AFTER
+-
+-    Revenue mix shifted toward repeat customers, improving predictability month over month.
+-    Customer lifetime value trajectory strengthened as lifecycle engagement depth improved.
+-    Brand consistency reduced friction between acquisition campaigns and post-purchase experience.
+-
+-Retention Uplift Snapshot
+-186.8                         142 index             133 index                                                                     161 index
+-140.1   100 index                                                                                           100 index
+-                                         100 index
+- 93.4   Returning Customer Rate                                                                          Lifecycle Campaign Revenue
+- 46.7
+-
+-   0.0
+-
+-                                         Repeat Revenue Share
+-
+-Indexed values use baseline = 100 where noted, to show directional improvement in business performance.
++Page 2 of 2
+ 
+diff --git a/public/downloads/d2c-skincare-performance-turnaround.pdf b/public/downloads/d2c-skincare-performance-turnaround.pdf
+index dc61db5..1969fda 100644
+--- a/public/downloads/d2c-skincare-performance-turnaround.pdf
++++ b/public/downloads/d2c-skincare-performance-turnaround.pdf
+@@ -1,75 +1,71 @@
+-                                                                             DIGITAL GROWTH SYSTEMS
++Fernesta Case Study
+ 
+-CASE STUDY | PERFORMANCE
++Client: D2C Skincare Brand
++Category: Performance
++Primary Outcome: 3.2x Blended ROAS in 120 days
++Engagement Timeline: 120 days
+ 
+-D2C Skincare
+-Brand
++Objective
++Increase profitable new-customer acquisition without forcing unsustainable ad spend, and
++establish a repeatable performance system that can scale predictably.
+ 
+-Started with a full-funnel audit of Google Ads and Meta Ads, then rebuilt
+-campaign structure by intent stage, tightened tracking, and aligned landing
+-pages with product objections, trust cues, and offer clarity.
++Engagement Scope
++- Google Ads and Meta Ads Management
++- E-Commerce Advertising and ROAS Optimization
++- Website Design and Website Development
+ 
+- 3.2x BLENDED ROAS IN 120 DAYS
++Approach
++- Rebuilt Google Ads and Meta Ads account architecture by funnel stage and audience role.
++- Implemented weekly creative testing loops with clear pass/fail thresholds for scale
+ 
+-ENGAGEMENT TIMELINE: 120 DAYS                                                WWW.FERNESTA.COM
+-CATEGORY     TIMELINE                                                                                HEADLINE RESULT
++ decisions.
++- Mapped ad promise to landing page sections so every click encounters offer relevance
+ 
+-Performance  120 days                                                                                3.2x
++ and trust proof.
++- Introduced dashboard-led budget reviews so scale decisions were based on marginal
+ 
+-Objective                                                           Engagement Scope
++ efficiency instead of headline ROAS alone.
+ 
+-Increase profitable new-customer acquisition without forcing            Google Ads and Meta Ads Management
+-unsustainable ad spend, and establish a repeatable                      E-Commerce Advertising and ROAS Optimization
+-performance system that can scale predictably.                          Website Design and Website Development
++Execution Timeline
++- Phase 1: Diagnostic Baseline (Weeks 1-2)
+ 
+-Approach                                                            Execution Timeline
++ Full-funnel audit, pixel and event validation, leakage analysis by campaign and
++ audience.
++- Phase 2: System Rebuild (Weeks 3-6)
++ Campaign and audience restructuring, creative test matrix, landing page alignment
++ updates.
++- Phase 3: Scale Governance (Weeks 7-17)
++ Budget reallocation by marginal efficiency, weekly decision cadence, and expansion
++ controls.
+ 
+-    Rebuilt Google Ads and Meta Ads account architecture by            Phase 1: Diagnostic Baseline
+-    funnel stage and audience role.
+-                                                                       WEEKS 1-2
+-    Implemented weekly creative testing loops with clear pass/fail
+-    thresholds for scale decisions.                                    Full-funnel audit, pixel and event validation, leakage
+-                                                                       analysis by campaign and audience.
+-    Mapped ad promise to landing page sections so every click
+-    encounters offer relevance and trust proof.                        Phase 2: System Rebuild
++Before
++- Prospecting and retargeting audiences heavily overlapped, inflating CPM and frequency.
++- Creative decisions were based on preference instead of a structured testing cadence.
++- Landing pages did not match ad intent, creating drop-off between click and checkout.
++- Leadership could not see which campaigns were truly creating profitable first-purchase
+ 
+-                                                                       WEEKS 3-6
++ volume.
+ 
+-                                                                       Campaign and audience restructuring, creative test matrix,
+-                                                                       landing page alignment updates.
++After
++- Blended ROAS improved from 1.1x to 3.2x while monthly spend scaled with guardrails.
++- Cost per first purchase dropped by 38% through audience hygiene and placement controls.
++- Checkout conversion rate improved from 1.6% to 2.9% after message-to-page alignment.
++- Weekly decision reviews linked creative, landing, and spend changes to margin-aware
+ 
+-                                                                       Phase 3: Scale Governance
++Page 1 of 2
++ growth outcomes.
+ 
+-                                                                       WEEKS 7-17
++Business Impact
++- Performance budgets moved from reactive spend to governed growth investment.
++- Acquisition profitability improved while preserving room for controlled scaling.
++- Leadership gained weekly decision visibility across channel, creative, and landing
+ 
+-                                                                       Budget reallocation by marginal efficiency, weekly decision
+-                                                                       cadence, and expansion controls.
++ performance.
++- The account moved from campaign firefighting to a controlled scale system with clearer
+ 
+-Before                                                              After
++ unit economics.
+ 
+-    Prospecting and retargeting audiences heavily overlapped,           Blended ROAS improved from 1.1x to 3.2x while monthly
+-    inflating CPM and frequency.                                        spend scaled with guardrails.
++Source: fernesta.com case-study content
+ 
+-    Creative decisions were based on preference instead of a            Cost per first purchase dropped by 38% through audience
+-    structured testing cadence.                                         hygiene and placement controls.
+-
+-    Landing pages did not match ad intent, creating drop-off            Checkout conversion rate improved from 1.6% to 2.9% after
+-    between click and checkout.                                         message-to-page alignment.
+-
+-Business Impact                                                                                                       BEFORE  AFTER
+-
+-    Performance budgets moved from reactive spend to governed growth investment.
+-    Acquisition profitability improved while preserving room for controlled scaling.
+-    Leadership gained weekly decision visibility across channel, creative, and landing performance.
+-
+-Performance Lift Snapshot
+-116.0   1.1x        3.2x  100 index                                                                      1.6%  2.9%
+- 87.0                                            62 index
+- 58.0
+- 29.0                        New Customer CPA
+-   0.0
+-
+-              ROAS                                                                                       Checkout CVR
+-
+-Indexed values use baseline = 100 where noted, to show directional improvement in business performance.
++Page 2 of 2
+ 
+diff --git a/public/downloads/distribution-workflow-automation-reset.pdf b/public/downloads/distribution-workflow-automation-reset.pdf
+new file mode 100644
+index 0000000..6198c59
+--- /dev/null
++++ b/public/downloads/distribution-workflow-automation-reset.pdf
+@@ -0,0 +1,87 @@
++Fernesta Case Study
++
++Client: B2B Distribution Network
++Category: Operations
++Primary Outcome: 72% Faster lead-to-quote turnaround
++Engagement Timeline: 12 weeks
++
++Objective
++Reduce operational leakage between lead capture and quotation by building one visible
++workflow system for intake, approvals, ownership, and weekly reporting.
++
++Engagement Scope
++- Workflow Automation and Reporting Systems
++- Website Design and Website Development
++- Google Ads and Meta Ads Management
++
++Approach
++- Mapped the full lead-to-quote workflow to identify approval bottlenecks, duplicated
++
++ data entry, and missing ownership points.
++- Built standardized intake structure, routing logic, and status dashboards so each
++
++ enquiry had a visible next action.
++- Connected landing forms, tracker updates, and follow-up triggers to reduce manual
++
++ handoffs across marketing and sales.
++- Introduced weekly governance reviews using workflow data instead of anecdotal status
++
++ updates.
++
++Execution Timeline
++- Phase 1: Workflow Mapping (Weeks 1-2)
++
++ Current-state mapping, bottleneck discovery, and ownership gap identification.
++- Phase 2: System Buildout (Weeks 3-6)
++
++ Intake standardization, status logic, approval routing, and dashboard implementation.
++- Phase 3: Team Adoption (Weeks 7-9)
++
++ Usage training, exception handling, and accountability cadence rollout.
++- Phase 4: Optimization (Weeks 10-12)
++
++ Workflow tuning, response-time governance, and reporting refinement.
++
++Before
++- Lead capture and quoting depended on fragmented spreadsheets with inconsistent field
++
++ quality.
++- Approvals and task ownership lived in chat threads, creating delay and accountability
++
++ gaps.
++- Sales and marketing could not see where active enquiries were stuck without manual
++
++ follow-up.
++- Reporting focused on total leads rather than response discipline and operational
++
++ throughput.
++
++After
++- Inbound enquiries moved through one intake and routing structure with clearer ownership
++
++Page 1 of 2
++ by stage.
++- Approval status and next actions became visible through a shared reporting dashboard.
++- Follow-up discipline improved because reminder logic and exception flags reduced manual
++
++ chasing.
++- Lead-to-quote turnaround improved by 72% while the handoff between teams became easier
++
++ to govern.
++
++Business Impact
++- Commercial response became faster without increasing management overhead.
++- Leadership gained a clearer operating view of lead volume, delay points, and conversion
++
++ friction.
++- Workflow automation reduced avoidable leakage between marketing demand and quoted
++
++ opportunities.
++- The business retained a reusable operating model for future campaign scale and
++
++ multi-owner coordination.
++
++Source: fernesta.com case-study content
++
++Page 2 of 2
++
+diff --git a/public/downloads/education-seo-lead-engine.pdf b/public/downloads/education-seo-lead-engine.pdf
+index 146d2b3..41187ba 100644
+--- a/public/downloads/education-seo-lead-engine.pdf
++++ b/public/downloads/education-seo-lead-engine.pdf
+@@ -1,78 +1,71 @@
+-                                                                               DIGITAL GROWTH SYSTEMS
++Fernesta Case Study
+ 
+-CASE STUDY | SEO
++Client: Regional Education Business
++Category: SEO
++Primary Outcome: 187% Growth in qualified organic leads
++Engagement Timeline: 6 months
+ 
+-Regional
+-Education
+-Business
++Objective
++Turn organic search into a predictable lead channel for program admissions, reducing
++overdependence on paid enquiries.
+ 
+-Established a technical SEO baseline, rebuilt site architecture around search
+-intent clusters, and connected content pages to conversion-ready admission
+-pathways with clear proof and CTA hierarchy.
++Engagement Scope
++- Search Engine Optimization Services
++- Website Design and Website Development
++- Graphic Designing for Marketing
+ 
+- 187% GROWTH IN QUALIFIED ORGANIC LEADS
++Approach
++- Resolved technical SEO blockers across indexing, internal links, metadata consistency,
+ 
+-ENGAGEMENT TIMELINE: 6 MONTHS                                                  WWW.FERNESTA.COM
+-CATEGORY  TIMELINE                                                                              HEADLINE RESULT
++ and schema coverage.
++- Built keyword clusters by admission intent and mapped each cluster to dedicated
+ 
+-SEO       6 months                                                                              187%
++ conversion paths.
++- Connected editorial planning to funnel stages so content discovery flows into
+ 
+-Objective                                                             Engagement Scope
++ enquiry-ready pages.
++- Refined page layouts and proof sections so ranking gains translated into stronger
+ 
+-Turn organic search into a predictable lead channel for                   Search Engine Optimization Services
+-program admissions, reducing overdependence on paid                       Website Design and Website Development
+-enquiries.                                                                Graphic Designing for Marketing
++ enquiry conversion quality.
+ 
+-Approach                                                              Execution Timeline
++Execution Timeline
++- Phase 1: Technical Foundation (Month 1)
+ 
+-    Resolved technical SEO blockers across indexing, internal links,     Phase 1: Technical Foundation
+-    metadata consistency, and schema coverage.
+-                                                                         MONTH 1
+-    Built keyword clusters by admission intent and mapped each
+-    cluster to dedicated conversion paths.                               Crawl cleanup, information architecture adjustments,
+-                                                                         indexation and metadata baseline.
+-    Connected editorial planning to funnel stages so content
+-    discovery flows into enquiry-ready pages.                            Phase 2: Intent Cluster Buildout
++ Crawl cleanup, information architecture adjustments, indexation and metadata baseline.
++- Phase 2: Intent Cluster Buildout (Months 2-4)
+ 
+-                                                                         MONTHS 2-4
++ Program-specific keyword clusters, page optimization, and structured internal linking.
++- Phase 3: Conversion Integration (Months 5-6)
+ 
+-                                                                         Program-specific keyword clusters, page optimization, and
+-                                                                         structured internal linking.
++ Trust-led content updates, form flow optimization, and ranking-to-lead performance
++ tracking.
+ 
+-                                                                         Phase 3: Conversion Integration
++Before
++- Core pages were not optimized for intent-heavy admission and program queries.
++- Content production was ad hoc, without cluster ownership or funnel mapping.
++- Lead pages lacked schema, trust elements, and a clear enquiry progression.
++- Organic reporting focused on sessions, not whether rankings were contributing to
+ 
+-                                                                         MONTHS 5-6
++ qualified enquiries.
+ 
+-                                                                         Trust-led content updates, form flow optimization, and
+-                                                                         ranking-to-lead performance tracking.
++After
++- 31 high-intent keywords moved into top-10 positions across target programs.
++- Qualified organic enquiries increased by 187% over the engagement period.
++- Organic channel became a reliable lead source with lower paid dependency.
++- SEO reporting connected ranking movement to page-level enquiry contribution and
+ 
+-Before                                                                After
++ admission funnel health.
+ 
+-    Core pages were not optimized for intent-heavy admission              31 high-intent keywords moved into top-10 positions across
+-    and program queries.                                                  target programs.
++Page 1 of 2
++Business Impact
++- Admission pipeline became less volatile due to stronger inbound demand from search.
++- Cost of acquiring qualified enquiries improved through reduced paid-channel pressure.
++- Academic and marketing teams gained a shared search-intent framework for future
+ 
+-    Content production was ad hoc, without cluster ownership or           Qualified organic enquiries increased by 187% over the
+-    funnel mapping.                                                       engagement period.
++ campaigns.
++- The business gained a repeatable SEO system instead of one-off optimization bursts.
+ 
+-    Lead pages lacked schema, trust elements, and a clear enquiry         Organic channel became a reliable lead source with lower paid
+-    progression.                                                          dependency.
++Source: fernesta.com case-study content
+ 
+-Business Impact                                                                                                   BEFORE  AFTER
+-
+-    Admission pipeline became less volatile due to stronger inbound demand from search.
+-    Cost of acquiring qualified enquiries improved through reduced paid-channel pressure.
+-    Academic and marketing teams gained a shared search-intent framework for future campaigns.
+-
+-Organic Growth Snapshot
+-332.9                         287 index                                                                  100 index
+-249.7   100 index
+-166.5   Qualified Organic Leads                                                                                     68 index
+-
+- 83.2                                                31 keywords
+-   0.0
+-                                         9 keywords
+-
+-                                         Top-10 Rankings                                                 Paid Dependency
+-
+-Indexed values use baseline = 100 where noted, to show directional improvement in business performance.
++Page 2 of 2
+ 
+diff --git a/public/downloads/fernesta-capabilities-deck.pdf b/public/downloads/fernesta-capabilities-deck.pdf
+index d3a45a2..ef199c0 100644
+--- a/public/downloads/fernesta-capabilities-deck.pdf
++++ b/public/downloads/fernesta-capabilities-deck.pdf
+@@ -1,24 +1,24 @@
+-                                         DIGITAL GROWTH SYSTEMS
++                                        GROWTH AND WORKFLOW SYSTEMS
+ 
+ CAPABILITIES DECK | UPDATED MARCH 2026
+ 
+-Digital Marketing
+-Growth Systems
+-for Jaipur
+-Businesses
++Digital Growth
++and Workflow
++Systems for
++Indian SMEs
+ 
+-This deck summarizes Fernesta's service architecture, operating model, and execution
+-cadence for growth-focused partnerships.
++This deck summarizes Fernesta's service architecture, workflow automation capability,
++and execution cadence for growth-focused partnerships.
+ 
+-SEO                   Performance        Conversion
++SEO                   Automation        Performance
+ 
+-VISIBILITY SYSTEMS    REVENUE CAMPAIGNS  FUNNEL OPTIMIZATION
++VISIBILITY SYSTEMS    WORKFLOW SYSTEMS  REVENUE CAMPAIGNS
+ 
+-PREPARED BY FERNESTA                     WWW.FERNESTA.COM
++PREPARED BY FERNESTA                    WWW.FERNESTA.COM
+ Execution Framework
+ 
+-Every engagement is mapped to measurable commercial outcomes, with transparent weekly reporting and
+-channel-level accountability.
++Every engagement is mapped to measurable commercial outcomes, with transparent weekly reporting, cleaner
++internal handoffs, and channel-level accountability.
+ 
+   Core Service Lines
+ 
+@@ -26,22 +26,24 @@ channel-level accountability.
+         Performance Marketing across Google Ads and Meta Ads.
+         Social Media Management with content and paid support.
+         Website and Conversion Systems for lead and sales journeys.
++        Workflow automation, reporting systems, and approval pipelines.
+         Branding, Graphic Design, and PR or Influencer programs.
+ 
+ How Engagement Starts
+ 
+     Step 1: Discovery and baseline audit of existing channel performance.
+-    Step 2: Growth architecture with KPI-linked channel priorities.
+-    Step 3: Execution sprint with weekly governance and reporting.
++    Step 2: Growth architecture with KPI-linked channel, workflow, and reporting priorities.
++    Step 3: Execution sprint with weekly governance, reporting, and automation handoffs.
+ 
+ Reporting and Governance
+ 
+     Clients receive weekly decision-oriented reports, transparent KPIs, and next-action priorities.
++    Automation layers are designed to reduce manual follow-up, approval lag, and reporting friction.
+     Each campaign is mapped to a commercial objective with accountable ownership.
+ 
+ Recommended Next Step
+ 
+     Book a strategy consultation at https://www.fernesta.com/contact-us to receive a tailored growth roadmap.
+ 
+-Fernesta Capabilities Deck                                                                           Page 2
++Fernesta Capabilities Deck                                                                            Page 2
+ 
+diff --git a/scripts/generate-capabilities-deck.mjs b/scripts/generate-capabilities-deck.mjs
+index 3c07bb6..66cc072 100644
+--- a/scripts/generate-capabilities-deck.mjs
++++ b/scripts/generate-capabilities-deck.mjs
+@@ -15,6 +15,7 @@ const sections = [
+       "Performance Marketing across Google Ads and Meta Ads.",
+       "Social Media Management with content and paid support.",
+       "Website and Conversion Systems for lead and sales journeys.",
++      "Workflow automation, reporting systems, and approval pipelines.",
+       "Branding, Graphic Design, and PR or Influencer programs.",
+     ],
+   },
+@@ -22,14 +23,15 @@ const sections = [
+     title: "How Engagement Starts",
+     points: [
+       "Step 1: Discovery and baseline audit of existing channel performance.",
+-      "Step 2: Growth architecture with KPI-linked channel priorities.",
+-      "Step 3: Execution sprint with weekly governance and reporting.",
++      "Step 2: Growth architecture with KPI-linked channel, workflow, and reporting priorities.",
++      "Step 3: Execution sprint with weekly governance, reporting, and automation handoffs.",
+     ],
+   },
+   {
+     title: "Reporting and Governance",
+     points: [
+       "Clients receive weekly decision-oriented reports, transparent KPIs, and next-action priorities.",
++      "Automation layers are designed to reduce manual follow-up, approval lag, and reporting friction.",
+       "Each campaign is mapped to a commercial objective with accountable ownership.",
+     ],
+   },
+@@ -278,19 +280,19 @@ function buildHtml(logoWordmarkDataUri, monogramDataUri) {
+           <span class="brand-mark-shell"><img class="brand-monogram" src="${monogramDataUri}" alt="" /></span>
+           <img class="brand-wordmark" src="${logoWordmarkDataUri}" alt="Fernesta" />
+         </div>
+-        <div class="brand-sub">Digital Growth Systems</div>
++        <div class="brand-sub">Growth and Workflow Systems</div>
+       </header>
+ 
+       <div>
+         <p class="cover-kicker">Capabilities Deck | Updated March 2026</p>
+-        <h1>Digital Marketing Growth Systems for Jaipur Businesses</h1>
+-        <p class="cover-intro">This deck summarizes Fernesta's service architecture, operating model, and execution cadence for growth-focused partnerships.</p>
++        <h1>Digital Growth and Workflow Systems for Indian SMEs</h1>
++        <p class="cover-intro">This deck summarizes Fernesta's service architecture, workflow automation capability, and execution cadence for growth-focused partnerships.</p>
+       </div>
+ 
+       <div class="signals">
+         <div class="signal"><strong>SEO</strong><span>Visibility Systems</span></div>
++        <div class="signal"><strong>Automation</strong><span>Workflow Systems</span></div>
+         <div class="signal"><strong>Performance</strong><span>Revenue Campaigns</span></div>
+-        <div class="signal"><strong>Conversion</strong><span>Funnel Optimization</span></div>
+       </div>
+ 
+       <footer class="cover-foot">
+@@ -302,7 +304,7 @@ function buildHtml(logoWordmarkDataUri, monogramDataUri) {
+     <section class="page content">
+       <div class="content-head">
+         <h2>Execution Framework</h2>
+-        <p>Every engagement is mapped to measurable commercial outcomes, with transparent weekly reporting and channel-level accountability.</p>
++        <p>Every engagement is mapped to measurable commercial outcomes, with transparent weekly reporting, cleaner internal handoffs, and channel-level accountability.</p>
+       </div>
+ 
+       <div class="section-grid">
+diff --git a/src/App.css b/src/App.css
+index 756a528..2c93265 100644
+--- a/src/App.css
++++ b/src/App.css
+@@ -779,6 +779,24 @@ p {
+   right: 0;
+ }
+ 
++.service-card-index {
++  align-items: center;
++  align-self: flex-start;
++  background: rgba(239, 236, 221, 0.14);
++  border: 1px solid rgba(239, 236, 221, 0.26);
++  border-radius: 999px;
++  color: #f5f3e9;
++  display: inline-flex;
++  font-family: "Cormorant Garamond", serif;
++  font-size: 0.96rem;
++  font-weight: 700;
++  letter-spacing: 0.12em;
++  line-height: 1;
++  min-height: 32px;
++  padding: 0 12px;
++  text-transform: uppercase;
++}
++
+ .service-portfolio-overlay h3,
+ .service-portfolio-overlay p {
+   color: #f3f0e2;
+@@ -840,18 +858,84 @@ p {
+   position: relative;
+ }
+ 
++.panel-index {
++  align-items: center;
++  align-self: flex-start;
++  background: linear-gradient(135deg, rgba(45, 68, 48, 0.14), rgba(45, 68, 48, 0.05));
++  border: 1px solid rgba(45, 68, 48, 0.2);
++  border-radius: 999px;
++  color: var(--accent-strong);
++  display: inline-flex;
++  font-family: "Cormorant Garamond", serif;
++  font-size: 0.96rem;
++  font-weight: 700;
++  letter-spacing: 0.12em;
++  line-height: 1;
++  min-height: 32px;
++  padding: 0 12px;
++  position: relative;
++  text-transform: uppercase;
++  z-index: 1;
++}
++
+ .card-numbered .panel::after {
+   color: var(--accent);
+   content: counter(card-counter, decimal-leading-zero);
+   font-family: "Cormorant Garamond", serif;
+-  font-size: 3.5rem;
++  font-size: 3.75rem;
+   font-weight: 700;
+   line-height: 1;
+-  opacity: 0.15;
++  opacity: 0.13;
+   pointer-events: none;
+   position: absolute;
+-  right: 10px;
+-  top: 6px;
++  right: 16px;
++  top: 16px;
++}
++
++.workflow-callout {
++  align-items: start;
++  background: linear-gradient(135deg, rgba(45, 68, 48, 0.16), rgba(245, 242, 229, 0.98));
++  display: grid;
++  gap: 24px;
++  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
++  margin-bottom: 22px;
++}
++
++.workflow-callout-copy {
++  display: grid;
++  gap: 10px;
++}
++
++.workflow-callout h3 {
++  font-size: clamp(1.45rem, 1.15rem + 1vw, 1.9rem);
++}
++
++.workflow-pillars {
++  display: grid;
++  gap: 12px;
++  grid-template-columns: repeat(2, minmax(0, 1fr));
++}
++
++.workflow-pill {
++  background: rgba(243, 246, 235, 0.74);
++  border: 1px solid rgba(97, 118, 97, 0.24);
++  border-radius: 12px;
++  display: grid;
++  gap: 6px;
++  min-height: 100%;
++  padding: 14px;
++}
++
++.workflow-pill strong {
++  color: var(--accent-strong);
++  font-size: 0.76rem;
++  letter-spacing: 0.09em;
++  text-transform: uppercase;
++}
++
++.workflow-pill span {
++  color: var(--text-muted);
++  font-size: 0.92rem;
+ }
+ 
+ .social-proof {
+@@ -1662,62 +1746,6 @@ p {
+ }
+ 
+ 
+-/* -- Prompt Library -------------------------------------------------------- */
+-
+-.prompt-card {
+-  gap: 12px;
+-  min-height: 260px;
+-}
+-
+-.prompt-card-desc {
+-  font-size: 0.9rem;
+-}
+-
+-.prompt-body {
+-  background: rgba(243, 246, 235, 0.62);
+-  border: 1px solid rgba(97, 118, 97, 0.24);
+-  border-radius: var(--radius-sm);
+-  display: grid;
+-  gap: 8px;
+-  padding: 10px 12px;
+-}
+-
+-.prompt-text {
+-  color: #1f3326;
+-  font-family: "Source Sans 3", sans-serif;
+-  font-size: 0.88rem;
+-  line-height: 1.6;
+-  white-space: pre-wrap;
+-  word-break: break-word;
+-}
+-
+-.prompt-toggle {
+-  background: transparent;
+-  border: 0;
+-  color: var(--accent);
+-  cursor: pointer;
+-  font-size: 0.78rem;
+-  font-weight: 700;
+-  letter-spacing: 0.04em;
+-  padding: 0;
+-  text-align: left;
+-  text-transform: uppercase;
+-}
+-
+-.prompt-tags {
+-  margin-top: auto;
+-}
+-
+-.prompt-tag-chip {
+-  font-size: 0.76rem;
+-  padding: 4px 9px;
+-}
+-
+-.prompt-copy {
+-  align-self: start;
+-  flex-shrink: 0;
+-}
+-
+ @keyframes drift {
+   0% {
+     transform: translate3d(0, 0, 0) scale(1);
+@@ -1818,6 +1846,7 @@ p {
+   .card-grid-three,
+   .card-grid-four,
+   .card-grid-two,
++  .workflow-callout,
+   .simulator-grid,
+   .service-portfolio-grid,
+   .service-card {
+@@ -1893,6 +1922,10 @@ p {
+     width: 100%;
+   }
+ 
++  .workflow-pillars {
++    grid-template-columns: 1fr;
++  }
++
+   .case-search-row {
+     align-items: stretch;
+     flex-direction: column;
+diff --git a/src/App.tsx b/src/App.tsx
+index 5d18f3d..b286c0c 100644
+--- a/src/App.tsx
++++ b/src/App.tsx
+@@ -18,7 +18,6 @@ const ClientelePage = lazy(() => import("./pages/ClientelePage"));
+ const ContactPage = lazy(() => import("./pages/ContactPage"));
+ const CaseStudiesPage = lazy(() => import("./pages/CaseStudiesPage"));
+ const CaseStudyDetailPage = lazy(() => import("./pages/CaseStudyDetailPage"));
+-const PromptLibraryPage = lazy(() => import("./pages/PromptLibraryPage"));
+ const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
+ 
+ const pageVariants = {
+@@ -65,7 +64,6 @@ function App() {
+                 <Route path="/case-studies" element={<CaseStudiesPage />} />
+                 <Route path="/case-studies/:slug" element={<CaseStudyDetailPage />} />
+                 <Route path="/contact-us" element={<ContactPage />} />
+-                <Route path="/prompt-library" element={<PromptLibraryPage />} />
+                 <Route path="*" element={<NotFoundPage />} />
+               </Routes>
+             </Suspense>
+diff --git a/src/Components/Footer.tsx b/src/Components/Footer.tsx
+index cdafb3d..f077601 100644
+--- a/src/Components/Footer.tsx
++++ b/src/Components/Footer.tsx
+@@ -12,8 +12,8 @@ function Footer() {
+               alt="Fernesta"
+             />
+           </div>
+-          <p className="footer-tagline">AI-First Marketing Infrastructure Firm</p>
+-          <p>SEO, Performance Ads, Social Media, and Growth Systems for Indian SMEs and D2C Brands.</p>
++          <p className="footer-tagline">AI-First Growth Infrastructure Firm</p>
++          <p>SEO, Performance Ads, Workflow Automation, and Reporting Systems for Indian SMEs and D2C brands.</p>
+           <p className="footer-copy">© 2026 Fernesta. All rights reserved.</p>
+         </div>
+ 
+@@ -24,6 +24,7 @@ function Footer() {
+             <Link to="/services">Performance Marketing</Link>
+             <Link to="/services">Social Media Management</Link>
+             <Link to="/services">Website Design and Development</Link>
++            <Link to="/services">Workflow Automation and Reporting Systems</Link>
+             <Link to="/services">E-Commerce Advertising</Link>
+             <Link to="/services">PR and Influencer Management</Link>
+           </nav>
+diff --git a/src/Components/Navbar.tsx b/src/Components/Navbar.tsx
+index 17c7caf..53aa967 100644
+--- a/src/Components/Navbar.tsx
++++ b/src/Components/Navbar.tsx
+@@ -9,7 +9,6 @@ const links = [
+   { label: "Services", to: "/services" },
+   { label: "Clientele", to: "/clientele" },
+   { label: "Case Studies", to: "/case-studies" },
+-  { label: "Prompt Library", to: "/prompt-library" },
+ ];
+ 
+ export default function Navbar() {
+diff --git a/src/Components/ServiceFaq.tsx b/src/Components/ServiceFaq.tsx
+index 5fbb37d..a5450b2 100644
+--- a/src/Components/ServiceFaq.tsx
++++ b/src/Components/ServiceFaq.tsx
+@@ -8,12 +8,16 @@ const faqs = [
+   },
+   {
+     q: "Do you provide SEO and paid ads together?",
+-    a: "Yes. We build integrated plans where SEO, Google Ads, and Meta Ads support the same business goals for Jaipur businesses.",
++    a: "Yes. We build integrated plans where SEO, Google Ads, and Meta Ads support the same business goals for Indian SMEs and growth-stage brands.",
+   },
+   {
+     q: "How is reporting handled across channels?",
+     a: "You receive a standardized reporting cadence with channel performance, lead quality, and next actions.",
+   },
++  {
++    q: "Can Fernesta automate internal marketing and lead workflows?",
++    a: "Yes. We design workflow automation for lead routing, approvals, CRM or spreadsheet sync, reporting alerts, and recurring operational handoffs.",
++  },
+   {
+     q: "Is website optimization included in marketing engagements?",
+     a: "Yes. Landing page optimization and conversion-focused UX improvements are part of growth delivery.",
+diff --git a/src/Components/StructuredData.tsx b/src/Components/StructuredData.tsx
+index faa3398..eb65b7f 100644
+--- a/src/Components/StructuredData.tsx
++++ b/src/Components/StructuredData.tsx
+@@ -7,6 +7,7 @@ type JsonLd = Record<string, unknown>;
+ const SITE_NAME = "Fernesta";
+ const PHONE = "+91-701-412-7724";
+ const EMAIL = "info@fernesta.com";
++const COUNTRY_NAME = "India";
+ const CITY = "Jaipur";
+ const STATE = "Rajasthan";
+ const COUNTRY = "IN";
+@@ -17,6 +18,7 @@ const SERVICE_TYPES = [
+   "Google Ads Management",
+   "Meta Ads Management",
+   "Website Design and Development",
++  "Workflow Automation and Reporting Systems",
+   "Content Marketing",
+   "Branding and Profiling",
+   "PR and Influencer Management",
+@@ -91,7 +93,7 @@ function buildFaq(pathname: string, origin: string): JsonLd | null {
+         name: "What digital marketing services does Fernesta provide?",
+         acceptedAnswer: {
+           "@type": "Answer",
+-          text: "Fernesta provides SEO services, social media management, Google and Meta ads management, website development, graphic design, e-commerce advertising, and branding support.",
++          text: "Fernesta provides SEO services, social media management, Google and Meta ads management, website development, workflow automation and reporting systems, graphic design, e-commerce advertising, branding support, and PR or influencer management.",
+         },
+       },
+       {
+@@ -112,15 +114,15 @@ function buildService(pathname: string, origin: string): JsonLd | null {
+   return {
+     "@context": "https://schema.org",
+     "@type": "Service",
+-    name: "Digital Marketing Services",
++    name: "Digital Marketing and Workflow Automation Services",
+     provider: {
+       "@type": "Organization",
+       name: SITE_NAME,
+       url: origin,
+     },
+     areaServed: {
+-      "@type": "City",
+-      name: CITY,
++      "@type": "Country",
++      name: COUNTRY_NAME,
+     },
+     serviceType: SERVICE_TYPES,
+     url: `${origin}/services`,
+@@ -135,8 +137,8 @@ function buildOrganization(origin: string): JsonLd {
+     url: origin,
+     logo: `${origin}/images/site/seo/default-share.jpg`,
+     areaServed: {
+-      "@type": "City",
+-      name: CITY,
++      "@type": "Country",
++      name: COUNTRY_NAME,
+     },
+     contactPoint: {
+       "@type": "ContactPoint",
+diff --git a/src/Components/TrustMetricsBar.tsx b/src/Components/TrustMetricsBar.tsx
+index d74d49f..4a65100 100644
+--- a/src/Components/TrustMetricsBar.tsx
++++ b/src/Components/TrustMetricsBar.tsx
+@@ -2,7 +2,7 @@
+ import Reveal from "./Reveal";
+ 
+ const metrics = [
+-  { end: 8, suffix: "", label: "Integrated service lines under one partner" },
++  { end: 9, suffix: "", label: "Integrated service lines under one partner" },
+   { end: 24, suffix: "h", label: "Response SLA for new client inquiries" },
+   { end: 90, suffix: "d", label: "Execution roadmap for early growth traction" },
+   { end: 100, suffix: "%", label: "Transparent reporting with measurable KPIs" },
+diff --git a/src/data/caseStudies.ts b/src/data/caseStudies.ts
+index 8b7f3fc..ddd12fc 100644
+--- a/src/data/caseStudies.ts
++++ b/src/data/caseStudies.ts
+@@ -19,7 +19,7 @@ export type CaseChart = {
+ export type CaseStudy = {
+   slug: string;
+   client: string;
+-  category: "SEO" | "Performance" | "Brand";
++  category: "SEO" | "Performance" | "Brand" | "Social" | "Operations" | "PR";
+   metric: string;
+   result: string;
+   detail: string;
+@@ -50,6 +50,7 @@ export const caseStudies: CaseStudy[] = [
+       "Rebuilt Google Ads and Meta Ads account architecture by funnel stage and audience role.",
+       "Implemented weekly creative testing loops with clear pass/fail thresholds for scale decisions.",
+       "Mapped ad promise to landing page sections so every click encounters offer relevance and trust proof.",
++      "Introduced dashboard-led budget reviews so scale decisions were based on marginal efficiency instead of headline ROAS alone.",
+     ],
+     timeline: "120 days",
+     executionTimeline: [
+@@ -86,16 +87,19 @@ export const caseStudies: CaseStudy[] = [
+       "Prospecting and retargeting audiences heavily overlapped, inflating CPM and frequency.",
+       "Creative decisions were based on preference instead of a structured testing cadence.",
+       "Landing pages did not match ad intent, creating drop-off between click and checkout.",
++      "Leadership could not see which campaigns were truly creating profitable first-purchase volume.",
+     ],
+     after: [
+       "Blended ROAS improved from 1.1x to 3.2x while monthly spend scaled with guardrails.",
+       "Cost per first purchase dropped by 38% through audience hygiene and placement controls.",
+       "Checkout conversion rate improved from 1.6% to 2.9% after message-to-page alignment.",
++      "Weekly decision reviews linked creative, landing, and spend changes to margin-aware growth outcomes.",
+     ],
+     businessImpact: [
+       "Performance budgets moved from reactive spend to governed growth investment.",
+       "Acquisition profitability improved while preserving room for controlled scaling.",
+       "Leadership gained weekly decision visibility across channel, creative, and landing performance.",
++      "The account moved from campaign firefighting to a controlled scale system with clearer unit economics.",
+     ],
+     download: "/downloads/d2c-skincare-performance-turnaround.pdf",
+   },
+@@ -113,6 +117,7 @@ export const caseStudies: CaseStudy[] = [
+       "Resolved technical SEO blockers across indexing, internal links, metadata consistency, and schema coverage.",
+       "Built keyword clusters by admission intent and mapped each cluster to dedicated conversion paths.",
+       "Connected editorial planning to funnel stages so content discovery flows into enquiry-ready pages.",
++      "Refined page layouts and proof sections so ranking gains translated into stronger enquiry conversion quality.",
+     ],
+     timeline: "6 months",
+     executionTimeline: [
+@@ -149,16 +154,19 @@ export const caseStudies: CaseStudy[] = [
+       "Core pages were not optimized for intent-heavy admission and program queries.",
+       "Content production was ad hoc, without cluster ownership or funnel mapping.",
+       "Lead pages lacked schema, trust elements, and a clear enquiry progression.",
++      "Organic reporting focused on sessions, not whether rankings were contributing to qualified enquiries.",
+     ],
+     after: [
+       "31 high-intent keywords moved into top-10 positions across target programs.",
+       "Qualified organic enquiries increased by 187% over the engagement period.",
+       "Organic channel became a reliable lead source with lower paid dependency.",
++      "SEO reporting connected ranking movement to page-level enquiry contribution and admission funnel health.",
+     ],
+     businessImpact: [
+       "Admission pipeline became less volatile due to stronger inbound demand from search.",
+       "Cost of acquiring qualified enquiries improved through reduced paid-channel pressure.",
+       "Academic and marketing teams gained a shared search-intent framework for future campaigns.",
++      "The business gained a repeatable SEO system instead of one-off optimization bursts.",
+     ],
+     download: "/downloads/education-seo-lead-engine.pdf",
+   },
+@@ -176,6 +184,7 @@ export const caseStudies: CaseStudy[] = [
+       "Defined a unified brand voice and visual system across social, campaign, and CRM touchpoints.",
+       "Segmented customers by behavior stage and built lifecycle journeys for onboarding, replenishment, and win-back.",
+       "Aligned campaign content with customer lifetime value goals instead of one-time conversion spikes.",
++      "Introduced workflow automation for retention reporting so repeat-purchase performance stayed visible every week.",
+     ],
+     timeline: "5 months",
+     executionTimeline: [
+@@ -206,22 +215,26 @@ export const caseStudies: CaseStudy[] = [
+     services: [
+       "Branding and Business Profiling",
+       "Social Media Management Services",
++      "Workflow Automation and Reporting Systems",
+       "Graphic Designing for Marketing",
+     ],
+     before: [
+       "Visual identity and voice varied across social, ads, and email touchpoints.",
+       "Post-purchase communication was generic and did not reflect lifecycle timing.",
+       "Campaigns were acquisition-heavy with no strong repeat-purchase mechanism.",
++      "Retention reporting was too manual to support fast iteration across journeys.",
+     ],
+     after: [
+       "Unified brand narrative and design system across all customer-facing channels.",
+       "Lifecycle flows were deployed for onboarding, replenishment, and win-back windows.",
+       "Returning customer rate increased by 42%, improving retention-led revenue share.",
++      "Retention decisions became easier because journey performance and drop-offs were visible in one reporting rhythm.",
+     ],
+     businessImpact: [
+       "Revenue mix shifted toward repeat customers, improving predictability month over month.",
+       "Customer lifetime value trajectory strengthened as lifecycle engagement depth improved.",
+       "Brand consistency reduced friction between acquisition campaigns and post-purchase experience.",
++      "Leadership gained better visibility into how lifecycle automation affected repeat revenue performance.",
+     ],
+     download: "/downloads/consumer-retail-brand-retention.pdf",
+   },
+@@ -239,6 +252,7 @@ export const caseStudies: CaseStudy[] = [
+       "Established a shared MQL definition with sales and reflected it in campaign optimization rules.",
+       "Rebuilt tracking and reporting to separate channel vanity metrics from pipeline-contributing outcomes.",
+       "Shifted media investment toward high-intent keywords, remarketing, and pre-qualification landing journeys.",
++      "Added workflow automation for lead routing and follow-up visibility so qualified enquiries reached sales faster.",
+     ],
+     timeline: "14 weeks",
+     executionTimeline: [
+@@ -269,23 +283,172 @@ export const caseStudies: CaseStudy[] = [
+     services: [
+       "Google Ads and Meta Ads Management",
+       "Search Engine Optimization Services",
++      "Workflow Automation and Reporting Systems",
+       "Website Design and Website Development",
+     ],
+     before: [
+       "Marketing and sales used different definitions of lead quality and readiness.",
+       "Attribution gaps made budget shifts reactive and channel comparisons unreliable.",
+       "Landing experiences were generic and did not pre-qualify enterprise-fit leads.",
++      "Lead handoff delays created avoidable leakage between form fill and first sales contact.",
+     ],
+     after: [
+       "Shared MQL criteria and lead scoring were integrated into weekly reporting.",
+       "Budget was reallocated to campaigns mapped to attributable pipeline value.",
+       "Blended qualified CPL reduced by 61% while meeting-booking rates improved.",
++      "Lead routing and follow-up visibility improved the speed and consistency of sales response.",
+     ],
+     businessImpact: [
+       "Sales confidence in marketing-sourced leads increased due to stronger qualification discipline.",
+       "Budget efficiency improved by shifting spend toward campaigns with measurable pipeline contribution.",
+       "Leadership gained clearer forecasting inputs from a cleaner lead-to-meeting funnel.",
++      "The commercial team gained one operating view across demand generation, lead qualification, and first-response execution.",
+     ],
+     download: "/downloads/b2b-services-cpl-optimization.pdf",
+   },
++  {
++    slug: "boutique-hospitality-social-pr-launch",
++    client: "Boutique Hospitality Group",
++    category: "PR",
++    metric: "3.6x",
++    result: "Increase in qualified event enquiries",
++    detail:
++      "Fernesta rebuilt the group's launch communications around a tighter social content calendar, creator seeding plan, landing page refinements, and PR outreach sequence so awareness translated into measurable enquiry growth.",
++    objective:
++      "Increase event and staycation enquiries by coordinating social media, influencer activity, PR timing, and conversion-ready landing experiences under one launch playbook.",
++    approach: [
++      "Built a weekly social content and distribution calendar tied to launch milestones, offer windows, and enquiry targets.",
++      "Created creator shortlists, briefing templates, and posting windows so influencer output landed around booking-intent peaks.",
++      "Reworked landing page sections, proof blocks, and response flows so campaign traffic encountered clearer conversion pathways.",
++      "Introduced performance reporting that separated vanity reach from creator-assisted enquiries and assisted booking signals.",
++    ],
++    timeline: "16 weeks",
++    executionTimeline: [
++      {
++        phase: "Phase 1: Narrative and Offer Structuring",
++        window: "Weeks 1-3",
++        focus: "Offer framing, message hierarchy, content pillars, and creator brief design.",
++      },
++      {
++        phase: "Phase 2: Social and Creator Rollout",
++        window: "Weeks 4-8",
++        focus: "Content deployment, creator posts, PR outreach, and landing page response alignment.",
++      },
++      {
++        phase: "Phase 3: Signal Optimization",
++        window: "Weeks 9-12",
++        focus: "Audience response review, content iteration, and enquiry source-quality filtering.",
++      },
++      {
++        phase: "Phase 4: Scale and Reputation Reinforcement",
++        window: "Weeks 13-16",
++        focus: "High-performing format expansion, creator relationship retention, and press-proof amplification.",
++      },
++    ],
++    chart: {
++      title: "Launch Visibility Snapshot",
++      points: [
++        { label: "Qualified Event Enquiries", before: 100, after: 360, suffix: " index" },
++        { label: "Social Engagement Rate", before: 2.1, after: 5.4, suffix: "%" },
++        { label: "Influencer-Assisted Visits", before: 100, after: 248, suffix: " index" },
++      ],
++    },
++    services: [
++      "Social Media Management Services",
++      "PR and Influencer Management",
++      "Graphic Designing for Marketing",
++      "Website Design and Website Development",
++    ],
++    before: [
++      "Social posting was inconsistent and not sequenced against offer windows or launch milestones.",
++      "Creator partnerships were ad hoc, with limited briefing rigor and unclear expectations on output.",
++      "Press mentions and influencer activity were not tied back to enquiry generation or landing performance.",
++      "Landing pages did not convert launch traffic efficiently because proof and next-step structure were too weak.",
++    ],
++    after: [
++      "The launch calendar aligned social, PR, and influencer activity to commercially important booking moments.",
++      "Creator posts were briefed and timed against clear enquiry goals instead of generic visibility output.",
++      "Landing page refinements improved traffic-to-enquiry conversion across launch periods.",
++      "Qualified event enquiries grew 3.6x while brand visibility became easier to attribute and govern.",
++    ],
++    businessImpact: [
++      "The business gained a reusable launch playbook spanning content, creators, PR, and conversion surfaces.",
++      "Management could see which awareness efforts were assisting qualified booking demand instead of only reach.",
++      "Social and PR work shifted from isolated tactics to a governed commercial communications system.",
++      "The team retained a stronger creator and PR operating base for future seasonal campaigns.",
++    ],
++    download: "/downloads/boutique-hospitality-social-pr-launch.pdf",
++  },
++  {
++    slug: "distribution-workflow-automation-reset",
++    client: "B2B Distribution Network",
++    category: "Operations",
++    metric: "72%",
++    result: "Faster lead-to-quote turnaround",
++    detail:
++      "Fernesta redesigned the network's lead intake, approval routing, reporting dashboards, and sales handoff rules so inbound demand no longer stalled inside manual spreadsheet chasing and fragmented follow-up.",
++    objective:
++      "Reduce operational leakage between lead capture and quotation by building one visible workflow system for intake, approvals, ownership, and weekly reporting.",
++    approach: [
++      "Mapped the full lead-to-quote workflow to identify approval bottlenecks, duplicated data entry, and missing ownership points.",
++      "Built standardized intake structure, routing logic, and status dashboards so each enquiry had a visible next action.",
++      "Connected landing forms, tracker updates, and follow-up triggers to reduce manual handoffs across marketing and sales.",
++      "Introduced weekly governance reviews using workflow data instead of anecdotal status updates.",
++    ],
++    timeline: "12 weeks",
++    executionTimeline: [
++      {
++        phase: "Phase 1: Workflow Mapping",
++        window: "Weeks 1-2",
++        focus: "Current-state mapping, bottleneck discovery, and ownership gap identification.",
++      },
++      {
++        phase: "Phase 2: System Buildout",
++        window: "Weeks 3-6",
++        focus: "Intake standardization, status logic, approval routing, and dashboard implementation.",
++      },
++      {
++        phase: "Phase 3: Team Adoption",
++        window: "Weeks 7-9",
++        focus: "Usage training, exception handling, and accountability cadence rollout.",
++      },
++      {
++        phase: "Phase 4: Optimization",
++        window: "Weeks 10-12",
++        focus: "Workflow tuning, response-time governance, and reporting refinement.",
++      },
++    ],
++    chart: {
++      title: "Workflow Control Snapshot",
++      points: [
++        { label: "Lead-to-Quote Speed", before: 100, after: 172, suffix: " index" },
++        { label: "On-Time Follow-Up", before: 58, after: 91, suffix: "%" },
++        { label: "Status Visibility", before: 100, after: 214, suffix: " index" },
++      ],
++    },
++    services: [
++      "Workflow Automation and Reporting Systems",
++      "Website Design and Website Development",
++      "Google Ads and Meta Ads Management",
++    ],
++    before: [
++      "Lead capture and quoting depended on fragmented spreadsheets with inconsistent field quality.",
++      "Approvals and task ownership lived in chat threads, creating delay and accountability gaps.",
++      "Sales and marketing could not see where active enquiries were stuck without manual follow-up.",
++      "Reporting focused on total leads rather than response discipline and operational throughput.",
++    ],
++    after: [
++      "Inbound enquiries moved through one intake and routing structure with clearer ownership by stage.",
++      "Approval status and next actions became visible through a shared reporting dashboard.",
++      "Follow-up discipline improved because reminder logic and exception flags reduced manual chasing.",
++      "Lead-to-quote turnaround improved by 72% while the handoff between teams became easier to govern.",
++    ],
++    businessImpact: [
++      "Commercial response became faster without increasing management overhead.",
++      "Leadership gained a clearer operating view of lead volume, delay points, and conversion friction.",
++      "Workflow automation reduced avoidable leakage between marketing demand and quoted opportunities.",
++      "The business retained a reusable operating model for future campaign scale and multi-owner coordination.",
++    ],
++    download: "/downloads/distribution-workflow-automation-reset.pdf",
++  },
+ ];
+diff --git a/src/pages/AboutPage.tsx b/src/pages/AboutPage.tsx
+index 71cc86b..01ec062 100644
+--- a/src/pages/AboutPage.tsx
++++ b/src/pages/AboutPage.tsx
+@@ -5,6 +5,7 @@ import SeoMeta from "../Components/SeoMeta";
+ const strengths = [
+   "Modular fixed-scope service architecture",
+   "Proprietary delivery frameworks reused across accounts",
++  "Workflow automation and reporting systems for execution visibility",
+   "Standardized reporting for enterprise-like visibility",
+   "SME-first pricing with full-service accountability",
+ ];
+@@ -13,9 +14,9 @@ function AboutPage() {
+   return (
+     <>
+       <SeoMeta
+-        title="About Fernesta | Digital Marketing Agency in Jaipur"
+-        description="Learn about Fernesta, a Jaipur-based digital marketing agency focused on strategy, accountability, and measurable business outcomes."
+-        keywords="about fernesta, digital marketing agency in Jaipur, SEO and performance marketing Jaipur"
++        title="About Fernesta | Growth and Workflow Systems Partner for Indian SMEs"
++        description="Learn about Fernesta, an AI-first growth partner focused on digital marketing, workflow automation, accountability, and measurable business outcomes for Indian SMEs and D2C brands."
++        keywords="about fernesta, digital marketing agency India, workflow automation partner India, performance marketing agency India"
+       />
+ 
+       <section className="page-hero hero-about">
+@@ -23,9 +24,9 @@ function AboutPage() {
+         <div className="container hero-grid hero-grid-single">
+           <Reveal className="hero-copy" delayMs={80}>
+             <p className="meta">About Us</p>
+-            <h1>About Fernesta: A Results-Driven Digital Marketing Agency in Jaipur.</h1>
++            <h1>About Fernesta: A Results-Driven Growth Systems Partner for Indian SMEs.</h1>
+             <p>
+-              Fernesta was founded to solve one persistent market gap: Jaipur businesses need reliable marketing execution, but most can only choose between expensive agencies and inconsistent freelancers.
++              Fernesta was founded to solve one persistent market gap: Indian SMEs need reliable marketing execution and workflow systems, but most can only choose between expensive agencies and inconsistent freelancers.
+             </p>
+           </Reveal>
+         </div>
+@@ -45,9 +46,9 @@ function AboutPage() {
+           </Reveal>
+           <Reveal className="section-head split-head" delayMs={170}>
+             <p className="meta">Mission and Vision</p>
+-            <h2>Trusted Jaipur Marketing Partner for Measurable Growth</h2>
++            <h2>Trusted Growth and Workflow Partner for Measurable Outcomes</h2>
+             <p>
+-              Our mission is to deliver consistent, data-led, accountable marketing that creates real business outcomes. Our vision is to become the most trusted growth partner for Jaipur businesses scaling online.
++              Our mission is to deliver consistent, data-led, accountable marketing and workflow automation that creates real business outcomes. Our vision is to become the most trusted growth partner for Indian businesses scaling online.
+             </p>
+             <div className="tag-list">
+               {strengths.map((item) => (
+diff --git a/src/pages/CaseStudiesPage.tsx b/src/pages/CaseStudiesPage.tsx
+index d9bc040..b294251 100644
+--- a/src/pages/CaseStudiesPage.tsx
++++ b/src/pages/CaseStudiesPage.tsx
+@@ -4,7 +4,7 @@ import Reveal from "../Components/Reveal";
+ import SeoMeta from "../Components/SeoMeta";
+ import { caseStudies } from "../data/caseStudies";
+ 
+-const categories = ["All", "SEO", "Performance", "Brand"];
++const categories = ["All", ...Array.from(new Set(caseStudies.map((study) => study.category)))];
+ 
+ function CaseStudiesPage() {
+   const [query, setQuery] = useState("");
+@@ -14,7 +14,9 @@ function CaseStudiesPage() {
+     return caseStudies.filter((study) => {
+       const queryMatch =
+         study.client.toLowerCase().includes(query.toLowerCase()) ||
+-        study.detail.toLowerCase().includes(query.toLowerCase());
++        study.detail.toLowerCase().includes(query.toLowerCase()) ||
++        study.objective.toLowerCase().includes(query.toLowerCase()) ||
++        study.services.join(" ").toLowerCase().includes(query.toLowerCase());
+       const categoryMatch = category === "All" || study.category === category;
+       return queryMatch && categoryMatch;
+     });
+@@ -23,9 +25,9 @@ function CaseStudiesPage() {
+   return (
+     <>
+       <SeoMeta
+-        title="Digital Marketing Case Studies Jaipur | Fernesta"
+-        description="Explore Fernesta case studies covering SEO growth, paid ads optimization, and measurable lead outcomes for Jaipur-focused businesses."
+-        keywords="digital marketing case studies Jaipur, SEO case study Jaipur, PPC results Jaipur"
++        title="Growth, Workflow, and Marketing Case Studies | Fernesta"
++        description="Explore in-depth Fernesta case studies covering SEO, paid media, social media, workflow automation, PR, and measurable commercial outcomes."
++        keywords="digital marketing case studies, workflow automation case study, SEO case study, paid media results, PR case study"
+       />
+ 
+       <section className="page-hero hero-clientele">
+@@ -33,9 +35,9 @@ function CaseStudiesPage() {
+         <div className="container hero-grid hero-grid-single">
+           <Reveal className="hero-copy" delayMs={80}>
+             <p className="meta">Case Studies</p>
+-            <h1>Documented Outcomes Across SEO, Performance, and Brand Systems.</h1>
++            <h1>Documented Outcomes Across SEO, Performance, Social, Workflow, and PR Systems.</h1>
+             <p>
+-              Each case study captures the client context, operating changes, and measurable before-and-after outcomes from our engagement model.
++              Each case study captures the client context, operating changes, execution systems, and measurable before-and-after outcomes from our engagement model.
+             </p>
+           </Reveal>
+         </div>
+diff --git a/src/pages/CaseStudyDetailPage.tsx b/src/pages/CaseStudyDetailPage.tsx
+index 65a577f..e5f3b12 100644
+--- a/src/pages/CaseStudyDetailPage.tsx
++++ b/src/pages/CaseStudyDetailPage.tsx
+@@ -15,8 +15,8 @@ function CaseStudyDetailPage() {
+     <>
+       <SeoMeta
+         title={`${study.client} Case Study | Fernesta`}
+-        description={`${study.client}: ${study.metric} ${study.result} through structured SEO, paid ads, and conversion optimization systems by Fernesta.`}
+-        keywords="digital marketing case study India, SEO and paid ads results, D2C growth marketing"
++        description={`${study.client}: ${study.metric} ${study.result} through structured growth systems, workflow discipline, and commercial execution by Fernesta.`}
++        keywords="digital marketing case study India, workflow automation results, SEO and paid ads results"
+       />
+ 
+       <section className="page-hero hero-services">
+@@ -53,6 +53,30 @@ function CaseStudyDetailPage() {
+         </div>
+       </section>
+ 
++      <section className="section section-border">
++        <div className="container">
++          <Reveal className="section-head">
++            <p className="meta">Metric Snapshot</p>
++            <h2>{study.chart.title}</h2>
++          </Reveal>
++          <div className="card-grid card-grid-three">
++            {study.chart.points.map((point, index) => (
++              <Reveal key={point.label} delayMs={70 * (index + 1)}>
++                <article className="panel interactive-card">
++                  <p className="meta">{point.label}</p>
++                  <h3>
++                    {point.after}
++                    {point.suffix}
++                  </h3>
++                  <p>Before: {point.before}{point.suffix}</p>
++                  <p>After: {point.after}{point.suffix}</p>
++                </article>
++              </Reveal>
++            ))}
++          </div>
++        </div>
++      </section>
++
+       <section className="section section-border">
+         <div className="container split-layout">
+           <Reveal className="panel interactive-card" delayMs={90}>
+diff --git a/src/pages/ClientelePage.tsx b/src/pages/ClientelePage.tsx
+index 3daa056..651dd8e 100644
+--- a/src/pages/ClientelePage.tsx
++++ b/src/pages/ClientelePage.tsx
+@@ -33,9 +33,9 @@ function ClientelePage() {
+   return (
+     <>
+       <SeoMeta
+-        title="Industries We Serve in Jaipur | Fernesta Digital Marketing Agency"
+-        description="Fernesta works with Jaipur SMEs, D2C brands, and growth-stage businesses seeking structured digital marketing systems and accountable execution."
+-        keywords="digital marketing agency Jaipur industries, SME marketing Jaipur, D2C marketing Jaipur"
++        title="Industries We Serve Across India | Fernesta Digital Marketing Agency"
++        description="Fernesta works with Indian SMEs, D2C brands, and growth-stage businesses seeking structured digital marketing systems and accountable execution."
++        keywords="digital marketing agency India industries, SME marketing India, D2C marketing India"
+       />
+ 
+       <section className="page-hero hero-clientele">
+@@ -43,7 +43,7 @@ function ClientelePage() {
+         <div className="container hero-grid hero-grid-single">
+           <Reveal className="hero-copy" delayMs={80}>
+             <p className="meta">Clientele</p>
+-            <h1>Digital Marketing Partner for Jaipur SMEs, D2C Brands, and Growth Teams.</h1>
++            <h1>Digital Marketing Partner for Indian SMEs, D2C Brands, and Growth Teams.</h1>
+             <p>
+               We work best with businesses that value transparency, structured execution, and direct founder-led accountability.
+             </p>
+diff --git a/src/pages/ContactPage.tsx b/src/pages/ContactPage.tsx
+index dd68e4b..da6c709 100644
+--- a/src/pages/ContactPage.tsx
++++ b/src/pages/ContactPage.tsx
+@@ -94,9 +94,9 @@ function ContactPage() {
+   return (
+     <>
+       <SeoMeta
+-        title="Contact Fernesta | Digital Marketing Agency in Jaipur"
+-        description="Contact Fernesta, a digital marketing agency in Jaipur, for SEO, Google Ads, social media marketing, and website growth consultation."
+-        keywords="contact digital marketing agency Jaipur, SEO consultation Jaipur, PPC agency Jaipur contact"
++        title="Contact Fernesta | Growth and Workflow Systems Partner for Indian SMEs"
++        description="Contact Fernesta for SEO, paid media, workflow automation, reporting systems, and website growth consulting for Indian SMEs and D2C brands."
++        keywords="contact digital marketing agency India, workflow automation consultation India, SEO consultation India"
+       />
+ 
+       <section className="page-hero hero-contact">
+@@ -104,9 +104,9 @@ function ContactPage() {
+         <div className="container hero-grid hero-grid-single">
+           <Reveal className="hero-copy" delayMs={80}>
+             <p className="meta">Contact Us</p>
+-            <h1>Contact Fernesta for SEO, Paid Ads, and Website Growth in Jaipur.</h1>
++            <h1>Contact Fernesta for SEO, Workflow Automation, and Website Growth.</h1>
+             <p>
+-              Share your current growth stage and channel challenges. We will map the right service mix and execution cadence for your Jaipur business.
++              Share your current growth stage, operational bottlenecks, and channel challenges. We will map the right service mix, workflow systems, and execution cadence for your business.
+             </p>
+           </Reveal>
+         </div>
+@@ -117,7 +117,7 @@ function ContactPage() {
+           <Reveal delayMs={80}>
+             <article className="panel contact-card interactive-card">
+               <p className="meta">Strategy Intake</p>
+-              <h2>Book a Digital Marketing Consultation Call</h2>
++              <h2>Book a Growth Systems Consultation Call</h2>
+               <form className="contact-form" noValidate onSubmit={handleSubmit(onSubmit)}>
+                 <label className="honeypot-field" aria-hidden="true">
+                   Website
+@@ -208,6 +208,7 @@ function ContactPage() {
+                     <option>Performance Marketing</option>
+                     <option>Social Media Management</option>
+                     <option>Website Design and Development</option>
++                    <option>Workflow Automation and Reporting Systems</option>
+                     <option>Branding and Visual Identity</option>
+                     <option>E-Commerce Growth</option>
+                     <option>PR and Influencer Management</option>
+@@ -267,12 +268,12 @@ function ContactPage() {
+         <div className="container">
+           <Reveal className="section-head">
+             <p className="meta">Office Location</p>
+-            <h2>Find Us in Jaipur</h2>
++            <h2>Visit the Fernesta Office</h2>
+           </Reveal>
+           <Reveal>
+             <div className="panel interactive-card map-embed">
+               <iframe
+-                title="Fernesta location map - Jaipur"
++                title="Fernesta office location map"
+                 src="https://www.google.com/maps?q=Jaipur%2C%20Rajasthan&output=embed"
+                 loading="lazy"
+                 referrerPolicy="no-referrer-when-downgrade"
+diff --git a/src/pages/HomePage.tsx b/src/pages/HomePage.tsx
+index a200d93..9a43cdf 100644
+--- a/src/pages/HomePage.tsx
++++ b/src/pages/HomePage.tsx
+@@ -28,25 +28,26 @@ const principles = [
+ 
+ const heroSignals = [
+   { label: "Avg. Response Time", value: "24 Hours" },
+-  { label: "Service Verticals", value: "8 Integrated Streams" },
+-  { label: "Reporting Model", value: "Weekly Decision Cadence" },
++  { label: "Integrated Service Lines", value: "9 Core Services" },
++  { label: "Workflow Systems", value: "Lead Routing + Reporting" },
++  { label: "Decision Rhythm", value: "Weekly Review Cadence" },
+ ];
+ 
+ const onboardingSteps = [
+   {
+-    title: "Step 1: Discovery and Baseline",
++    title: "Discovery and Baseline",
+     detail: "We review channel performance, growth constraints, and current funnel leakage in one focused session.",
+     output: "You get a clear baseline and priority gaps within 48 hours.",
+   },
+   {
+-    title: "Step 2: Growth Architecture",
+-    detail: "We map SEO, paid media, social, and website execution into one accountable plan tied to business goals.",
+-    output: "You receive a channel-by-channel action roadmap and KPI cadence.",
++    title: "Growth and Workflow Architecture",
++    detail: "We map SEO, paid media, social, website conversion paths, lead routing, approval flows, and reporting automation into one accountable operating plan tied to business goals.",
++    output: "You receive a channel, workflow, and KPI roadmap the team can act on immediately.",
+   },
+   {
+-    title: "Step 3: Execution Sprint",
+-    detail: "Implementation starts with a structured 30-day sprint and weekly decision checkpoints.",
+-    output: "You get visible execution momentum with measurable early indicators.",
++    title: "Execution and Automation Sprint",
++    detail: "Implementation starts with a structured 30-day sprint covering campaign delivery, tracking, and workflow handoffs with weekly decision checkpoints.",
++    output: "You get visible execution momentum, cleaner internal coordination, and measurable early indicators.",
+   },
+ ];
+ 
+@@ -66,11 +67,21 @@ const catalog = [
+     detail: "Organic social strategy, community management, and paid social execution.",
+     image: "/images/pages/home/services/social-media-strategy-dark.jpg",
+   },
++  {
++    title: "Workflow Automation and Reporting Systems",
++    detail: "Lead routing, approval flows, CRM sync, and reporting systems that remove manual bottlenecks.",
++    image: "/images/pages/home/services/web-conversion-dark.jpg",
++  },
+   {
+     title: "Website and Conversion Systems",
+     detail: "Website structure, landing page flow, and conversion architecture optimization.",
+     image: "/images/pages/home/services/web-conversion-dark.jpg",
+   },
++  {
++    title: "Graphic Designing for Marketing",
++    detail: "Ad creatives, sales collateral, social design systems, and campaign visuals built for reuse.",
++    image: "/images/pages/home/services/branding-identity-dark.jpg",
++  },
+   {
+     title: "Branding and Visual Identity",
+     detail: "Brand profile, design language, and positioning clarity across channels.",
+@@ -88,23 +99,25 @@ const catalog = [
+   },
+ ];
+ 
++const formatIndex = (index: number) => String(index + 1).padStart(2, "0");
++
+ function HomePage() {
+   return (
+     <>
+       <SeoMeta
+-        title="AI-First Digital Marketing Agency for Indian SMEs | Fernesta"
+-        description="Fernesta builds governance-led acquisition infrastructure for Indian SMEs and D2C brands — integrating paid media, SEO, conversion architecture, and attribution into one accountable growth system."
+-        keywords="digital marketing agency India, SEO agency India, performance marketing agency, D2C growth agency, paid media management India"
++        title="AI-First Digital Marketing and Workflow Automation for Indian SMEs | Fernesta"
++        description="Fernesta builds governance-led growth systems for Indian SMEs and D2C brands, integrating paid media, SEO, workflow automation, conversion architecture, and attribution into one accountable operating model."
++        keywords="digital marketing agency India, workflow automation agency India, SEO agency India, performance marketing agency, D2C growth agency"
+       />
+ 
+       <section className="page-hero hero-home">
+         <div className="hero-overlay" />
+         <div className="container hero-grid">
+           <Reveal className="hero-copy" delayMs={80}>
+-            <p className="meta">AI-First Marketing Infrastructure Firm</p>
+-            <h1>AI-First Marketing Infrastructure Designed for Structured Growth.</h1>
++            <p className="meta">AI-First Growth Infrastructure Firm</p>
++            <h1>AI-First Marketing and Workflow Automation Systems for Structured Growth.</h1>
+             <p>
+-              Fernesta builds governance-led acquisition infrastructure for Indian SMEs and D2C brands scaling beyond Rs. 3Cr revenue, integrating paid media control, conversion architecture, and attribution discipline into one accountable operating model.
++              Fernesta builds governance-led growth infrastructure for Indian SMEs and D2C brands scaling beyond Rs. 3Cr revenue, integrating paid media control, workflow automation, conversion architecture, and attribution discipline into one accountable operating model.
+             </p>
+             <div className="button-row">
+               <Link className="button button-primary" to="/contact-us">
+@@ -150,6 +163,9 @@ function HomePage() {
+             {onboardingSteps.map((step, index) => (
+               <Reveal key={step.title} delayMs={70 * (index + 1)}>
+                 <article className="panel interactive-card onboarding-card">
++                  <span className="panel-index" aria-hidden="true">
++                    {formatIndex(index)}
++                  </span>
+                   <h3>{step.title}</h3>
+                   <p>{step.detail}</p>
+                   <p className="onboarding-output">{step.output}</p>
+@@ -174,7 +190,7 @@ function HomePage() {
+             <p className="meta">Service Catalog</p>
+             <h2>Explore Fernesta&apos;s Portfolio of Growth Services</h2>
+             <p>
+-              A structured catalog of digital growth capabilities, designed to be selected as integrated systems instead of isolated tasks.
++              A structured catalog of digital growth and workflow capabilities, designed to be selected as integrated systems instead of isolated tasks.
+             </p>
+           </Reveal>
+           <div className="service-portfolio-grid">
+@@ -183,6 +199,9 @@ function HomePage() {
+                 <article className="service-portfolio-card interactive-card">
+                   <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
+                   <div className="service-portfolio-overlay">
++                    <span className="service-card-index" aria-hidden="true">
++                      {formatIndex(index)}
++                    </span>
+                     <h3>{item.title}</h3>
+                     <p>{item.detail}</p>
+                   </div>
+@@ -202,12 +221,15 @@ function HomePage() {
+         <div className="container">
+           <Reveal className="section-head">
+             <p className="meta">Core Philosophy</p>
+-            <h2>SEO, Paid Ads, Social Media, and Growth Systems with Accountability</h2>
++            <h2>SEO, Paid Ads, Workflow Automation, and Growth Systems with Accountability</h2>
+           </Reveal>
+           <div className="card-grid card-grid-four card-numbered">
+             {principles.map((item, index) => (
+               <Reveal key={item.title} delayMs={80 * (index + 1)}>
+                 <article className="panel interactive-card">
++                  <span className="panel-index" aria-hidden="true">
++                    {formatIndex(index)}
++                  </span>
+                   <h3>{item.title}</h3>
+                   <p>{item.detail}</p>
+                 </article>
+diff --git a/src/pages/NotFoundPage.tsx b/src/pages/NotFoundPage.tsx
+index e40d2d2..b6a3aa4 100644
+--- a/src/pages/NotFoundPage.tsx
++++ b/src/pages/NotFoundPage.tsx
+@@ -5,9 +5,9 @@ function NotFoundPage() {
+   return (
+     <>
+       <SeoMeta
+-        title="Page Not Found | Fernesta Jaipur"
+-        description="The page you are looking for could not be found. Explore Fernesta's digital marketing services in Jaipur."
+-        keywords="page not found, fernesta jaipur"
++        title="Page Not Found | Fernesta"
++        description="The page you are looking for could not be found. Explore Fernesta's digital marketing and workflow automation services."
++        keywords="page not found, fernesta"
+       />
+       <section className="section section-border">
+         <div className="container">
+diff --git a/src/pages/ServicesPage.tsx b/src/pages/ServicesPage.tsx
+index 05daae4..7bb6f4d 100644
+--- a/src/pages/ServicesPage.tsx
++++ b/src/pages/ServicesPage.tsx
+@@ -37,6 +37,17 @@ const serviceBlueprint = [
+       "Meta pixel implementation and budget optimization",
+     ],
+   },
++  {
++    title: "Workflow Automation and Reporting Systems",
++    summary:
++      "Workflow automation, lead routing, approval systems, and reporting pipelines that reduce manual coordination and give founders cleaner execution visibility.",
++    tasks: [
++      "Lead capture, assignment, and follow-up automation",
++      "CRM, spreadsheet, and channel status sync",
++      "Approval workflows, alerts, and stakeholder notifications",
++      "Reporting dashboards and recurring decision summaries",
++    ],
++  },
+   {
+     title: "Website Design and Website Development",
+     summary:
+@@ -94,13 +105,34 @@ const serviceBlueprint = [
+   },
+ ];
+ 
++const workflowPillars = [
++  {
++    title: "Lead Routing",
++    detail: "Capture, assignment, reminders, and follow-up visibility so inbound demand does not stall.",
++  },
++  {
++    title: "Internal Approvals",
++    detail: "Approval flows, alerts, and stakeholder handoffs that reduce execution lag between teams.",
++  },
++  {
++    title: "System Sync",
++    detail: "CRM, spreadsheet, and campaign status sync to keep marketing data aligned across tools.",
++  },
++  {
++    title: "Reporting Cadence",
++    detail: "Recurring dashboards and decision summaries so leadership sees movement without manual chasing.",
++  },
++];
++
++const formatIndex = (index: number) => String(index + 1).padStart(2, "0");
++
+ function ServicesPage() {
+   return (
+     <>
+       <SeoMeta
+-        title="Digital Marketing Services | SEO, PPC, Social Media and Web | Fernesta"
+-        description="Explore Fernesta's digital marketing services including SEO, Google Ads, Meta Ads, social media marketing, website development, and branding for Indian SMEs and D2C brands."
+-        keywords="digital marketing services India, SEO services India, Google Ads agency India, social media marketing agency, website design and development"
++        title="Digital Marketing and Workflow Automation Services | Fernesta"
++        description="Explore Fernesta's services including SEO, Google Ads, Meta Ads, social media marketing, website development, workflow automation, reporting systems, and branding for Indian SMEs and D2C brands."
++        keywords="digital marketing services India, workflow automation services, SEO services India, Google Ads agency India, website design and development"
+       />
+ 
+       <section className="page-hero hero-services">
+@@ -108,9 +140,9 @@ function ServicesPage() {
+         <div className="container hero-grid hero-grid-single">
+           <Reveal className="hero-copy" delayMs={80}>
+             <p className="meta">Services</p>
+-            <h1>SEO, Paid Ads, Social Media, and Website Services for Structured Business Growth</h1>
++            <h1>SEO, Paid Ads, Workflow Automation, and Website Services for Structured Business Growth</h1>
+             <p>
+-              Based on our Digital Marketing Services Blueprint, Fernesta delivers eight core services through a structured, execution-ready system for startups, SMEs, and growth-stage teams across India.
++              Based on our Digital Marketing Services Blueprint, Fernesta delivers nine core services through a structured, execution-ready system, with workflow automation, lead routing, approvals, and reporting built into how growth execution actually runs.
+             </p>
+             <div className="button-row">
+               <Link className="button button-primary" to="/contact-us">
+@@ -128,16 +160,39 @@ function ServicesPage() {
+         <div className="container">
+           <Reveal className="section-head">
+             <p className="meta">Core Services</p>
+-            <h2>Complete Digital Marketing Services for Indian SMEs</h2>
++            <h2>Complete Growth and Workflow Services for Indian SMEs</h2>
+             <p>
+-              Every service includes planning, execution, optimization, and reporting so growth decisions remain data-led and accountable.
++              Every service is designed to plug into a common operating model covering planning, execution, workflow automation, and reporting so growth decisions remain data-led and accountable.
+             </p>
+           </Reveal>
+ 
++          <Reveal delayMs={50}>
++            <article className="panel workflow-callout">
++              <div className="workflow-callout-copy">
++                <p className="meta">Workflow Automation</p>
++                <h3>Not an add-on. Part of the operating system.</h3>
++                <p>
++                  Fernesta builds workflow automation into growth delivery so lead capture, approvals, handoffs, and reporting do not depend on manual chasing once campaigns are live.
++                </p>
++              </div>
++              <div className="workflow-pillars">
++                {workflowPillars.map((pillar) => (
++                  <div key={pillar.title} className="workflow-pill">
++                    <strong>{pillar.title}</strong>
++                    <span>{pillar.detail}</span>
++                  </div>
++                ))}
++              </div>
++            </article>
++          </Reveal>
++
+           <div className="card-grid card-grid-two card-numbered">
+             {serviceBlueprint.map((service, index) => (
+               <Reveal key={service.title} delayMs={70 * (index + 1)}>
+                 <article className="panel interactive-card service-blueprint-card">
++                  <span className="panel-index" aria-hidden="true">
++                    {formatIndex(index)}
++                  </span>
+                   <h3>{service.title}</h3>
+                   <p>{service.summary}</p>
+                   <ul className="service-list">
+diff --git a/vite.config.ts b/vite.config.ts
+index e283559..99caaed 100644
+--- a/vite.config.ts
++++ b/vite.config.ts
+@@ -4,6 +4,10 @@ import react from '@vitejs/plugin-react'
+ // https://vite.dev/config/
+ export default defineConfig({
+   plugins: [react()],
++  server: {
++    port: process.env.PORT ? parseInt(process.env.PORT) : 5173,
++    strictPort: false,
++  },
+   build: {
+     rollupOptions: {
+       output: {
