@@ -15,6 +15,7 @@ const sections = [
       "Performance Marketing across Google Ads and Meta Ads.",
       "Social Media Management with content and paid support.",
       "Website and Conversion Systems for lead and sales journeys.",
+      "Workflow automation, reporting systems, and approval pipelines.",
       "Branding, Graphic Design, and PR or Influencer programs.",
     ],
   },
@@ -22,14 +23,15 @@ const sections = [
     title: "How Engagement Starts",
     points: [
       "Step 1: Discovery and baseline audit of existing channel performance.",
-      "Step 2: Growth architecture with KPI-linked channel priorities.",
-      "Step 3: Execution sprint with weekly governance and reporting.",
+      "Step 2: Growth architecture with KPI-linked channel, workflow, and reporting priorities.",
+      "Step 3: Execution sprint with weekly governance, reporting, and automation handoffs.",
     ],
   },
   {
     title: "Reporting and Governance",
     points: [
       "Clients receive weekly decision-oriented reports, transparent KPIs, and next-action priorities.",
+      "Automation layers are designed to reduce manual follow-up, approval lag, and reporting friction.",
       "Each campaign is mapped to a commercial objective with accountable ownership.",
     ],
   },
@@ -278,19 +280,19 @@ function buildHtml(logoWordmarkDataUri, monogramDataUri) {
           <span class="brand-mark-shell"><img class="brand-monogram" src="${monogramDataUri}" alt="" /></span>
           <img class="brand-wordmark" src="${logoWordmarkDataUri}" alt="Fernesta" />
         </div>
-        <div class="brand-sub">Digital Growth Systems</div>
+        <div class="brand-sub">Growth and Workflow Systems</div>
       </header>
 
       <div>
         <p class="cover-kicker">Capabilities Deck | Updated March 2026</p>
-        <h1>Digital Marketing Growth Systems for Jaipur Businesses</h1>
-        <p class="cover-intro">This deck summarizes Fernesta's service architecture, operating model, and execution cadence for growth-focused partnerships.</p>
+        <h1>Digital Growth and Workflow Systems for Indian SMEs</h1>
+        <p class="cover-intro">This deck summarizes Fernesta's service architecture, workflow automation capability, and execution cadence for growth-focused partnerships.</p>
       </div>
 
       <div class="signals">
         <div class="signal"><strong>SEO</strong><span>Visibility Systems</span></div>
+        <div class="signal"><strong>Automation</strong><span>Workflow Systems</span></div>
         <div class="signal"><strong>Performance</strong><span>Revenue Campaigns</span></div>
-        <div class="signal"><strong>Conversion</strong><span>Funnel Optimization</span></div>
       </div>
 
       <footer class="cover-foot">
@@ -302,7 +304,7 @@ function buildHtml(logoWordmarkDataUri, monogramDataUri) {
     <section class="page content">
       <div class="content-head">
         <h2>Execution Framework</h2>
-        <p>Every engagement is mapped to measurable commercial outcomes, with transparent weekly reporting and channel-level accountability.</p>
+        <p>Every engagement is mapped to measurable commercial outcomes, with transparent weekly reporting, cleaner internal handoffs, and channel-level accountability.</p>
       </div>
 
       <div class="section-grid">

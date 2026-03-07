@@ -4,7 +4,7 @@ import Reveal from "../Components/Reveal";
 import SeoMeta from "../Components/SeoMeta";
 import { caseStudies } from "../data/caseStudies";
 
-const categories = ["All", "SEO", "Performance", "Brand"];
+const categories = ["All", ...Array.from(new Set(caseStudies.map((study) => study.category)))];
 
 function CaseStudiesPage() {
   const [query, setQuery] = useState("");
@@ -14,7 +14,9 @@ function CaseStudiesPage() {
     return caseStudies.filter((study) => {
       const queryMatch =
         study.client.toLowerCase().includes(query.toLowerCase()) ||
-        study.detail.toLowerCase().includes(query.toLowerCase());
+        study.detail.toLowerCase().includes(query.toLowerCase()) ||
+        study.objective.toLowerCase().includes(query.toLowerCase()) ||
+        study.services.join(" ").toLowerCase().includes(query.toLowerCase());
       const categoryMatch = category === "All" || study.category === category;
       return queryMatch && categoryMatch;
     });
@@ -23,9 +25,9 @@ function CaseStudiesPage() {
   return (
     <>
       <SeoMeta
-        title="Digital Marketing Case Studies Jaipur | Fernesta"
-        description="Explore Fernesta case studies covering SEO growth, paid ads optimization, and measurable lead outcomes for Jaipur-focused businesses."
-        keywords="digital marketing case studies Jaipur, SEO case study Jaipur, PPC results Jaipur"
+        title="Growth, Workflow, and Marketing Case Studies | Fernesta"
+        description="Explore in-depth Fernesta case studies covering SEO, paid media, social media, workflow automation, PR, and measurable commercial outcomes."
+        keywords="digital marketing case studies, workflow automation case study, SEO case study, paid media results, PR case study"
       />
 
       <section className="page-hero hero-clientele">
@@ -33,9 +35,9 @@ function CaseStudiesPage() {
         <div className="container hero-grid hero-grid-single">
           <Reveal className="hero-copy" delayMs={80}>
             <p className="meta">Case Studies</p>
-            <h1>Documented Outcomes Across SEO, Performance, and Brand Systems.</h1>
+            <h1>Documented Outcomes Across SEO, Performance, Social, Workflow, and PR Systems.</h1>
             <p>
-              Each case study captures the client context, operating changes, and measurable before-and-after outcomes from our engagement model.
+              Each case study captures the client context, operating changes, execution systems, and measurable before-and-after outcomes from our engagement model.
             </p>
           </Reveal>
         </div>

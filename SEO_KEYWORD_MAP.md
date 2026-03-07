@@ -2,11 +2,11 @@
 
 ## Home (`/`)
 - Primary keyword: `digital marketing agency india`
-- Secondary keywords: `SME marketing agency`, `D2C marketing agency`, `full-service digital marketing`
+- Secondary keywords: `SME marketing agency`, `D2C marketing agency`, `workflow automation agency`, `full-service digital marketing`
 - Search intent: Commercial investigation
 - H1 target: `Digital Marketing Agency in India for SMEs and D2C Brands`
 - H2 targets:
-  - `SEO, Paid Ads, Social Media, and Growth Systems with Accountability`
+  - `SEO, Paid Ads, Workflow Automation, and Growth Systems with Accountability`
   - `Plan Your Growth with Service and Case Study Clarity`
 - Internal links:
   - `/services`
@@ -15,10 +15,10 @@
 
 ## About Us (`/about-us`)
 - Primary keyword: `about digital marketing agency india`
-- Secondary keywords: `performance marketing partner`, `SME digital marketing partner`
+- Secondary keywords: `performance marketing partner`, `workflow automation partner`, `SME digital marketing partner`
 - Search intent: Navigational + trust validation
-- H1 target: `About Fernesta: A Scalable Digital Marketing Agency in India`
-- H2 target: `Trusted SME and D2C Marketing Partner for Measurable Growth`
+- H1 target: `About Fernesta: A Scalable Growth Systems Partner in India`
+- H2 target: `Trusted SME and D2C Growth Partner for Measurable Outcomes`
 - Internal links:
   - `/services`
   - `/case-studies`
@@ -32,10 +32,11 @@
   - `Google Ads management`
   - `Meta Ads management`
   - `website development services`
+  - `workflow automation services`
   - `e-commerce advertising services`
 - Search intent: Commercial investigation + service comparison
-- H1 target: `SEO, Paid Ads, Social Media, and Website Services for Business Growth`
-- H2 target: `Complete Digital Marketing Services in India`
+- H1 target: `SEO, Paid Ads, Workflow Automation, and Website Services for Business Growth`
+- H2 target: `Complete Growth and Workflow Services in India`
 - Internal links:
   - `/case-studies`
   - `/clientele`
@@ -80,9 +81,9 @@
 
 ## Contact (`/contact-us`)
 - Primary keyword: `digital marketing consultation`
-- Secondary keywords: `SEO consultation`, `paid ads consultation india`
+- Secondary keywords: `SEO consultation`, `paid ads consultation india`, `workflow automation consultation`
 - Search intent: Transactional
-- H1 target: `Contact Fernesta for SEO, Paid Ads, and Website Growth Consulting`
+- H1 target: `Contact Fernesta for SEO, Workflow Automation, and Website Growth Consulting`
 - H2 targets:
   - `Book a Digital Marketing Consultation Call`
   - `How We Deliver Digital Marketing Services with Structured Execution`

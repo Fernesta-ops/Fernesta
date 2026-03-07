@@ -38,6 +38,17 @@ const serviceBlueprint = [
     ],
   },
   {
+    title: "Workflow Automation and Reporting Systems",
+    summary:
+      "Workflow automation, lead routing, approval systems, and reporting pipelines that reduce manual coordination and give founders cleaner execution visibility.",
+    tasks: [
+      "Lead capture, assignment, and follow-up automation",
+      "CRM, spreadsheet, and channel status sync",
+      "Approval workflows, alerts, and stakeholder notifications",
+      "Reporting dashboards and recurring decision summaries",
+    ],
+  },
+  {
     title: "Website Design and Website Development",
     summary:
       "Business website creation with mobile-first UI/UX, conversion-focused layouts, and launch-ready SEO setup.",
@@ -94,13 +105,34 @@ const serviceBlueprint = [
   },
 ];
 
+const workflowPillars = [
+  {
+    title: "Lead Routing",
+    detail: "Capture, assignment, reminders, and follow-up visibility so inbound demand does not stall.",
+  },
+  {
+    title: "Internal Approvals",
+    detail: "Approval flows, alerts, and stakeholder handoffs that reduce execution lag between teams.",
+  },
+  {
+    title: "System Sync",
+    detail: "CRM, spreadsheet, and campaign status sync to keep marketing data aligned across tools.",
+  },
+  {
+    title: "Reporting Cadence",
+    detail: "Recurring dashboards and decision summaries so leadership sees movement without manual chasing.",
+  },
+];
+
+const formatIndex = (index: number) => String(index + 1).padStart(2, "0");
+
 function ServicesPage() {
   return (
     <>
       <SeoMeta
-        title="Digital Marketing Services | SEO, PPC, Social Media and Web | Fernesta"
-        description="Explore Fernesta's digital marketing services including SEO, Google Ads, Meta Ads, social media marketing, website development, and branding for Indian SMEs and D2C brands."
-        keywords="digital marketing services India, SEO services India, Google Ads agency India, social media marketing agency, website design and development"
+        title="Digital Marketing and Workflow Automation Services | Fernesta"
+        description="Explore Fernesta's services including SEO, Google Ads, Meta Ads, social media marketing, website development, workflow automation, reporting systems, and branding for Indian SMEs and D2C brands."
+        keywords="digital marketing services India, workflow automation services, SEO services India, Google Ads agency India, website design and development"
       />
 
       <section className="page-hero hero-services">
@@ -108,9 +140,9 @@ function ServicesPage() {
         <div className="container hero-grid hero-grid-single">
           <Reveal className="hero-copy" delayMs={80}>
             <p className="meta">Services</p>
-            <h1>SEO, Paid Ads, Social Media, and Website Services for Structured Business Growth</h1>
+            <h1>SEO, Paid Ads, Workflow Automation, and Website Services for Structured Business Growth</h1>
             <p>
-              Based on our Digital Marketing Services Blueprint, Fernesta delivers eight core services through a structured, execution-ready system for startups, SMEs, and growth-stage teams across India.
+              Based on our Digital Marketing Services Blueprint, Fernesta delivers nine core services through a structured, execution-ready system, with workflow automation, lead routing, approvals, and reporting built into how growth execution actually runs.
             </p>
             <div className="button-row">
               <Link className="button button-primary" to="/contact-us">
@@ -128,16 +160,39 @@ function ServicesPage() {
         <div className="container">
           <Reveal className="section-head">
             <p className="meta">Core Services</p>
-            <h2>Complete Digital Marketing Services for Indian SMEs</h2>
+            <h2>Complete Growth and Workflow Services for Indian SMEs</h2>
             <p>
-              Every service includes planning, execution, optimization, and reporting so growth decisions remain data-led and accountable.
+              Every service is designed to plug into a common operating model covering planning, execution, workflow automation, and reporting so growth decisions remain data-led and accountable.
             </p>
+          </Reveal>
+
+          <Reveal delayMs={50}>
+            <article className="panel workflow-callout">
+              <div className="workflow-callout-copy">
+                <p className="meta">Workflow Automation</p>
+                <h3>Not an add-on. Part of the operating system.</h3>
+                <p>
+                  Fernesta builds workflow automation into growth delivery so lead capture, approvals, handoffs, and reporting do not depend on manual chasing once campaigns are live.
+                </p>
+              </div>
+              <div className="workflow-pillars">
+                {workflowPillars.map((pillar) => (
+                  <div key={pillar.title} className="workflow-pill">
+                    <strong>{pillar.title}</strong>
+                    <span>{pillar.detail}</span>
+                  </div>
+                ))}
+              </div>
+            </article>
           </Reveal>
 
           <div className="card-grid card-grid-two card-numbered">
             {serviceBlueprint.map((service, index) => (
               <Reveal key={service.title} delayMs={70 * (index + 1)}>
                 <article className="panel interactive-card service-blueprint-card">
+                  <span className="panel-index" aria-hidden="true">
+                    {formatIndex(index)}
+                  </span>
                   <h3>{service.title}</h3>
                   <p>{service.summary}</p>
                   <ul className="service-list">

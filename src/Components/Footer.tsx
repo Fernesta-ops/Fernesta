@@ -12,8 +12,8 @@ function Footer() {
               alt="Fernesta"
             />
           </div>
-          <p className="footer-tagline">AI-First Marketing Infrastructure Firm</p>
-          <p>SEO, Performance Ads, Social Media, and Growth Systems for Indian SMEs and D2C Brands.</p>
+          <p className="footer-tagline">AI-First Growth Infrastructure Firm</p>
+          <p>SEO, Performance Ads, Workflow Automation, and Reporting Systems for Indian SMEs and D2C brands.</p>
           <p className="footer-copy">© 2026 Fernesta. All rights reserved.</p>
         </div>
 
@@ -24,6 +24,7 @@ function Footer() {
             <Link to="/services">Performance Marketing</Link>
             <Link to="/services">Social Media Management</Link>
             <Link to="/services">Website Design and Development</Link>
+            <Link to="/services">Workflow Automation and Reporting Systems</Link>
             <Link to="/services">E-Commerce Advertising</Link>
             <Link to="/services">PR and Influencer Management</Link>
           </nav>

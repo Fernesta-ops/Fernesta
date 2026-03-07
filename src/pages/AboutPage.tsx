@@ -5,6 +5,7 @@ import SeoMeta from "../Components/SeoMeta";
 const strengths = [
   "Modular fixed-scope service architecture",
   "Proprietary delivery frameworks reused across accounts",
+  "Workflow automation and reporting systems for execution visibility",
   "Standardized reporting for enterprise-like visibility",
   "SME-first pricing with full-service accountability",
 ];
@@ -13,9 +14,9 @@ function AboutPage() {
   return (
     <>
       <SeoMeta
-        title="About Fernesta | Digital Marketing Agency in Jaipur"
-        description="Learn about Fernesta, a Jaipur-based digital marketing agency focused on strategy, accountability, and measurable business outcomes."
-        keywords="about fernesta, digital marketing agency in Jaipur, SEO and performance marketing Jaipur"
+        title="About Fernesta | Growth and Workflow Systems Partner for Indian SMEs"
+        description="Learn about Fernesta, an AI-first growth partner focused on digital marketing, workflow automation, accountability, and measurable business outcomes for Indian SMEs and D2C brands."
+        keywords="about fernesta, digital marketing agency India, workflow automation partner India, performance marketing agency India"
       />
 
       <section className="page-hero hero-about">
@@ -23,9 +24,9 @@ function AboutPage() {
         <div className="container hero-grid hero-grid-single">
           <Reveal className="hero-copy" delayMs={80}>
             <p className="meta">About Us</p>
-            <h1>About Fernesta: A Results-Driven Digital Marketing Agency in Jaipur.</h1>
+            <h1>About Fernesta: A Results-Driven Growth Systems Partner for Indian SMEs.</h1>
             <p>
-              Fernesta was founded to solve one persistent market gap: Jaipur businesses need reliable marketing execution, but most can only choose between expensive agencies and inconsistent freelancers.
+              Fernesta was founded to solve one persistent market gap: Indian SMEs need reliable marketing execution and workflow systems, but most can only choose between expensive agencies and inconsistent freelancers.
             </p>
           </Reveal>
         </div>
@@ -45,9 +46,9 @@ function AboutPage() {
           </Reveal>
           <Reveal className="section-head split-head" delayMs={170}>
             <p className="meta">Mission and Vision</p>
-            <h2>Trusted Jaipur Marketing Partner for Measurable Growth</h2>
+            <h2>Trusted Growth and Workflow Partner for Measurable Outcomes</h2>
             <p>
-              Our mission is to deliver consistent, data-led, accountable marketing that creates real business outcomes. Our vision is to become the most trusted growth partner for Jaipur businesses scaling online.
+              Our mission is to deliver consistent, data-led, accountable marketing and workflow automation that creates real business outcomes. Our vision is to become the most trusted growth partner for Indian businesses scaling online.
             </p>
             <div className="tag-list">
               {strengths.map((item) => (

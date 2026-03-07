@@ -7,6 +7,7 @@ type JsonLd = Record<string, unknown>;
 const SITE_NAME = "Fernesta";
 const PHONE = "+91-701-412-7724";
 const EMAIL = "info@fernesta.com";
+const COUNTRY_NAME = "India";
 const CITY = "Jaipur";
 const STATE = "Rajasthan";
 const COUNTRY = "IN";
@@ -17,6 +18,7 @@ const SERVICE_TYPES = [
   "Google Ads Management",
   "Meta Ads Management",
   "Website Design and Development",
+  "Workflow Automation and Reporting Systems",
   "Content Marketing",
   "Branding and Profiling",
   "PR and Influencer Management",
@@ -91,7 +93,7 @@ function buildFaq(pathname: string, origin: string): JsonLd | null {
         name: "What digital marketing services does Fernesta provide?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Fernesta provides SEO services, social media management, Google and Meta ads management, website development, graphic design, e-commerce advertising, and branding support.",
+          text: "Fernesta provides SEO services, social media management, Google and Meta ads management, website development, workflow automation and reporting systems, graphic design, e-commerce advertising, branding support, and PR or influencer management.",
         },
       },
       {
@@ -112,15 +114,15 @@ function buildService(pathname: string, origin: string): JsonLd | null {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Digital Marketing Services",
+    name: "Digital Marketing and Workflow Automation Services",
     provider: {
       "@type": "Organization",
       name: SITE_NAME,
       url: origin,
     },
     areaServed: {
-      "@type": "City",
-      name: CITY,
+      "@type": "Country",
+      name: COUNTRY_NAME,
     },
     serviceType: SERVICE_TYPES,
     url: `${origin}/services`,
@@ -135,8 +137,8 @@ function buildOrganization(origin: string): JsonLd {
     url: origin,
     logo: `${origin}/images/site/seo/default-share.jpg`,
     areaServed: {
-      "@type": "City",
-      name: CITY,
+      "@type": "Country",
+      name: COUNTRY_NAME,
     },
     contactPoint: {
       "@type": "ContactPoint",

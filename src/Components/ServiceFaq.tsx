@@ -8,11 +8,15 @@ const faqs = [
   },
   {
     q: "Do you provide SEO and paid ads together?",
-    a: "Yes. We build integrated plans where SEO, Google Ads, and Meta Ads support the same business goals for Jaipur businesses.",
+    a: "Yes. We build integrated plans where SEO, Google Ads, and Meta Ads support the same business goals for Indian SMEs and growth-stage brands.",
   },
   {
     q: "How is reporting handled across channels?",
     a: "You receive a standardized reporting cadence with channel performance, lead quality, and next actions.",
+  },
+  {
+    q: "Can Fernesta automate internal marketing and lead workflows?",
+    a: "Yes. We design workflow automation for lead routing, approvals, CRM or spreadsheet sync, reporting alerts, and recurring operational handoffs.",
   },
   {
     q: "Is website optimization included in marketing engagements?",

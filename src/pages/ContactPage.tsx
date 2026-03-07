@@ -94,9 +94,9 @@ function ContactPage() {
   return (
     <>
       <SeoMeta
-        title="Contact Fernesta | Digital Marketing Agency in Jaipur"
-        description="Contact Fernesta, a digital marketing agency in Jaipur, for SEO, Google Ads, social media marketing, and website growth consultation."
-        keywords="contact digital marketing agency Jaipur, SEO consultation Jaipur, PPC agency Jaipur contact"
+        title="Contact Fernesta | Growth and Workflow Systems Partner for Indian SMEs"
+        description="Contact Fernesta for SEO, paid media, workflow automation, reporting systems, and website growth consulting for Indian SMEs and D2C brands."
+        keywords="contact digital marketing agency India, workflow automation consultation India, SEO consultation India"
       />
 
       <section className="page-hero hero-contact">
@@ -104,9 +104,9 @@ function ContactPage() {
         <div className="container hero-grid hero-grid-single">
           <Reveal className="hero-copy" delayMs={80}>
             <p className="meta">Contact Us</p>
-            <h1>Contact Fernesta for SEO, Paid Ads, and Website Growth in Jaipur.</h1>
+            <h1>Contact Fernesta for SEO, Workflow Automation, and Website Growth.</h1>
             <p>
-              Share your current growth stage and channel challenges. We will map the right service mix and execution cadence for your Jaipur business.
+              Share your current growth stage, operational bottlenecks, and channel challenges. We will map the right service mix, workflow systems, and execution cadence for your business.
             </p>
           </Reveal>
         </div>
@@ -117,7 +117,7 @@ function ContactPage() {
           <Reveal delayMs={80}>
             <article className="panel contact-card interactive-card">
               <p className="meta">Strategy Intake</p>
-              <h2>Book a Digital Marketing Consultation Call</h2>
+              <h2>Book a Growth Systems Consultation Call</h2>
               <form className="contact-form" noValidate onSubmit={handleSubmit(onSubmit)}>
                 <label className="honeypot-field" aria-hidden="true">
                   Website
@@ -208,6 +208,7 @@ function ContactPage() {
                     <option>Performance Marketing</option>
                     <option>Social Media Management</option>
                     <option>Website Design and Development</option>
+                    <option>Workflow Automation and Reporting Systems</option>
                     <option>Branding and Visual Identity</option>
                     <option>E-Commerce Growth</option>
                     <option>PR and Influencer Management</option>
@@ -267,12 +268,12 @@ function ContactPage() {
         <div className="container">
           <Reveal className="section-head">
             <p className="meta">Office Location</p>
-            <h2>Find Us in Jaipur</h2>
+            <h2>Visit the Fernesta Office</h2>
           </Reveal>
           <Reveal>
             <div className="panel interactive-card map-embed">
               <iframe
-                title="Fernesta location map - Jaipur"
+                title="Fernesta office location map"
                 src="https://www.google.com/maps?q=Jaipur%2C%20Rajasthan&output=embed"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

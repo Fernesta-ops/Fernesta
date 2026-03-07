@@ -18,7 +18,6 @@ const ClientelePage = lazy(() => import("./pages/ClientelePage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const CaseStudiesPage = lazy(() => import("./pages/CaseStudiesPage"));
 const CaseStudyDetailPage = lazy(() => import("./pages/CaseStudyDetailPage"));
-const PromptLibraryPage = lazy(() => import("./pages/PromptLibraryPage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
 const pageVariants = {
@@ -65,7 +64,6 @@ function App() {
                 <Route path="/case-studies" element={<CaseStudiesPage />} />
                 <Route path="/case-studies/:slug" element={<CaseStudyDetailPage />} />
                 <Route path="/contact-us" element={<ContactPage />} />
-                <Route path="/prompt-library" element={<PromptLibraryPage />} />
                 <Route path="*" element={<NotFoundPage />} />
               </Routes>
             </Suspense>

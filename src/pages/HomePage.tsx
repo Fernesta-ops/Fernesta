@@ -28,25 +28,26 @@ const principles = [
 
 const heroSignals = [
   { label: "Avg. Response Time", value: "24 Hours" },
-  { label: "Service Verticals", value: "8 Integrated Streams" },
-  { label: "Reporting Model", value: "Weekly Decision Cadence" },
+  { label: "Integrated Service Lines", value: "9 Core Services" },
+  { label: "Workflow Systems", value: "Lead Routing + Reporting" },
+  { label: "Decision Rhythm", value: "Weekly Review Cadence" },
 ];
 
 const onboardingSteps = [
   {
-    title: "Step 1: Discovery and Baseline",
+    title: "Discovery and Baseline",
     detail: "We review channel performance, growth constraints, and current funnel leakage in one focused session.",
     output: "You get a clear baseline and priority gaps within 48 hours.",
   },
   {
-    title: "Step 2: Growth Architecture",
-    detail: "We map SEO, paid media, social, and website execution into one accountable plan tied to business goals.",
-    output: "You receive a channel-by-channel action roadmap and KPI cadence.",
+    title: "Growth and Workflow Architecture",
+    detail: "We map SEO, paid media, social, website conversion paths, lead routing, approval flows, and reporting automation into one accountable operating plan tied to business goals.",
+    output: "You receive a channel, workflow, and KPI roadmap the team can act on immediately.",
   },
   {
-    title: "Step 3: Execution Sprint",
-    detail: "Implementation starts with a structured 30-day sprint and weekly decision checkpoints.",
-    output: "You get visible execution momentum with measurable early indicators.",
+    title: "Execution and Automation Sprint",
+    detail: "Implementation starts with a structured 30-day sprint covering campaign delivery, tracking, and workflow handoffs with weekly decision checkpoints.",
+    output: "You get visible execution momentum, cleaner internal coordination, and measurable early indicators.",
   },
 ];
 
@@ -67,9 +68,19 @@ const catalog = [
     image: "/images/pages/home/services/social-media-strategy-dark.jpg",
   },
   {
+    title: "Workflow Automation and Reporting Systems",
+    detail: "Lead routing, approval flows, CRM sync, and reporting systems that remove manual bottlenecks.",
+    image: "/images/pages/home/services/web-conversion-dark.jpg",
+  },
+  {
     title: "Website and Conversion Systems",
     detail: "Website structure, landing page flow, and conversion architecture optimization.",
     image: "/images/pages/home/services/web-conversion-dark.jpg",
+  },
+  {
+    title: "Graphic Designing for Marketing",
+    detail: "Ad creatives, sales collateral, social design systems, and campaign visuals built for reuse.",
+    image: "/images/pages/home/services/branding-identity-dark.jpg",
   },
   {
     title: "Branding and Visual Identity",
@@ -88,23 +99,25 @@ const catalog = [
   },
 ];
 
+const formatIndex = (index: number) => String(index + 1).padStart(2, "0");
+
 function HomePage() {
   return (
     <>
       <SeoMeta
-        title="AI-First Digital Marketing Agency for Indian SMEs | Fernesta"
-        description="Fernesta builds governance-led acquisition infrastructure for Indian SMEs and D2C brands — integrating paid media, SEO, conversion architecture, and attribution into one accountable growth system."
-        keywords="digital marketing agency India, SEO agency India, performance marketing agency, D2C growth agency, paid media management India"
+        title="AI-First Digital Marketing and Workflow Automation for Indian SMEs | Fernesta"
+        description="Fernesta builds governance-led growth systems for Indian SMEs and D2C brands, integrating paid media, SEO, workflow automation, conversion architecture, and attribution into one accountable operating model."
+        keywords="digital marketing agency India, workflow automation agency India, SEO agency India, performance marketing agency, D2C growth agency"
       />
 
       <section className="page-hero hero-home">
         <div className="hero-overlay" />
         <div className="container hero-grid">
           <Reveal className="hero-copy" delayMs={80}>
-            <p className="meta">AI-First Marketing Infrastructure Firm</p>
-            <h1>AI-First Marketing Infrastructure Designed for Structured Growth.</h1>
+            <p className="meta">AI-First Growth Infrastructure Firm</p>
+            <h1>AI-First Marketing and Workflow Automation Systems for Structured Growth.</h1>
             <p>
-              Fernesta builds governance-led acquisition infrastructure for Indian SMEs and D2C brands scaling beyond Rs. 3Cr revenue, integrating paid media control, conversion architecture, and attribution discipline into one accountable operating model.
+              Fernesta builds governance-led growth infrastructure for Indian SMEs and D2C brands scaling beyond Rs. 3Cr revenue, integrating paid media control, workflow automation, conversion architecture, and attribution discipline into one accountable operating model.
             </p>
             <div className="button-row">
               <Link className="button button-primary" to="/contact-us">
@@ -150,6 +163,9 @@ function HomePage() {
             {onboardingSteps.map((step, index) => (
               <Reveal key={step.title} delayMs={70 * (index + 1)}>
                 <article className="panel interactive-card onboarding-card">
+                  <span className="panel-index" aria-hidden="true">
+                    {formatIndex(index)}
+                  </span>
                   <h3>{step.title}</h3>
                   <p>{step.detail}</p>
                   <p className="onboarding-output">{step.output}</p>
@@ -174,7 +190,7 @@ function HomePage() {
             <p className="meta">Service Catalog</p>
             <h2>Explore Fernesta&apos;s Portfolio of Growth Services</h2>
             <p>
-              A structured catalog of digital growth capabilities, designed to be selected as integrated systems instead of isolated tasks.
+              A structured catalog of digital growth and workflow capabilities, designed to be selected as integrated systems instead of isolated tasks.
             </p>
           </Reveal>
           <div className="service-portfolio-grid">
@@ -183,6 +199,9 @@ function HomePage() {
                 <article className="service-portfolio-card interactive-card">
                   <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
                   <div className="service-portfolio-overlay">
+                    <span className="service-card-index" aria-hidden="true">
+                      {formatIndex(index)}
+                    </span>
                     <h3>{item.title}</h3>
                     <p>{item.detail}</p>
                   </div>
@@ -202,12 +221,15 @@ function HomePage() {
         <div className="container">
           <Reveal className="section-head">
             <p className="meta">Core Philosophy</p>
-            <h2>SEO, Paid Ads, Social Media, and Growth Systems with Accountability</h2>
+            <h2>SEO, Paid Ads, Workflow Automation, and Growth Systems with Accountability</h2>
           </Reveal>
           <div className="card-grid card-grid-four card-numbered">
             {principles.map((item, index) => (
               <Reveal key={item.title} delayMs={80 * (index + 1)}>
                 <article className="panel interactive-card">
+                  <span className="panel-index" aria-hidden="true">
+                    {formatIndex(index)}
+                  </span>
                   <h3>{item.title}</h3>
                   <p>{item.detail}</p>
                 </article>

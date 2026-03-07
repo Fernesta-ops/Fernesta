@@ -9,7 +9,6 @@ const links = [
   { label: "Services", to: "/services" },
   { label: "Clientele", to: "/clientele" },
   { label: "Case Studies", to: "/case-studies" },
-  { label: "Prompt Library", to: "/prompt-library" },
 ];
 
 export default function Navbar() {

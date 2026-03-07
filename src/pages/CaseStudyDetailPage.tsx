@@ -15,8 +15,8 @@ function CaseStudyDetailPage() {
     <>
       <SeoMeta
         title={`${study.client} Case Study | Fernesta`}
-        description={`${study.client}: ${study.metric} ${study.result} through structured SEO, paid ads, and conversion optimization systems by Fernesta.`}
-        keywords="digital marketing case study India, SEO and paid ads results, D2C growth marketing"
+        description={`${study.client}: ${study.metric} ${study.result} through structured growth systems, workflow discipline, and commercial execution by Fernesta.`}
+        keywords="digital marketing case study India, workflow automation results, SEO and paid ads results"
       />
 
       <section className="page-hero hero-services">
@@ -50,6 +50,30 @@ function CaseStudyDetailPage() {
             <h3>Objective</h3>
             <p>{study.objective}</p>
           </Reveal>
+        </div>
+      </section>
+
+      <section className="section section-border">
+        <div className="container">
+          <Reveal className="section-head">
+            <p className="meta">Metric Snapshot</p>
+            <h2>{study.chart.title}</h2>
+          </Reveal>
+          <div className="card-grid card-grid-three">
+            {study.chart.points.map((point, index) => (
+              <Reveal key={point.label} delayMs={70 * (index + 1)}>
+                <article className="panel interactive-card">
+                  <p className="meta">{point.label}</p>
+                  <h3>
+                    {point.after}
+                    {point.suffix}
+                  </h3>
+                  <p>Before: {point.before}{point.suffix}</p>
+                  <p>After: {point.after}{point.suffix}</p>
+                </article>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
