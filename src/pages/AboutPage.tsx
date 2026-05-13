@@ -4,7 +4,7 @@ import SeoMeta from "../Components/SeoMeta";
 
 const strengths = [
   "Modular fixed-scope service architecture",
-  "Proprietary delivery frameworks reused across accounts",
+  "Creative systems built for performance marketing response",
   "Workflow automation and reporting systems for execution visibility",
   "Standardized reporting for enterprise-like visibility",
   "SME-first pricing with full-service accountability",
@@ -14,8 +14,8 @@ function AboutPage() {
   return (
     <>
       <SeoMeta
-        title="About Fernesta | Growth and Workflow Systems Partner for Indian SMEs"
-        description="Learn about Fernesta, an AI-first growth partner focused on digital marketing, workflow automation, accountability, and measurable business outcomes for Indian SMEs and D2C brands."
+        title="About Fernesta | Performance Marketing and Creative Growth Partner"
+        description="Learn about Fernesta, a growth partner focused on performance marketing, creative design, workflow automation, accountability, and measurable business outcomes for Indian SMEs and D2C brands."
         keywords="about fernesta, digital marketing agency India, workflow automation partner India, performance marketing agency India"
       />
 
@@ -26,7 +26,7 @@ function AboutPage() {
             <p className="meta">About Us</p>
             <h1>About Fernesta: A Results-Driven Growth Systems Partner for Indian SMEs.</h1>
             <p>
-              Fernesta was founded to solve one persistent market gap: Indian SMEs need reliable marketing execution and workflow systems, but most can only choose between expensive agencies and inconsistent freelancers.
+              Fernesta was founded to solve one persistent market gap: Indian SMEs need reliable performance marketing, creative execution, and workflow systems, but most can only choose between expensive agencies and inconsistent freelancers.
             </p>
           </Reveal>
         </div>
@@ -48,7 +48,7 @@ function AboutPage() {
             <p className="meta">Mission and Vision</p>
             <h2>Trusted Growth and Workflow Partner for Measurable Outcomes</h2>
             <p>
-              Our mission is to deliver consistent, data-led, accountable marketing and workflow automation that creates real business outcomes. Our vision is to become the most trusted growth partner for Indian businesses scaling online.
+              Our mission is to deliver consistent, data-led, accountable performance marketing, creative design, and workflow automation that creates real business outcomes. Our vision is to become the most trusted growth partner for Indian businesses scaling online.
             </p>
             <div className="tag-list">
               {strengths.map((item) => (

@@ -28,7 +28,7 @@ const principles = [
 
 const heroSignals = [
   { label: "Avg. Response Time", value: "24 Hours" },
-  { label: "Integrated Service Lines", value: "9 Core Services" },
+  { label: "Growth Disciplines", value: "Performance + Creative" },
   { label: "Workflow Systems", value: "Lead Routing + Reporting" },
   { label: "Decision Rhythm", value: "Weekly Review Cadence" },
 ];
@@ -41,8 +41,8 @@ const onboardingSteps = [
   },
   {
     title: "Growth and Workflow Architecture",
-    detail: "We map SEO, paid media, social, website conversion paths, lead routing, approval flows, and reporting automation into one accountable operating plan tied to business goals.",
-    output: "You receive a channel, workflow, and KPI roadmap the team can act on immediately.",
+    detail: "We map SEO, paid media, performance creative, social, website conversion paths, lead routing, approval flows, and reporting automation into one accountable operating plan tied to business goals.",
+    output: "You receive a channel, creative, workflow, and KPI roadmap the team can act on immediately.",
   },
   {
     title: "Execution and Automation Sprint",
@@ -59,7 +59,7 @@ const catalog = [
   },
   {
     title: "Performance Marketing",
-    detail: "Google Ads and Meta Ads systems focused on quality leads and ROAS.",
+    detail: "Google and Meta ad systems with tracking, creative testing, lead quality, and ROAS control.",
     image: "/images/pages/home/services/performance-marketing-dark.jpg",
   },
   {
@@ -78,8 +78,8 @@ const catalog = [
     image: "/images/pages/home/services/web-conversion-dark.jpg",
   },
   {
-    title: "Graphic Designing for Marketing",
-    detail: "Ad creatives, sales collateral, social design systems, and campaign visuals built for reuse.",
+    title: "Creative Design for Performance Marketing",
+    detail: "Ad creatives, landing visuals, sales collateral, and social design systems built to improve campaign response.",
     image: "/images/pages/home/services/branding-identity-dark.jpg",
   },
   {
@@ -105,19 +105,19 @@ function HomePage() {
   return (
     <>
       <SeoMeta
-        title="AI-First Digital Marketing and Workflow Automation for Indian SMEs | Fernesta"
-        description="Fernesta builds governance-led growth systems for Indian SMEs and D2C brands, integrating paid media, SEO, workflow automation, conversion architecture, and attribution into one accountable operating model."
-        keywords="digital marketing agency India, workflow automation agency India, SEO agency India, performance marketing agency, D2C growth agency"
+        title="Performance Marketing, Creative Design, and Workflow Automation for Indian SMEs | Fernesta"
+        description="Fernesta builds accountable growth systems for Indian SMEs and D2C brands, integrating performance marketing, creative design, SEO, workflow automation, conversion architecture, and attribution."
+        keywords="performance marketing agency India, creative design agency India, workflow automation agency India, SEO agency India, D2C growth agency"
       />
 
       <section className="page-hero hero-home">
         <div className="hero-overlay" />
         <div className="container hero-grid">
           <Reveal className="hero-copy" delayMs={80}>
-            <p className="meta">AI-First Growth Infrastructure Firm</p>
-            <h1>AI-First Marketing and Workflow Automation Systems for Structured Growth.</h1>
+            <p className="meta">Performance Marketing and Creative Growth Systems</p>
+            <h1>Performance Marketing, Creative Design, and Workflow Systems for Structured Growth.</h1>
             <p>
-              Fernesta builds governance-led growth infrastructure for Indian SMEs and D2C brands scaling beyond Rs. 3Cr revenue, integrating paid media control, workflow automation, conversion architecture, and attribution discipline into one accountable operating model.
+              Fernesta builds accountable growth systems for Indian SMEs and D2C brands scaling beyond Rs. 3Cr revenue, combining paid media control, conversion-ready creative design, workflow automation, and attribution discipline into one operating model.
             </p>
             <div className="button-row">
               <Link className="button button-primary" to="/contact-us">
@@ -190,7 +190,7 @@ function HomePage() {
             <p className="meta">Service Catalog</p>
             <h2>Explore Fernesta&apos;s Portfolio of Growth Services</h2>
             <p>
-              A structured catalog of digital growth and workflow capabilities, designed to be selected as integrated systems instead of isolated tasks.
+              A structured catalog of performance, creative, digital growth, and workflow capabilities, designed to be selected as integrated systems instead of isolated tasks.
             </p>
           </Reveal>
           <div className="service-portfolio-grid">
@@ -221,7 +221,7 @@ function HomePage() {
         <div className="container">
           <Reveal className="section-head">
             <p className="meta">Core Philosophy</p>
-            <h2>SEO, Paid Ads, Workflow Automation, and Growth Systems with Accountability</h2>
+            <h2>Performance Marketing, Creative Design, Workflow Automation, and Growth Systems with Accountability</h2>
           </Reveal>
           <div className="card-grid card-grid-four card-numbered">
             {principles.map((item, index) => (

@@ -2,6 +2,8 @@ interface Env {
   RESEND_API_KEY?: string;
   LEAD_TO_EMAIL?: string;
   LEAD_FROM_EMAIL?: string;
+  LEAD_WEBHOOK_URL?: string;
+  LEAD_WEBHOOK_SECRET?: string;
 }
 
 type LeadPayload = {
@@ -117,6 +119,47 @@ function buildHtml(formName: string, fields: Record<string, string>) {
   `;
 }
 
+async function forwardLeadWebhook(
+  env: Env,
+  request: Request,
+  payload: { subject: string; formName: string; fields: Record<string, string> }
+): Promise<boolean> {
+  const webhookUrl = env.LEAD_WEBHOOK_URL?.trim();
+  if (!webhookUrl) return false;
+
+  const headers = new Headers({
+    "Content-Type": "application/json",
+  });
+  const secret = env.LEAD_WEBHOOK_SECRET?.trim();
+  if (secret) headers.set("X-Fernesta-Lead-Secret", secret);
+
+  try {
+    const body: Record<string, unknown> = {
+      ...payload,
+      submittedAt: new Date().toISOString(),
+      sourceOrigin: request.headers.get("Origin") || "",
+      userAgent: request.headers.get("User-Agent") || "",
+    };
+
+    if (secret) body.webhookSecret = secret;
+
+    const response = await fetch(webhookUrl, {
+      method: "POST",
+      headers,
+      body: JSON.stringify(body),
+    });
+
+    if (!response.ok) {
+      console.warn(`Lead webhook failed with status ${response.status}`);
+      return false;
+    }
+    return true;
+  } catch (error) {
+    console.warn("Lead webhook failed", error);
+    return false;
+  }
+}
+
 export const onRequestOptions = async (context: { request: Request }) => {
   const origin = context.request.headers.get("Origin") || "";
   if (!isAllowedOrigin(origin)) {
@@ -139,11 +182,6 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
   const contentLength = Number(context.request.headers.get("Content-Length") || "0");
   if (contentLength > MAX_BODY_BYTES) {
     return json({ error: "Payload too large." }, 413, origin);
-  }
-
-  const { RESEND_API_KEY, LEAD_FROM_EMAIL, LEAD_TO_EMAIL } = context.env;
-  if (!RESEND_API_KEY || !LEAD_FROM_EMAIL || !LEAD_TO_EMAIL) {
-    return json({ error: "Lead email provider not configured." }, 500, origin);
   }
 
   const rawBody = await context.request.text().catch(() => "");
@@ -190,24 +228,55 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
   const html = buildHtml(formName, cleanFields);
   const text = [`Form: ${formName}`, ...Object.entries(cleanFields).map(([k, v]) => `${k}: ${v}`)].join("\n");
 
-  const resendResponse = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${RESEND_API_KEY}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from: LEAD_FROM_EMAIL,
-      to: [LEAD_TO_EMAIL],
-      subject,
-      html,
-      text,
-    }),
+  const { RESEND_API_KEY, LEAD_FROM_EMAIL, LEAD_TO_EMAIL, LEAD_WEBHOOK_URL } = context.env;
+  const hasEmailConfig = Boolean(RESEND_API_KEY && LEAD_FROM_EMAIL && LEAD_TO_EMAIL);
+  const hasWebhookConfig = Boolean(LEAD_WEBHOOK_URL?.trim());
+
+  if (!hasEmailConfig && !hasWebhookConfig) {
+    return json({ error: "Lead delivery is not configured." }, 500, origin);
+  }
+
+  let emailDelivered = false;
+  let emailFailureDetails = "";
+  if (RESEND_API_KEY && LEAD_FROM_EMAIL && LEAD_TO_EMAIL) {
+    const resendResponse = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${RESEND_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: LEAD_FROM_EMAIL,
+        to: [LEAD_TO_EMAIL],
+        subject,
+        html,
+        text,
+      }),
+    });
+
+    if (resendResponse.ok) {
+      emailDelivered = true;
+    } else {
+      emailFailureDetails = await resendResponse.text();
+      console.warn("Lead email failed", emailFailureDetails);
+    }
+  }
+
+  const webhookDelivered = await forwardLeadWebhook(context.env, context.request, {
+    subject,
+    formName,
+    fields: cleanFields,
   });
 
-  if (!resendResponse.ok) {
-    const details = await resendResponse.text();
-    return json({ error: "Failed to send lead email", details }, 502, origin);
+  if (!emailDelivered && !webhookDelivered) {
+    return json(
+      {
+        error: hasWebhookConfig ? "Failed to record lead." : "Failed to send lead email.",
+        details: emailFailureDetails,
+      },
+      502,
+      origin
+    );
   }
 
   return json({ success: true }, 200, origin);

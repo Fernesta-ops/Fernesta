@@ -11,6 +11,10 @@ const faqs = [
     a: "Yes. We build integrated plans where SEO, Google Ads, and Meta Ads support the same business goals for Indian SMEs and growth-stage brands.",
   },
   {
+    q: "Can Fernesta handle performance creative as well as ad management?",
+    a: "Yes. Creative design is planned alongside performance marketing so ad visuals, landing sections, and campaign assets are built around the same offer, audience, and conversion goal.",
+  },
+  {
     q: "How is reporting handled across channels?",
     a: "You receive a standardized reporting cadence with channel performance, lead quality, and next actions.",
   },

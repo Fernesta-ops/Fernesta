@@ -26,16 +26,16 @@ const segments = [
   "Founder-led SMEs scaling digitally",
   "Early to growth-stage D2C brands",
   "Regional businesses expanding online",
-  "Businesses needing one accountable marketing partner",
+  "Businesses needing one accountable performance and creative partner",
 ];
 
 function ClientelePage() {
   return (
     <>
       <SeoMeta
-        title="Industries We Serve Across India | Fernesta Digital Marketing Agency"
-        description="Fernesta works with Indian SMEs, D2C brands, and growth-stage businesses seeking structured digital marketing systems and accountable execution."
-        keywords="digital marketing agency India industries, SME marketing India, D2C marketing India"
+        title="Industries We Serve Across India | Fernesta Performance and Creative Growth Partner"
+        description="Fernesta works with Indian SMEs, D2C brands, and growth-stage businesses seeking structured performance marketing, creative design, workflow systems, and accountable execution."
+        keywords="performance marketing agency India industries, creative growth partner India, SME marketing India, D2C marketing India"
       />
 
       <section className="page-hero hero-clientele">
@@ -43,9 +43,9 @@ function ClientelePage() {
         <div className="container hero-grid hero-grid-single">
           <Reveal className="hero-copy" delayMs={80}>
             <p className="meta">Clientele</p>
-            <h1>Digital Marketing Partner for Indian SMEs, D2C Brands, and Growth Teams.</h1>
+            <h1>Performance Marketing and Creative Growth Partner for Indian SMEs, D2C Brands, and Growth Teams.</h1>
             <p>
-              We work best with businesses that value transparency, structured execution, and direct founder-led accountability.
+              We work best with businesses that value transparent performance marketing, sharp creative execution, structured systems, and direct founder-led accountability.
             </p>
           </Reveal>
         </div>

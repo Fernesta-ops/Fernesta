@@ -6,17 +6,17 @@ function Hero() {
       <div className="hero-backdrop" />
       <div className="container hero-grid">
         <div className="hero-copy">
-          <p className="meta">AI-First Marketing Infrastructure Firm</p>
+          <p className="meta">Performance Marketing and Creative Growth Systems</p>
           <h1>
-            AI-First Marketing Infrastructure
+            Performance Marketing Infrastructure
             <br />
             Designed for Structured Growth.
           </h1>
           <p>
-            Fernesta builds governance-led acquisition infrastructure for
-            Indian SMEs and D2C brands scaling beyond Rs. 3Cr revenue,
-            integrating paid media control, conversion architecture, and
-            attribution discipline into one accountable operating model.
+            Fernesta builds accountable acquisition infrastructure for Indian
+            SMEs and D2C brands scaling beyond Rs. 3Cr revenue, integrating
+            paid media control, performance creative, conversion architecture,
+            and attribution discipline into one operating model.
           </p>
           <div className="button-row">
             <Button asChild variant="primary">

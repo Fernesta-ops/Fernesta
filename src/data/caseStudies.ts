@@ -148,7 +148,7 @@ export const caseStudies: CaseStudy[] = [
     services: [
       "Search Engine Optimization Services",
       "Website Design and Website Development",
-      "Graphic Designing for Marketing",
+      "Creative Design for Performance Marketing",
     ],
     before: [
       "Core pages were not optimized for intent-heavy admission and program queries.",
@@ -216,7 +216,7 @@ export const caseStudies: CaseStudy[] = [
       "Branding and Business Profiling",
       "Social Media Management Services",
       "Workflow Automation and Reporting Systems",
-      "Graphic Designing for Marketing",
+      "Creative Design for Performance Marketing",
     ],
     before: [
       "Visual identity and voice varied across social, ads, and email touchpoints.",
@@ -356,7 +356,7 @@ export const caseStudies: CaseStudy[] = [
     services: [
       "Social Media Management Services",
       "PR and Influencer Management",
-      "Graphic Designing for Marketing",
+      "Creative Design for Performance Marketing",
       "Website Design and Website Development",
     ],
     before: [

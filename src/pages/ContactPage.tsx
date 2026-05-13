@@ -6,7 +6,15 @@ import { toast } from "sonner";
 import { z } from "zod";
 import Reveal from "../Components/Reveal";
 import SeoMeta from "../Components/SeoMeta";
-import { sendLeadEmail } from "../lib/leadMailer";
+import { sendLeadEmail, trackLeadEvent } from "../lib/leadMailer";
+
+const WHATSAPP_NUMBER = "918209458984";
+const LINKEDIN_URL = "https://www.linkedin.com/company/fernesta/";
+const INSTAGRAM_URL = "https://www.instagram.com/fernesta.co/";
+const WHATSAPP_TEXT = encodeURIComponent(
+  "Hi Fernesta, I want help with performance marketing, creative design, or digital growth. Business name - , Website/social link - , Service needed - , Budget range - , Goal - "
+);
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_TEXT}`;
 
 const phases = [
   {
@@ -64,11 +72,17 @@ function ContactPage() {
 
   const onSubmit = async (values: ContactFormValues) => {
     const loadingToast = toast.loading("Submitting inquiry...");
+    const source =
+      typeof window === "undefined"
+        ? "fernesta.com/contact-us"
+        : `fernesta.com/contact-us${window.location.search}`;
+
     try {
       await sendLeadEmail({
         subject: `Consultation Request - ${values.company}`,
         formName: "Contact Form",
         fields: {
+          pipeline: "fernesta",
           name: values.name,
           email: values.email,
           phone: values.phone,
@@ -76,7 +90,9 @@ function ContactPage() {
           interested_service: values.service,
           business_goals: values.message,
           website: websiteTrap.trim(),
-          source: "fernesta.com/contact-us",
+          source,
+          lead_source: "website_form",
+          stage: "New Inquiry",
         },
       });
       toast.success("Inquiry submitted successfully. Our team will contact you within 1 business day.", {
@@ -91,12 +107,30 @@ function ContactPage() {
     }
   };
 
+  const handleWhatsAppClick = () => {
+    const source =
+      typeof window === "undefined"
+        ? "fernesta.com/contact-us"
+        : `fernesta.com/contact-us${window.location.search}`;
+
+    trackLeadEvent({
+      eventName: "whatsapp_click",
+      fields: {
+        pipeline: "fernesta",
+        source,
+        lead_source: "website_whatsapp_cta",
+        whatsapp_number: WHATSAPP_NUMBER,
+        stage: "WhatsApp Started",
+      },
+    });
+  };
+
   return (
     <>
       <SeoMeta
-        title="Contact Fernesta | Growth and Workflow Systems Partner for Indian SMEs"
-        description="Contact Fernesta for SEO, paid media, workflow automation, reporting systems, and website growth consulting for Indian SMEs and D2C brands."
-        keywords="contact digital marketing agency India, workflow automation consultation India, SEO consultation India"
+        title="Contact Fernesta | Performance Marketing and Creative Growth Partner"
+        description="Contact Fernesta for performance marketing, creative design, SEO, workflow automation, reporting systems, and website growth consulting for Indian SMEs and D2C brands."
+        keywords="contact performance marketing agency India, creative design consultation India, workflow automation consultation India, SEO consultation India"
       />
 
       <section className="page-hero hero-contact">
@@ -104,9 +138,9 @@ function ContactPage() {
         <div className="container hero-grid hero-grid-single">
           <Reveal className="hero-copy" delayMs={80}>
             <p className="meta">Contact Us</p>
-            <h1>Contact Fernesta for SEO, Workflow Automation, and Website Growth.</h1>
+            <h1>Contact Fernesta for Performance Marketing, Creative Design, and Website Growth.</h1>
             <p>
-              Share your current growth stage, operational bottlenecks, and channel challenges. We will map the right service mix, workflow systems, and execution cadence for your business.
+              Share your current growth stage, channel challenges, creative gaps, and operational bottlenecks. We will map the right service mix, workflow systems, and execution cadence for your business.
             </p>
           </Reveal>
         </div>
@@ -117,12 +151,13 @@ function ContactPage() {
           <Reveal delayMs={80}>
             <article className="panel contact-card interactive-card">
               <p className="meta">Strategy Intake</p>
-              <h2>Book a Growth Systems Consultation Call</h2>
+              <h2>Book a Performance and Creative Growth Consultation Call</h2>
               <form className="contact-form" noValidate onSubmit={handleSubmit(onSubmit)}>
                 <label className="honeypot-field" aria-hidden="true">
                   Website
                   <input
                     type="text"
+                    aria-hidden="true"
                     tabIndex={-1}
                     autoComplete="off"
                     value={websiteTrap}
@@ -207,8 +242,10 @@ function ContactPage() {
                     <option>Search Engine Optimization</option>
                     <option>Performance Marketing</option>
                     <option>Social Media Management</option>
+                    <option>Creative Design for Performance Marketing</option>
                     <option>Website Design and Development</option>
                     <option>Workflow Automation and Reporting Systems</option>
+                    <option>Event Planning and Experience Design</option>
                     <option>Branding and Visual Identity</option>
                     <option>E-Commerce Growth</option>
                     <option>PR and Influencer Management</option>
@@ -242,12 +279,33 @@ function ContactPage() {
                 </p>
               </form>
               <div className="contact-details">
-                <p><strong>Fernesta Digital Marketing Agency</strong></p>
+                <p><strong>Fernesta Digital Private Limited</strong></p>
                 <p>Jaipur, Rajasthan, India</p>
                 <p>Email: info@fernesta.com</p>
-                <p>Phone: +91 701 412 7724</p>
-                <p>Working Hours: Monday-Saturday, 9:00 AM to 7:00 PM IST</p>
+                <p>Phone: +91 820 945 8984</p>
+                <p>
+                  LinkedIn:{" "}
+                  <a href={LINKEDIN_URL} target="_blank" rel="noreferrer">
+                    @fernesta
+                  </a>
+                </p>
+                <p>
+                  Instagram:{" "}
+                  <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
+                    @fernesta.co
+                  </a>
+                </p>
+                <p>Working Hours: Monday-Saturday, 9:00 AM to 6:00 PM IST</p>
                 <p>Response time: within 1 business day</p>
+                <a
+                  className="button button-secondary"
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={handleWhatsAppClick}
+                >
+                  Start on WhatsApp
+                </a>
               </div>
             </article>
           </Reveal>
@@ -287,7 +345,7 @@ function ContactPage() {
         <div className="container">
           <Reveal className="section-head">
             <p className="meta">Operating Cadence</p>
-            <h2>How We Deliver Digital Marketing Services with Structured Execution</h2>
+            <h2>How We Deliver Performance, Creative, and Digital Marketing Services with Structured Execution</h2>
           </Reveal>
           <div className="card-grid card-grid-two">
             {phases.map((phase, index) => (

@@ -448,6 +448,10 @@ p {
   background-image: url("/images/pages/services/hero/background-opt.jpg");
 }
 
+.hero-events {
+  background-image: url("/images/pages/home/services/branding.jpg");
+}
+
 .hero-clientele {
   background-image: url("/images/pages/clientele/hero/background-opt.jpg");
 }
@@ -490,6 +494,16 @@ p {
   padding-bottom: 40px;
   padding-top: 40px;
   position: relative;
+}
+
+.hero-events .hero-grid {
+  min-height: auto;
+  padding-bottom: 58px;
+  padding-top: 58px;
+}
+
+.hero-events + .section {
+  padding-top: 24px;
 }
 
 .hero-grid-single {
@@ -904,6 +918,11 @@ p {
 .workflow-callout-copy {
   display: grid;
   gap: 10px;
+}
+
+.events-whatsapp-card {
+  justify-content: center;
+  min-height: 420px;
 }
 
 .workflow-callout h3 {
@@ -1855,12 +1874,18 @@ p {
 
   .hero-grid {
     min-height: auto;
-    padding: 72px 0;
+    padding-bottom: 72px;
+    padding-top: 72px;
   }
 
   .hero-grid,
   .page-hero {
     min-height: calc(100dvh - var(--nav-height));
+  }
+
+  .hero-events,
+  .hero-events .hero-grid {
+    min-height: auto;
   }
 
   .service-portfolio-card {
@@ -1986,7 +2011,8 @@ p {
   }
 
   .hero-grid {
-    padding: 54px 0;
+    padding-bottom: 54px;
+    padding-top: 54px;
   }
 
   .panel,

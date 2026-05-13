@@ -29,7 +29,7 @@ const serviceBlueprint = [
   {
     title: "Google Ads and Meta Ads Management",
     summary:
-      "Performance marketing campaigns across Google Search, Display, YouTube, and Meta to generate leads and sales.",
+      "Performance marketing campaigns across Google Search, Display, YouTube, and Meta with creative testing, conversion tracking, and lead-quality control.",
     tasks: [
       "Google Ads account setup and campaign architecture",
       "Negative keywords, ad extensions, and conversion tracking",
@@ -60,14 +60,14 @@ const serviceBlueprint = [
     ],
   },
   {
-    title: "Graphic Designing for Marketing",
+    title: "Creative Design for Performance Marketing",
     summary:
-      "Graphic design support for social media creatives, ad banners, business branding assets, and sales collateral.",
+      "Performance-ready creative design for ad campaigns, landing pages, social systems, sales collateral, and brand assets that need to convert as well as look polished.",
     tasks: [
-      "Brand kit and reusable social media templates",
-      "Ad creative design for Google and Meta campaigns",
-      "Brochure, presentation, and business card design",
-      "Email template and infographic design",
+      "Ad creative systems for Google and Meta campaigns",
+      "Landing page visuals, offer graphics, and conversion sections",
+      "Reusable social media templates and campaign design systems",
+      "Sales collateral, pitch decks, email graphics, and infographics",
     ],
   },
   {
@@ -130,9 +130,9 @@ function ServicesPage() {
   return (
     <>
       <SeoMeta
-        title="Digital Marketing and Workflow Automation Services | Fernesta"
-        description="Explore Fernesta's services including SEO, Google Ads, Meta Ads, social media marketing, website development, workflow automation, reporting systems, and branding for Indian SMEs and D2C brands."
-        keywords="digital marketing services India, workflow automation services, SEO services India, Google Ads agency India, website design and development"
+        title="Performance Marketing, Creative Design, SEO, and Workflow Automation Services | Fernesta"
+        description="Explore Fernesta's services including performance marketing, creative design, SEO, Google Ads, Meta Ads, social media marketing, website development, workflow automation, reporting systems, and branding."
+        keywords="performance marketing services India, creative design services India, workflow automation services, SEO services India, Google Ads agency India"
       />
 
       <section className="page-hero hero-services">
@@ -140,9 +140,9 @@ function ServicesPage() {
         <div className="container hero-grid hero-grid-single">
           <Reveal className="hero-copy" delayMs={80}>
             <p className="meta">Services</p>
-            <h1>SEO, Paid Ads, Workflow Automation, and Website Services for Structured Business Growth</h1>
+            <h1>Performance Marketing, Creative Design, SEO, and Workflow Automation for Structured Growth</h1>
             <p>
-              Based on our Digital Marketing Services Blueprint, Fernesta delivers nine core services through a structured, execution-ready system, with workflow automation, lead routing, approvals, and reporting built into how growth execution actually runs.
+              Based on our Digital Marketing Services Blueprint, Fernesta delivers nine core services through a structured, execution-ready system where paid media, creative design, conversion surfaces, workflow automation, approvals, and reporting work together.
             </p>
             <div className="button-row">
               <Link className="button button-primary" to="/contact-us">
@@ -160,9 +160,9 @@ function ServicesPage() {
         <div className="container">
           <Reveal className="section-head">
             <p className="meta">Core Services</p>
-            <h2>Complete Growth and Workflow Services for Indian SMEs</h2>
+            <h2>Complete Performance, Creative, and Workflow Services for Indian SMEs</h2>
             <p>
-              Every service is designed to plug into a common operating model covering planning, execution, workflow automation, and reporting so growth decisions remain data-led and accountable.
+              Every service is designed to plug into a common operating model covering strategy, creative production, campaign execution, workflow automation, and reporting so growth decisions remain data-led and accountable.
             </p>
           </Reveal>
 

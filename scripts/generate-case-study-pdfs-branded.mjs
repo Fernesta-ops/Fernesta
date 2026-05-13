@@ -361,6 +361,8 @@ function buildHtml(study, coverImageDataUri, logoWordmarkDataUri, monogramDataUr
         border: 1px solid #c6d2cb;
         border-radius: 12px;
         background: #ffffff;
+        break-inside: avoid;
+        page-break-inside: avoid;
         padding: 4mm;
       }
       .chart-head {

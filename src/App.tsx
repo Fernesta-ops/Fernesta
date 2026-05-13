@@ -16,6 +16,7 @@ const AboutPage = lazy(() => import("./pages/AboutPage"));
 const ServicesPage = lazy(() => import("./pages/ServicesPage"));
 const ClientelePage = lazy(() => import("./pages/ClientelePage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
+const EventsPage = lazy(() => import("./pages/EventsPage"));
 const CaseStudiesPage = lazy(() => import("./pages/CaseStudiesPage"));
 const CaseStudyDetailPage = lazy(() => import("./pages/CaseStudyDetailPage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
@@ -29,7 +30,7 @@ const pageVariants = {
 function App() {
   const location = useLocation();
   const prefersReducedMotion = useReducedMotion();
-  const suppressGlobalCtas = location.pathname === "/contact-us";
+  const suppressGlobalCtas = location.pathname === "/contact-us" || location.pathname === "/events";
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "auto" });
@@ -61,6 +62,7 @@ function App() {
                 <Route path="/about-us" element={<AboutPage />} />
                 <Route path="/services" element={<ServicesPage />} />
                 <Route path="/clientele" element={<ClientelePage />} />
+                <Route path="/events" element={<EventsPage />} />
                 <Route path="/case-studies" element={<CaseStudiesPage />} />
                 <Route path="/case-studies/:slug" element={<CaseStudyDetailPage />} />
                 <Route path="/contact-us" element={<ContactPage />} />

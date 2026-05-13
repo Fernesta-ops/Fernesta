@@ -5,8 +5,10 @@ import { caseStudies } from "../data/caseStudies";
 type JsonLd = Record<string, unknown>;
 
 const SITE_NAME = "Fernesta";
-const PHONE = "+91-701-412-7724";
+const LEGAL_NAME = "Fernesta Digital Private Limited";
+const PHONE = "+91-820-945-8984";
 const EMAIL = "info@fernesta.com";
+const SOCIAL_LINKS = ["https://www.linkedin.com/company/fernesta/", "https://www.instagram.com/fernesta.co/"];
 const COUNTRY_NAME = "India";
 const CITY = "Jaipur";
 const STATE = "Rajasthan";
@@ -14,14 +16,24 @@ const COUNTRY = "IN";
 
 const SERVICE_TYPES = [
   "SEO Services",
+  "Performance Marketing",
   "Social Media Marketing",
   "Google Ads Management",
   "Meta Ads Management",
+  "Creative Design for Performance Marketing",
   "Website Design and Development",
   "Workflow Automation and Reporting Systems",
   "Content Marketing",
   "Branding and Profiling",
   "PR and Influencer Management",
+];
+
+const EVENT_SERVICE_TYPES = [
+  "Event Planning",
+  "Corporate Events",
+  "Private Celebrations",
+  "Brand Activations",
+  "Guest RSVP and WhatsApp Lead Capture",
 ];
 
 function labelFromPath(pathname: string) {
@@ -32,6 +44,8 @@ function labelFromPath(pathname: string) {
       return "About Us";
     case "/services":
       return "Services";
+    case "/events":
+      return "Fernesta Events";
     case "/clientele":
       return "Clientele";
     case "/case-studies":
@@ -93,7 +107,7 @@ function buildFaq(pathname: string, origin: string): JsonLd | null {
         name: "What digital marketing services does Fernesta provide?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Fernesta provides SEO services, social media management, Google and Meta ads management, website development, workflow automation and reporting systems, graphic design, e-commerce advertising, branding support, and PR or influencer management.",
+          text: "Fernesta provides performance marketing, creative design for campaigns, SEO services, social media management, Google and Meta ads management, website development, workflow automation and reporting systems, e-commerce advertising, branding support, and PR or influencer management.",
         },
       },
       {
@@ -114,7 +128,7 @@ function buildService(pathname: string, origin: string): JsonLd | null {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Digital Marketing and Workflow Automation Services",
+    name: "Performance Marketing, Creative Design, and Workflow Automation Services",
     provider: {
       "@type": "Organization",
       name: SITE_NAME,
@@ -129,12 +143,36 @@ function buildService(pathname: string, origin: string): JsonLd | null {
   };
 }
 
+function buildEventService(pathname: string, origin: string): JsonLd | null {
+  if (pathname !== "/events") return null;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Fernesta Events Planning and Experience Operations",
+    provider: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      legalName: LEGAL_NAME,
+      url: origin,
+    },
+    areaServed: {
+      "@type": "Country",
+      name: COUNTRY_NAME,
+    },
+    serviceType: EVENT_SERVICE_TYPES,
+    url: `${origin}/events`,
+  };
+}
+
 function buildOrganization(origin: string): JsonLd {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: SITE_NAME,
+    legalName: LEGAL_NAME,
     url: origin,
+    sameAs: SOCIAL_LINKS,
     logo: `${origin}/images/site/seo/default-share.jpg`,
     areaServed: {
       "@type": "Country",
@@ -156,8 +194,9 @@ function buildLocalBusiness(origin: string): JsonLd {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "@id": `${origin}/#localbusiness`,
-    name: "Fernesta Digital Marketing Agency",
+    name: LEGAL_NAME,
     url: origin,
+    sameAs: SOCIAL_LINKS,
     image: `${origin}/images/site/seo/default-share.jpg`,
     telephone: PHONE,
     email: EMAIL,
@@ -241,6 +280,9 @@ function StructuredData() {
 
     const serviceSchema = buildService(pathname, origin);
     if (serviceSchema) payloads.push(serviceSchema);
+
+    const eventServiceSchema = buildEventService(pathname, origin);
+    if (eventServiceSchema) payloads.push(eventServiceSchema);
 
     const faqSchema = buildFaq(pathname, origin);
     if (faqSchema) payloads.push(faqSchema);

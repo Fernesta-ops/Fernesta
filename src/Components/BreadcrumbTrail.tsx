@@ -4,6 +4,7 @@ const map: Record<string, string> = {
   "/": "Home",
   "/about-us": "About Us",
   "/services": "Services",
+  "/events": "Fernesta Events",
   "/clientele": "Clientele",
   "/case-studies": "Case Studies",
   "/contact-us": "Contact Us",
