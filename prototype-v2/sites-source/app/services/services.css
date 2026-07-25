@@ -1,0 +1,494 @@
+.services-hub-page,
+.service-detail-page {
+  color: var(--brown);
+  background: var(--cream);
+}
+
+.services-hub-hero {
+  display: grid;
+  min-height: calc(100vh - 6rem);
+  align-content: space-between;
+  padding: clamp(4rem, 8vw, 8rem) var(--gutter);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.services-hub-hero > span,
+.service-connections > div:first-child > span,
+.service-faq > div:first-child > span {
+  color: var(--signal);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.services-hub-hero h1 {
+  max-width: 12ch;
+  margin: clamp(4rem, 9vh, 8rem) 0 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(4.4rem, 9.2vw, 10.5rem);
+  font-weight: 400;
+  letter-spacing: -0.07em;
+  line-height: 0.86;
+}
+
+.services-hub-hero h1 em {
+  color: var(--signal);
+  font-weight: 400;
+}
+
+.services-hub-hero p {
+  max-width: 47rem;
+  margin: 3rem 0 0 auto;
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+  line-height: 1.7;
+}
+
+.services-grid-section {
+  padding: var(--section-space) var(--gutter);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: clamp(4rem, 8vw, 8rem);
+  border-top: 1px solid var(--line-dark);
+  border-left: 1px solid var(--line-dark);
+}
+
+.services-grid article {
+  display: grid;
+  min-height: 36rem;
+  grid-template-rows: auto 1fr auto;
+  padding: clamp(1.5rem, 3.2vw, 3.5rem);
+  border-right: 1px solid var(--line-dark);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.services-grid article > span {
+  color: var(--signal);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+}
+
+.services-grid h2 {
+  max-width: 12ch;
+  margin: clamp(4rem, 8vw, 8rem) 0 1.5rem;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2.8rem, 5vw, 5.5rem);
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  line-height: 0.92;
+}
+
+.services-grid p {
+  max-width: 40rem;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.services-grid a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 1.2rem;
+  color: var(--signal);
+  border-top: 1px solid var(--line-dark);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.services-system {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.55fr) minmax(0, 1.45fr);
+  gap: clamp(3rem, 8vw, 10rem);
+  padding: var(--section-space) var(--gutter);
+  color: var(--cream);
+  background: var(--brown-deep);
+}
+
+.services-system h2 {
+  margin: 1.5rem 0 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(3rem, 6vw, 7rem);
+  font-weight: 400;
+  letter-spacing: -0.06em;
+  line-height: 0.92;
+}
+
+.services-system > div > span {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.services-system ol {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line-light);
+  list-style: none;
+}
+
+.services-system li {
+  display: grid;
+  grid-template-columns: 3rem minmax(10rem, 0.5fr) 1fr;
+  gap: 1.5rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--line-light);
+}
+
+.services-system li span {
+  color: #d69a8d;
+  font-size: 0.68rem;
+}
+
+.services-system li strong {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.35rem, 2vw, 2rem);
+  font-weight: 400;
+}
+
+.services-system li p {
+  margin: 0;
+  color: rgba(245, 233, 219, 0.7);
+  line-height: 1.65;
+}
+
+.service-hero h1 {
+  max-width: 12ch;
+}
+
+.service-signals,
+.service-process,
+.service-connections,
+.service-faq {
+  padding: var(--section-space) var(--gutter);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.service-signals ol,
+.service-process ol {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: clamp(4rem, 8vw, 8rem) 0 0;
+  padding: 0;
+  border-top: 1px solid var(--line-dark);
+  border-left: 1px solid var(--line-dark);
+  list-style: none;
+}
+
+.service-signals li,
+.service-process li {
+  min-height: 22rem;
+  padding: clamp(1.5rem, 3vw, 2.7rem);
+  border-right: 1px solid var(--line-dark);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.service-signals li > span,
+.service-process li > span {
+  color: var(--signal);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+}
+
+.service-signals li p {
+  margin: clamp(5rem, 9vw, 9rem) 0 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.45rem, 2.2vw, 2.4rem);
+  line-height: 1.2;
+}
+
+.service-process {
+  color: var(--cream);
+  background: var(--brown-deep);
+}
+
+.service-process .gcc-section-heading > span,
+.service-process .gcc-section-heading p,
+.service-process li > span {
+  color: rgba(245, 233, 219, 0.7);
+}
+
+.service-process ol {
+  border-color: var(--line-light);
+}
+
+.service-process li {
+  border-color: var(--line-light);
+}
+
+.service-process li h3 {
+  margin: clamp(4rem, 7vw, 7rem) 0 1rem;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.8rem, 2.7vw, 3rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.service-process li p {
+  margin: 0;
+  color: rgba(245, 233, 219, 0.7);
+  line-height: 1.65;
+}
+
+.service-evidence {
+  display: grid;
+  grid-template-columns: minmax(17rem, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(3rem, 8vw, 8rem);
+  padding: var(--section-space) var(--gutter);
+  border-top: 1px solid var(--line-dark);
+}
+
+.service-evidence > .gcc-section-heading {
+  display: block;
+}
+
+.service-evidence > .gcc-section-heading > span {
+  display: block;
+  margin-bottom: clamp(3rem, 7vw, 6rem);
+}
+
+.service-evidence > .gcc-section-heading h2 {
+  max-width: 9ch;
+  font-size: clamp(3.5rem, 5.3vw, 6.1rem);
+}
+
+.service-evidence > .gcc-section-heading p {
+  max-width: 28rem;
+  margin-top: clamp(2rem, 4vw, 3.5rem);
+}
+
+.service-evidence-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line-dark);
+  border-left: 1px solid var(--line-dark);
+}
+
+.service-evidence-list > a {
+  display: flex;
+  min-height: 27rem;
+  flex-direction: column;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border-right: 1px solid var(--line-dark);
+  border-bottom: 1px solid var(--line-dark);
+  color: var(--brown);
+  transition:
+    background-color 220ms ease,
+    color 220ms ease;
+}
+
+.service-evidence-list > a:hover,
+.service-evidence-list > a:focus-visible {
+  background: var(--brown);
+  color: var(--cream);
+}
+
+.service-evidence-list > a > span:first-child,
+.service-evidence-list > a > span:last-child {
+  font-size: 0.68rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.service-evidence-list > a > strong {
+  margin-top: 4rem;
+  color: var(--signal);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(3.8rem, 7vw, 6.5rem);
+  font-weight: 400;
+  line-height: 0.9;
+}
+
+.service-evidence-list > a > h3 {
+  max-width: 18rem;
+  margin: 1rem 0 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  font-weight: 400;
+}
+
+.service-evidence-list > a > p {
+  max-width: 23rem;
+  margin: 1rem 0 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.service-evidence-list > a:hover > p,
+.service-evidence-list > a:focus-visible > p {
+  color: rgba(245, 233, 219, 0.7);
+}
+
+.service-evidence-list > a > span:last-child {
+  margin-top: auto;
+  padding-top: 2rem;
+}
+
+.service-connections,
+.service-faq {
+  display: grid;
+  grid-template-columns: minmax(17rem, 0.65fr) minmax(0, 1.35fr);
+  gap: clamp(3rem, 8vw, 10rem);
+}
+
+.service-connections h2,
+.service-faq h2 {
+  margin: 1.5rem 0 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(3rem, 5vw, 6rem);
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  line-height: 0.94;
+}
+
+.service-connections > div:first-child p {
+  max-width: 30rem;
+  margin: 2rem 0 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.service-connections > div:last-child {
+  border-top: 1px solid var(--line-dark);
+}
+
+.service-connections a {
+  display: grid;
+  grid-template-columns: 3rem 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.7rem 0;
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.service-connections a > span:first-child {
+  color: var(--signal);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+}
+
+.service-connections a strong {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  font-weight: 400;
+}
+
+.service-faq details {
+  border-top: 1px solid var(--line-dark);
+}
+
+.service-faq details:last-child {
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.service-faq summary {
+  display: grid;
+  grid-template-columns: 3rem 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.8rem 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.service-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.service-faq summary > span:first-child,
+.service-faq summary > span:last-child {
+  color: var(--signal);
+  font-size: 0.68rem;
+}
+
+.service-faq summary strong {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.35rem, 2vw, 2rem);
+  font-weight: 400;
+}
+
+.service-faq details[open] summary > span:last-child {
+  transform: rotate(45deg);
+}
+
+.service-faq details p {
+  max-width: 43rem;
+  margin: 0 0 2rem 4rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+@media (max-width: 1080px) {
+  .service-signals ol,
+  .service-process ol {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .service-footer {
+    grid-template-columns: 1fr auto auto auto;
+  }
+}
+
+@media (max-width: 720px) {
+  .services-hub-hero {
+    min-height: calc(100svh - 5rem);
+  }
+
+  .services-hub-hero h1 {
+    font-size: clamp(4rem, 19vw, 6.7rem);
+  }
+
+  .services-hub-hero p {
+    margin-left: 0;
+  }
+
+  .services-grid,
+  .services-system,
+  .service-signals ol,
+  .service-process ol,
+  .service-evidence,
+  .service-evidence-list,
+  .service-connections,
+  .service-faq {
+    grid-template-columns: 1fr;
+  }
+
+  .services-grid article {
+    min-height: 30rem;
+  }
+
+  .services-system li {
+    grid-template-columns: 2rem 1fr;
+  }
+
+  .services-system li p {
+    grid-column: 2;
+  }
+
+  .service-signals li,
+  .service-process li {
+    min-height: 18rem;
+  }
+
+  .service-signals li p {
+    margin-top: 4rem;
+  }
+
+  .service-evidence-list > a {
+    min-height: 22rem;
+  }
+
+  .service-footer {
+    grid-template-columns: 1fr;
+  }
+}

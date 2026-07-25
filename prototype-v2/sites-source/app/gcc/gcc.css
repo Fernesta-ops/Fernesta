@@ -1,0 +1,516 @@
+.gcc-page {
+  min-height: 100vh;
+  color: var(--brown);
+  background: var(--cream);
+}
+
+.gcc-header {
+  position: sticky;
+  z-index: 20;
+  top: 0;
+  display: grid;
+  min-height: 6rem;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: center;
+  padding: 0 var(--gutter);
+  background: rgba(245, 233, 219, 0.96);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.gcc-logo {
+  width: clamp(8.5rem, 13vw, 11.5rem);
+}
+
+.gcc-logo img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.gcc-header nav {
+  display: flex;
+  gap: clamp(1.2rem, 3vw, 3.5rem);
+  align-items: center;
+}
+
+.gcc-header .market-selector {
+  min-width: 11rem;
+}
+
+.gcc-header nav a {
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.gcc-header .gcc-nav-cta {
+  padding: 1rem 1.2rem;
+  color: var(--cream);
+  background: var(--signal);
+}
+
+.gcc-hero {
+  display: grid;
+  min-height: calc(100vh - 6rem);
+  grid-template-columns: minmax(0, 1.15fr) minmax(22rem, 0.85fr);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.gcc-hero-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(4rem, 8vw, 8rem) var(--gutter);
+}
+
+.gcc-eyebrow,
+.gcc-section-heading > span,
+.gcc-principle > span,
+.gcc-operating > div > span,
+.gcc-cta > span {
+  color: var(--signal);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.gcc-hero h1 {
+  max-width: 11ch;
+  margin: clamp(2.5rem, 6vh, 5rem) 0 0;
+  font-family: "Jost", Arial, sans-serif;
+  font-size: clamp(4rem, 8.1vw, 9rem);
+  font-weight: 500;
+  letter-spacing: -0.075em;
+  line-height: 0.84;
+  text-transform: uppercase;
+}
+
+.gcc-hero h1 em {
+  color: var(--signal);
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 400;
+  text-transform: none;
+}
+
+.gcc-hero-lede {
+  max-width: 42rem;
+  margin: clamp(2.5rem, 5vw, 5rem) 0 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.25rem, 2.1vw, 2rem);
+  line-height: 1.35;
+}
+
+.gcc-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2.5rem;
+  align-items: center;
+  margin-top: 2.5rem;
+}
+
+.gcc-hero-actions a:first-child,
+.gcc-cta > a {
+  display: inline-flex;
+  min-height: 3.8rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0 1.25rem;
+  color: var(--cream);
+  background: var(--signal);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.gcc-hero-actions a:last-child {
+  color: var(--muted);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.gcc-hero-visual {
+  position: relative;
+  min-height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: var(--brown-deep);
+}
+
+.gcc-hero-visual img {
+  object-fit: cover;
+  filter: saturate(0.78) contrast(1.03);
+}
+
+.gcc-hero-visual figcaption {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  padding: 1rem;
+  color: var(--cream);
+  background: rgba(48, 38, 28, 0.82);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.gcc-principle,
+.gcc-operating {
+  display: grid;
+  grid-template-columns: minmax(10rem, 0.45fr) minmax(0, 1.55fr);
+  gap: clamp(2rem, 7vw, 9rem);
+  padding: var(--section-space) var(--gutter);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.gcc-principle h2,
+.gcc-section-heading h2,
+.gcc-operating h2,
+.gcc-cta h2 {
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(3.4rem, 7vw, 8rem);
+  font-weight: 400;
+  letter-spacing: -0.06em;
+  line-height: 0.92;
+}
+
+.gcc-principle p {
+  max-width: 43rem;
+  margin: clamp(2.5rem, 5vw, 5rem) 0 0 auto;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  line-height: 1.7;
+}
+
+.gcc-markets,
+.gcc-engagements {
+  padding: var(--section-space) var(--gutter);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.gcc-section-heading {
+  display: grid;
+  grid-template-columns: minmax(8rem, 0.35fr) minmax(0, 1fr) minmax(16rem, 0.55fr);
+  gap: clamp(2rem, 5vw, 6rem);
+  align-items: end;
+}
+
+.gcc-section-heading p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.gcc-market-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: clamp(4rem, 8vw, 8rem);
+  border-top: 1px solid var(--line-dark);
+  border-left: 1px solid var(--line-dark);
+}
+
+.gcc-market-grid article {
+  min-height: 29rem;
+  padding: clamp(1.5rem, 3vw, 2.7rem);
+  border-right: 1px solid var(--line-dark);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+html[data-fernesta-market="ae"] .gcc-market-grid article[data-market="ae"],
+html[data-fernesta-market="sa"] .gcc-market-grid article[data-market="sa"],
+html[data-fernesta-market="qa"] .gcc-market-grid article[data-market="qa"],
+html[data-fernesta-market="bh"] .gcc-market-grid article[data-market="bh"] {
+  color: var(--cream);
+  background: var(--brown-deep);
+}
+
+html[data-fernesta-market="ae"] .gcc-market-grid article[data-market="ae"] p,
+html[data-fernesta-market="sa"] .gcc-market-grid article[data-market="sa"] p,
+html[data-fernesta-market="qa"] .gcc-market-grid article[data-market="qa"] p,
+html[data-fernesta-market="bh"] .gcc-market-grid article[data-market="bh"] p {
+  color: rgba(245, 233, 219, 0.72);
+}
+
+.gcc-market-grid article > span,
+.gcc-offer-title > span {
+  color: var(--signal);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+}
+
+.gcc-market-grid h3 {
+  margin: clamp(5rem, 9vw, 9rem) 0 1rem;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.8rem, 2.8vw, 3rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.gcc-market-grid b,
+.gcc-offer-title b {
+  display: block;
+  color: var(--signal);
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.gcc-market-grid p {
+  margin: 1.5rem 0 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.gcc-offer-list {
+  margin-top: clamp(4rem, 8vw, 8rem);
+  border-top: 1px solid var(--line-dark);
+}
+
+.gcc-offer-list > article {
+  display: grid;
+  grid-template-columns: minmax(17rem, 0.9fr) minmax(15rem, 0.75fr) minmax(18rem, 0.9fr) auto;
+  gap: clamp(1.5rem, 4vw, 5rem);
+  align-items: start;
+  padding: clamp(2.5rem, 5vw, 5rem) 0;
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.gcc-offer-title {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 0.5rem 1rem;
+}
+
+.gcc-offer-title h3 {
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.8rem, 3vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.gcc-offer-title b {
+  grid-column: 2;
+  margin-top: 0.6rem;
+}
+
+.gcc-offer-list article > p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.gcc-offer-list ul {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gcc-offer-list li {
+  padding-bottom: 0.65rem;
+  color: var(--muted);
+  border-bottom: 1px solid var(--line-dark);
+  font-size: 0.82rem;
+}
+
+.gcc-offer-list article > a {
+  color: var(--signal);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.gcc-operating {
+  color: var(--cream);
+  background: var(--brown-deep);
+  border-bottom-color: var(--line-light);
+}
+
+.gcc-operating > div > span {
+  color: var(--cream);
+}
+
+.gcc-operating-copy {
+  display: grid;
+  max-width: 48rem;
+  gap: 2rem;
+  margin: 0 0 0 auto;
+}
+
+.gcc-operating-copy p {
+  margin: 0;
+  color: rgba(245, 233, 219, 0.74);
+  font-size: clamp(1rem, 1.55vw, 1.28rem);
+  line-height: 1.7;
+}
+
+.gcc-operating-copy .gcc-proof-link {
+  display: grid;
+  gap: 0.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(245, 233, 219, 0.24);
+}
+
+.gcc-proof-link a {
+  width: fit-content;
+  color: var(--cream);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-decoration: underline;
+  text-underline-offset: 0.35rem;
+  text-transform: uppercase;
+}
+
+.gcc-proof-link span {
+  max-width: 39rem;
+  color: rgba(245, 233, 219, 0.58);
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.gcc-cta {
+  display: grid;
+  justify-items: center;
+  padding: var(--section-space) var(--gutter);
+  text-align: center;
+}
+
+.gcc-cta h2 {
+  margin-top: 2.5rem;
+}
+
+.gcc-cta p {
+  max-width: 43rem;
+  margin: 2.5rem auto 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  line-height: 1.7;
+}
+
+.gcc-cta > a {
+  margin-top: 2.5rem;
+}
+
+.gcc-footer {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr auto auto;
+  gap: 2rem;
+  padding: 2rem var(--gutter);
+  color: var(--muted);
+  border-top: 1px solid var(--line-dark);
+  font-size: 0.62rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.gcc-footer a {
+  color: var(--signal);
+}
+
+@media (max-width: 1080px) {
+  .gcc-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .gcc-hero-visual {
+    min-height: 50rem;
+  }
+
+  .gcc-market-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .gcc-offer-list > article {
+    grid-template-columns: minmax(15rem, 0.8fr) minmax(0, 1fr);
+  }
+
+  .gcc-offer-list article > a {
+    align-self: end;
+  }
+}
+
+@media (max-width: 720px) {
+  .gcc-header {
+    min-height: 5rem;
+  }
+
+  .gcc-header nav > a:not(.gcc-nav-cta) {
+    display: none;
+  }
+
+  .gcc-header .gcc-nav-cta {
+    display: none;
+  }
+
+  .gcc-header .market-selector {
+    min-width: min(47vw, 11rem);
+  }
+
+  .gcc-hero {
+    min-height: auto;
+  }
+
+  .gcc-hero-copy {
+    min-height: calc(100svh - 5rem);
+  }
+
+  .gcc-hero h1 {
+    font-size: clamp(3.5rem, 18vw, 6.5rem);
+  }
+
+  .gcc-hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .gcc-hero-visual {
+    min-height: 36rem;
+  }
+
+  .gcc-principle,
+  .gcc-operating {
+    grid-template-columns: 1fr;
+  }
+
+  .gcc-section-heading {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .gcc-section-heading p {
+    max-width: 34rem;
+  }
+
+  .gcc-market-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gcc-market-grid article {
+    min-height: 22rem;
+  }
+
+  .gcc-market-grid h3 {
+    margin-top: 4rem;
+  }
+
+  .gcc-offer-list > article {
+    grid-template-columns: 1fr;
+  }
+
+  .gcc-footer {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+}

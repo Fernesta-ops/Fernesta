@@ -1,0 +1,81 @@
+.international-market-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+html[data-fernesta-market="eu"]
+  .international-market-grid
+  article[data-market="eu"],
+html[data-fernesta-market="us"]
+  .international-market-grid
+  article[data-market="us"] {
+  color: var(--cream);
+  background: var(--brown-deep);
+}
+
+html[data-fernesta-market="eu"]
+  .international-market-grid
+  article[data-market="eu"]
+  p,
+html[data-fernesta-market="us"]
+  .international-market-grid
+  article[data-market="us"]
+  p {
+  color: rgba(245, 233, 219, 0.72);
+}
+
+.international-readiness {
+  padding: var(--section-space) var(--gutter);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.international-readiness ol {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: clamp(4rem, 8vw, 8rem) 0 0;
+  padding: 0;
+  border-top: 1px solid var(--line-dark);
+  border-left: 1px solid var(--line-dark);
+  list-style: none;
+}
+
+.international-readiness li {
+  display: grid;
+  min-height: 18rem;
+  align-content: space-between;
+  padding: clamp(1.5rem, 3vw, 2.7rem);
+  border-right: 1px solid var(--line-dark);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.international-readiness li span {
+  color: var(--signal);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+}
+
+.international-readiness li p {
+  max-width: 27rem;
+  margin: 3rem 0 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.5rem, 2.5vw, 2.8rem);
+  line-height: 1.15;
+}
+
+.international-page .gcc-footer {
+  grid-template-columns: minmax(12rem, 1fr) minmax(18rem, 1.3fr) auto auto auto;
+}
+
+@media (max-width: 720px) {
+  .international-market-grid,
+  .international-readiness ol {
+    grid-template-columns: 1fr;
+  }
+
+  .international-readiness li {
+    min-height: 14rem;
+  }
+
+  .international-page .gcc-footer {
+    grid-template-columns: 1fr;
+  }
+}

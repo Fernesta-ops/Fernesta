@@ -1,0 +1,1019 @@
+[
+  {
+    "name": "desktop",
+    "reducedMotion": "no-preference",
+    "metrics": {
+      "title": "Creative Marketing Agency: Strategy to Growth | Fernesta",
+      "viewportWidth": 1440,
+      "scrollWidth": 1440,
+      "pageHeight": 12896,
+      "heroHeight": 900,
+      "heroCtaFullyVisible": true,
+      "heroCtaBottom": 878,
+      "approachHeight": 666,
+      "titleVisible": true,
+      "imagesLoaded": true,
+      "imageCount": 16,
+      "mainWordCount": 878,
+      "proofNoteCount": 4,
+      "questionCount": 5,
+      "credentialLogoCount": 9,
+      "journeyStageCount": 5,
+      "starterOptionCount": 5,
+      "engagementBlockCount": 4,
+      "engagementItemCounts": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "supportingCapabilityCount": 4,
+      "contactActionCount": 3,
+      "whatsappLinkCount": 2,
+      "footerColumnCount": 3,
+      "officeMapExists": true,
+      "header": {
+        "position": "fixed",
+        "navLinks": 4
+      },
+      "credentialLogoFilterCount": 1,
+      "navCtaHeight": 44,
+      "duplicateMessages": [],
+      "sectionOverlaps": [],
+      "audit": {
+        "ctaCount": 2,
+        "formExists": true,
+        "requiredFields": 3,
+        "challengeRequired": false,
+        "websiteExists": true,
+        "instagramExists": true,
+        "detailsExists": true,
+        "submitLabel": "Register for my free audit↗"
+      },
+      "brand": {
+        "cream": "#f5e9db",
+        "brown": "#4d3d2c",
+        "signal": "#81191a"
+      },
+      "unloadedImages": []
+    },
+    "launchStarterState": {
+      "recommendation": "Start with launch planning.",
+      "challenge": "Launch planning"
+    },
+    "starterState": {
+      "activeIndexes": [
+        2
+      ],
+      "recommendation": "Start with the conversion path.",
+      "challenge": "Conversion and growth",
+      "auditPrefill": "Conversion and growth"
+    },
+    "systemStates": [
+      {
+        "current": "01",
+        "activeSteps": [
+          0
+        ]
+      },
+      {
+        "current": "02",
+        "activeSteps": [
+          1
+        ]
+      },
+      {
+        "current": "03",
+        "activeSteps": [
+          2
+        ]
+      },
+      {
+        "current": "04",
+        "activeSteps": [
+          3
+        ]
+      }
+    ],
+    "journeyState": {
+      "active": true,
+      "expanded": "true",
+      "copyHeight": 37,
+      "copyOpacity": "1"
+    },
+    "questionState": {
+      "initialOpenCount": 0,
+      "opened": true,
+      "openCount": 1,
+      "answerHeight": 82,
+      "answerVisible": true,
+      "finalOpenCount": 0
+    },
+    "auditPendingState": {
+      "busy": "true",
+      "disabled": true,
+      "label": "Registering your audit↗"
+    },
+    "auditCompletedState": {
+      "busy": "false",
+      "disabled": false,
+      "status": "You are registered. A Fernesta team member will review the brand and reply."
+    },
+    "submittedLead": {
+      "subject": "Free brand audit registration",
+      "formName": "Fernesta Free Brand Audit",
+      "fields": {
+        "name": "Fernesta QA",
+        "email": "qa@example.com",
+        "business_website": "https://example.com",
+        "instagram": "@fernestaqa",
+        "challenge": "Conversion and growth",
+        "details": "Testing the complete audit registration path.",
+        "company_fax": "",
+        "pipeline": "fernesta",
+        "source": "http://localhost:3000/#brand-audit",
+        "lead_source": "website_brand_audit",
+        "stage": "New Inquiry"
+      }
+    },
+    "navStates": [
+      {
+        "target": "#start-here",
+        "expected": "Start here",
+        "current": "Start here"
+      },
+      {
+        "target": "#system",
+        "expected": "What we do",
+        "current": "What we do"
+      },
+      {
+        "target": "#credentials",
+        "expected": "Client experience",
+        "current": "Client experience"
+      },
+      {
+        "target": "#questions",
+        "expected": "Client experience",
+        "current": "Client experience"
+      },
+      {
+        "target": "#contact",
+        "expected": "Contact",
+        "current": "Contact"
+      },
+      {
+        "target": "#brand-audit",
+        "expected": "Contact",
+        "current": "Contact"
+      }
+    ],
+    "consoleErrors": [],
+    "pageErrors": [],
+    "screenshots": [
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\desktop-full.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\desktop-starter.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\desktop-system.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\desktop-approach.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\desktop-credentials.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\desktop-questions.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\desktop-contact.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\desktop-audit.png"
+    ]
+  },
+  {
+    "name": "laptop",
+    "reducedMotion": "no-preference",
+    "metrics": {
+      "title": "Creative Marketing Agency: Strategy to Growth | Fernesta",
+      "viewportWidth": 1366,
+      "scrollWidth": 1366,
+      "pageHeight": 12314,
+      "heroHeight": 768,
+      "heroCtaFullyVisible": true,
+      "heroCtaBottom": 746,
+      "approachHeight": 647,
+      "titleVisible": true,
+      "imagesLoaded": true,
+      "imageCount": 16,
+      "mainWordCount": 878,
+      "proofNoteCount": 4,
+      "questionCount": 5,
+      "credentialLogoCount": 9,
+      "journeyStageCount": 5,
+      "starterOptionCount": 5,
+      "engagementBlockCount": 4,
+      "engagementItemCounts": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "supportingCapabilityCount": 4,
+      "contactActionCount": 3,
+      "whatsappLinkCount": 2,
+      "footerColumnCount": 3,
+      "officeMapExists": true,
+      "header": {
+        "position": "fixed",
+        "navLinks": 4
+      },
+      "credentialLogoFilterCount": 1,
+      "navCtaHeight": 44,
+      "duplicateMessages": [],
+      "sectionOverlaps": [],
+      "audit": {
+        "ctaCount": 2,
+        "formExists": true,
+        "requiredFields": 3,
+        "challengeRequired": false,
+        "websiteExists": true,
+        "instagramExists": true,
+        "detailsExists": true,
+        "submitLabel": "Register for my free audit↗"
+      },
+      "brand": {
+        "cream": "#f5e9db",
+        "brown": "#4d3d2c",
+        "signal": "#81191a"
+      },
+      "unloadedImages": []
+    },
+    "launchStarterState": {
+      "recommendation": "Start with launch planning.",
+      "challenge": "Launch planning"
+    },
+    "starterState": {
+      "activeIndexes": [
+        2
+      ],
+      "recommendation": "Start with the conversion path.",
+      "challenge": "Conversion and growth",
+      "auditPrefill": "Conversion and growth"
+    },
+    "systemStates": [
+      {
+        "current": "01",
+        "activeSteps": [
+          0
+        ]
+      },
+      {
+        "current": "02",
+        "activeSteps": [
+          1
+        ]
+      },
+      {
+        "current": "03",
+        "activeSteps": [
+          2
+        ]
+      },
+      {
+        "current": "04",
+        "activeSteps": [
+          3
+        ]
+      }
+    ],
+    "journeyState": {
+      "active": true,
+      "expanded": "true",
+      "copyHeight": 37,
+      "copyOpacity": "1"
+    },
+    "questionState": {
+      "initialOpenCount": 0,
+      "opened": true,
+      "openCount": 1,
+      "answerHeight": 82,
+      "answerVisible": true,
+      "finalOpenCount": 0
+    },
+    "auditPendingState": {
+      "busy": "true",
+      "disabled": true,
+      "label": "Registering your audit↗"
+    },
+    "auditCompletedState": {
+      "busy": "false",
+      "disabled": false,
+      "status": "You are registered. A Fernesta team member will review the brand and reply."
+    },
+    "submittedLead": {
+      "subject": "Free brand audit registration",
+      "formName": "Fernesta Free Brand Audit",
+      "fields": {
+        "name": "Fernesta QA",
+        "email": "qa@example.com",
+        "business_website": "https://example.com",
+        "instagram": "@fernestaqa",
+        "challenge": "Conversion and growth",
+        "details": "Testing the complete audit registration path.",
+        "company_fax": "",
+        "pipeline": "fernesta",
+        "source": "http://localhost:3000/#brand-audit",
+        "lead_source": "website_brand_audit",
+        "stage": "New Inquiry"
+      }
+    },
+    "navStates": [
+      {
+        "target": "#start-here",
+        "expected": "Start here",
+        "current": "Start here"
+      },
+      {
+        "target": "#system",
+        "expected": "What we do",
+        "current": "What we do"
+      },
+      {
+        "target": "#credentials",
+        "expected": "Client experience",
+        "current": "Client experience"
+      },
+      {
+        "target": "#questions",
+        "expected": "Client experience",
+        "current": "Client experience"
+      },
+      {
+        "target": "#contact",
+        "expected": "Contact",
+        "current": "Contact"
+      },
+      {
+        "target": "#brand-audit",
+        "expected": "Contact",
+        "current": "Contact"
+      }
+    ],
+    "consoleErrors": [],
+    "pageErrors": [],
+    "screenshots": [
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\laptop-full.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\laptop-starter.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\laptop-system.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\laptop-approach.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\laptop-credentials.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\laptop-questions.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\laptop-contact.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\laptop-audit.png"
+    ]
+  },
+  {
+    "name": "tablet",
+    "reducedMotion": "no-preference",
+    "metrics": {
+      "title": "Creative Marketing Agency: Strategy to Growth | Fernesta",
+      "viewportWidth": 1024,
+      "scrollWidth": 1024,
+      "pageHeight": 10825,
+      "heroHeight": 768,
+      "heroCtaFullyVisible": true,
+      "heroCtaBottom": 746,
+      "approachHeight": 587,
+      "titleVisible": true,
+      "imagesLoaded": true,
+      "imageCount": 16,
+      "mainWordCount": 878,
+      "proofNoteCount": 4,
+      "questionCount": 5,
+      "credentialLogoCount": 9,
+      "journeyStageCount": 5,
+      "starterOptionCount": 5,
+      "engagementBlockCount": 4,
+      "engagementItemCounts": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "supportingCapabilityCount": 4,
+      "contactActionCount": 3,
+      "whatsappLinkCount": 2,
+      "footerColumnCount": 3,
+      "officeMapExists": true,
+      "header": {
+        "position": "fixed",
+        "navLinks": 4
+      },
+      "credentialLogoFilterCount": 1,
+      "navCtaHeight": 44,
+      "duplicateMessages": [],
+      "sectionOverlaps": [],
+      "audit": {
+        "ctaCount": 2,
+        "formExists": true,
+        "requiredFields": 3,
+        "challengeRequired": false,
+        "websiteExists": true,
+        "instagramExists": true,
+        "detailsExists": true,
+        "submitLabel": "Register for my free audit↗"
+      },
+      "brand": {
+        "cream": "#f5e9db",
+        "brown": "#4d3d2c",
+        "signal": "#81191a"
+      },
+      "unloadedImages": []
+    },
+    "launchStarterState": {
+      "recommendation": "Start with launch planning.",
+      "challenge": "Launch planning"
+    },
+    "starterState": {
+      "activeIndexes": [
+        2
+      ],
+      "recommendation": "Start with the conversion path.",
+      "challenge": "Conversion and growth",
+      "auditPrefill": "Conversion and growth"
+    },
+    "systemStates": [
+      {
+        "current": "01",
+        "activeSteps": [
+          0
+        ]
+      },
+      {
+        "current": "02",
+        "activeSteps": [
+          1
+        ]
+      },
+      {
+        "current": "03",
+        "activeSteps": [
+          2
+        ]
+      },
+      {
+        "current": "04",
+        "activeSteps": [
+          3
+        ]
+      }
+    ],
+    "journeyState": {
+      "active": true,
+      "expanded": "true",
+      "copyHeight": 37,
+      "copyOpacity": "1"
+    },
+    "questionState": {
+      "initialOpenCount": 0,
+      "opened": true,
+      "openCount": 1,
+      "answerHeight": 109,
+      "answerVisible": true,
+      "finalOpenCount": 0
+    },
+    "auditPendingState": {
+      "busy": "true",
+      "disabled": true,
+      "label": "Registering your audit↗"
+    },
+    "auditCompletedState": {
+      "busy": "false",
+      "disabled": false,
+      "status": "You are registered. A Fernesta team member will review the brand and reply."
+    },
+    "submittedLead": {
+      "subject": "Free brand audit registration",
+      "formName": "Fernesta Free Brand Audit",
+      "fields": {
+        "name": "Fernesta QA",
+        "email": "qa@example.com",
+        "business_website": "https://example.com",
+        "instagram": "@fernestaqa",
+        "challenge": "Conversion and growth",
+        "details": "Testing the complete audit registration path.",
+        "company_fax": "",
+        "pipeline": "fernesta",
+        "source": "http://localhost:3000/#brand-audit",
+        "lead_source": "website_brand_audit",
+        "stage": "New Inquiry"
+      }
+    },
+    "navStates": [
+      {
+        "target": "#start-here",
+        "expected": "Start here",
+        "current": "Start here"
+      },
+      {
+        "target": "#system",
+        "expected": "What we do",
+        "current": "What we do"
+      },
+      {
+        "target": "#credentials",
+        "expected": "Client experience",
+        "current": "Client experience"
+      },
+      {
+        "target": "#questions",
+        "expected": "Client experience",
+        "current": "Client experience"
+      },
+      {
+        "target": "#contact",
+        "expected": "Contact",
+        "current": "Contact"
+      },
+      {
+        "target": "#brand-audit",
+        "expected": "Contact",
+        "current": "Contact"
+      }
+    ],
+    "consoleErrors": [],
+    "pageErrors": [],
+    "screenshots": [
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\tablet-full.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\tablet-starter.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\tablet-system.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\tablet-approach.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\tablet-credentials.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\tablet-questions.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\tablet-contact.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\tablet-audit.png"
+    ]
+  },
+  {
+    "name": "mobile",
+    "reducedMotion": "no-preference",
+    "metrics": {
+      "title": "Creative Marketing Agency: Strategy to Growth | Fernesta",
+      "viewportWidth": 390,
+      "scrollWidth": 390,
+      "pageHeight": 16082,
+      "heroHeight": 844,
+      "heroCtaFullyVisible": true,
+      "heroCtaBottom": 762,
+      "approachHeight": 1374,
+      "titleVisible": true,
+      "imagesLoaded": true,
+      "imageCount": 16,
+      "mainWordCount": 871,
+      "proofNoteCount": 4,
+      "questionCount": 5,
+      "credentialLogoCount": 9,
+      "journeyStageCount": 5,
+      "starterOptionCount": 5,
+      "engagementBlockCount": 4,
+      "engagementItemCounts": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "supportingCapabilityCount": 4,
+      "contactActionCount": 3,
+      "whatsappLinkCount": 2,
+      "footerColumnCount": 3,
+      "officeMapExists": true,
+      "header": {
+        "position": "fixed",
+        "navLinks": 4
+      },
+      "credentialLogoFilterCount": 1,
+      "navCtaHeight": 44,
+      "duplicateMessages": [],
+      "sectionOverlaps": [],
+      "audit": {
+        "ctaCount": 2,
+        "formExists": true,
+        "requiredFields": 3,
+        "challengeRequired": false,
+        "websiteExists": true,
+        "instagramExists": true,
+        "detailsExists": true,
+        "submitLabel": "Register for my free audit↗"
+      },
+      "brand": {
+        "cream": "#f5e9db",
+        "brown": "#4d3d2c",
+        "signal": "#81191a"
+      },
+      "unloadedImages": []
+    },
+    "launchStarterState": {
+      "recommendation": "Start with launch planning.",
+      "challenge": "Launch planning"
+    },
+    "starterState": {
+      "activeIndexes": [
+        2
+      ],
+      "recommendation": "Start with the conversion path.",
+      "challenge": "Conversion and growth",
+      "auditPrefill": "Conversion and growth"
+    },
+    "systemStates": [],
+    "journeyState": {
+      "active": true,
+      "expanded": "true",
+      "copyHeight": 37,
+      "copyOpacity": "1"
+    },
+    "questionState": {
+      "initialOpenCount": 0,
+      "opened": true,
+      "openCount": 1,
+      "answerHeight": 136,
+      "answerVisible": true,
+      "finalOpenCount": 0
+    },
+    "auditPendingState": {
+      "busy": "true",
+      "disabled": true,
+      "label": "Registering your audit↗"
+    },
+    "auditCompletedState": {
+      "busy": "false",
+      "disabled": false,
+      "status": "You are registered. A Fernesta team member will review the brand and reply."
+    },
+    "submittedLead": {
+      "subject": "Free brand audit registration",
+      "formName": "Fernesta Free Brand Audit",
+      "fields": {
+        "name": "Fernesta QA",
+        "email": "qa@example.com",
+        "business_website": "https://example.com",
+        "instagram": "@fernestaqa",
+        "challenge": "Conversion and growth",
+        "details": "Testing the complete audit registration path.",
+        "company_fax": "",
+        "pipeline": "fernesta",
+        "source": "http://localhost:3000/#brand-audit",
+        "lead_source": "website_brand_audit",
+        "stage": "New Inquiry"
+      }
+    },
+    "navStates": [
+      {
+        "target": "#start-here",
+        "expected": "Start here",
+        "current": "Start here"
+      },
+      {
+        "target": "#system",
+        "expected": "What we do",
+        "current": "What we do"
+      },
+      {
+        "target": "#credentials",
+        "expected": "Client experience",
+        "current": "Client experience"
+      },
+      {
+        "target": "#questions",
+        "expected": "Client experience",
+        "current": "Client experience"
+      },
+      {
+        "target": "#contact",
+        "expected": "Contact",
+        "current": "Contact"
+      },
+      {
+        "target": "#brand-audit",
+        "expected": "Contact",
+        "current": "Contact"
+      }
+    ],
+    "consoleErrors": [],
+    "pageErrors": [],
+    "screenshots": [
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\mobile-full.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\mobile-starter.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\mobile-system.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\mobile-approach.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\mobile-credentials.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\mobile-questions.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\mobile-contact.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\mobile-audit.png"
+    ]
+  },
+  {
+    "name": "narrow-mobile",
+    "reducedMotion": "no-preference",
+    "metrics": {
+      "title": "Creative Marketing Agency: Strategy to Growth | Fernesta",
+      "viewportWidth": 360,
+      "scrollWidth": 360,
+      "pageHeight": 16060,
+      "heroHeight": 800,
+      "heroCtaFullyVisible": true,
+      "heroCtaBottom": 718,
+      "approachHeight": 1351,
+      "titleVisible": true,
+      "imagesLoaded": true,
+      "imageCount": 16,
+      "mainWordCount": 871,
+      "proofNoteCount": 4,
+      "questionCount": 5,
+      "credentialLogoCount": 9,
+      "journeyStageCount": 5,
+      "starterOptionCount": 5,
+      "engagementBlockCount": 4,
+      "engagementItemCounts": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "supportingCapabilityCount": 4,
+      "contactActionCount": 3,
+      "whatsappLinkCount": 2,
+      "footerColumnCount": 3,
+      "officeMapExists": true,
+      "header": {
+        "position": "fixed",
+        "navLinks": 4
+      },
+      "credentialLogoFilterCount": 1,
+      "navCtaHeight": 44,
+      "duplicateMessages": [],
+      "sectionOverlaps": [],
+      "audit": {
+        "ctaCount": 2,
+        "formExists": true,
+        "requiredFields": 3,
+        "challengeRequired": false,
+        "websiteExists": true,
+        "instagramExists": true,
+        "detailsExists": true,
+        "submitLabel": "Register for my free audit↗"
+      },
+      "brand": {
+        "cream": "#f5e9db",
+        "brown": "#4d3d2c",
+        "signal": "#81191a"
+      },
+      "unloadedImages": []
+    },
+    "launchStarterState": {
+      "recommendation": "Start with launch planning.",
+      "challenge": "Launch planning"
+    },
+    "starterState": {
+      "activeIndexes": [
+        2
+      ],
+      "recommendation": "Start with the conversion path.",
+      "challenge": "Conversion and growth",
+      "auditPrefill": "Conversion and growth"
+    },
+    "systemStates": [],
+    "journeyState": {
+      "active": true,
+      "expanded": "true",
+      "copyHeight": 37,
+      "copyOpacity": "1"
+    },
+    "questionState": {
+      "initialOpenCount": 0,
+      "opened": true,
+      "openCount": 1,
+      "answerHeight": 163,
+      "answerVisible": true,
+      "finalOpenCount": 0
+    },
+    "auditPendingState": {
+      "busy": "true",
+      "disabled": true,
+      "label": "Registering your audit↗"
+    },
+    "auditCompletedState": {
+      "busy": "false",
+      "disabled": false,
+      "status": "You are registered. A Fernesta team member will review the brand and reply."
+    },
+    "submittedLead": {
+      "subject": "Free brand audit registration",
+      "formName": "Fernesta Free Brand Audit",
+      "fields": {
+        "name": "Fernesta QA",
+        "email": "qa@example.com",
+        "business_website": "https://example.com",
+        "instagram": "@fernestaqa",
+        "challenge": "Conversion and growth",
+        "details": "Testing the complete audit registration path.",
+        "company_fax": "",
+        "pipeline": "fernesta",
+        "source": "http://localhost:3000/#brand-audit",
+        "lead_source": "website_brand_audit",
+        "stage": "New Inquiry"
+      }
+    },
+    "navStates": [
+      {
+        "target": "#start-here",
+        "expected": "Start here",
+        "current": "Start here"
+      },
+      {
+        "target": "#system",
+        "expected": "What we do",
+        "current": "What we do"
+      },
+      {
+        "target": "#credentials",
+        "expected": "Client experience",
+        "current": "Client experience"
+      },
+      {
+        "target": "#questions",
+        "expected": "Client experience",
+        "current": "Client experience"
+      },
+      {
+        "target": "#contact",
+        "expected": "Contact",
+        "current": "Contact"
+      },
+      {
+        "target": "#brand-audit",
+        "expected": "Contact",
+        "current": "Contact"
+      }
+    ],
+    "consoleErrors": [],
+    "pageErrors": [],
+    "screenshots": [
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\narrow-mobile-full.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\narrow-mobile-starter.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\narrow-mobile-system.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\narrow-mobile-approach.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\narrow-mobile-credentials.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\narrow-mobile-questions.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\narrow-mobile-contact.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\narrow-mobile-audit.png"
+    ]
+  },
+  {
+    "name": "reduced-motion",
+    "reducedMotion": "reduce",
+    "metrics": {
+      "title": "Creative Marketing Agency: Strategy to Growth | Fernesta",
+      "viewportWidth": 1440,
+      "scrollWidth": 1440,
+      "pageHeight": 12896,
+      "heroHeight": 900,
+      "heroCtaFullyVisible": true,
+      "heroCtaBottom": 876,
+      "approachHeight": 666,
+      "titleVisible": true,
+      "imagesLoaded": true,
+      "imageCount": 16,
+      "mainWordCount": 971,
+      "proofNoteCount": 4,
+      "questionCount": 5,
+      "credentialLogoCount": 9,
+      "journeyStageCount": 5,
+      "starterOptionCount": 5,
+      "engagementBlockCount": 4,
+      "engagementItemCounts": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "supportingCapabilityCount": 4,
+      "contactActionCount": 3,
+      "whatsappLinkCount": 2,
+      "footerColumnCount": 3,
+      "officeMapExists": true,
+      "header": {
+        "position": "fixed",
+        "navLinks": 4
+      },
+      "credentialLogoFilterCount": 1,
+      "navCtaHeight": 44,
+      "duplicateMessages": [],
+      "sectionOverlaps": [],
+      "audit": {
+        "ctaCount": 2,
+        "formExists": true,
+        "requiredFields": 3,
+        "challengeRequired": false,
+        "websiteExists": true,
+        "instagramExists": true,
+        "detailsExists": true,
+        "submitLabel": "Register for my free audit↗"
+      },
+      "brand": {
+        "cream": "#f5e9db",
+        "brown": "#4d3d2c",
+        "signal": "#81191a"
+      },
+      "unloadedImages": []
+    },
+    "launchStarterState": {
+      "recommendation": "Start with launch planning.",
+      "challenge": "Launch planning"
+    },
+    "starterState": {
+      "activeIndexes": [
+        2
+      ],
+      "recommendation": "Start with the conversion path.",
+      "challenge": "Conversion and growth",
+      "auditPrefill": "Conversion and growth"
+    },
+    "systemStates": [],
+    "journeyState": {
+      "active": true,
+      "expanded": "true",
+      "copyHeight": 37,
+      "copyOpacity": "1"
+    },
+    "questionState": {
+      "initialOpenCount": 0,
+      "opened": true,
+      "openCount": 1,
+      "answerHeight": 82,
+      "answerVisible": true,
+      "finalOpenCount": 0
+    },
+    "auditPendingState": {
+      "busy": "true",
+      "disabled": true,
+      "label": "Registering your audit↗"
+    },
+    "auditCompletedState": {
+      "busy": "false",
+      "disabled": false,
+      "status": "You are registered. A Fernesta team member will review the brand and reply."
+    },
+    "submittedLead": {
+      "subject": "Free brand audit registration",
+      "formName": "Fernesta Free Brand Audit",
+      "fields": {
+        "name": "Fernesta QA",
+        "email": "qa@example.com",
+        "business_website": "https://example.com",
+        "instagram": "@fernestaqa",
+        "challenge": "Conversion and growth",
+        "details": "Testing the complete audit registration path.",
+        "company_fax": "",
+        "pipeline": "fernesta",
+        "source": "http://localhost:3000/#brand-audit",
+        "lead_source": "website_brand_audit",
+        "stage": "New Inquiry"
+      }
+    },
+    "navStates": [
+      {
+        "target": "#start-here",
+        "expected": "Start here",
+        "current": "Start here"
+      },
+      {
+        "target": "#system",
+        "expected": "What we do",
+        "current": "What we do"
+      },
+      {
+        "target": "#credentials",
+        "expected": "Client experience",
+        "current": "Client experience"
+      },
+      {
+        "target": "#questions",
+        "expected": "Client experience",
+        "current": "Client experience"
+      },
+      {
+        "target": "#contact",
+        "expected": "Contact",
+        "current": "Contact"
+      },
+      {
+        "target": "#brand-audit",
+        "expected": "Contact",
+        "current": "Contact"
+      }
+    ],
+    "consoleErrors": [],
+    "pageErrors": [],
+    "screenshots": [
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\reduced-motion-full.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\reduced-motion-starter.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\reduced-motion-system.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\reduced-motion-approach.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\reduced-motion-credentials.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\reduced-motion-questions.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\reduced-motion-contact.png",
+      "C:\\Users\\Ojasvini\\OneDrive\\Fernesta-Agency\\40_Projects\\Owned_Brands\\Fernesta_Site\\prototype-v2\\sites-source\\output\\first-cut-qa\\reduced-motion-audit.png"
+    ]
+  }
+]

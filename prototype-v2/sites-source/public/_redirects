@@ -1,0 +1,13 @@
+# Legacy production URL preservation — permanent redirects to the current site.
+# Do not remove without confirming these paths are no longer indexed/linked externally.
+
+/about-us                                                  /#approach                                          301
+/contact-us                                                /#contact                                           301
+/clientele                                                 /#credentials                                       301
+/case-studies                                              /work                                               301
+/case-studies/d2c-skincare-performance-turnaround          /work/d2c-skincare-performance-turnaround           301
+/case-studies/consumer-retail-brand-retention              /work/consumer-retail-brand-retention               301
+/case-studies/boutique-hospitality-social-pr-launch        /work/boutique-hospitality-social-pr-launch         301
+/case-studies/distribution-workflow-automation-reset       /work/distribution-workflow-automation-reset        301
+/case-studies/education-seo-lead-engine                    /work                                               301
+/case-studies/b2b-services-cpl-optimization                /work                                               301
