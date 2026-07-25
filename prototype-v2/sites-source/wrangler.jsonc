@@ -13,5 +13,14 @@
   },
   "images": {
     "binding": "IMAGES"
-  }
+  },
+  // Keep the workers.dev URL alive for staging/QA. Without this key wrangler
+  // disables it by default, which 404s the preview URL.
+  "workers_dev": true
+  // NOTE: a `routes` entry binding www.fernesta.com as a custom_domain was
+  // removed deliberately. The fernesta.com DNS zone is NOT in Cloudflare
+  // account f931342eec9b71181dbe3081b3e533d2, so a Workers custom domain
+  // cannot be claimed from here — `wrangler triggers deploy` fails with
+  // "Could not find zone for www.fernesta.com". See
+  // CODEX_DEPLOYMENT_HANDOFF_2026-07-25.md before re-adding.
 }
