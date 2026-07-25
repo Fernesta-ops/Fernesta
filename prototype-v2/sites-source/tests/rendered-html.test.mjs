@@ -275,6 +275,10 @@ for (const serviceRoute of renderedServiceRoutes) {
     assert.match(html, /application\/ld\+json/);
     assert.match(html, /"@type":"BreadcrumbList"/);
     assert.match(html, /name="twitter:title"/);
+    assert.doesNotMatch(
+      html,
+      /name="twitter:title" content="Creative Marketing Agency: Strategy to Growth \| Fernesta"/i,
+    );
   });
 }
 
@@ -347,6 +351,10 @@ for (const workRoute of renderedWorkRoutes) {
     assert.match(html, /Register for a free brand audit/);
     assert.match(html, /Choose your country or market/);
     assert.match(html, /name="twitter:title"/);
+    assert.doesNotMatch(
+      html,
+      /name="twitter:title" content="Creative Marketing Agency: Strategy to Growth \| Fernesta"/i,
+    );
   });
 }
 
