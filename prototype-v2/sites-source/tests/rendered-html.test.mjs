@@ -487,7 +487,6 @@ test("preserves Fernesta brand, SEO, and accessible motion contracts", async () 
   assert.match(marketSelector, /Europe/);
   assert.match(marketSelector, /United States/);
   assert.match(marketSelector, /fernesta-market/);
-  assert.match(marketSelector, /navigator\.language/);
   assert.match(privacyPage, /Effective 24 July 2026/);
   assert.match(privacyPage, /MarketSelector/);
   assert.match(gccPage, /UAE first/);

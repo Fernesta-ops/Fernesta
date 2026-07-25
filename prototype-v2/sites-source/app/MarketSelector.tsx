@@ -19,48 +19,6 @@ const supportedMarkets = new Set<MarketCode>(
 );
 
 function inferMarket(): MarketCode {
-  try {
-    const region = new Intl.Locale(navigator.language).region?.toLowerCase();
-    if (region && supportedMarkets.has(region as MarketCode)) {
-      return region as MarketCode;
-    }
-    if (
-      region &&
-      new Set([
-        "at",
-        "be",
-        "bg",
-        "hr",
-        "cy",
-        "cz",
-        "de",
-        "dk",
-        "ee",
-        "es",
-        "fi",
-        "fr",
-        "gr",
-        "hu",
-        "ie",
-        "it",
-        "lt",
-        "lu",
-        "lv",
-        "mt",
-        "nl",
-        "pl",
-        "pt",
-        "ro",
-        "se",
-        "si",
-        "sk",
-      ]).has(region)
-    ) {
-      return "eu";
-    }
-  } catch {
-    return "in";
-  }
   return "in";
 }
 
