@@ -559,6 +559,19 @@ test("preserves Fernesta brand, SEO, and accessible motion contracts", async () 
     sitemap,
     /<loc>https:\/\/www\.fernesta\.com\/work\/distribution-workflow-automation-reset<\/loc>/,
   );
+  const sitemapChangeFrequencies = [
+    ...sitemap.matchAll(/<changefreq>([^<]+)<\/changefreq>/g),
+  ].map((match) => match[1]);
+  assert.ok(sitemapChangeFrequencies.length > 0);
+  assert.deepEqual(
+    sitemapChangeFrequencies.filter(
+      (value) =>
+        !["always", "hourly", "daily", "weekly", "monthly", "yearly", "never"].includes(
+          value,
+        ),
+    ),
+    [],
+  );
   assert.equal(JSON.parse(manifest).name, "Fernesta");
   assert.match(llms, /Fernesta Digital Private Limited/);
   assert.match(llms, /Strategy and Launch Planning/);
