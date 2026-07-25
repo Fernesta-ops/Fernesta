@@ -16,23 +16,51 @@ export default function ServiceDetailPage({
   );
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    name: service.title,
-    serviceType: service.title,
-    description: service.metaDescription,
-    provider: {
-      "@type": "Organization",
-      "@id": "https://www.fernesta.com/#organization",
-      name: "Fernesta Digital Private Limited",
-      url: "https://www.fernesta.com/",
-    },
-    areaServed: [
-      { "@type": "Country", name: "India" },
-      { "@type": "Place", name: "Gulf Cooperation Council" },
-      { "@type": "Place", name: "Europe" },
-      { "@type": "Country", name: "United States" },
+    "@graph": [
+      {
+        "@type": "Service",
+        name: service.title,
+        serviceType: service.title,
+        description: service.metaDescription,
+        provider: {
+          "@type": "Organization",
+          "@id": "https://www.fernesta.com/#organization",
+          name: "Fernesta Digital Private Limited",
+          url: "https://www.fernesta.com/",
+        },
+        areaServed: [
+          { "@type": "City", name: "Jaipur" },
+          { "@type": "Country", name: "India" },
+          { "@type": "Place", name: "Gulf Cooperation Council" },
+          { "@type": "Place", name: "Europe" },
+          { "@type": "Country", name: "United States" },
+        ],
+        url: `https://www.fernesta.com/services/${service.slug}`,
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://www.fernesta.com/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Services",
+            item: "https://www.fernesta.com/services",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: service.title,
+            item: `https://www.fernesta.com/services/${service.slug}`,
+          },
+        ],
+      },
     ],
-    url: `https://www.fernesta.com/services/${service.slug}`,
   };
 
   return (
@@ -287,7 +315,7 @@ export default function ServiceDetailPage({
 
       <footer className="gcc-footer service-footer">
         <Link href="/">Fernesta Digital Private Limited</Link>
-        <Link href="/services">All services</Link>
+        <Link href="/jaipur">Marketing agency in Jaipur</Link>
         <a href="mailto:info@fernesta.com">info@fernesta.com</a>
         <Link href="/privacy">Privacy notice</Link>
       </footer>

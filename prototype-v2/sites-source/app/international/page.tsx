@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import MarketSelector from "../MarketSelector";
+import { twitterCard } from "../seo";
 import "../fernesta.css";
 import "../gcc/gcc.css";
 import "./international.css";
@@ -39,6 +40,10 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: twitterCard(
+    "Selective international market entry | Fernesta",
+    "Market evidence, brand decisions, launch planning, and growth learning for brands assessing Europe or the United States.",
+  ),
 };
 
 const markets = [

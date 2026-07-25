@@ -1251,6 +1251,7 @@ export default function FernestaExperience() {
         </address>
         <div className="footer-legal">
           <span>Fernesta Digital Private Limited</span>
+          <Link href="/jaipur">Jaipur marketing agency</Link>
           <Link href="/gcc">GCC market entry</Link>
           <Link href="/privacy">Privacy notice</Link>
           <span>© 2026 Fernesta. All rights reserved.</span>

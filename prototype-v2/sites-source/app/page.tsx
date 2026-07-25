@@ -13,13 +13,13 @@ const structuredData = {
       alternateName: "Fernesta Digital Private Limited",
       description:
         "An independent creative marketing agency connecting strategy, branding, launch planning, content, and performance.",
-      inLanguage: "en-IN",
+      inLanguage: "en",
       publisher: {
         "@id": `${siteUrl}/#organization`,
       },
     },
     {
-      "@type": "Organization",
+      "@type": ["Organization", "ProfessionalService"],
       "@id": `${siteUrl}/#organization`,
       name: "Fernesta",
       legalName: "Fernesta Digital Private Limited",
@@ -43,6 +43,14 @@ const structuredData = {
         addressCountry: "IN",
       },
       hasMap: "https://maps.app.goo.gl/ZatXGy9xwzVFQFwo9",
+      areaServed: [
+        { "@type": "City", name: "Jaipur" },
+        { "@type": "State", name: "Rajasthan" },
+        { "@type": "Country", name: "India" },
+        { "@type": "Place", name: "Gulf Cooperation Council" },
+        { "@type": "Place", name: "Europe" },
+        { "@type": "Country", name: "United States" },
+      ],
       sameAs: [
         "https://www.linkedin.com/company/fernesta/",
         "https://www.instagram.com/fernesta.co/",

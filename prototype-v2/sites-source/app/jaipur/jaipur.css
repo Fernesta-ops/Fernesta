@@ -1,0 +1,317 @@
+.jaipur-page {
+  color: var(--brown);
+  background: var(--cream);
+}
+
+.jaipur-hero h1 {
+  max-width: 12ch;
+  font-size: clamp(4rem, 7.6vw, 8.4rem);
+}
+
+.jaipur-answer,
+.jaipur-office {
+  display: grid;
+  grid-template-columns: minmax(10rem, 0.45fr) minmax(0, 1.55fr);
+  gap: clamp(2rem, 7vw, 9rem);
+  padding: var(--section-space) var(--gutter);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.jaipur-answer > span,
+.jaipur-criteria > div > span,
+.jaipur-faq > div:first-child > span,
+.jaipur-office > div > span {
+  color: var(--signal);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.jaipur-answer h2,
+.jaipur-criteria h2,
+.jaipur-faq h2,
+.jaipur-office h2 {
+  max-width: 13ch;
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(3.2rem, 6.2vw, 7rem);
+  font-weight: 400;
+  letter-spacing: -0.06em;
+  line-height: 0.94;
+}
+
+.jaipur-answer p {
+  max-width: 46rem;
+  margin: clamp(2.5rem, 5vw, 5rem) 0 0 auto;
+  color: var(--muted);
+  font-size: clamp(1.05rem, 1.55vw, 1.28rem);
+  line-height: 1.75;
+}
+
+.jaipur-services .gcc-offer-list > article {
+  grid-template-columns: minmax(17rem, 0.9fr) minmax(18rem, 1fr) auto;
+}
+
+.jaipur-proof {
+  padding: var(--section-space) var(--gutter);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.jaipur-proof-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: clamp(4rem, 8vw, 8rem);
+  border-top: 1px solid var(--line-dark);
+  border-left: 1px solid var(--line-dark);
+}
+
+.jaipur-proof-grid > a {
+  display: flex;
+  min-height: 27rem;
+  flex-direction: column;
+  padding: clamp(1.5rem, 3vw, 3rem);
+  color: var(--brown);
+  border-right: 1px solid var(--line-dark);
+  border-bottom: 1px solid var(--line-dark);
+  transition:
+    color 200ms ease,
+    background-color 200ms ease;
+}
+
+.jaipur-proof-grid > a:hover,
+.jaipur-proof-grid > a:focus-visible {
+  color: var(--cream);
+  background: var(--brown-deep);
+}
+
+.jaipur-proof-grid > a > span {
+  font-size: 0.67rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.jaipur-proof-grid strong {
+  margin-top: clamp(3rem, 6vw, 6rem);
+  color: var(--signal);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(4rem, 7vw, 7rem);
+  font-weight: 400;
+  line-height: 0.9;
+}
+
+.jaipur-proof-grid h3 {
+  max-width: 15ch;
+  margin: 1rem 0 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.5rem, 2.5vw, 2.8rem);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.jaipur-proof-grid > a > span:last-child {
+  margin-top: auto;
+  padding-top: 2rem;
+}
+
+.jaipur-criteria {
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.75fr) minmax(0, 1.25fr);
+  gap: clamp(3rem, 8vw, 10rem);
+  padding: var(--section-space) var(--gutter);
+  color: var(--cream);
+  background: var(--brown-deep);
+}
+
+.jaipur-criteria > div > span {
+  color: #d69a8d;
+}
+
+.jaipur-criteria h2 {
+  margin-top: 2rem;
+  font-size: clamp(3rem, 5.2vw, 6rem);
+}
+
+.jaipur-criteria > div > p {
+  max-width: 33rem;
+  margin: 2.5rem 0 0;
+  color: rgba(245, 233, 219, 0.7);
+  line-height: 1.7;
+}
+
+.jaipur-criteria ol {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line-light);
+  list-style: none;
+}
+
+.jaipur-criteria li {
+  display: grid;
+  grid-template-columns: 3rem minmax(11rem, 0.55fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--line-light);
+}
+
+.jaipur-criteria li > span {
+  color: #d69a8d;
+  font-size: 0.67rem;
+}
+
+.jaipur-criteria h3 {
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.35rem, 2vw, 2rem);
+  font-weight: 400;
+}
+
+.jaipur-criteria li p {
+  margin: 0;
+  color: rgba(245, 233, 219, 0.7);
+  line-height: 1.65;
+}
+
+.jaipur-faq {
+  display: grid;
+  grid-template-columns: minmax(17rem, 0.65fr) minmax(0, 1.35fr);
+  gap: clamp(3rem, 8vw, 10rem);
+  padding: var(--section-space) var(--gutter);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.jaipur-faq h2 {
+  margin-top: 1.5rem;
+  font-size: clamp(3rem, 5vw, 6rem);
+}
+
+.jaipur-faq details {
+  border-top: 1px solid var(--line-dark);
+}
+
+.jaipur-faq details:last-child {
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.jaipur-faq summary {
+  display: grid;
+  grid-template-columns: 3rem 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.8rem 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.jaipur-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.jaipur-faq summary > span {
+  color: var(--signal);
+  font-size: 0.68rem;
+}
+
+.jaipur-faq summary strong {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.35rem, 2vw, 2rem);
+  font-weight: 400;
+}
+
+.jaipur-faq details[open] summary > span:last-child {
+  transform: rotate(45deg);
+}
+
+.jaipur-faq details p {
+  max-width: 44rem;
+  margin: 0 0 2rem 4rem;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.jaipur-office {
+  background: #efe0cf;
+}
+
+.jaipur-office h2 {
+  max-width: 14ch;
+  margin-top: 1.5rem;
+  font-size: clamp(3rem, 5vw, 6rem);
+}
+
+.jaipur-office address {
+  display: grid;
+  max-width: 42rem;
+  gap: 1rem;
+  align-content: start;
+  margin: 0 0 0 auto;
+  font-style: normal;
+}
+
+.jaipur-office address strong {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  font-weight: 400;
+}
+
+.jaipur-office address span {
+  color: var(--muted);
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  line-height: 1.7;
+}
+
+.jaipur-office address a {
+  width: fit-content;
+  color: var(--signal);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-decoration: underline;
+  text-underline-offset: 0.35rem;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1080px) {
+  .jaipur-services .gcc-offer-list > article {
+    grid-template-columns: minmax(15rem, 0.8fr) minmax(0, 1fr);
+  }
+
+  .jaipur-services .gcc-offer-list > article > a {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 720px) {
+  .jaipur-answer,
+  .jaipur-criteria,
+  .jaipur-faq,
+  .jaipur-office {
+    grid-template-columns: 1fr;
+  }
+
+  .jaipur-answer p,
+  .jaipur-office address {
+    margin-left: 0;
+  }
+
+  .jaipur-services .gcc-offer-list > article,
+  .jaipur-proof-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .jaipur-services .gcc-offer-list > article > a {
+    grid-column: auto;
+  }
+
+  .jaipur-proof-grid > a {
+    min-height: 22rem;
+  }
+
+  .jaipur-criteria li {
+    grid-template-columns: 2rem 1fr;
+  }
+
+  .jaipur-criteria li p {
+    grid-column: 2;
+  }
+}

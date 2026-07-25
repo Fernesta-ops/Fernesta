@@ -4,6 +4,7 @@ import Link from "next/link";
 import "../fernesta.css";
 import "./privacy.css";
 import MarketSelector from "../MarketSelector";
+import { twitterCard } from "../seo";
 
 export const metadata: Metadata = {
   title: "Privacy Notice | Fernesta",
@@ -19,6 +20,10 @@ export const metadata: Metadata = {
     description:
       "How Fernesta handles personal information submitted through its website and brand-audit form.",
   },
+  twitter: twitterCard(
+    "Privacy Notice | Fernesta",
+    "How Fernesta handles personal information submitted through its website and brand-audit form.",
+  ),
 };
 
 const sections = [

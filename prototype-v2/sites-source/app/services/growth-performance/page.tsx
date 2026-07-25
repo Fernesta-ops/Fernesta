@@ -4,6 +4,7 @@ import "../../gcc/gcc.css";
 import "../services.css";
 import ServiceDetailPage from "../ServiceDetailPage";
 import { services } from "../service-data";
+import { twitterCard } from "../../seo";
 
 const service = services["growth-performance"];
 
@@ -19,9 +20,9 @@ export const metadata: Metadata = {
     description: service.metaDescription,
     images: ["/og.jpg"],
   },
+  twitter: twitterCard(service.metaTitle, service.metaDescription),
 };
 
 export default function GrowthPerformancePage() {
   return <ServiceDetailPage service={service} />;
 }
-

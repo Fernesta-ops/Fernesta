@@ -14,6 +14,10 @@ User-agent: Google-Extended
 Allow: /
 Disallow: /api/
 
+User-agent: PerplexityBot
+Allow: /
+Disallow: /api/
+
 User-agent: *
 Allow: /
 Disallow: /api/

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import MarketSelector from "../MarketSelector";
+import { twitterCard } from "../seo";
 import "../fernesta.css";
 import "./gcc.css";
 
@@ -37,6 +38,10 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: twitterCard(
+    "Building between India and the Gulf | Fernesta",
+    "A senior-led market-entry and creative-growth system for brands preparing to launch or grow across the GCC.",
+  ),
 };
 
 const markets = [

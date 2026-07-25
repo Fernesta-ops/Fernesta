@@ -6,6 +6,11 @@ import "../fernesta.css";
 import "../gcc/gcc.css";
 import "./services.css";
 import { serviceOrder } from "./service-data";
+import { twitterCard } from "../seo";
+
+const socialTitle = "Connected creative marketing services | Fernesta";
+const socialDescription =
+  "Four senior-led disciplines connected from evidence and positioning through brand, launch, content, conversion, and growth learning.";
 
 export const metadata: Metadata = {
   title: "Creative Marketing Services: Strategy to Growth | Fernesta",
@@ -24,9 +29,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://www.fernesta.com/services",
-    title: "Connected creative marketing services | Fernesta",
-    description:
-      "Four senior-led disciplines connected from evidence and positioning through brand, launch, content, conversion, and growth learning.",
+    title: socialTitle,
+    description: socialDescription,
     images: [
       {
         url: "/og.jpg",
@@ -36,6 +40,7 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: twitterCard(socialTitle, socialDescription),
 };
 
 const systemStages = [
@@ -185,7 +190,7 @@ export default function ServicesPage() {
 
       <footer className="gcc-footer">
         <Link href="/">Fernesta Digital Private Limited</Link>
-        <span>Strategy · Brand · Growth · Content</span>
+        <Link href="/jaipur">Marketing agency in Jaipur</Link>
         <a href="mailto:info@fernesta.com">info@fernesta.com</a>
         <Link href="/privacy">Privacy notice</Link>
       </footer>
@@ -197,4 +202,3 @@ export default function ServicesPage() {
     </div>
   );
 }
-

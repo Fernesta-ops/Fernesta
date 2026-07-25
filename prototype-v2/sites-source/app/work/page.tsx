@@ -6,6 +6,11 @@ import "../fernesta.css";
 import "../gcc/gcc.css";
 import "./work.css";
 import { workOrder } from "./work-data";
+import { twitterCard } from "../seo";
+
+const socialTitle = "Selected connected marketing work | Fernesta";
+const socialDescription =
+  "Anonymized engagement records showing the decisions, operating changes, and outcomes behind connected marketing work.";
 
 export const metadata: Metadata = {
   title: "Selected Marketing Case Studies & Outcomes | Fernesta",
@@ -22,11 +27,11 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://www.fernesta.com/work",
-    title: "Selected connected marketing work | Fernesta",
-    description:
-      "Anonymized engagement records showing the decisions, operating changes, and outcomes behind connected marketing work.",
+    title: socialTitle,
+    description: socialDescription,
     images: ["/og.jpg"],
   },
+  twitter: twitterCard(socialTitle, socialDescription),
 };
 
 export default function WorkPage() {
@@ -153,7 +158,7 @@ export default function WorkPage() {
 
       <footer className="gcc-footer">
         <Link href="/">Fernesta Digital Private Limited</Link>
-        <Link href="/services">Services</Link>
+        <Link href="/jaipur">Marketing agency in Jaipur</Link>
         <a href="mailto:info@fernesta.com">info@fernesta.com</a>
         <Link href="/privacy">Privacy notice</Link>
       </footer>
@@ -165,4 +170,3 @@ export default function WorkPage() {
     </div>
   );
 }
-

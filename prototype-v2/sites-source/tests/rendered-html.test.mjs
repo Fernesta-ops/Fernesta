@@ -147,6 +147,38 @@ test("server-renders the UAE-first GCC market entry page", async () => {
   assert.match(html, /Choose your country or market/);
 });
 
+test("server-renders the evidence-led Jaipur marketing agency page", async () => {
+  const response = await render("/jaipur");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+
+  assert.match(
+    html,
+    /<title>Marketing Agency in Jaipur: Strategy to Growth \| Fernesta<\/title>/i,
+  );
+  assert.match(
+    html,
+    /rel="canonical" href="https:\/\/www\.fernesta\.com\/jaipur"/i,
+  );
+  assert.match(
+    html,
+    /name="twitter:title" content="A connected marketing agency based in Jaipur \| Fernesta"/i,
+  );
+  assert.match(html, /Jaipur roots\./);
+  assert.match(html, /Connected growth\./);
+  assert.match(html, /What does a connected marketing agency in Jaipur do\?/);
+  assert.match(html, /Comparing the best marketing companies in Jaipur\?/);
+  assert.match(html, /Strategic depth/);
+  assert.match(html, /Connected execution/);
+  assert.match(html, /Visible evidence/);
+  assert.match(html, /Is Fernesta based in Jaipur\?/);
+  assert.match(html, /215, Padmavati B Colony/);
+  assert.match(html, /"ProfessionalService"/);
+  assert.match(html, /"@type":"FAQPage"/);
+  assert.match(html, /"@type":"BreadcrumbList"/);
+  assert.match(html, /application\/ld\+json/);
+});
+
 test("server-renders selective Europe and US market entry content", async () => {
   const response = await render("/international?market=us");
   assert.equal(response.status, 200);
@@ -241,6 +273,8 @@ for (const serviceRoute of renderedServiceRoutes) {
     assert.match(html, /Register for a free brand audit/);
     assert.match(html, /Choose your country or market/);
     assert.match(html, /application\/ld\+json/);
+    assert.match(html, /"@type":"BreadcrumbList"/);
+    assert.match(html, /name="twitter:title"/);
   });
 }
 
@@ -309,10 +343,23 @@ for (const workRoute of renderedWorkRoutes) {
     assert.match(html, /Before and.*after/s);
     assert.match(html, /not a guarantee of future performance/);
     assert.match(html, /"@type":"CreativeWork"/);
+    assert.match(html, /"@type":"BreadcrumbList"/);
     assert.match(html, /Register for a free brand audit/);
     assert.match(html, /Choose your country or market/);
+    assert.match(html, /name="twitter:title"/);
   });
 }
+
+test("redirects the stale indexed PDF to its live case study", async () => {
+  const response = await render(
+    "/downloads/d2c-skincare-performance-turnaround.pdf",
+  );
+  assert.equal(response.status, 301);
+  assert.equal(
+    response.headers.get("location"),
+    "http://localhost/work/d2c-skincare-performance-turnaround",
+  );
+});
 
 test("preserves Fernesta brand, SEO, and accessible motion contracts", async () => {
   const [
@@ -408,14 +455,14 @@ test("preserves Fernesta brand, SEO, and accessible motion contracts", async () 
   assert.match(packageJson, /"gsap"/);
   assert.match(layout, /metadataBase:\s*new URL\(siteUrl\)/);
   assert.match(layout, /canonical:\s*"\/"/);
-  assert.match(layout, /lang="en-IN"/);
+  assert.match(layout, /lang="en"/);
   assert.match(layout, /max-image-preview/);
   assert.match(layout, /\/og\.jpg/);
   assert.match(layout, /\/fernesta-fe-favicon\.ico/);
   assert.match(layout, /\/fernesta-fe-favicon\.png/);
   assert.doesNotMatch(layout, /\/favicon\.svg/);
   assert.match(page, /"@type": "WebSite"/);
-  assert.match(page, /"@type": "Organization"/);
+  assert.match(page, /"@type": \["Organization", "ProfessionalService"\]/);
   assert.match(page, /legalName: "Fernesta Digital Private Limited"/);
   assert.match(page, /"@type": "PostalAddress"/);
   assert.match(page, /streetAddress:/);
@@ -427,8 +474,10 @@ test("preserves Fernesta brand, SEO, and accessible motion contracts", async () 
   assert.match(robots, /User-agent: OAI-SearchBot/);
   assert.match(robots, /User-agent: GPTBot/);
   assert.match(robots, /User-agent: Google-Extended/);
+  assert.match(robots, /User-agent: PerplexityBot/);
   assert.match(robots, /Sitemap: https:\/\/www\.fernesta\.com\/sitemap\.xml/);
   assert.match(sitemap, /<loc>https:\/\/www\.fernesta\.com\/<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/www\.fernesta\.com\/jaipur<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/www\.fernesta\.com\/services<\/loc>/);
   assert.match(
     sitemap,
@@ -472,6 +521,8 @@ test("preserves Fernesta brand, SEO, and accessible motion contracts", async () 
   assert.match(llms, /info@fernesta\.com/);
   assert.match(llms, /WhatsApp Business/);
   assert.match(llms, /GCC market entry/);
+  assert.match(llms, /Jaipur marketing agency/);
+  assert.match(llms, /https:\/\/www\.fernesta\.com\/jaipur/);
   assert.match(llms, /Europe or the United States/);
   assert.match(llms, /Service hub: https:\/\/www\.fernesta\.com\/services/);
   assert.match(llms, /services\/strategy-launch-planning/);

@@ -8,22 +8,49 @@ export default function WorkDetailPage({ study }: { study: WorkStudy }) {
   const auditHref = `/?challenge=${encodeURIComponent(study.auditChallenge)}#brand-audit`;
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "CreativeWork",
-    name: study.metaTitle,
-    description: study.metaDescription,
-    creator: {
-      "@type": "Organization",
-      "@id": "https://www.fernesta.com/#organization",
-      name: "Fernesta Digital Private Limited",
-      url: "https://www.fernesta.com/",
-    },
-    about: study.services.map((slug) => ({
-      "@type": "Service",
-      name: services[slug].title,
-      url: `https://www.fernesta.com/services/${slug}`,
-    })),
-    isAccessibleForFree: true,
-    url: `https://www.fernesta.com/work/${study.slug}`,
+    "@graph": [
+      {
+        "@type": "CreativeWork",
+        name: study.metaTitle,
+        description: study.metaDescription,
+        creator: {
+          "@type": "Organization",
+          "@id": "https://www.fernesta.com/#organization",
+          name: "Fernesta Digital Private Limited",
+          url: "https://www.fernesta.com/",
+        },
+        about: study.services.map((slug) => ({
+          "@type": "Service",
+          name: services[slug].title,
+          url: `https://www.fernesta.com/services/${slug}`,
+        })),
+        isAccessibleForFree: true,
+        url: `https://www.fernesta.com/work/${study.slug}`,
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://www.fernesta.com/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Selected work",
+            item: "https://www.fernesta.com/work",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: study.metaTitle,
+            item: `https://www.fernesta.com/work/${study.slug}`,
+          },
+        ],
+      },
+    ],
   };
 
   return (
@@ -242,7 +269,7 @@ export default function WorkDetailPage({ study }: { study: WorkStudy }) {
 
       <footer className="gcc-footer">
         <Link href="/">Fernesta Digital Private Limited</Link>
-        <Link href="/work">Selected work</Link>
+        <Link href="/jaipur">Marketing agency in Jaipur</Link>
         <a href="mailto:info@fernesta.com">info@fernesta.com</a>
         <Link href="/privacy">Privacy notice</Link>
       </footer>

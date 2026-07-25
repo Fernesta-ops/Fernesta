@@ -44,6 +44,7 @@ const LEGACY_REDIRECTS: Record<string, string> = {
   "/case-studies/distribution-workflow-automation-reset": "/work/distribution-workflow-automation-reset",
   "/case-studies/education-seo-lead-engine": "/work",
   "/case-studies/b2b-services-cpl-optimization": "/work",
+  "/downloads/d2c-skincare-performance-turnaround.pdf": "/work/d2c-skincare-performance-turnaround",
 };
 
 const worker = {
