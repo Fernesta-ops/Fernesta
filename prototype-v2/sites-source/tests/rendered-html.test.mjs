@@ -173,7 +173,42 @@ test("server-renders the evidence-led Jaipur marketing agency page", async () =>
   assert.match(html, /Visible evidence/);
   assert.match(html, /Is Fernesta based in Jaipur\?/);
   assert.match(html, /215, Padmavati B Colony/);
+  assert.match(html, /href="\/jaipur\/how-to-choose-marketing-agency"/);
   assert.match(html, /"ProfessionalService"/);
+  assert.match(html, /"@type":"FAQPage"/);
+  assert.match(html, /"@type":"BreadcrumbList"/);
+  assert.match(html, /application\/ld\+json/);
+});
+
+test("server-renders the Jaipur marketing agency selection authority guide", async () => {
+  const response = await render("/jaipur/how-to-choose-marketing-agency");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+
+  assert.match(
+    html,
+    /<title>How to Choose a Marketing Agency in Jaipur \| Fernesta<\/title>/i,
+  );
+  assert.match(
+    html,
+    /rel="canonical" href="https:\/\/www\.fernesta\.com\/jaipur\/how-to-choose-marketing-agency"/i,
+  );
+  assert.match(
+    html,
+    /name="twitter:title" content="How to Choose a Marketing Agency in Jaipur \| Fernesta"/i,
+  );
+  assert.match(html, /How to choose a marketing agency in Jaipur\./);
+  assert.match(html, /What should you look for in a marketing agency\?/);
+  assert.match(html, /Start with the business problem, not the agency category\./);
+  assert.match(html, /Five criteria for comparing marketing companies in Jaipur\./);
+  assert.match(html, /Six questions that reveal how an agency thinks\./);
+  assert.match(html, /Compare responsibility before comparing fees\./);
+  assert.match(html, /A simple agency comparison scorecard\./);
+  assert.match(html, /Red flags in an agency selection process\./);
+  assert.match(html, /What to include when briefing a Jaipur marketing agency\./);
+  assert.match(html, /Which is the best marketing agency in Jaipur\?/);
+  assert.match(html, /"@type":"BlogPosting"/);
+  assert.match(html, /"datePublished":"2026-07-26"/);
   assert.match(html, /"@type":"FAQPage"/);
   assert.match(html, /"@type":"BreadcrumbList"/);
   assert.match(html, /application\/ld\+json/);
@@ -486,6 +521,10 @@ test("preserves Fernesta brand, SEO, and accessible motion contracts", async () 
   assert.match(robots, /Sitemap: https:\/\/www\.fernesta\.com\/sitemap\.xml/);
   assert.match(sitemap, /<loc>https:\/\/www\.fernesta\.com\/<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/www\.fernesta\.com\/jaipur<\/loc>/);
+  assert.match(
+    sitemap,
+    /<loc>https:\/\/www\.fernesta\.com\/jaipur\/how-to-choose-marketing-agency<\/loc>/,
+  );
   assert.match(sitemap, /<loc>https:\/\/www\.fernesta\.com\/services<\/loc>/);
   assert.match(
     sitemap,
@@ -531,6 +570,11 @@ test("preserves Fernesta brand, SEO, and accessible motion contracts", async () 
   assert.match(llms, /GCC market entry/);
   assert.match(llms, /Jaipur marketing agency/);
   assert.match(llms, /https:\/\/www\.fernesta\.com\/jaipur/);
+  assert.match(llms, /How to choose a marketing agency in Jaipur/);
+  assert.match(
+    llms,
+    /https:\/\/www\.fernesta\.com\/jaipur\/how-to-choose-marketing-agency/,
+  );
   assert.match(llms, /Europe or the United States/);
   assert.match(llms, /Service hub: https:\/\/www\.fernesta\.com\/services/);
   assert.match(llms, /services\/strategy-launch-planning/);

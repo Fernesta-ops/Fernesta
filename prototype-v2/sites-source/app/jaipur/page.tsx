@@ -398,6 +398,13 @@ export default function JaipurPage() {
               “Best” depends on the problem, team, category, and commercial
               stage. Use criteria you can examine before appointing an agency.
             </p>
+            <Link
+              className="jaipur-guide-link"
+              href="/jaipur/how-to-choose-marketing-agency"
+            >
+              Use the complete agency selection guide{" "}
+              <span aria-hidden="true">↗</span>
+            </Link>
           </div>
           <ol>
             {criteria.map((criterion, index) => (

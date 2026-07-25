@@ -139,6 +139,18 @@
   line-height: 1.7;
 }
 
+.jaipur-guide-link {
+  display: inline-flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-bottom: 0.5rem;
+  color: var(--cream);
+  border-bottom: 1px solid rgba(245, 233, 219, 0.45);
+  font-size: 0.68rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
 .jaipur-criteria ol {
   margin: 0;
   padding: 0;

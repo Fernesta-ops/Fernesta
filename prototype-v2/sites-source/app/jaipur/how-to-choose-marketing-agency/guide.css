@@ -1,0 +1,581 @@
+.agency-guide-page {
+  color: var(--brown);
+  background: var(--cream);
+}
+
+.guide-hero {
+  display: grid;
+  min-height: calc(100vh - 6rem);
+  grid-template-columns: minmax(0, 1.35fr) minmax(22rem, 0.65fr);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.guide-hero-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(4rem, 8vw, 8rem) var(--gutter);
+}
+
+.guide-hero h1 {
+  max-width: 12ch;
+  margin: clamp(2rem, 5vw, 4rem) 0 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(4rem, 8vw, 9rem);
+  font-weight: 400;
+  letter-spacing: -0.07em;
+  line-height: 0.88;
+}
+
+.guide-dek {
+  max-width: 45rem;
+  margin: clamp(2.5rem, 5vw, 4rem) 0 0;
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+  line-height: 1.65;
+}
+
+.guide-byline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 2rem;
+  margin-top: 2.5rem;
+  color: var(--muted);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.guide-answer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(2rem, 5vw, 5rem);
+  color: var(--cream);
+  background: var(--brown-deep);
+}
+
+.guide-answer > span,
+.guide-contents > span,
+.guide-scorecard > div:first-child > span,
+.guide-faq > div:first-child > span,
+.guide-related > div:first-child > span {
+  color: #d69a8d;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.guide-answer h2 {
+  margin: clamp(5rem, 10vw, 10rem) 0 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2.4rem, 4vw, 4.6rem);
+  font-weight: 400;
+  letter-spacing: -0.05em;
+  line-height: 0.95;
+}
+
+.guide-answer p {
+  margin: 2rem 0 0;
+  color: rgba(245, 233, 219, 0.76);
+  line-height: 1.75;
+}
+
+.guide-contents {
+  display: grid;
+  grid-template-columns: 0.7fr repeat(6, auto);
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1.5rem var(--gutter);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.guide-contents > span {
+  color: var(--signal);
+}
+
+.guide-contents a {
+  font-size: 0.63rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.guide-section {
+  display: grid;
+  grid-template-columns: minmax(9rem, 0.36fr) minmax(0, 1.64fr);
+  gap: clamp(2rem, 7vw, 9rem);
+  padding: var(--section-space) var(--gutter);
+  border-bottom: 1px solid var(--line-dark);
+  scroll-margin-top: 7rem;
+}
+
+.guide-section-label {
+  display: flex;
+  height: fit-content;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.4rem;
+  color: var(--signal);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.guide-prose {
+  max-width: 58rem;
+}
+
+.guide-prose h2,
+.guide-scorecard h2,
+.guide-faq h2,
+.guide-related h2 {
+  max-width: 13ch;
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(3.3rem, 6.4vw, 7.2rem);
+  font-weight: 400;
+  letter-spacing: -0.06em;
+  line-height: 0.94;
+}
+
+.guide-prose > p {
+  max-width: 48rem;
+  margin: 2rem 0 0 auto;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.35vw, 1.17rem);
+  line-height: 1.82;
+}
+
+.guide-prose > p:first-of-type {
+  margin-top: clamp(3rem, 6vw, 5rem);
+}
+
+.guide-prose > aside {
+  max-width: 48rem;
+  margin: clamp(3rem, 6vw, 5rem) 0 0 auto;
+  padding: 2rem;
+  border: 1px solid var(--line-dark);
+}
+
+.guide-prose > aside strong {
+  color: var(--signal);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.guide-prose > aside p {
+  margin: 1.5rem 0 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.35rem, 2vw, 2rem);
+  line-height: 1.4;
+}
+
+.guide-criteria {
+  background: #efe0cf;
+}
+
+.guide-criteria-list {
+  margin-top: clamp(4rem, 8vw, 7rem);
+  border-top: 1px solid var(--line-dark);
+}
+
+.guide-criteria-list > section {
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  padding: clamp(2.5rem, 5vw, 4.5rem) 0;
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.guide-criteria-list > section > span {
+  color: var(--signal);
+  font-size: 0.68rem;
+}
+
+.guide-criteria-list h3 {
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2rem, 3.5vw, 4rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 1;
+}
+
+.guide-criteria-list p {
+  max-width: 48rem;
+  margin: 1.5rem 0 0;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.guide-criteria-list strong {
+  display: block;
+  margin-top: 2rem;
+  color: var(--signal);
+  font-size: 0.67rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.guide-criteria-list ul,
+.guide-checklist,
+.guide-red-flags ul,
+.guide-brief-list {
+  display: grid;
+  gap: 0.9rem;
+  margin: 1.2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.guide-criteria-list li,
+.guide-checklist li,
+.guide-red-flags li,
+.guide-brief-list li {
+  position: relative;
+  padding: 0 0 0.9rem 1.4rem;
+  color: var(--muted);
+  border-bottom: 1px solid var(--line-dark);
+  line-height: 1.65;
+}
+
+.guide-criteria-list li::before,
+.guide-checklist li::before,
+.guide-red-flags li::before,
+.guide-brief-list li::before {
+  position: absolute;
+  top: 0.6rem;
+  left: 0;
+  width: 0.35rem;
+  height: 0.35rem;
+  background: var(--signal);
+  content: "";
+}
+
+.guide-questions {
+  color: var(--cream);
+  background: var(--brown-deep);
+}
+
+.guide-questions .guide-section-label,
+.guide-questions .guide-prose > p {
+  color: rgba(245, 233, 219, 0.7);
+}
+
+.guide-questions ol {
+  margin: clamp(4rem, 8vw, 7rem) 0 0;
+  padding: 0;
+  border-top: 1px solid var(--line-light);
+  list-style: none;
+}
+
+.guide-questions li {
+  display: grid;
+  grid-template-columns: 3rem minmax(13rem, 0.7fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--line-light);
+}
+
+.guide-questions li > span {
+  color: #d69a8d;
+  font-size: 0.67rem;
+}
+
+.guide-questions h3 {
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.35rem, 2vw, 2rem);
+  font-weight: 400;
+}
+
+.guide-questions li p {
+  margin: 0;
+  color: rgba(245, 233, 219, 0.7);
+  line-height: 1.65;
+}
+
+.guide-prose h3 {
+  max-width: 48rem;
+  margin: clamp(3rem, 6vw, 5rem) 0 0 auto;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  font-weight: 400;
+}
+
+.guide-checklist,
+.guide-red-flags ul,
+.guide-brief-list {
+  max-width: 48rem;
+  margin: 2rem 0 0 auto;
+}
+
+.guide-evidence-links {
+  display: grid;
+  max-width: 48rem;
+  margin: 3rem 0 0 auto;
+  border-top: 1px solid var(--line-dark);
+}
+
+.guide-evidence-links a {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.4rem 0;
+  color: var(--signal);
+  border-bottom: 1px solid var(--line-dark);
+  font-size: 0.72rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.guide-scorecard {
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.72fr) minmax(0, 1.28fr);
+  gap: clamp(3rem, 8vw, 9rem);
+  padding: var(--section-space) var(--gutter);
+  background: #efe0cf;
+  border-bottom: 1px solid var(--line-dark);
+  scroll-margin-top: 7rem;
+}
+
+.guide-scorecard > div:first-child > span {
+  color: var(--signal);
+}
+
+.guide-scorecard h2 {
+  margin-top: 2rem;
+  font-size: clamp(3rem, 5vw, 6rem);
+}
+
+.guide-scorecard > div:first-child > p {
+  max-width: 34rem;
+  margin: 2.5rem 0 0;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.guide-table-wrap {
+  overflow-x: auto;
+}
+
+.guide-scorecard table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.guide-scorecard caption {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.guide-scorecard th,
+.guide-scorecard td {
+  padding: 1.4rem 1rem;
+  border-bottom: 1px solid var(--line-dark);
+  text-align: left;
+  vertical-align: top;
+}
+
+.guide-scorecard thead th {
+  color: var(--signal);
+  font-size: 0.63rem;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.guide-scorecard tbody th {
+  width: 27%;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.15rem, 1.7vw, 1.6rem);
+  font-weight: 400;
+}
+
+.guide-scorecard td {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.guide-scorecard td:last-child {
+  width: 5rem;
+  color: var(--signal);
+  font-weight: 500;
+}
+
+.guide-red-flags {
+  background: #f7eee4;
+}
+
+.guide-brief-list strong {
+  color: var(--brown);
+}
+
+.guide-faq,
+.guide-related {
+  display: grid;
+  grid-template-columns: minmax(17rem, 0.65fr) minmax(0, 1.35fr);
+  gap: clamp(3rem, 8vw, 10rem);
+  padding: var(--section-space) var(--gutter);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.guide-faq > div:first-child > span,
+.guide-related > div:first-child > span {
+  color: var(--signal);
+}
+
+.guide-faq h2,
+.guide-related h2 {
+  margin-top: 1.5rem;
+  font-size: clamp(3rem, 5vw, 6rem);
+}
+
+.guide-faq details {
+  border-top: 1px solid var(--line-dark);
+}
+
+.guide-faq details:last-child {
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.guide-faq summary {
+  display: grid;
+  grid-template-columns: 3rem 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.8rem 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.guide-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.guide-faq summary > span {
+  color: var(--signal);
+  font-size: 0.68rem;
+}
+
+.guide-faq summary strong {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.3rem, 1.9vw, 1.85rem);
+  font-weight: 400;
+}
+
+.guide-faq details[open] summary > span:last-child {
+  transform: rotate(45deg);
+}
+
+.guide-faq details p {
+  max-width: 44rem;
+  margin: 0 0 2rem 4rem;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.guide-related {
+  color: var(--cream);
+  background: var(--brown-deep);
+}
+
+.guide-related > div:first-child > span {
+  color: #d69a8d;
+}
+
+.guide-related > div:last-child {
+  border-top: 1px solid var(--line-light);
+}
+
+.guide-related a {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.7rem 0;
+  border-bottom: 1px solid var(--line-light);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.35rem, 2vw, 2rem);
+}
+
+@media (max-width: 1080px) {
+  .guide-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-answer {
+    min-height: 34rem;
+  }
+
+  .guide-contents {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .guide-scorecard {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .guide-hero {
+    min-height: auto;
+  }
+
+  .guide-hero-copy {
+    min-height: calc(100svh - 5rem);
+  }
+
+  .guide-hero h1 {
+    font-size: clamp(3.7rem, 17vw, 6.3rem);
+  }
+
+  .guide-answer {
+    min-height: 30rem;
+  }
+
+  .guide-contents {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .guide-section,
+  .guide-faq,
+  .guide-related {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-section-label {
+    justify-content: flex-start;
+  }
+
+  .guide-prose > p,
+  .guide-prose > aside,
+  .guide-prose h3,
+  .guide-checklist,
+  .guide-red-flags ul,
+  .guide-brief-list,
+  .guide-evidence-links {
+    margin-left: 0;
+  }
+
+  .guide-criteria-list > section {
+    grid-template-columns: 2rem 1fr;
+  }
+
+  .guide-questions li {
+    grid-template-columns: 2rem 1fr;
+  }
+
+  .guide-questions li p {
+    grid-column: 2;
+  }
+
+  .guide-scorecard th,
+  .guide-scorecard td {
+    min-width: 9rem;
+  }
+}
